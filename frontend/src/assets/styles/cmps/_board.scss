@@ -1,7 +1,9 @@
-.review-list {
+.card-list {
     list-style: none;
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
+    background-color:rgb(123, 180, 161);
     li {
         // background-color: $clr2;
         // color: $clr6;
@@ -18,5 +20,12 @@
     }    
 }
 
+.card-preview{
+    background-color: $clr4;
+}
 
+.board{
+    display: flex;
+    justify-content: space-around;
+}
 

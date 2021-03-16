@@ -26,7 +26,6 @@ export default {
     },
     created() {
         this.listToShow = this.list
-        console.log('this.listToShow', this.listToShow)
     },
     methods: {
     

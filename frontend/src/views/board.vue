@@ -1,10 +1,9 @@
 <template>
-  <div class="board" >
-    <h3>Board Name: {{boardToShow.title}} </h3>
-    <div v-for="list in boardToShow.lists" :key="'L'+list.id">
-      <card-list :list="list"/>
-    </div>
-    <!-- <img alt="Vue logo" src="../assets/logo.png"> -->
+  <div class="board" v-if="boardToShow">
+      <h3>Board Name: {{boardToShow.title}} </h3>
+      <div v-for="list in boardToShow.lists" :key="'L'+list.id">
+        <card-list :list="list"/>
+      </div>
   </div>
 </template>
 
@@ -22,9 +21,8 @@ export default {
 
   },
   created() {
-    console.log('hi this.boardToShow before', this.boardToShow)
     this.boardToShow = this.$store.getters.getBoard
-    console.log('hi this.boardToShow after', this.boardToShow)
+    console.log('this.boardToShow at board 26', this.boardToShow)
     
   },
   methods: {

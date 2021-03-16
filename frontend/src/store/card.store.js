@@ -4,23 +4,22 @@ import { socketService, SOCKET_EVENT_CARD_ADDED } from '../services/socket.servi
 export const cardStore = {
     state: {
         cards: [],
-        board: cardService.query()
+        board: null
     },
     getters: {
         cards(state) {
             return state.cards;
         },
         getBoard(state){
-            console.log('state.board', state.board)
             return state.board
         }
     },
     mutations: {
-        setCards(state, { cards }) {
-            state.cards = cards;
+        setBoard(state, { board }) {
+            state.board = board;
         },
         addCard(state, { card }) {
-            state.cards.push(card)
+            state.board.lists[0].cards.push(card)
         },
         removeCard(state, { cardId }) {
             state.cards = state.cards.filter(card => card._id !== cardId)
@@ -29,7 +28,9 @@ export const cardStore = {
     actions: {
         async addCard(context, { card }) {
             try {
+                console.log('card at store at 31', card)
                 card = await cardService.add(card)
+                console.log('card at store at 33', card)
                 context.commit({ type: 'addCard', card })
                 return card;
             } catch (err) {
@@ -37,15 +38,10 @@ export const cardStore = {
                 throw err
             }
         },
-        async loadCards(context) {
+        async loadBoard(context) {
             try {
-                const cards = await cardService.query();
-                context.commit({ type: 'setCards', cards })
-                socketService.off(SOCKET_EVENT_CARD_ADDED)
-                socketService.on(SOCKET_EVENT_CARD_ADDED, card => {
-                    context.commit({ type: 'addCard', card })
-                })
-
+                const board = await cardService.query();
+                context.commit({ type: 'setBoard', board })
             } catch (err) {
                 console.log('cardStore: Error in loadCards', err)
                 throw err
@@ -60,6 +56,5 @@ export const cardStore = {
                 throw err
             }
         },
-
     }
 }

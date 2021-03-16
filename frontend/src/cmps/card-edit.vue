@@ -1,9 +1,9 @@
 <template>
     <section class="card-edit">
-        <el-form>
-            <el-textarea cols="7" rows="3" placeholder="" v-bind="card.title"></el-textarea>
-            <el-button @click="saveCard">Save</el-button>
-        </el-form>
+        <form @submit.prevent="updateCard">
+            <textarea cols="7" rows="3" placeholder="" v-model="cardToEdit.title"></textarea>
+            <button >Save</button>
+        </form>
     </section>
 </template>
 
@@ -14,15 +14,17 @@ export default{
     props:['card'],
     data(){
         return{
-        
+            cardToEdit: null
         }
     },
     created(){
-        
+        console.log('this.card', this.card)
+        this.cardToEdit = JSON.parse(JSON.stringify(this.card))
     },
     methods:{
-        saveCard(){
-            this.$store.dispatch({type:'saveCard', card: this.card})
+        updateCard(){
+            console.log('this.cardToEdit', this.cardToEdit)
+            this.$emit('updateCard', this.cardToEdit)
         }
     }
 }

@@ -28,131 +28,133 @@ function getUser() {
   }
 }
 
-function query(filterBy = {}) {
-
-  return {
-    "_id": "b101",
-    "title": "Robot dev proj",
-    "createdAt": 1589983468418,
-    "createdBy": {
-      "_id": "u101",
-      "fullname": "Abi Abambi",
-      "imgUrl": "http://some-img"
-    },
-    "style": {},
-    "labels": [
-      {
-        "id": "l101",
-        "title": "Done",
-        "color": "#61bd4f"
-      }
-    ],
-    "members": [
-      {
+async function query(filterBy = {}) {
+  var board = await storageService.query('board')
+  if (!board || !board.length) {
+    board = {
+      "_id": "b101",
+      "title": "Robot dev proj",
+      "createdAt": 1589983468418,
+      "createdBy": {
         "_id": "u101",
-        "fullname": "Tal Tarablus",
-        "imgUrl": "https://www.google.com"
-      }
-    ],
-    "lists": [
-      {
-        "id": "g101",
-        "title": "List 1",
-        "cards": [
-          {
-            "id": "c101",
-            "title": "Replace logo"
-          },
-          {
-            "id": "c102",
-            "title": "Add Samples"
-          }
-        ],
-        "style": {}
+        "fullname": "Abi Abambi",
+        "imgUrl": "http://some-img"
       },
-      {
-        "id": "g102",
-        "title": "List 2",
-        "cards": [
-          {
-            "id": "c103",
-            "title": "Do that"
-          },
-          {
-            "id": "c104",
-            "title": "Help me",
-            "description": "description",
-            "comments": [
-              {
-                "id": "ZdPnm",
-                "txt": "also @yaronb please CR this",
-                "createdAt": 1590999817436.0,
-                "byMember": {
+      "style": {},
+      "labels": [
+        {
+          "id": "l101",
+          "title": "Done",
+          "color": "#61bd4f"
+        }
+      ],
+      "members": [
+        {
+          "_id": "u101",
+          "fullname": "Tal Tarablus",
+          "imgUrl": "https://www.google.com"
+        }
+      ],
+      "lists": [
+        {
+          "id": "g101",
+          "title": "List 1",
+          "cards": [
+            {
+              "id": "c101",
+              "title": "Replace logo"
+            },
+            {
+              "id": "c102",
+              "title": "Add Samples"
+            }
+          ],
+          "style": {}
+        },
+        {
+          "id": "g102",
+          "title": "List 2",
+          "cards": [
+            {
+              "id": "c103",
+              "title": "Do that"
+            },
+            {
+              "id": "c104",
+              "title": "Help me",
+              "description": "description",
+              "comments": [
+                {
+                  "id": "ZdPnm",
+                  "txt": "also @yaronb please CR this",
+                  "createdAt": 1590999817436.0,
+                  "byMember": {
+                    "_id": "u101",
+                    "fullname": "Tal Tarablus",
+                    "imgUrl": "http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
+                  }
+                }
+              ],
+              "checklists": [
+                {
+                  "id": "YEhmF",
+                  "title": "Checklist",
+                  "todos": [
+                    {
+                      "id": "212jX",
+                      "title": "To Do 1",
+                      "isDone": false
+                    }
+                  ]
+                }
+              ],
+              "members": [
+                {
                   "_id": "u101",
+                  "username": "Tal",
                   "fullname": "Tal Tarablus",
                   "imgUrl": "http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
                 }
-              }
-            ],
-            "checklists": [
-              {
-                "id": "YEhmF",
-                "title": "Checklist",
-                "todos": [
-                  {
-                    "id": "212jX",
-                    "title": "To Do 1",
-                    "isDone": false
-                  }
-                ]
-              }
-            ],
-            "members": [
-              {
+              ],
+              "labelIds": ["101"],
+              "createdAt": 1590999730348,
+              "dueDate": 16156215211,
+              "byMember": {
                 "_id": "u101",
                 "username": "Tal",
                 "fullname": "Tal Tarablus",
                 "imgUrl": "http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
+              },
+              "style": {
+                "bgColor": "#26de81"
               }
-            ],
-            "labelIds": ["101"],
-            "createdAt": 1590999730348,
-            "dueDate": 16156215211,
-            "byMember": {
-              "_id": "u101",
-              "username": "Tal",
-              "fullname": "Tal Tarablus",
-              "imgUrl": "http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
-            },
-            "style": {
-              "bgColor": "#26de81"
             }
-          }
-        ],
-        "style": {}
-      }
-    ],
-    "activities": [
-      {
-        "id": "a101",
-        "txt": "Changed Color",
-        "createdAt": 154514,
-        "byMember": {
-          "_id": "u101",
-          "fullname": "Abi Abambi",
-          "imgUrl": "http://some-img"
-        },
-        "card": {
-          "id": "c101",
-          "title": "Replace Logo"
+          ],
+          "style": {}
         }
-      }
-    ]
+      ],
+      "activities": [
+        {
+          "id": "a101",
+          "txt": "Changed Color",
+          "createdAt": 154514,
+          "byMember": {
+            "_id": "u101",
+            "fullname": "Abi Abambi",
+            "imgUrl": "http://some-img"
+          },
+          "card": {
+            "id": "c101",
+            "title": "Replace Logo"
+          }
+        }
+      ]
+    }
   }
-
   // var queryStr = (!filterBy) ? '' : `?name=${filterBy.name}&sort=anaAref`
   // return httpService.get(`card${queryStr}`)
-  // return storageService.query('card')
+  storageService._save('board', board)
+  return board
 }
 
 function remove(cardId) {
