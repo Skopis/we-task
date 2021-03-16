@@ -1,0 +1,15 @@
+.card-list{
+    background-color: rgb(200, 212, 192);
+    padding: 10px;
+}
+
+.board{
+    display: flex;
+    justify-content: space-around;
+}
+
+.card-preview{
+    background-color: rgb(223, 191, 191);
+    border: 1px solid grey;
+    margin-bottom: 5px;
+}

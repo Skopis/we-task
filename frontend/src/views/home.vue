@@ -1,8 +1,8 @@
 <template>
   <section class="container home text-center">
-    <h1>Home Page</h1>
+    <h1>WeTask</h1>
     <h5 class="text-center">
-      Powered up Frontend 
+      The place you'll managed,track and shared
     </h5>
     <img alt="Vue logo" src="../assets/logo.png">
   </section>
