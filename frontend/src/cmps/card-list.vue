@@ -1,6 +1,6 @@
 <template> 
     <div>
-        <ul class="card-list">
+        <ul class="card-list review-list">
             <li v-for="card in listToShow.cards" :key="'C'+card.id">
                 <card-preview :card="card"/>
                 <!-- <router-link :to="'/card/'+card._id"></router-link> -->
