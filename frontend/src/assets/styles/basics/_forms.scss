@@ -1,10 +1,19 @@
-button {
-    border:0;
-    background-color: $clr1;
-    color:whitesmoke;
+.btn {
+    cursor: pointer;
+    border-radius:3px;
+    background-color:rgba(255, 255, 255, 0.24) ;
+    border: none;
+    height: 40px;
+    min-width:40px;
     padding: 5px 10px;
-    margin: 5px;
+    font-size: rem(16px);
+    letter-spacing: .2px;
+    color: $light-clr;
+    text-transform: capitalizes;
 }
+.btn:hover{
+    background-color: hsla(0,0%,100%,.3)
+ }
 
 form > * {
     display: block;

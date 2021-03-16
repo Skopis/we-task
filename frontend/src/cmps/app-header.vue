@@ -14,6 +14,7 @@
       </router-link>
       <span>{{ loggedInUser.score }}</span>
     </section>
+    <button class="btn">weTaskbigger</button>
   </header>
 </template>
 <script>
