@@ -12,7 +12,7 @@
       Love
     </label>
     <ul>
-      <li v-for="(msg, idx) in msgs" :key="idx">
+      <li v-for="(msg, idx) in msgs" :key="'M'+idx">
         {{msg.txt}}
       </li>
     </ul>

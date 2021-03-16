@@ -1,8 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import home from './views/home.vue'
-import chat from './views/chat.vue'
-import reviewApp from './views/review-app.vue'
+import board from './views/board.vue'
 import loginSignup from './views/login-signup.vue'
 import userDetails from './views/user-details.vue'
 
@@ -18,14 +17,9 @@ export const router = new Router({
       component: home
     },
     {
-      path: '/review',
-      name: 'review',
-      component: reviewApp
-    },
-    {
-      path: '/chat',
-      name: 'chat',
-      component: chat
+      path: '/board',
+      name: 'board',
+      component: board
     },
     {
       path: '/login',
