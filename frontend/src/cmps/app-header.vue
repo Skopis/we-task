@@ -13,6 +13,7 @@
         {{ loggedInUser.fullname }}
       </router-link>
     </section>
+    <button class="btn">weTaskbigger</button>
   </header>
 </template>
 <script>
