@@ -14,7 +14,7 @@
       <form @submit.prevent="doLogin">
         <select v-model="loginCred.username">
           <option value="">Select User</option>
-          <option v-for="user in users" :key="user._id" :value="user.username">{{user.fullname}}</option>
+          <option v-for="user in users" :key="'L'+user._id" :value="user.username">{{user.fullname}}</option>
         </select>
         <!-- <input type="text" v-model="loginCred.username" placeholder="User name" />
         <input
@@ -47,7 +47,7 @@
         Admin Section
       </summary>
       <ul>
-        <li v-for="user in users" :key="user._id">
+        <li v-for="user in users" :key="'U'+user._id">
           <pre>{{ user }}</pre>
           <button @click="removeUser(user._id)">x</button>
         </li>
