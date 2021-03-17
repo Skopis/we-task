@@ -2,7 +2,7 @@ import { httpService } from './http.service'
 import { storageService } from './async-storage.service'
 import { userService } from './user.service'
 
-export const cardService = {
+export const taskService = {
   add,
   query,
   remove,
@@ -23,7 +23,7 @@ function getUser() {
     "mentions": [{
       "id": "m101",
       "boardId": "m101",
-      "cardId": "t101"
+      "taskId": "t101"
     }]
   }
 }
@@ -55,11 +55,11 @@ async function query(filterBy = {}) {
           "imgUrl": "https://www.google.com"
         }
       ],
-      "lists": [
+      "groups": [
         {
           "id": "g101",
           "title": "List 1",
-          "cards": [
+          "tasks": [
             {
               "id": "c101",
               "title": "Replace logo"
@@ -74,7 +74,7 @@ async function query(filterBy = {}) {
         {
           "id": "g102",
           "title": "List 2",
-          "cards": [
+          "tasks": [
             {
               "id": "c103",
               "title": "Do that"
@@ -143,7 +143,7 @@ async function query(filterBy = {}) {
             "fullname": "Abi Abambi",
             "imgUrl": "http://some-img"
           },
-          "card": {
+          "task": {
             "id": "c101",
             "title": "Replace Logo"
           }
@@ -152,22 +152,22 @@ async function query(filterBy = {}) {
     }
   }
   // var queryStr = (!filterBy) ? '' : `?name=${filterBy.name}&sort=anaAref`
-  // return httpService.get(`card${queryStr}`)
+  // return httpService.get(`task${queryStr}`)
   storageService._save('board', board)
   return board
 }
 
-function remove(cardId) {
-  // return httpService.delete(`card/${cardId}`)
-  return storageService.delete('card', cardId)
+function remove(taskId) {
+  // return httpService.delete(`task/${taskId}`)
+  return storageService.delete('task', taskId)
 
 }
-async function add(card) {
-  // const addedCard = await httpService.post(`card`, card)
+async function add(task) {
+  // const addedTask = await httpService.post(`task`, task)
 
-  card.byUser = userService.getLoggedinUser()
-  card.aboutUser = await userService.getById(card.aboutUserId)
-  const addedCard = storageService.post('card', card)
+  task.byUser = userService.getLoggedinUser()
+  task.aboutUser = await userService.getById(task.aboutUserId)
+  const addedTask = storageService.post('task', task)
 
-  return addedCard
+  return addedTask
 }

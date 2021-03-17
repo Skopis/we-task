@@ -5,7 +5,7 @@
         <img :src="member.imgUrl" alt="member-img">
         <p>{{member.fullname}}</p>
         <p>@{{member.fullname.toLowerCase(member)}}</p>
-        <button @click="removeMemberFromCard">Remove from Card</button>
+        <button @click="removeMemberFromTask">Remove from Task</button>
     </section>
 </template>
 
@@ -20,8 +20,8 @@ export default{
         } 
     },
     methods:{
-        removeMemberFromCard(member){
-            this.$emit('removeMemberFromCard', member)
+        removeMemberFromTask(member){
+            this.$emit('removeMemberFromTask', member)
         }
     }
 }

@@ -1,16 +1,16 @@
 <template>
   <div class="board" v-if="boardToShow">
     <h3>Board Name: {{ boardToShow.title }}</h3>
-    <section class="card-list-container">
-      <div v-for="list in boardToShow.lists" :key="'L' + list.id">
-        <card-list :list="list" />
+    <section class="task-list-container">
+      <div v-for="group in boardToShow.groups" :key="'L' + group.id">
+        <group-list :group="group" />
       </div>
     </section>
   </div>
 </template>
 
 <script>
-import cardList from "../cmps/card-list.vue";
+import groupList from "../cmps/group-list.vue";
 
 export default {
   name: "board",
@@ -26,7 +26,7 @@ export default {
   },
   methods: {},
   components: {
-    cardList,
+    groupList,
   },
 };
 </script>
