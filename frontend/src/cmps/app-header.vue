@@ -2,7 +2,9 @@
   <header>
     <nav>
       <router-link to="/">
-        <span role="img" aria-label="logo">💀</span>
+        <!-- <span class="logo" role="img" aria-label="logo">  -->
+          <img class="logo" src="../assets/logo.svg"/>
+        <!-- </span> -->
       </router-link>
       <router-link to="/board">Board</router-link>
       <!-- <router-link to="/chat">Chat</router-link> -->

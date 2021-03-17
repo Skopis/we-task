@@ -1,10 +1,10 @@
 <template>
-  <section class="container home text-center">
+  <section class="home text-center main-container">
     <h1>WeTask</h1>
     <h5 class="text-center">
       The place you'll managed,track and shared
     </h5>
-    <img alt="Vue logo" src="../assets/logo.png">
+    <!-- <img alt="Vue logo" src="../assets/Pictures/hero1.png"> -->
   </section>
 
   
