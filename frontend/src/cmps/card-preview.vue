@@ -3,11 +3,11 @@
         <p>{{ card.title }}</p>
 
         <button @click="openEditModal">✎</button>
-        <card-edit v-if="isEditModalOpen" @save="saveCard" :card="card"/>
+        <card-edit v-if="isEditModalOpen" @updateCard="updateCard" :card="card"/>
 
         <div v-for="member in card.members" :key="member._id" :v-if="card.members">
             <img :src="member.imgUrl" alt="member-img" @click="openMemberModal">
-            <member-preview v-if="isMemberModalOpen" @removeMemberFromCard="removeMemberFromCard"/>
+            <member-preview v-if="isMemberModalOpen" @removeMemberFromCard="removeMemberFromCard" :member="member"/>
         </div>
         <div class="btn-container">
             <button>👁</button><!-- v-if logged in member = member assigned to card-->
@@ -54,8 +54,10 @@ export default {
         openEditModal(){
             this.isEditModalOpen = true
         },
-        saveCard(cardToSave){
+        updateCard(cardToSave){
+            console.log('cardToSave', cardToSave)
             this.isEditModalOpen = false
+            this.$store.dispatch({type: 'addCard', card: cardToSave})
         },
         removeMemberFromCard(member){
             

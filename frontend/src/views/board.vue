@@ -1,39 +1,32 @@
 <template>
-  <div class="board" >
-    <h3>Board Name: {{boardToShow.title}} </h3>
+  <div class="board" v-if="boardToShow">
+    <h3>Board Name: {{ boardToShow.title }}</h3>
     <section class="review-list">
-    <div v-for="list in boardToShow.lists" :key="'L'+list.id" class="list">
-      <card-list :list="list"/>
-    </div>
+      <div v-for="list in boardToShow.lists" :key="'L' + list.id">
+        <card-list :list="list" />
+      </div>
     </section>
-    <!-- <img alt="Vue logo" src="../assets/logo.png"> -->
   </div>
 </template>
 
 <script>
-import cardList from '../cmps/card-list.vue'
+import cardList from "../cmps/card-list.vue";
 
 export default {
-  name: 'board',
+  name: "board",
   data() {
     return {
-      boardToShow: null
-    }
+      boardToShow: null,
+    };
   },
-  computed: {
-
-  },
+  computed: {},
   created() {
-    console.log('hi this.boardToShow before', this.boardToShow)
-    this.boardToShow = this.$store.getters.getBoard
-    console.log('hi this.boardToShow after', this.boardToShow)
-    
+    this.boardToShow = this.$store.getters.getBoard;
+    console.log("this.boardToShow at board 26", this.boardToShow);
   },
-  methods: {
-  
+  methods: {},
+  components: {
+    cardList,
   },
-  components:{
-    cardList
-  }
-}
+};
 </script>

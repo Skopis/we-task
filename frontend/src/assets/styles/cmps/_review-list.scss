@@ -2,8 +2,7 @@
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-
-
+    background-color: red;
 
     li {
         // background-color: $clr2;
@@ -11,13 +10,13 @@
         padding: 5px;
         margin: 5px;
         border: 1px black solid;
-        width: 276px;
         img{
             width: 100%;
         }
     }
-
-    ul.card-list{
+    
+    .card-list{
+        width: 276px;
         list-style: none;
         background-color: #fff;
     }
