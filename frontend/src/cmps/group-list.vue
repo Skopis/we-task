@@ -2,6 +2,7 @@
         <ul class="group-list">
             <li v-for="task in groupToShow.tasks" :key="'C'+task.id">
                 <task-preview :task="task"/>
+                
                 <!-- <router-link :to="'/task/'+task._id"></router-link> -->
             </li>
         </ul>

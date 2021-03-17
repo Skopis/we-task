@@ -10,7 +10,7 @@ export const taskStore = {
         tasks(state) {
             return state.tasks;
         },
-        getBoard(state){
+        getBoard(state) {
             return state.board
         }
     },
@@ -56,5 +56,11 @@ export const taskStore = {
                 throw err
             }
         },
+        getById({ state }, { id }) {
+            
+            var task = taskService.getById(state.board, id)
+            console.log('store task',task)
+            return task
+        }
     }
 }

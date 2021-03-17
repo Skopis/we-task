@@ -6,6 +6,7 @@
         <group-list :group="group" />
       </div>
     </section>
+    <router-view />
   </div>
 </template>
 

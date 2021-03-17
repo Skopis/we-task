@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div v-if="task">
     <h1>{{ task.title }}</h1>
-    <h5>in list {{ listParent }}</h5>
+    <h5>in list</h5>
     <h4>Description</h4>
     <p>{{ task.description }}</p>
     <h4>Activities</h4>
@@ -14,17 +14,25 @@
 <script>
 import taskActivities from "../cmps/task-activities.cmp";
 export default {
-//   props: ["listParent"],
+  //   props: ["listParent"],
   data() {
     return {
       task: null,
     };
   },
   methods: {
-    loadTask() {
+    async loadTask() {
+      const id = this.$route.params.taskId;
+    //   console.log("id from params:", id);
+      try {
+        const task = await this.$store.dispatch({ type: "getById", id });
+        console.log("task in details", task);
+        this.task = task;
+      } catch (err) {
+        console.log("Cannot find task", err);
+      }
+
       //   const task = taskService.getById(id);
-      //   this.task=task;
-      //   this.setReviews(id);
     },
   },
 
@@ -32,9 +40,8 @@ export default {
     taskActivities,
   },
   created() {
-    //   this.loadTask()
-    const id = this.$route.params.taskId;
-    console.log("id from params:", id);
+    this.loadTask();
+
     //   console.log(this.task)
   },
   watch: {

@@ -23,7 +23,7 @@ export const router = new Router({
       component: board,
       children:[
         {
-          path:'/task/:taskId',
+          path:'task/:taskId',
           component:taskDetails
         }
       ]
