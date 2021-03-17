@@ -4,6 +4,7 @@ import home from './views/home.vue'
 import board from './views/board.vue'
 import loginSignup from './views/login-signup.vue'
 import userDetails from './views/user-details.vue'
+import taskDetails from './cmps/task-details.vue'
 
 Vue.use(Router)
 
@@ -19,7 +20,13 @@ export const router = new Router({
     {
       path: '/board',
       name: 'board',
-      component: board
+      component: board,
+      children:[
+        {
+          path:'task/:taskId',
+          component:taskDetails
+        }
+      ]
     },
     {
       path: '/login',

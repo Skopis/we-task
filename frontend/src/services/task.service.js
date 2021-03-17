@@ -6,7 +6,8 @@ export const taskService = {
   add,
   query,
   remove,
-  getUser
+  getUser,
+  getById
 }
 
 
@@ -170,4 +171,22 @@ async function add(task) {
   const addedTask = storageService.post('task', task)
 
   return addedTask
+}
+function getById(board, id) {
+  console.log(id)
+  console.log(board)
+  var task = null
+  const lists = board.groups.map(list => list)
+  for (var i = 0; i < lists.length; i++) {
+    var currList = lists[i].tasks
+    for (var j = 0; j < currList.length; j++) {
+      console.log('currlist',)
+      // console.log(currList[i][j].id)
+      if (currList[j].id === id) task = lists[i]
+
+    }
+  }
+
+
+  return task
 }

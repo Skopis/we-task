@@ -38,7 +38,7 @@ export default {
     },
   },
   created() {
-    this.groupToShow = this.group;
+    this.groupToShow = JSON.parse(JSON.stringify(this.group)) ;
   },
   methods: {},
   components: {
