@@ -10,7 +10,7 @@
 <script>
 //task edit on task list task preview
 export default{
-    name: 'task-edit',
+    name: 'task-quick-edit',
     props:['task'],
     data(){
         return{
@@ -18,8 +18,8 @@ export default{
         }
     },
     created(){
-        console.log('this.task', this.task)
-        this.taskToEdit = JSON.parse(JSON.stringify(this.task))
+        if(!this.task) this.taskToEdit = {id: '', title: ''}
+        else this.taskToEdit = JSON.parse(JSON.stringify(this.task))
     },
     methods:{
         updateTask(){
