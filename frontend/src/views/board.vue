@@ -1,9 +1,11 @@
 <template>
   <div class="board" >
     <h3>Board Name: {{boardToShow.title}} </h3>
-    <div v-for="list in boardToShow.lists" :key="'L'+list.id">
+    <section class="review-list">
+    <div v-for="list in boardToShow.lists" :key="'L'+list.id" class="list">
       <card-list :list="list"/>
     </div>
+    </section>
     <!-- <img alt="Vue logo" src="../assets/logo.png"> -->
   </div>
 </template>
