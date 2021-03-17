@@ -1,5 +1,4 @@
 <template>
-  <!-- <ul class="group-list"> -->
   <draggable
     tag="ul"
     class="group-list"
@@ -11,7 +10,6 @@
       <!-- <router-link :to="'/task/'+task._id"></router-link> -->
     </li>
   </draggable>
-  <!-- </ul> -->
 </template>
 
 <script>
@@ -38,7 +36,7 @@ export default {
     },
   },
   created() {
-    this.groupToShow = JSON.parse(JSON.stringify(this.group)) ;
+    this.groupToShow = this.group;
   },
   methods: {},
   components: {
