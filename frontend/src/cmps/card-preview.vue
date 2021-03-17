@@ -2,7 +2,7 @@
     <section class="card-preview">
         <p>{{ card.title }}</p>
 
-        <button @click="openEditModal">✎</button>
+        <button class="btn" @click="openEditModal">✎</button>
         <card-edit v-if="isEditModalOpen" @updateCard="updateCard" :card="card"/>
 
         <div v-for="member in card.members" :key="member._id" :v-if="card.members">

@@ -1,7 +1,7 @@
 <template>
   <div class="board" v-if="boardToShow">
     <h3>Board Name: {{ boardToShow.title }}</h3>
-    <section class="review-list">
+    <section class="card-list-container">
       <div v-for="list in boardToShow.lists" :key="'L' + list.id">
         <card-list :list="list" />
       </div>
