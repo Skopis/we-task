@@ -6,11 +6,17 @@
         class="group-list"
         v-bind="dragOptions"
         :list="groupToShow.tasks">
+        <!-- <task-quick-edit
+        v-if="isEditModalOpen"
+        @updateTask="updateTask"
+        :task="task"
+      /> -->
+        <h4 class="list-title">{{group.title}}</h4>
         <li v-for="task in groupToShow.tasks" :key="'C' + task.id">
             <task-preview :task="task" @updateTask="updateTask"/>
         </li>
+        <button class="btn" @click="openAddModal">Add a new Task</button>
     </draggable>
-        <button @click="openAddModal">Add a new Task</button>
     </div>
 </template>
 

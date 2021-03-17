@@ -1,6 +1,5 @@
-header {
+.app-header {
     background-color: $header-clr;
-    // background-color: transparent;
     color: $light-clr;
     padding: 10px;
     display: flex;
@@ -8,14 +7,12 @@ header {
     align-items: center;
 
     .loggedin-user {
-        // background-color: $clr1;
         padding: 2px 8px;
         border-radius: 1em;
         align-self: flex-end;
         color: whitesmoke;
 
         span {
-            // background-color: $clr2;
             padding: 4px;
             margin: 10px;
             border-radius: 50%;
@@ -23,15 +20,12 @@ header {
     }
 
     nav {
-        // background-color: $clr4;
         padding: 5px 0;
         display: flex;
         a {
             .logo {
-                // display: block;
                 display: inline;
                 height: 40px;
-                // background-color: rgba(240, 248, 255, 0.8);
             }
         }
     }
@@ -42,8 +36,8 @@ header {
         margin: 10px;
     }
 
-    nav .active {
-        // color: $clr1;
+    button{
+        color:$light-clr;
     }
 
 

@@ -4,7 +4,9 @@ import { socketService, SOCKET_EVENT_CARD_ADDED } from '../services/socket.servi
 export const taskStore = {
     state: {
         tasks: [],
-        board: null
+        board: null,
+        currTaskActivities:null,
+        
     },
     getters: {
         tasks(state) {
@@ -12,6 +14,9 @@ export const taskStore = {
         },
         getBoard(state) {
             return state.board
+        },
+        taskActivities(state){
+            return state.currTaskActivities
         }
     },
     mutations: {
@@ -27,6 +32,16 @@ export const taskStore = {
         removeTask(state, { taskId }) {
             state.tasks = state.tasks.filter(task => task._id !== taskId)
         },
+        getTaskActivities(state, { taskId }) {
+            console.log(taskId)
+           var activities = state.board.activities.find(activity =>{
+               if(activity.task.id === taskId) return activity
+           })
+        //    console.log('board',activities)
+        //    console.log('mutaed',state.board.activities)
+        console.log(activities)
+           state.currTaskActivities = [activities]
+        }
     },
     actions: {
         async addTask({ commit, state }, { task, group }) {
@@ -65,9 +80,10 @@ export const taskStore = {
                 throw err
             }
         },
-        getById({ state }, { id }) {
+        getById({ state, commit }, { id }) {
             var task = taskService.getById(state.board, id)
-            console.log('store task', task)
+            console.log('task in store:', task)
+            commit({ type: "getTaskActivities", taskId: task.id })
             return task
         }
     }

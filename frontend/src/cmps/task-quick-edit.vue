@@ -1,7 +1,7 @@
 <template>
     <section class="task-edit">
         <form @submit.prevent="updateTask">
-            <textarea cols="7" rows="3" placeholder="" v-model="taskToEdit.title"></textarea>
+            <textarea placeholder="" v-model="taskToEdit.title"></textarea>
             <button >Save</button>
         </form>
     </section>

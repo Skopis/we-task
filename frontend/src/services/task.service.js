@@ -144,10 +144,38 @@ async function query(filterBy = {}) {
           "byMember": {
             "_id": "u101",
             "fullname": "Abi Abambi",
-            "imgUrl": "http://some-img"
+            "imgUrl": "http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
           },
           "task": {
             "id": "c101",
+            "title": "Replace Logo"
+          }
+        },
+        {
+          "id": "a102",
+          "txt": "Added due date",
+          "createdAt": 154514,
+          "byMember": {
+            "_id": "u101",
+            "fullname": "Abi Abambi",
+            "imgUrl": "http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
+          },
+          "task": {
+            "id": "c102",
+            "title": "Replace Logo"
+          }
+        },
+        {
+          "id": "a103",
+          "txt": "Added due date",
+          "createdAt": 154514,
+          "byMember": {
+            "_id": "u101",
+            "fullname": "Abi Abambi",
+            "imgUrl": "http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
+          },
+          "task": {
+            "id": "c104",
             "title": "Replace Logo"
           }
         }
@@ -178,8 +206,6 @@ async function add(task, groupIdx, taskIdx) {
   return task
 }
 function getById(board, id) {
-  console.log(id)
-  console.log(board)
   var task = null
   const lists = board.groups.map(list => list)
   for (var i = 0; i < lists.length; i++) {
@@ -188,5 +214,6 @@ function getById(board, id) {
       if (currList[j].id === id) task = currList[j]
     }
   }
+console.log('task:', task)
   return task
 }
