@@ -19,7 +19,7 @@ export const taskStore = {
             state.board = board;
         },
         addTask(state, { task }) {
-            state.board.lists[0].tasks.push(task)
+            state.board.groups[0].tasks.push(task)
         },
         removeTask(state, { taskId }) {
             state.tasks = state.tasks.filter(task => task._id !== taskId)
