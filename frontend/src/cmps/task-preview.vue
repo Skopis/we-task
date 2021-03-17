@@ -1,33 +1,33 @@
 <template>
-    <section class="card-preview">
-        <p>{{ card.title }}</p>
+    <section class="task-preview">
+        <p>{{ task.title }}</p>
 
         <button class="btn" @click="openEditModal">✎</button>
-        <card-edit v-if="isEditModalOpen" @updateCard="updateCard" :card="card"/>
+        <task-quick-edit v-if="isEditModalOpen" @updateTask="updateTask" :task="task"/>
 
-        <div v-for="member in card.members" :key="member._id" :v-if="card.members">
+        <div v-for="member in task.members" :key="member._id" :v-if="task.members">
             <img :src="member.imgUrl" alt="member-img" @click="openMemberModal">
-            <member-preview v-if="isMemberModalOpen" @removeMemberFromCard="removeMemberFromCard" :member="member"/>
+            <member-preview v-if="isMemberModalOpen" @removeMemberFromTask="removeMemberFromTask" :member="member"/>
         </div>
         <div class="btn-container">
-            <button>👁</button><!-- v-if logged in member = member assigned to card-->
-            <button v-if="card.comments">🗨 {{ card.comments.length }}</button>
+            <button>👁</button><!-- v-if logged in member = member assigned to task-->
+            <button v-if="task.comments">🗨 {{ task.comments.length }}</button>
         </div>
     </section>
 </template>
 
 <script>
-import cardEdit from './card-edit.vue'
+import taskQuickEdit from './task-quick-edit.vue'
 import memberPreview from './member-preview.vue'
 
 export default {
-    name: 'card-preview',
-    props: ['card'],
+    name: 'task-preview',
+    props: ['task'],
     data() {
         return {
             isEditModalOpen: false,
             isMemberModalOpen: false,
-            // card: {
+            // task: {
                 //         "id": "c104",
             //         "title": "Help me",
             //         "description": "description",
@@ -54,17 +54,17 @@ export default {
         openEditModal(){
             this.isEditModalOpen = true
         },
-        updateCard(cardToSave){
-            console.log('cardToSave', cardToSave)
+        updateTask(taskToSave){
+            console.log('taskToSave', taskToSave)
             this.isEditModalOpen = false
-            this.$store.dispatch({type: 'addCard', card: cardToSave})
+            this.$store.dispatch({type: 'addTask', task: taskToSave})
         },
-        removeMemberFromCard(member){
+        removeMemberFromTask(member){
             
         }
     },
     components: { 
-        cardEdit,
+        taskQuickEdit,
         memberPreview
         },
 }
