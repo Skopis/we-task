@@ -182,7 +182,7 @@ function getById(board, id) {
     for (var j = 0; j < currList.length; j++) {
       console.log('currlist',)
       // console.log(currList[i][j].id)
-      if (currList[j].id === id) task = lists[i]
+      if (currList[j].id === id) task = currList[j]
 
     }
   }
