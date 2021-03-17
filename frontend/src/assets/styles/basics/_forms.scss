@@ -1,21 +1,22 @@
 .btn {
     cursor: pointer;
-    border-radius:3px;
-    background-color:rgba(255, 255, 255, 0.24) ;
+    border-radius: 3px;
+    background-color: rgba(255, 255, 255, 0.24);
     border: none;
     height: 40px;
-    min-width:40px;
+    min-width: 40px;
     padding: 5px 10px;
     font-size: rem(16px);
     letter-spacing: .2px;
     color: $light-clr;
     text-transform: capitalizes;
 }
-.btn:hover{
-    background-color: hsla(0,0%,100%,.3)
- }
 
-form > * {
+.btn:hover {
+    background-color: hsla(0, 0%, 100%, .3)
+}
+
+form>* {
     display: block;
     width: 200px;
     margin: 10px 0px;
