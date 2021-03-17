@@ -13,6 +13,7 @@
             <button>👁</button><!-- v-if logged in member = member assigned to task-->
             <button v-if="task.comments">🗨 {{ task.comments.length }}</button>
         </div>
+        <button @click="openTaskDetails(task.id)">Details</button>
     </section>
 </template>
 
@@ -61,6 +62,10 @@ export default {
         },
         removeMemberFromTask(member){
             
+        },
+        openTaskDetails(taskId){
+            console.log('id:', taskId)
+            this.$router.push(`/board/task/${taskId}`)
         }
     },
     components: { 
