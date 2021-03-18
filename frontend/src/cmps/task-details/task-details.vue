@@ -56,6 +56,7 @@ export default {
   methods: {
     async loadTask() {
       const id = this.$route.params.taskId;
+      console.log('id from paprms',id)
       try {
         const task = await this.$store.dispatch({ type: "getById", id });
         this.task = task;
