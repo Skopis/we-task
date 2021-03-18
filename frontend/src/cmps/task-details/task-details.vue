@@ -15,8 +15,12 @@
       <div class="task-desc">
         <h3>Description</h3>
         <p v-if="task.description">{{ task.description }}</p>
-        <p v-else class="description-area"> Add a more detailed description </p>
+        <p v-else class="description-area">Add a more detailed description</p>
       </div>
+      <div class="task-checklist" v-if="checkListModal">
+         <check-lisd-add @saveCheckList="saveCheckList" />
+      </div>
+
       <div class="task-activities">
         <h3>Activities</h3>
         <div v-if="activities">
@@ -25,43 +29,53 @@
           </div>
         </div>
       </div>
+      <textarea placeholder="write a comment"></textarea>
+      <div v-if="task.comments">
+        <div v-for="(comment, idx) in task.comments" :key="idx">
+          <task-comment :comment="comment" />
+        </div>
+      </div>
+      <task-dev-tools @checkList="createCheckList" />
     </div>
   </div>
 </template>
 
 <script>
-import taskActivities from "../cmps/task-activities.cmp";
+import taskActivities from "./task-activities.cmp.vue";
+import taskComment from "./task-comment.cmp.vue";
+import taskDevTools from "./task-dev-tools.cmp";
+import checkLisdAdd from './check-list-add.cmp';
 export default {
   data() {
     return {
       task: null,
       activities: null,
+      checkListModal:false,
     };
   },
   methods: {
     async loadTask() {
       const id = this.$route.params.taskId;
-      console.log("id in load task:", id);
       try {
         const task = await this.$store.dispatch({ type: "getById", id });
         this.task = task;
+        console.log(task.comments);
         let taskActivities = this.$store.getters.taskActivities;
         if (!taskActivities || !taskActivities.length) return;
         else this.activities = taskActivities;
-        console.log("active length:", this.activities.length);
       } catch (err) {
         console.log("Cannot find task", err);
       }
     },
-  },
-  //   computed: {
-  //     gatActivities() {
-  //       this.actvities = this.$store.getters.taskActivities;
-  //       console.log("active:", this.activities);
-  //     },
-  //   },
-  components: {
-    taskActivities,
+    createCheckList(){
+      console.log('checklist')
+      this.checkListModal = true
+    },
+    saveCheckList(checkList){
+      this.checkListModal = false
+      console.log(checkList)
+
+    }
   },
   created() {
     this.loadTask();
@@ -71,6 +85,12 @@ export default {
       console.log("Changed to", id);
       this.loadTask();
     },
+  },
+  components: {
+    taskActivities,
+    taskComment,
+    taskDevTools,
+    checkLisdAdd
   },
 };
 </script>

@@ -76,14 +76,16 @@
     height: 100%;
     background-color: rgba(2, 2, 2, 0.7);
     .task-details-content{
-        padding: 20px 15px;
         background-color: rgb(242, 248, 248);
-        min-height: 900px;
+        min-height: 600px;
+        padding: 0 15px;
         width:770px;
         margin:48px auto 80px auto;
         position: relative;
         h1{
             font-size: 22px;
+            padding-top: 20px;
+
         }
         span{
             color:$clr4;
@@ -107,16 +109,27 @@
             border: none;
             color: #0079bf;
             outline: 0;
-            
         }
+        .comment-creator{
+            display: flex;
+            align-items: center;
+            >*{
+                margin: 0 4px;
+            }
+        }
+        .comment-txt{
+            margin-left: 55px;
+        }
+
 
 
     }
     .close-btn{
+        background-color: rgba(245, 245, 245, 0);
         font-size: 30px;
         transform: rotate(45deg);
         position: absolute;
-        right:15px;
+        right: 1px;
         
     }
 }
@@ -140,6 +153,44 @@
             font-weight: 700;
             margin-right: 2px;
             
+        }
+    }
+}
+
+.task-side-bar{
+    // border: 1px solid lightpink;
+    float: right;
+    padding: 0 16px 8px 8px;
+    width:170px;
+    position: absolute;
+    top:70px;
+    right: 0;
+    .dev-tools{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        margin-bottom: 24px;
+        position: relative;
+
+    }
+    button{
+        background-color: rgba(9,30,66,.04);
+        height: 32px;
+        margin-top: 8px;
+        max-width: 300px;
+        overflow: hidden;
+        padding: 6px 12px;
+        position: relative;
+        text-overflow: ellipsis;
+        user-select: none;
+        white-space: nowrap;
+        transition-property: background-color,border-color,box-shadow;
+        transition-duration: 85ms;
+        transition-timing-function: ease;
+        font-size: 14px;
+        text-align: left;
+        i{
+            margin-right: 3px;
         }
     }
 }

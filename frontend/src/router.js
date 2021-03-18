@@ -4,7 +4,7 @@ import home from './views/home.vue'
 import board from './views/board.vue'
 import loginSignup from './views/login-signup.vue'
 import userDetails from './views/user-details.vue'
-import taskDetails from './cmps/task-details.vue'
+import taskDetails from './cmps/task-details/task-details.vue'
 
 Vue.use(Router)
 

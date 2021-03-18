@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import taskDetails from "./task-details.vue";
+// import taskDetails from "./task-details/task-details.vue";
 import taskPreview from "./task-preview.vue";
 import TaskQuickEdit from "./task-quick-edit.vue";
 import draggable from "vuedraggable";
@@ -80,7 +80,7 @@ export default {
     },
   },
   components: {
-    taskDetails,
+    // taskDetails,
     taskPreview,
     TaskQuickEdit,
     draggable,

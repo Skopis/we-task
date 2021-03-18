@@ -5,7 +5,7 @@
       <p>
         <span>{{ activity.byMember.fullname }}</span>  {{ activity.txt }}
       </p>
-      <p>{{ moment( 1616057204201) }}</p>
+      <p>{{ activity.createdAt }}</p>
     </div>
   </div>
 </template>
