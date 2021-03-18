@@ -47,7 +47,8 @@ export default {
     },
   },
   async created() {
-    await this.$store.dispatch({ type: "loadBoard" });
+    const boardId= this.$route.params.boardId
+    await this.$store.dispatch({ type: "loadBoard", boardId });
   },
   methods: {
     changedPlaces(val) {
