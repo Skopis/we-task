@@ -26,7 +26,7 @@
       />
     </div>
     <div class="btn-container">
-      <button class="btn badge">👁</button
+      <el-button class="btn badge" icon="el-icon-view"></el-button
       ><!-- v-if logged in member = member assigned to task-->
       <button class="btn badge" v-if="task.comments">
         🗨 {{ task.comments.length }}

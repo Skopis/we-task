@@ -1,11 +1,11 @@
 <template>
-  <div class="activity">
+  <div class="task-activity">
     <img :src="activity.byMember.imgUrl" class="avatar" />
     <div class="txt">
       <p>
-        <span>{{ activity.byMember.fullname }}</span>{{ activity.txt }}
+        <span>{{ activity.byMember.fullname }}</span>  {{ activity.txt }}
       </p>
-      <p>{{ activity.createdAt }}</p>
+      <p>{{ moment( 1616057204201) }}</p>
     </div>
   </div>
 </template>

@@ -45,9 +45,6 @@
         padding: 0 5px;
         min-width: 0;
     }
-    .task-body{
-        // border: 1px solid black;
-    }
     .avatar{
         margin: 0 2px;
         float: right;
@@ -71,12 +68,78 @@
 
 }
 
-.task-details{
-    border: lightcoral 1px solid;
+.task-details-modal{
     position: absolute;
-    top: 76px;
-    left: 0;
-    bottom: 0;
-    right: 0;
+    top: 0;
+
+    width: 100%;
+    height: 100%;
+    background-color: rgba(2, 2, 2, 0.7);
+    .task-details-content{
+        padding: 20px 15px;
+        background-color: rgb(242, 248, 248);
+        min-height: 900px;
+        width:770px;
+        margin:48px auto 80px auto;
+        position: relative;
+        h1{
+            font-size: 22px;
+        }
+        span{
+            color:$clr4;
+            
+        }
+
+        .description-area{
+            cursor: pointer;
+            background-color: rgb(226, 228, 233);
+            box-shadow: none;
+            border: none;
+            border-radius: 3px;
+            display: block;
+            min-height: 50px;
+            padding: 8px 12px;
+        }
+        
+        .description-area:active{
+            background-color: #e4f0f6;
+            box-shadow: none;
+            border: none;
+            color: #0079bf;
+            outline: 0;
+            
+        }
+
+
+    }
+    .close-btn{
+        font-size: 30px;
+        transform: rotate(45deg);
+        position: absolute;
+        right:15px;
+        
+    }
 }
 
+.task-activity{
+    // background-color: lightgreen;
+    display: flex;
+    align-items: center;
+    .avatar{
+        height: 35px;
+        width: 35px;
+    }
+    .txt{
+        // border: lightpink 2px solid;
+        margin-left: 5px;
+        >*{
+            margin: 0;
+        }
+        span{
+            color: black;
+            font-weight: 700;
+            margin-right: 2px;
+            
+        }
+    }
+}
