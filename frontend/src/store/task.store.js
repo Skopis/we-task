@@ -5,6 +5,7 @@ export const taskStore = {
     state: {
         tasks: [],
         board: null,
+        boards: null,
         currTaskActivities:null,
         
     },
@@ -15,6 +16,10 @@ export const taskStore = {
         getBoard(state) {
             return state.board
         },
+        getBoards(state) {
+            console.log('state.boards', state.boards)
+            return state.boards
+        },
         taskActivities(state){
             return state.currTaskActivities
         }
@@ -22,6 +27,9 @@ export const taskStore = {
     mutations: {
         setBoard(state, { board }) {
             state.board = board;
+        },
+        setBoards(state, { boards }) {
+            state.boards = boards;
         },
         removeTask(state, { taskId }) {
             state.tasks = state.tasks.filter(task => task._id !== taskId)
@@ -55,12 +63,24 @@ export const taskStore = {
                 throw err
             }
         },
-        async loadBoard({ commit }) {
+        async loadBoard({ commit, state }, {boardId}) {
+            try {
+                await this.dispatch({ type: "loadBoards" })
+                var boardIdx = state.boards.findIndex(b => b._id === boardId)
+                const boards = await taskService.query();
+                commit({ type: 'setBoard', board: boards[boardIdx] })
+            } catch (err) {
+                console.log('taskStore: Error in loadBoard', err)
+                throw err
+            }
+        },
+        async loadBoards({ commit }) {
             try {
                 const boards = await taskService.query();
-                commit({ type: 'setBoard', board: boards[0] })
+                console.log('boards from storage', boards)
+                commit({ type: 'setBoards', boards })
             } catch (err) {
-                console.log('taskStore: Error in loadTasks', err)
+                console.log('taskStore: Error in loadBoards', err)
                 throw err
             }
         },
