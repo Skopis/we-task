@@ -8,15 +8,10 @@
       :list="boardToShow.groups"
       @start="dragOn"
       @end="dragOff"
-      :move="moveCheck"
       class="task-list-container"
     >
       <div v-for="group in boardToShow.groups" :key="'L' + group.id">
-        <group-list
-          @changedPlaces="changedPlaces"
-          :group="group"
-          @updateTask="updateTask"
-        />
+        <group-list :group="group" @updateTask="updateTask"/>
       </div>
       <!-- </section> -->
     </draggable>
@@ -34,8 +29,8 @@ import draggable from "vuedraggable";
 export default {
   name: "board",
   computed: {
-    boardToShow() {
-      return JSON.parse(JSON.stringify(this.$store.getters.getBoard));
+    boardToShow(){
+      return JSON.parse(JSON.stringify(this.$store.getters.getBoard))
     },
     dragOptions() {
       return {
@@ -51,31 +46,18 @@ export default {
     await this.$store.dispatch({ type: "loadBoard", boardId });
   },
   methods: {
-    changedPlaces(val) {
-      console.log(val);
-      this.$store.dispatch({
-        type: "updatePlaces",
-        group: val,
-      });
-    },
-    async updateTask(taskToUpdate, group) {
+    async updateTask(taskToUpdate, group){
       await this.$store.dispatch({
-        type: "addTask",
-        task: taskToUpdate,
-        group,
-        boardId: this.board._id
+        type: "addTask", task: taskToUpdate, group,
       });
-    },
-    moveCheck() {
-      console.log("list is moving");
     },
     dragOff(ev) {
-      // console.log("Off");
-      // console.log(ev);
+      console.log("Off");
+      console.log(ev);
     },
     dragOn(ev) {
-      // console.log("On");
-      // console.log(ev);
+      console.log("On");
+      console.log(ev);
     },
     saveBoard() {
       this.$store.dispatch({ type: "setBoard", board: this.boardToShow });
