@@ -7,34 +7,39 @@
         :task="task"
       />
       <section v-else>
-        <h4 >{{ task.title }}</h4>
+        <h4>{{ task.title }}</h4>
         <button class="btn edit-task-title" @click="openEditModal">✎</button>
       </section>
     </header>
     <div class="task-body">
-    <div v-for="member in task.members" :key="member._id" :v-if="task.members">
-      <img
-        class="avatar"
-        :src="member.imgUrl"
-        alt="member-img"
-        @click="openMemberModal"
-      />
-      <member-preview
-        v-if="isMemberModalOpen"
-        @removeMemberFromTask="removeMemberFromTask"
-        :member="member"
-      />
+      <div
+        v-for="member in task.members"
+        :key="member._id"
+        :v-if="task.members"
+      >
+        <img
+          class="avatar"
+          :src="member.imgUrl"
+          alt="member-img"
+          @click="openMemberModal"
+        />
+        <member-preview
+          v-if="isMemberModalOpen"
+          @removeMemberFromTask="removeMemberFromTask"
+          :member="member"
+        />
+      </div>
+      <div class="btn-container">
+        <el-button class="btn badge" icon="el-icon-view"></el-button
+        ><!-- v-if logged in member = member assigned to task-->
+        <button class="btn badge" v-if="task.comments">
+          🗨 {{ task.comments.length }}
+        </button>
+        <button class="btn badge" @click="openTaskDetails(task.id)">
+          Details
+        </button>
+      </div>
     </div>
-    <div class="btn-container">
-      <el-button class="btn badge" icon="el-icon-view"></el-button
-      ><!-- v-if logged in member = member assigned to task-->
-      <button class="btn badge" v-if="task.comments">
-        🗨 {{ task.comments.length }}
-      </button>
-    <button class="btn badge" @click="openTaskDetails(task.id)">Details</button>
-    </div>
-  </div>
-
   </section>
 </template>
 
@@ -83,8 +88,13 @@ export default {
     },
     removeMemberFromTask(member) {},
     openTaskDetails(taskId) {
-      this.$router.push(`board/task/${taskId}`);
+      this.$router.push(`${this.boradId}/task/${taskId}`);
     },
+  },
+  computed:{
+    boradId(){
+      return this.$store.getters.getBoardId
+    }
   },
   components: {
     taskQuickEdit,
