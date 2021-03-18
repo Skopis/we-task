@@ -1,3 +1,10 @@
 .member-preview{
     position: absolute;
 }
+
+.avatar{
+    height: 40px;
+    width: 40px;
+    border-radius: 25em;
+    object-fit: cover;
+}

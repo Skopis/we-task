@@ -13,6 +13,9 @@
 <script>
 export default {
   props: ["activity"],
+  created(){
+      console.log(this.activity)
+  }
 };
 </script>
 

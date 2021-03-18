@@ -3,7 +3,7 @@
     <section class="home-txt">
     <h1>WeTask</h1>
     <h5 class="text-center">
-      The place you'll managed,track and shared
+      Organizing your work & life
     </h5>
     <button>Try it now</button>
     </section>

@@ -9,17 +9,17 @@
       @start="dragOn"
       @end="dragOff"
       :move="checkMove"
-    >
+    > <!-- double group-list 2 -->
+      <!-- <task-quick-edit
+        v-if="isEditModalOpen"
+        @updateTask="updateTask"
+        :task="task"
+      /> -->
       <li v-for="task in groupToShow.tasks" :key="'C' + task.id">
         <task-preview :task="task" @updateTask="updateTask" />
       </li>
+      <button class="btn" @click="openAddModal">Add a new Task</button>
     </draggable>
-    <button @click="openAddModal">Add a new Task</button>
-    <!-- <div>
-            <pre>
-                {{groupToShow}}
-            </pre>
-        </div> -->
   </div>
 </template>
 
@@ -69,7 +69,8 @@ export default {
     openAddModal() {
       this.isAddModalOpen = true;
     },
-    updateTask(taskToUpdate) { // need to check if this changes the board
+    updateTask(taskToUpdate) {
+      // need to check if this changes the board
       this.isAddModalOpen = false;
       this.$store.dispatch({
         type: "addTask",
