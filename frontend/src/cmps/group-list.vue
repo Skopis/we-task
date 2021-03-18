@@ -5,17 +5,12 @@
     <draggable
       tag="ul"
       v-bind="dragOptions"
-      :list="groupToShow.tasks"
+      :list="group1.tasks"
       @start="dragOn"
       @end="dragOff"
-      :move="checkMove"
-    > <!-- double group-list 2 -->
-      <!-- <task-quick-edit
-        v-if="isEditModalOpen"
-        @updateTask="updateTask"
-        :task="task"
-      /> -->
-      <li v-for="task in groupToShow.tasks" :key="'C' + task.id">
+      :move="moveCheck"
+    >
+      <li v-for="task in group.tasks" :key="'C' + task.id">
         <task-preview :task="task" @updateTask="updateTask" />
       </li>
       <button class="btn" @click="openAddModal">Add a new Task</button>
@@ -34,8 +29,8 @@ export default {
   props: ["group"],
   data() {
     return {
-      groupToShow: null,
       isAddModalOpen: false,
+      group1: this.group,
     };
   },
   computed: {
@@ -47,24 +42,25 @@ export default {
         ghostClass: "ghost",
         chosenClass: "chosen-move",
         dragClass: "chosen-drag",
+        // disabled: "disableDraggable",
       };
     },
   },
-  created() {
-    this.groupToShow = this.group;
-  },
   methods: {
+    moveCheck() {
+      this.$emit("changedPlaces", this.group1);
+    },
     dragOff(ev) {
-      console.log("Off");
-      console.log(ev);
+      // console.log("Off");
+      // console.log(ev);
+      // console.log(this.tasks);
     },
     dragOn(ev) {
-      console.log("On");
-      console.log(ev);
+      // console.log("On");
+      // console.log(ev);
     },
     checkMove: function (evt) {
-      //return evt.draggedContext.element.name !== "apple";
-      // console.log(evt.draggedContext.element);
+      console.log(evt.draggedContext.element);
     },
     openAddModal() {
       this.isAddModalOpen = true;
@@ -72,11 +68,7 @@ export default {
     updateTask(taskToUpdate) {
       // need to check if this changes the board
       this.isAddModalOpen = false;
-      this.$store.dispatch({
-        type: "addTask",
-        task: taskToUpdate,
-        group: this.groupToShow,
-      });
+      this.$emit("updateTask", taskToUpdate, this.group);
     },
   },
   components: {

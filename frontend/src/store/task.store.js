@@ -23,24 +23,18 @@ export const taskStore = {
         setBoard(state, { board }) {
             state.board = board;
         },
-        addTask(state, { task, groupIdx }) {
-            state.board.groups[groupIdx].tasks.unshift(task)
-        },
-        updateTask(state, { task, groupIdx, taskIdx }) {
-            state.board.groups[groupIdx].tasks.splice(taskIdx, 1, task)
-        },
         removeTask(state, { taskId }) {
             state.tasks = state.tasks.filter(task => task._id !== taskId)
         },
         getTaskActivities(state, { taskId }) {
             console.log(taskId)
-           var activities = state.board.activities.find(activity =>{
-               if(activity.task.id === taskId) return activity
-           })
+            var activities = state.board.activities.find(activity =>{
+                if(activity.task.id === taskId) return activity
+            })
         //    console.log('board',activities)
         //    console.log('mutaed',state.board.activities)
         console.log(activities)
-           state.currTaskActivities = [activities]
+            state.currTaskActivities = [activities]
         }
     },
     actions: {
@@ -49,14 +43,13 @@ export const taskStore = {
                 var groupIdx = state.board.groups.findIndex(g => g.id === group.id)
                 if (task.id) {
                     var taskIdx = state.board.groups[groupIdx].tasks.findIndex(t => t.id === task.id)
-                    commit({ type: 'updateTask', task, groupIdx, taskIdx })
+                    await taskService.add(task, groupIdx, taskIdx)
                 }
                 else {
-                    commit({ type: 'addTask', task, groupIdx })
-                    taskIdx = -1
+                    await taskService.add(task, groupIdx, -1)
                 }
-                var taskToCommit = await taskService.add(task, groupIdx, taskIdx)
-                return taskToCommit;
+                const boards = await taskService.query();
+                commit({ type: 'setBoard', board: boards[0] })
             } catch (err) {
                 console.log('taskStore: Error in addTask', err)
                 throw err
@@ -85,6 +78,9 @@ export const taskStore = {
             console.log('task in store:', task)
             commit({ type: "getTaskActivities", taskId: task.id })
             return task
+        },
+        updatePlaces({ state, commit }, { group }){
+            
         }
     }
 }

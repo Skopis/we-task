@@ -10,7 +10,7 @@ import appHeader from "./cmps/app-header";
 
 export default {
   created() {
-    this.$store.dispatch({ type: "loadBoard" });
+    
   },
   components: {
     appHeader,
