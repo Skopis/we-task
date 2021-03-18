@@ -1,0 +1,24 @@
+.task-list-container {
+    display: flex;
+    // flex-direction: row;
+    flex-wrap: nowrap;
+    // margin-right: 100px;
+}
+
+.group-list {
+    background-color: #ebecf0;
+    padding: 10px;
+    width: 276px;
+    list-style: none;
+    margin-right: 15px;
+    border-radius: 4px;
+    max-height: 80vh;
+    overflow-y:auto; 
+    list-style: none;
+    
+    .list-title{
+        padding-left:4px;
+        padding-top:2px;
+    }
+}
+

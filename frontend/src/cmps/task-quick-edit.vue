@@ -1,7 +1,7 @@
 <template>
     <section class="task-edit">
         <form @submit.prevent="updateTask">
-            <textarea cols="7" rows="3" placeholder="" v-model="taskToEdit.title"></textarea>
+            <textarea placeholder="" v-model="taskToEdit.title"></textarea>
             <button >Save</button>
         </form>
     </section>
@@ -19,12 +19,11 @@ export default{
     },
     created(){
         if(!this.task) this.taskToEdit = {id: '', title: ''}
-        else this.taskToEdit = JSON.parse(JSON.stringify(this.task))
+        else this.taskToEdit = this.task
     },
     methods:{
         updateTask(){
-            console.log('this.taskToEdit', this.taskToEdit)
-            this.$emit('updateTask', this.taskToEdit)
+            this.$emit('updateTask', JSON.parse(JSON.stringify(this.taskToEdit)))
         }
     }
 }

@@ -32,11 +32,10 @@ function getUser() {
 
 async function query(filterBy = {}) {
   var boards = await storageService.query('boards')
-  console.log('board at 34 service', boards)
   if (!boards || !boards.length) {
     boards = [{
       "_id": "b101",
-      "title": "Robot dev proj",
+      "title": "First Board",
       "createdAt": 1589983468418,
       "createdBy": {
         "_id": "u101",
@@ -144,11 +143,186 @@ async function query(filterBy = {}) {
           "byMember": {
             "_id": "u101",
             "fullname": "Abi Abambi",
-            "imgUrl": "http://some-img"
+            "imgUrl": "http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
           },
           "task": {
             "id": "c101",
             "title": "Replace Logo"
+          }
+        },
+        {
+          "id": "a102",
+          "txt": "Added due date",
+          "createdAt": 154514,
+          "byMember": {
+            "_id": "u101",
+            "fullname": "Abi Abambi",
+            "imgUrl": "http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
+          },
+          "task": {
+            "id": "c102",
+            "title": "Replace Logo"
+          }
+        },
+        {
+          "id": "a103",
+          "txt": "Added due date",
+          "createdAt": 154514,
+          "byMember": {
+            "_id": "u101",
+            "fullname": "Abi Abambi",
+            "imgUrl": "http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
+          },
+          "task": {
+            "id": "c104",
+            "title": "Replace Logo"
+          }
+        }
+      ]
+    },
+    {
+      "_id": "b1013",
+      "title": "Second board",
+      "createdAt": 1589983468418,
+      "createdBy": {
+        "_id": "u1013",
+        "fullname": "Abi Abambi",
+        "imgUrl": "http://some-img"
+      },
+      "style": {},
+      "labels": [
+        {
+          "id": "l1013",
+          "title": "Done",
+          "color": "#61bd4f"
+        }
+      ],
+      "members": [
+        {
+          "_id": "u1013",
+          "fullname": "Tal Tarablus",
+          "imgUrl": "https://www.google.com"
+        }
+      ],
+      "groups": [
+        {
+          "id": "g1013",
+          "title": "List 1",
+          "tasks": [
+            {
+              "id": "c1013",
+              "title": "change logo"
+            },
+            {
+              "id": "c1023",
+              "title": "change Samples"
+            }
+          ],
+          "style": {}
+        },
+        {
+          "id": "g1023",
+          "title": "List 2",
+          "tasks": [
+            {
+              "id": "c1033",
+              "title": "make that"
+            },
+            {
+              "id": "c1043",
+              "title": "save me",
+              "description": "description",
+              "comments": [
+                {
+                  "id": "ZdPnm3",
+                  "txt": "also @yaronb please CR this",
+                  "createdAt": 1590999817436.0,
+                  "byMember": {
+                    "_id": "u1013",
+                    "fullname": "Tal Tarablus",
+                    "imgUrl": "http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
+                  }
+                }
+              ],
+              "checklists": [
+                {
+                  "id": "YEhmF3",
+                  "title": "Checklist",
+                  "todos": [
+                    {
+                      "id": "212jX3",
+                      "title": "To Do 2",
+                      "isDone": false
+                    }
+                  ]
+                }
+              ],
+              "members": [
+                {
+                  "_id": "u1013",
+                  "username": "Tal",
+                  "fullname": "Tal Tarablus",
+                  "imgUrl": "http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
+                }
+              ],
+              "labelIds": ["1013"],
+              "createdAt": 1590999730348,
+              "dueDate": 16156215211,
+              "byMember": {
+                "_id": "u1013",
+                "username": "Tal",
+                "fullname": "Tal Tarablus",
+                "imgUrl": "http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
+              },
+              "style": {
+                "bgColor": "#26de81"
+              }
+            }
+          ],
+          "style": {}
+        }
+      ],
+      "activities": [
+        {
+          "id": "a1013",
+          "txt": "Changed font",
+          "createdAt": 154514,
+          "byMember": {
+            "_id": "u1013",
+            "fullname": "Abi Abambi",
+            "imgUrl": "http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
+          },
+          "task": {
+            "id": "c1013",
+            "title": "update Logo"
+          }
+        },
+        {
+          "id": "a1023",
+          "txt": "changed due date",
+          "createdAt": 154514,
+          "byMember": {
+            "_id": "u1013",
+            "fullname": "Abi Abambi",
+            "imgUrl": "http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
+          },
+          "task": {
+            "id": "c1023",
+            "title": "Replace Logo"
+          }
+        },
+        {
+          "id": "a1033",
+          "txt": "Achanges due date",
+          "createdAt": 154514,
+          "byMember": {
+            "_id": "u1013",
+            "fullname": "Abi Abambi",
+            "imgUrl": "http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
+          },
+          "task": {
+            "id": "c1043",
+            "title": "update Logo"
           }
         }
       ]
@@ -175,20 +349,16 @@ async function add(task, groupIdx, taskIdx) {
     boards[0].groups[groupIdx].tasks.unshift(taskForUpdate)
   }
   storageService._save('boards', boards)
-  return task
+  return boards[0]
 }
 
 function getById(board, id) {
-  console.log(id)
-  console.log(board)
   var task = null
   const lists = board.groups.map(list => list)
   for (var i = 0; i < lists.length; i++) {
     var currList = lists[i].tasks
     for (var j = 0; j < currList.length; j++) {
-      console.log('currlist',)
-      // console.log(currList[i][j].id)
-      if (currList[i].id === id) task = lists[j]
+      if (currList[j].id === id) task = currList[j]
     }
   }
   return task

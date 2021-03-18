@@ -1,5 +1,5 @@
 <template>
-  <header>
+  <header class="app-header">
     <nav>
       <router-link to="/">
         <!-- <span class="logo" role="img" aria-label="logo">  -->
