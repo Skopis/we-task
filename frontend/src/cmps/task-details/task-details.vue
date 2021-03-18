@@ -8,8 +8,10 @@
       </header>
       <div class="task-members">
         <h3>MEMBERS</h3>
-        <div v-for="member in task.members" :key="member._id">
-          <img class="avatar" :src="member.imgUrl" alt="" />
+        <div v-if="task.members">
+          <div v-for="member in task.members" :key="member._id">
+            <img class="avatar" :src="member.imgUrl" alt="" />
+          </div>
         </div>
       </div>
       <div class="task-desc">
@@ -18,13 +20,13 @@
         <p v-else class="description-area">Add a more detailed description</p>
       </div>
       <div class="task-checklist" v-if="checkListModal">
-         <check-lisd-add @saveCheckList="saveCheckList" />
+        <check-lisd-add @saveCheckList="saveCheckList" />
       </div>
 
       <div class="task-activities">
         <h3>Activities</h3>
         <div v-if="activities">
-          <div v-for="activity in activities" :key="activity.id">
+          <div v-for="(activity, idx) in activities" :key="idx">
             <task-activities :activity="activity" />
           </div>
         </div>
@@ -44,39 +46,37 @@
 import taskActivities from "./task-activities.cmp.vue";
 import taskComment from "./task-comment.cmp.vue";
 import taskDevTools from "./task-dev-tools.cmp";
-import checkLisdAdd from './check-list-add.cmp';
+import checkLisdAdd from "./check-list-add.cmp";
 export default {
   data() {
     return {
       task: null,
       activities: null,
-      checkListModal:false,
+      checkListModal: false,
     };
   },
   methods: {
     async loadTask() {
       const id = this.$route.params.taskId;
-      console.log('id from paprms',id)
+      console.log("id from paprms", id);
       try {
         const task = await this.$store.dispatch({ type: "getById", id });
         this.task = task;
         console.log(task.comments);
         let taskActivities = this.$store.getters.taskActivities;
-        if (!taskActivities || !taskActivities.length) return;
-        else this.activities = taskActivities;
+        this.activities = taskActivities;
       } catch (err) {
         console.log("Cannot find task", err);
       }
     },
-    createCheckList(){
-      console.log('checklist')
-      this.checkListModal = true
+    createCheckList() {
+      console.log("checklist");
+      this.checkListModal = true;
     },
-    saveCheckList(checkList){
-      this.checkListModal = false
-      console.log(checkList)
-
-    }
+    saveCheckList(checkList) {
+      this.checkListModal = false;
+      console.log(checkList);
+    },
   },
   created() {
     this.loadTask();
@@ -91,7 +91,7 @@ export default {
     taskActivities,
     taskComment,
     taskDevTools,
-    checkLisdAdd
+    checkLisdAdd,
   },
 };
 </script>
