@@ -1,6 +1,7 @@
 import { httpService } from './http.service'
 import { storageService } from './async-storage.service'
 import { userService } from './user.service'
+import { utilService } from './util.service'
 
 export const taskService = {
   add,
@@ -30,9 +31,10 @@ function getUser() {
 }
 
 async function query(filterBy = {}) {
-  var board = await storageService.query('board')
-  if (!board || !board.length) {
-    board = {
+  var boards = await storageService.query('boards')
+  console.log('board at 34 service', boards)
+  if (!boards || !boards.length) {
+    boards = [{
       "_id": "b101",
       "title": "Robot dev proj",
       "createdAt": 1589983468418,
@@ -150,12 +152,12 @@ async function query(filterBy = {}) {
           }
         }
       ]
-    }
+    }]
   }
   // var queryStr = (!filterBy) ? '' : `?name=${filterBy.name}&sort=anaAref`
   // return httpService.get(`task${queryStr}`)
-  storageService._save('board', board)
-  return board
+  storageService._save('boards', boards)
+  return boards
 }
 
 function remove(taskId) {
@@ -163,14 +165,17 @@ function remove(taskId) {
   return storageService.delete('task', taskId)
 
 }
-async function add(task) {
+async function add(task, groupIdx, taskIdx) {
   // const addedTask = await httpService.post(`task`, task)
-
-  task.byUser = userService.getLoggedinUser()
-  task.aboutUser = await userService.getById(task.aboutUserId)
-  const addedTask = storageService.post('task', task)
-
-  return addedTask
+  let boards = await query()
+  var taskForUpdate = JSON.parse(JSON.stringify(task))
+  if (taskIdx != -1) boards[0].groups[groupIdx].tasks.splice(taskIdx, 1, taskForUpdate)
+  else {
+    taskForUpdate.id = utilService.makeId()
+    boards[0].groups[groupIdx].tasks.unshift(taskForUpdate)
+  }
+  storageService._save('boards', boards)
+  return task
 }
 function getById(board, id) {
   console.log(id)
@@ -182,11 +187,8 @@ function getById(board, id) {
     for (var j = 0; j < currList.length; j++) {
       console.log('currlist',)
       // console.log(currList[i][j].id)
-      if (currList[j].id === id) task = lists[i]
-
+      if (currList[i].id === id) task = lists[j]
     }
   }
-
-
   return task
 }

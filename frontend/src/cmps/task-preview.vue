@@ -67,10 +67,10 @@ export default {
     openEditModal() {
       this.isEditModalOpen = true;
     },
-    updateTask(taskToSave) {
-      console.log("taskToSave", taskToSave);
+    updateTask(taskToUpdate) {
+      console.log("taskToSave", taskToUpdate);
       this.isEditModalOpen = false;
-      this.$store.dispatch({ type: "addTask", task: taskToSave });
+      this.$emit('updateTask', taskToUpdate)
     },
     removeMemberFromTask(member) {},
     openTaskDetails(taskId) {
