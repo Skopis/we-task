@@ -177,6 +177,7 @@ async function add(task, groupIdx, taskIdx) {
   storageService._save('boards', boards)
   return task
 }
+
 function getById(board, id) {
   console.log(id)
   console.log(board)

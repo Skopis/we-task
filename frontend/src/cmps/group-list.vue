@@ -1,9 +1,8 @@
 <template> 
-    <div>
+    <div class="group-list">
         <task-quick-edit v-if="isAddModalOpen" @updateTask="updateTask"/>
     <draggable
         tag="ul"
-        class="group-list"
         v-bind="dragOptions"
         :list="groupToShow.tasks">
         <li v-for="task in groupToShow.tasks" :key="'C' + task.id">
