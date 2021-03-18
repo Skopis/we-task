@@ -16,6 +16,9 @@ export const taskStore = {
         getBoard(state) {
             return state.board
         },
+        getBoardId(state){
+            return state.board._id
+        },
         getBoards(state) {
             console.log('state.boards', state.boards)
             return state.boards
