@@ -44,7 +44,7 @@ export default {
     },
   },
   created() {
-    this.boardToShow = this.$store.getters.getBoard; // JSON.parse(JSON.stringify(this.$store.getters.getBoard));
+    this.boardToShow =  this.$store.getters.getBoard; // JSON.parse(JSON.stringify(this.$store.getters.getBoard));
     console.log("this.boardToShow at board 26", this.boardToShow);
   },
   methods: {
