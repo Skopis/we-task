@@ -1,10 +1,16 @@
-
-
-.board {
-    // display: flex;
-    // justify-content: space-around;
-    // font-size: 1rem;
+/* Ghost for movable object */
+.ghost { 
+    opacity: 0.5;
+    background: #F7FAFC;
+    border: 1px solid #4299e1;
+    border: 5px solid gray;
 }
 
+.chosen-drag{
+    transform: rotate(90deg);
+    transform: scaleY(1.5);
+    transform: skewY(20deg);
+    border: 5px solid blue;
+    }
 
 

@@ -1,10 +1,12 @@
 <template>
   <section class="home text-center main-container">
+    <section class="home-txt">
     <h1>WeTask</h1>
     <h5 class="text-center">
-      The place you'll managed,track and shared
+      Organizing your work & life
     </h5>
-    <!-- <img alt="Vue logo" src="../assets/Pictures/hero1.png"> -->
+    <button>Try it now</button>
+    </section>
   </section>
 
   
@@ -12,17 +14,12 @@
 
 <script>
 export default {
-  name: 'home',
+  name: "home",
   data() {
-    return {
-    }
+    return {};
   },
-  computed: {
-  },
-  created() {
-  },
-  methods: {
-  }
-  
-}
+  computed: {},
+  created() {},
+  methods: {},
+};
 </script>
