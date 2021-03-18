@@ -6,7 +6,7 @@
           <img class="logo" src="../assets/logo.svg"/>
         <!-- </span> -->
       </router-link>
-      <router-link to="/board">Board</router-link>
+      <router-link to="/board">Boards</router-link>
       <!-- <router-link to="/chat">Chat</router-link> -->
       <router-link to="/login">Login / Signup</router-link>
     </nav>

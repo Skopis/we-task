@@ -78,13 +78,11 @@ export default {
       this.isEditModalOpen = true;
     },
     updateTask(taskToUpdate) {
-      console.log("taskToSave", taskToUpdate);
       this.isEditModalOpen = false;
       this.$emit("updateTask", taskToUpdate);
     },
     removeMemberFromTask(member) {},
     openTaskDetails(taskId) {
-      console.log("id:", taskId);
       this.$router.push(`board/task/${taskId}`);
     },
   },

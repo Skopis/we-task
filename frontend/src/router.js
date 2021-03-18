@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import home from './views/home.vue'
 import board from './views/board.vue'
+import boards from './views/boards.vue'
 import loginSignup from './views/login-signup.vue'
 import userDetails from './views/user-details.vue'
 import taskDetails from './cmps/task-details/task-details.vue'
@@ -20,13 +21,17 @@ export const router = new Router({
     {
       path: '/board',
       name: 'board',
-      component: board,
-      children:[
+      component: boards,
+      children: [
         {
-          path:'task/:taskId',
-          component:taskDetails
+          path: 'task/:taskId',
+          component: taskDetails
         }
       ]
+    },
+    {
+      path: '/board/:boardId',
+      component: board,
     },
     {
       path: '/login',
