@@ -63,6 +63,7 @@ export default {
         type: "addTask",
         task: taskToUpdate,
         group,
+        boardId: this.board._id
       });
     },
     moveCheck() {
