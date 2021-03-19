@@ -64,6 +64,43 @@ function getEmptyBoard() {
   }
 }
 
+async function remove(boardIdx, groupIdx, taskIdx) {
+  // return httpService.delete(`task/${taskId}`)
+  try{
+    let boards = await query()
+    boards[boardIdx].groups[groupIdx].tasks.splice(taskIdx, 1)
+    storageService._save('boards', boards)
+    return boards
+  } catch (err){
+    console.log('Cannot get boards', err)
+  }
+}
+async function add(task, groupIdx, taskIdx, boardIdx) {
+  // const addedTask = await httpService.post(`task`, task)
+  let boards = await query()
+  var taskForUpdate = JSON.parse(JSON.stringify(task))
+  if (taskIdx != -1) boards[boardIdx].groups[groupIdx].tasks.splice(taskIdx, 1, taskForUpdate)
+  else {
+    taskForUpdate.id = utilService.makeId()
+    boards[boardIdx].groups[groupIdx].tasks.unshift(taskForUpdate)
+  }
+  storageService._save('boards', boards)
+  return boards[boardIdx]
+}
+
+function getById(board, id) {
+  var task = null
+  const groups = board.groups.map(group => group)
+  for (var i = 0; i < groups.length; i++) {
+    var currGroup = groups[i].tasks
+    for (var j = 0; j < currGroup.length; j++) {
+      if (currGroup[j].id === id) task = currGroup[j]
+    }
+  }
+  return task
+}
+
+
 async function query(filterBy = {}) {
   var boards = await storageService.query('boards')
   if (!boards || !boards.length) {
@@ -368,32 +405,3 @@ async function query(filterBy = {}) {
   return boards
 }
 
-function remove(taskId) {
-  // return httpService.delete(`task/${taskId}`)
-  return storageService.delete('task', taskId)
-
-}
-async function add(task, groupIdx, taskIdx, boardIdx) {
-  // const addedTask = await httpService.post(`task`, task)
-  let boards = await query()
-  var taskForUpdate = JSON.parse(JSON.stringify(task))
-  if (taskIdx != -1) boards[boardIdx].groups[groupIdx].tasks.splice(taskIdx, 1, taskForUpdate)
-  else {
-    taskForUpdate.id = utilService.makeId()
-    boards[boardIdx].groups[groupIdx].tasks.unshift(taskForUpdate)
-  }
-  storageService._save('boards', boards)
-  return boards[boardIdx]
-}
-
-function getById(board, id) {
-  var task = null
-  const groups = board.groups.map(group => group)
-  for (var i = 0; i < groups.length; i++) {
-    var currGroup = groups[i].tasks
-    for (var j = 0; j < currGroup.length; j++) {
-      if (currGroup[j].id === id) task = currGroup[j]
-    }
-  }
-  return task
-}

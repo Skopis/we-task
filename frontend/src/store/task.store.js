@@ -37,14 +37,15 @@ export const taskStore = {
             state.boards.splice(boardIdx, 1, boardToUpdate)
         },
         setBoard(state, { board }) {
-            console.log('board at set board', board)
+            // console.log('board at set board', board)
             state.board = board;
         },
         setBoards(state, { boards }) {
             state.boards = boards;
         },
         removeTask(state, { taskId }) {
-            state.tasks = state.tasks.filter(task => task._id !== taskId)
+            state.tasks = state.tasks.filter(task => task._id === taskId)
+            console.log('task id after remove from storage:', taskId)
         },
         getTaskActivities(state, { taskId }) {
             var activities = state.board.activities.find(activity =>{
@@ -122,10 +123,15 @@ export const taskStore = {
                 throw err
             }
         },
-        async removeTask({ commit }, { taskId }) {
+        async removeTask({ commit, state}, { task }) {
+            var boardIdx = state.boards.findIndex(b => b._id === state.board._id)
+            var groupIdx = state.board.groups.findIndex(g => g.id === state.currGroupId)
+            var taskIdx = state.board.groups[groupIdx].tasks.findIndex(t => t.id === task.id)
+
             try {
-                await taskService.remove(taskId);
-                commit({ type: 'removeTask', taskId })
+               const boards= await taskService.remove(boardIdx, groupIdx, taskIdx);
+               const currBoard = boards[boardIdx]
+                commit({ type: 'setBoard', board:currBoard })
             } catch (err) {
                 console.log('taskStore: Error in removeTask', err)
                 throw err
@@ -159,6 +165,7 @@ export const taskStore = {
             }
         },
         async saveComment({ commit, state }, {task, comment}){
+            
             if(!comment.id){
                 comment.id = utilService.makeId();
                 comment.createdAt = Date.now()
@@ -169,17 +176,17 @@ export const taskStore = {
                 const commentIdx = task.comments.findIndex(c => c.id === comment.id)
                 task.comments.splice(commentIdx, 1, comment)
             }
-
             var boardIdx = state.boards.findIndex(b => b._id === state.board._id)
             var groupIdx = state.board.groups.findIndex(g => g.id === state.currGroupId)
             var taskIdx = state.board.groups[groupIdx].tasks.findIndex(t => t.id === task.id)
+           
             try{
-                await taskService.add(task, groupIdx, taskIdx)
+                await taskService.add(task, groupIdx, taskIdx, boardIdx)
                 const boards = await taskService.query();
                 commit({ type: 'setBoard', board: boards[boardIdx] })
 
             } catch (err){
-                console.log('Cannot save checklist', err)
+                console.log('Cannot save comment', err)
             }
 
         },

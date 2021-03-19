@@ -5,8 +5,8 @@
       <h3>{{ comment.byMember.fullname }}</h3>
       <p>{{ comment.createdAt }}</p>
     </div>
-    <input v-if="isCommentToEdit" v-model="newComment.txt" />
-    <p v-else class="comment-txt">{{ comment.txt }}</p>
+    <input v-if="isCommentToEdit" v-model="editComment.txt" />
+    <p v-else class="comment-txt">{{ editComment.txt }}</p>
     <button class="btn">delete</button>
     <button class="btn" @click="saveComment">Save</button>
     <button class="btn" @click="openEditModal">edit</button>
@@ -19,7 +19,7 @@ export default {
   data() {
     return {
       isCommentToEdit: false,
-      newComment:null
+      editComment:null
     };
   },
   methods: {
@@ -27,12 +27,12 @@ export default {
       this.isCommentToEdit = true;
     },
     saveComment() {
-      this.$emit("saveComment", this.newComment);
+      this.$emit("saveComment", this.editComment);
        this.isCommentToEdit = false;
     },
   },
   created(){
-    this.newComment = JSON.parse(JSON.stringify(this.comment))
+    this.editComment = JSON.parse(JSON.stringify(this.comment))
   }
 };
 </script>
