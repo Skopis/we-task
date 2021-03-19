@@ -2,7 +2,7 @@
   <div v-if="task" class="task-details-modal">
     <div class="task-details-content">
       <header>
-        <button class="btn close-btn">+</button>
+        <button class="btn close-btn" @click="closeDetailsModal">+</button>
         <h1>{{ task.title }}</h1>
         <p><span>in list</span></p>
       </header>
@@ -19,8 +19,14 @@
         <p v-if="task.description">{{ task.description }}</p>
         <p v-else class="description-area">Add a more detailed description</p>
       </div>
-      <div class="task-checklist" v-if="checkListModal">
-        <check-lisd-add @saveCheckList="saveCheckList" />
+      <div class="task-checklists" >
+        <check-list-add @saveCheckList="saveCheckList" v-if="checkListModal" />
+        <div v-if="task.checklists">
+        <h3>Check List</h3>
+          <div v-for="checklist in task.checklists" :key="checklist.id">
+            <task-todo :checklist="checklist" />
+          </div>
+        </div>
       </div>
 
       <div class="task-activities">
@@ -31,10 +37,11 @@
           </div>
         </div>
       </div>
-      <textarea placeholder="write a comment"></textarea>
+      <textarea placeholder="write a comment" v-model="comment.txt"></textarea>
+      <button @click="addComment">Save</button>
       <div v-if="task.comments">
         <div v-for="(comment, idx) in task.comments" :key="idx">
-          <task-comment :comment="comment" />
+          <task-comment :comment="comment" @saveComment="saveComment" />
         </div>
       </div>
       <task-dev-tools @checkList="createCheckList" />
@@ -43,16 +50,18 @@
 </template>
 
 <script>
-import taskActivities from "./task-activities.cmp.vue";
-import taskComment from "./task-comment.cmp.vue";
+import taskActivities from "./task-activities.cmp";
+import taskComment from "./task-comment.cmp";
 import taskDevTools from "./task-dev-tools.cmp";
-import checkLisdAdd from "./check-list-add.cmp";
+import checkListAdd from "./check-list-add.cmp";
+import taskTodo from "./task-todo.cmp";
 export default {
   data() {
     return {
       task: null,
       activities: null,
       checkListModal: false,
+      comment:{txt:''},
     };
   },
   methods: {
@@ -61,8 +70,7 @@ export default {
       console.log("id from paprms", id);
       try {
         const task = await this.$store.dispatch({ type: "getById", id });
-        this.task = task;
-        console.log(task.comments);
+        this.task = JSON.parse(JSON.stringify(task));
         let taskActivities = this.$store.getters.taskActivities;
         this.activities = taskActivities;
       } catch (err) {
@@ -75,7 +83,27 @@ export default {
     },
     saveCheckList(checkList) {
       this.checkListModal = false;
-      console.log(checkList);
+      console.log("did I called twice");
+      this.$store.dispatch({
+        type: "addCheckList",
+        checkList,
+        task: this.task,
+      });
+    },
+    addComment(){
+      this.$store.dispatch({type:'saveComment', task:this.task, comment:this.comment})
+      this.comment.txt = '';
+    },
+    saveComment(comment){
+      this.$store.dispatch({type:'saveComment', task:this.task, comment})
+    },
+    closeDetailsModal() {
+      this.$router.go(-1);
+    },
+  },
+  computed: {
+    boradId() {
+      return this.$store.getters.getBoardId;
     },
   },
   created() {
@@ -91,7 +119,8 @@ export default {
     taskActivities,
     taskComment,
     taskDevTools,
-    checkLisdAdd,
+    checkListAdd,
+    taskTodo,
   },
 };
 </script>

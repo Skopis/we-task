@@ -15,7 +15,7 @@
       </div>
       <!-- </section> -->
     </draggable>
-    <router-view />
+    <router-view  />
     <pre>
     {{ boardToShow.groups }}
     </pre>

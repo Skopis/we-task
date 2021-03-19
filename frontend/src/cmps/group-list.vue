@@ -15,7 +15,7 @@
       :move="moveCheck"
     >
       <li v-for="task in group.tasks" :key="'C' + task.id">
-        <task-preview :task="task" @updateTask="updateTask" />
+        <task-preview :task="task" @updateTask="updateTask" :groupId="group.id" />
       </li>
       <button class="btn" @click="openAddModal">Add a new Task</button>
     </draggable>
@@ -88,7 +88,6 @@ export default {
     },
   },
   components: {
-    // taskDetails,
     taskPreview,
     TaskQuickEdit,
     draggable,
