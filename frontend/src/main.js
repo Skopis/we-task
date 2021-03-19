@@ -6,8 +6,11 @@ import './assets/styles/main.scss'
 import './registerServiceWorker'
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
+
+// var moment = require('moment');
 import moment from 'moment';
 moment().format();
+
 export const eventBus = new Vue()
 
 

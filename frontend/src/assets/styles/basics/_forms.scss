@@ -10,6 +10,10 @@
     letter-spacing: .2px;
     color: $task-txt;
     text-transform: capitalizes;
+
+    &:focus{
+        outline:none;
+    }
 }
 
 .btn:hover {

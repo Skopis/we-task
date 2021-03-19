@@ -3,7 +3,7 @@
     <div class="comment-creator" v-if="comment.byMember">
       <img class="avatar" :src="comment.byMember.imgUrl" alt="" />
       <h3>{{ comment.byMember.fullname }}</h3>
-      <p>{{ comment.createdAt }}</p>
+      <p>{{ formattedTime(comment.createdAt) }}</p>
     </div>
     <input v-if="isCommentToEdit" v-model="editComment.txt" />
     <p v-else class="comment-txt">{{ editComment.txt }}</p>
@@ -23,6 +23,9 @@ export default {
     };
   },
   methods: {
+    formattedTime(timeStamp){
+      return moment(timeStamp).fromNow()
+    },
     openEditModal() {
       this.isCommentToEdit = true;
     },

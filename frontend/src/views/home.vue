@@ -5,7 +5,7 @@
     <h5 class="text-center">
       Organizing your work & life
     </h5>
-    <button>Try it now</button>
+    <button @click="pushRoute">Try it now</button>
     </section>
   </section>
 
@@ -20,6 +20,10 @@ export default {
   },
   computed: {},
   created() {},
-  methods: {},
+  methods: {
+    pushRoute(){
+      this.$router.push('/board/b101')
+    }
+  },
 };
 </script>

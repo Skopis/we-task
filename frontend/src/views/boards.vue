@@ -4,7 +4,8 @@
         <button @click="addBoard" class="btn">Add a new Board</button>
         <section class="board-preview-container">
             <div v-for="board in boardsToShow" :key="'B'+board._id">
-                <router-link :to="'board/'+board._id"><board-preview :board="board"/></router-link> 
+                <board-preview @click.native.self.stop="pushBoard(board._id)" :board="board" @archiveBoard="archiveBoard"/>
+                <!-- <router-link :to="'board/'+board._id"></router-link>  -->
             </div>
         </section>
     </section>
@@ -21,6 +22,12 @@ export default {
         }
     },
     methods:{
+        pushBoard(boardId){
+            this.$router.push(`board/${boardId}`)
+        },
+        archiveBoard(boardToArchive){
+            this.$store.dispatch({type: 'archiveBoard', board: boardToArchive})
+        },
         addBoard(){
             this.$store.dispatch({type: 'addBoard'})
         }

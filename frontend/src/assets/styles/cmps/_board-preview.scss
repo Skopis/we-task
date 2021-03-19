@@ -1,0 +1,20 @@
+.board-preview{
+    background-color: rgb(196, 216, 201);
+    width: 150px;
+    margin-right: 1rem;
+    border-radius: 6px;
+    img {
+        width: 25px;
+        opacity: 0.7;
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+}
+
+
+.board-preview-container{
+    display:flex;
+    flex-direction: row;
+}

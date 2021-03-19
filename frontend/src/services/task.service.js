@@ -7,12 +7,17 @@ export const taskService = {
   add,
   query,
   remove,
-  getUser,
   getById,
-  getEmptyBoard,
+  getUser,
   addBoard,
+  addGroup,
   saveBoard,
-  updateGroup
+  loadArchive,
+  updateGroup,
+  archiveGroup,
+  archiveBoard,
+  getEmptyGroup,
+  getEmptyBoard,
 }
 
 
@@ -25,6 +30,46 @@ function getUser() {
     "fullname": "Guest",
     "imgUrl": "http://some-img.jpg",
   }
+}
+
+function getEmptyGroup(){
+  return {
+    'id': utilService.makeId(),
+    'title': 'New Group',
+    'tasks': []
+  }
+}
+async function loadArchive(){
+  const archive = await storageService.query('archive')
+  return archive
+}
+async function archiveBoard(board, boardIdx){
+  var boards = await storageService.query('boards')
+  boards.splice(boardIdx, 1)
+  storageService._save('boards', boards)
+
+  var archive = await storageService.query('archive')
+  if (archive) archive.push(board)
+  else archive = [boardIdx]
+  console.log('boards at service 54', boards)
+  console.log('archive at service 55', archive)
+  storageService._save('archive', archive)
+}
+
+async function archiveGroup(group, groupIdx, boardIdx){
+  var boards = await storageService.query('boards')
+  boards[boardIdx].groups.splice(groupIdx, 1)
+  storageService._save('boards', boards)
+
+  var archive = await storageService.query('archive')
+  if (archive) archive.push(group)
+  else archive = [group]
+  storageService._save('archive', archive)
+}
+async function addGroup(newGroup, boardIdx){
+  var boards = await storageService.query('boards')
+  boards[boardIdx].groups.push(newGroup)
+  storageService._save('boards', boards)
 }
 
 async function updateGroup(group, boardIdx, groupIdx){

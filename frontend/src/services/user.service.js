@@ -74,6 +74,7 @@ function getLoggedinUser() {
     const user = {
         "_id": "u101",
         "fullname": "Guest",
+        'username': 'guest',
         "imgUrl": "http://some-img.jpg",
     }
     if (sessionStorage.getItem('loggedinUser')) return JSON.parse(sessionStorage.getItem('loggedinUser'))

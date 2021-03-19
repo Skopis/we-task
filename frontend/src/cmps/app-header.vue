@@ -7,6 +7,7 @@
         <!-- </span> -->
       </router-link>
       <router-link to="/board">Boards</router-link>
+      <router-link to="/archive">Archive</router-link>
       <!-- <router-link to="/chat">Chat</router-link> -->
       <router-link to="/login">Login / Signup</router-link>
     </nav>

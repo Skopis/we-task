@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import home from './views/home.vue'
 import board from './views/board.vue'
 import boards from './views/boards.vue'
+import archive from './cmps/menu/archive.vue'
 import loginSignup from './views/login-signup.vue'
 import userDetails from './views/user-details.vue'
 import taskDetails from './cmps/task-details/task-details.vue'
@@ -43,6 +44,11 @@ export const router = new Router({
       path: '/user/:id',
       name: 'user-details',
       component: userDetails
+    },
+    {
+      path: '/archive',
+      name: 'archive',
+      component: archive
     }
   ]
 })

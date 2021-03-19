@@ -1,7 +1,7 @@
 <template>
   <div class="board" v-if="boardToShow">
 
-<h3 @click="editBoardTitle" v-if="isTitleModalOpen===false">Board Name: {{ boardToShow.title }}</h3>
+<h2 @click="editBoardTitle" v-if="isTitleModalOpen===false">{{ boardToShow.title }}</h2>
     <form @submit.prevent="saveBoardTitle" v-if="isTitleModalOpen">
       <input type="text" placeholder="Board Title" v-model="boardToShow.title">
       <button>Save</button>
@@ -17,9 +17,10 @@
       class="task-list-container"
     >
       <div v-for="group in boardToShow.groups" :key="'L' + group.id">
-        <group-list :group="group" @updateTask="updateTask" @updateGroup="updateGroup"/>
+        <group-list :group="group" @updateTask="updateTask" @updateGroup="updateGroup" @archiveGroup="archiveGroup"/>
       </div>
       <!-- </section> -->
+      <button class="btn" @click="addGroup">Add a New Group</button>
     </draggable>
     <router-view  />
     <pre>
@@ -57,6 +58,12 @@ export default {
     await this.$store.dispatch({ type: "loadBoard", boardId });
   },
   methods: {
+    archiveGroup(groupToArchive){
+      this.$store.dispatch({type: 'archiveGroup', group: groupToArchive, boardId: this.boardToShow._id})
+    },
+    addGroup(){
+      this.$store.dispatch({type: 'addGroup', boardId: this.boardToShow._id})
+    },
     editBoardTitle(){
       this.isTitleModalOpen = true
     },

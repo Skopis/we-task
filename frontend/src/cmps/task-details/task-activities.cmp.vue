@@ -3,9 +3,9 @@
     <img :src="activity.byMember.imgUrl" class="avatar" />
     <div class="txt">
       <p>
-        <span>{{ activity.byMember.fullname }}</span>  {{ activity.txt }}
+        <span v-if="activity.byMember">{{ activity.byMember.fullname }}</span>  {{ activity.txt }}
       </p>
-      <p>{{ activity.createdAt }}</p>
+      <p>{{ formattedTime(activity.createdAt) }}</p>
     </div>
   </div>
 </template>
@@ -15,6 +15,11 @@ export default {
   props: ["activity"],
   created(){
       console.log(this.activity)
+  },
+  methods:{
+    formattedTime(timeStamp){
+      return moment(timeStamp).fromNow()
+    }
   }
 };
 </script>

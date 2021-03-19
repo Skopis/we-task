@@ -1,10 +1,14 @@
 <template>
   <div class="group-list">
-    <h5 @click="editGroupTitle" v-if="isTitleModalOpen===false">{{ group.title }}</h5>
+    <div class="flex space-between align-center">
+    <h3 @click="editGroupTitle" v-if="isTitleModalOpen===false">{{ group.title }}</h3>
     <form @submit.prevent="saveGroupTitle" v-if="isTitleModalOpen">
       <input type="text" placeholder="Group Title" v-model="group.title">
       <button>Save</button>
     </form>
+    <button class="btn" @click="toggleGroupMenuModal"><img src="../assets/icons/3dots.png" alt=""></button>
+    <group-menu v-if="isGroupMenuModalOpen" :group="group" @archiveGroup="archiveGroup"/>
+    </div>
     <task-quick-edit v-if="isAddModalOpen" @updateTask="updateTask" />
     <draggable
       tag="ul"
@@ -27,6 +31,7 @@
 import taskPreview from "./task-preview.vue";
 import TaskQuickEdit from "./task-quick-edit.vue";
 import draggable from "vuedraggable";
+import groupMenu from './menu/group-menu'
 
 export default {
   name: "group-list",
@@ -35,6 +40,7 @@ export default {
     return {
       isTitleModalOpen: false,
       isAddModalOpen: false,
+      isGroupMenuModalOpen: false,
       group1: this.group,
     };
   },
@@ -52,6 +58,13 @@ export default {
     },
   },
   methods: {
+    archiveGroup(groupToArchive){
+      this.isGroupMenuModalOpen = false
+      this.$emit('archiveGroup', groupToArchive)
+    },
+    toggleGroupMenuModal(){
+      this.isGroupMenuModalOpen = !this.isGroupMenuModalOpen
+    },
     saveGroupTitle(){
       this.isTitleModalOpen = false
       this.updateGroup()
@@ -91,6 +104,7 @@ export default {
     taskPreview,
     TaskQuickEdit,
     draggable,
+    groupMenu
   },
 };
 </script>
