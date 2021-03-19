@@ -8,7 +8,11 @@ export const taskService = {
   query,
   remove,
   getUser,
-  getById
+  getById,
+  getEmptyBoard,
+  addBoard,
+  saveBoard,
+  saveGroup
 }
 
 
@@ -27,6 +31,36 @@ function getUser() {
       "boardId": "m101",
       "taskId": "t101"
     }]
+  }
+}
+
+async function saveGroup(group, boardIdx, groupIdx){
+  var boards = await storageService.query('boards')
+  boards[boardIdx].groups.splice(groupIdx, 1, group)
+  storageService._save('boards', boards)
+}
+
+async function saveBoard(boardToUpdate, boardIdx){
+  var boards = await storageService.query('boards')
+  boards.splice(boardIdx, 1, boardToUpdate)
+  storageService._save('boards', boards)
+}
+
+async function addBoard(boardToAdd) {
+  var boards = await storageService.query('boards')
+  boards.push(boardToAdd)
+  storageService._save('boards', boards)
+}
+
+function getEmptyBoard() {
+  return {
+    '_id': utilService.makeId(),
+    'title': 'New board',
+    'createdAt': Date.now(),
+    'groups': {
+      'id': utilService.makeId(),
+      'title': 'New Group',
+    }
   }
 }
 
@@ -60,7 +94,7 @@ async function query(filterBy = {}) {
       "groups": [
         {
           "id": "g101",
-          "title": "List 1",
+          "title": "Group 1",
           "tasks": [
             {
               "id": "c101",
@@ -75,7 +109,7 @@ async function query(filterBy = {}) {
         },
         {
           "id": "g102",
-          "title": "List 2",
+          "title": "Group 2",
           "tasks": [
             {
               "id": "c103",
@@ -97,10 +131,10 @@ async function query(filterBy = {}) {
                   }
                 }
               ],
-              "checklists": [
+              "checkgroups": [
                 {
                   "id": "YEhmF",
-                  "title": "Checklist",
+                  "title": "Checkgroup",
                   "todos": [
                     {
                       "id": "212jX",
@@ -199,7 +233,7 @@ async function query(filterBy = {}) {
       ],
       "members": [
         {
-          "_id": "u1013",
+          "_id": "u10133",
           "fullname": "Tal Tarablus",
           "imgUrl": "https://www.google.com"
         }
@@ -207,7 +241,7 @@ async function query(filterBy = {}) {
       "groups": [
         {
           "id": "g1013",
-          "title": "List 1",
+          "title": "Group 1",
           "tasks": [
             {
               "id": "c1013",
@@ -222,14 +256,14 @@ async function query(filterBy = {}) {
         },
         {
           "id": "g1023",
-          "title": "List 2",
+          "title": "Group 2",
           "tasks": [
             {
               "id": "c1033",
               "title": "make that"
             },
             {
-              "id": "c1043",
+              "id": "c10433",
               "title": "save me",
               "description": "description",
               "comments": [
@@ -238,16 +272,16 @@ async function query(filterBy = {}) {
                   "txt": "also @yaronb please CR this",
                   "createdAt": 1590999817436.0,
                   "byMember": {
-                    "_id": "u1013",
+                    "_id": "u10133",
                     "fullname": "Tal Tarablus",
                     "imgUrl": "http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
                   }
                 }
               ],
-              "checklists": [
+              "checkgroups": [
                 {
                   "id": "YEhmF3",
-                  "title": "Checklist",
+                  "title": "Checkgroup",
                   "todos": [
                     {
                       "id": "212jX3",
@@ -259,7 +293,7 @@ async function query(filterBy = {}) {
               ],
               "members": [
                 {
-                  "_id": "u1013",
+                  "_id": "u10133",
                   "username": "Tal",
                   "fullname": "Tal Tarablus",
                   "imgUrl": "http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
@@ -269,7 +303,7 @@ async function query(filterBy = {}) {
               "createdAt": 1590999730348,
               "dueDate": 16156215211,
               "byMember": {
-                "_id": "u1013",
+                "_id": "u10133",
                 "username": "Tal",
                 "fullname": "Tal Tarablus",
                 "imgUrl": "http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
@@ -339,26 +373,26 @@ function remove(taskId) {
   return storageService.delete('task', taskId)
 
 }
-async function add(task, groupIdx, taskIdx) {
+async function add(task, groupIdx, taskIdx, boardIdx) {
   // const addedTask = await httpService.post(`task`, task)
   let boards = await query()
   var taskForUpdate = JSON.parse(JSON.stringify(task))
-  if (taskIdx != -1) boards[0].groups[groupIdx].tasks.splice(taskIdx, 1, taskForUpdate)
+  if (taskIdx != -1) boards[boardIdx].groups[groupIdx].tasks.splice(taskIdx, 1, taskForUpdate)
   else {
     taskForUpdate.id = utilService.makeId()
-    boards[0].groups[groupIdx].tasks.unshift(taskForUpdate)
+    boards[boardIdx].groups[groupIdx].tasks.unshift(taskForUpdate)
   }
   storageService._save('boards', boards)
-  return boards[0]
+  return boards[boardIdx]
 }
 
 function getById(board, id) {
   var task = null
-  const lists = board.groups.map(list => list)
-  for (var i = 0; i < lists.length; i++) {
-    var currList = lists[i].tasks
-    for (var j = 0; j < currList.length; j++) {
-      if (currList[j].id === id) task = currList[j]
+  const groups = board.groups.map(group => group)
+  for (var i = 0; i < groups.length; i++) {
+    var currGroup = groups[i].tasks
+    for (var j = 0; j < currGroup.length; j++) {
+      if (currGroup[j].id === id) task = currGroup[j]
     }
   }
   return task

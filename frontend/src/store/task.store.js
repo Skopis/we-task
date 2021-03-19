@@ -14,13 +14,13 @@ export const taskStore = {
             return state.tasks;
         },
         getBoard(state) {
+            console.log('state.board at store 17', state.board)
             return state.board
         },
         getBoardId(state){
             return state.board._id
         },
         getBoards(state) {
-            console.log('state.boards', state.boards)
             return state.boards
         },
         taskActivities(state){
@@ -28,7 +28,15 @@ export const taskStore = {
         }
     },
     mutations: {
+        addBoard(state, {newBoard}){
+            state.boards.push(newBoard)
+            state.board = newBoard
+        },
+        updateBoard(state, {boardIdx, boardToUpdate}){
+            state.boards.splice(boardIdx, 1, boardToUpdate)
+        },
         setBoard(state, { board }) {
+            console.log('board at set board', board)
             state.board = board;
         },
         setBoards(state, { boards }) {
@@ -49,16 +57,21 @@ export const taskStore = {
         }
     },
     actions: {
-        async addTask({ commit, state }, { task, group, boardId }) {
+        async addBoard({commit}){
+            const newBoard = taskService.getEmptyBoard()
+            taskService.addBoard(newBoard)
+            commit({type:'addBoard', newBoard})
+        },
+        async addTask({ commit, state }, { task, group, boardId}) {
             try {
                 var boardIdx = state.boards.findIndex(b => b._id === boardId)
                 var groupIdx = state.board.groups.findIndex(g => g.id === group.id)
                 if (task.id) {
                     var taskIdx = state.board.groups[groupIdx].tasks.findIndex(t => t.id === task.id)
-                    await taskService.add(task, groupIdx, taskIdx)
+                    await taskService.add(task, groupIdx, taskIdx, boardIdx)
                 }
                 else {
-                    await taskService.add(task, groupIdx, -1)
+                    await taskService.add(task, groupIdx, -1, boardIdx)
                 }
                 const boards = await taskService.query();
                 commit({ type: 'setBoard', board: boards[boardIdx] })
@@ -67,21 +80,42 @@ export const taskStore = {
                 throw err
             }
         },
+        async updateGroup({state, commit}, {group, board}){
+            try{
+                var boardIdx = state.boards.findIndex(b => b._id === board._id)
+                var groupIdx = state.board.groups.findIndex(g => g.id === group.id)
+                const boardToUpdate = await taskService.updateGroup(group, boardIdx, groupIdx)
+                commit ({type: 'updateBoard', boardIdx, boardToUpdate})
+            }
+            catch{
+
+            }
+        },
         async loadBoard({ commit, state }, {boardId}) {
             try {
                 await this.dispatch({ type: "loadBoards" })
                 var boardIdx = state.boards.findIndex(b => b._id === boardId)
-                const boards = await taskService.query();
-                commit({ type: 'setBoard', board: boards[boardIdx] })
+                console.log('boardIdx', boardIdx)
+                commit({ type: 'setBoard', board: state.boards[boardIdx] })
             } catch (err) {
                 console.log('taskStore: Error in loadBoard', err)
+                throw err
+            }
+        },
+        async updateBoard({commit}, {boardToUpdate}){
+            try{
+                var boardIdx = state.boards.findIndex(b => b._id === boardId)
+                await taskService.saveBoard(boardIdx, boardToUpdate)
+                commit({ type: 'updateBoard', boardIdx })
+            }
+            catch (err) {
+                console.log('taskStore: Error in updateBoard', err)
                 throw err
             }
         },
         async loadBoards({ commit }) {
             try {
                 const boards = await taskService.query();
-                console.log('boards from storage', boards)
                 commit({ type: 'setBoards', boards })
             } catch (err) {
                 console.log('taskStore: Error in loadBoards', err)
@@ -99,7 +133,6 @@ export const taskStore = {
         },
         getById({ state, commit }, { id }) {
             var task = taskService.getById(state.board, id)
-            console.log('task in store:', task)
             commit({ type: "getTaskActivities", taskId: task.id })
             return task
         },

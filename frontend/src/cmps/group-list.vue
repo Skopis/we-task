@@ -1,6 +1,10 @@
 <template>
   <div class="group-list">
-    <h5>{{ group.title }}</h5>
+    <h5 @click="editGroupTitle" v-if="isTitleModalOpen===false">{{ group.title }}</h5>
+    <form @submit.prevent="saveGroupTitle" v-if="isTitleModalOpen">
+      <input type="text" placeholder="Group Title" v-model="group.title">
+      <button>Save</button>
+    </form>
     <task-quick-edit v-if="isAddModalOpen" @updateTask="updateTask" />
     <draggable
       tag="ul"
@@ -29,6 +33,7 @@ export default {
   props: ["group"],
   data() {
     return {
+      isTitleModalOpen: false,
       isAddModalOpen: false,
       group1: this.group,
     };
@@ -47,6 +52,13 @@ export default {
     },
   },
   methods: {
+    saveGroupTitle(){
+      this.isTitleModalOpen = false
+      this.updateGroup()
+    },
+    editGroupTitle(){
+      this.isTitleModalOpen = true
+    },
     moveCheck() {
       this.$emit("changedPlaces", this.group1);
     },
@@ -64,6 +76,10 @@ export default {
     },
     openAddModal() {
       this.isAddModalOpen = true;
+    },
+    updateGroup(){
+      console.log('this.group', this.group)
+      this.$emit('updateGroup', JSON.parse(JSON.stringify(this.group)))
     },
     updateTask(taskToUpdate) {
       // need to check if this changes the board

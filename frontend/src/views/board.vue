@@ -11,7 +11,7 @@
       class="task-list-container"
     >
       <div v-for="group in boardToShow.groups" :key="'L' + group.id">
-        <group-list :group="group" @updateTask="updateTask"/>
+        <group-list :group="group" @updateTask="updateTask" @updateGroup="updateGroup"/>
       </div>
       <!-- </section> -->
     </draggable>
@@ -43,13 +43,17 @@ export default {
   },
   async created() {
     const boardId= this.$route.params.boardId
+    console.log('boardId', boardId)
     await this.$store.dispatch({ type: "loadBoard", boardId });
   },
   methods: {
     async updateTask(taskToUpdate, group){
       await this.$store.dispatch({
-        type: "addTask", task: taskToUpdate, group,
+        type: "addTask", task: taskToUpdate, group, boardId: this.boardToShow._id
       });
+    },
+    async updateGroup(group){
+      await this.$store.dispatch({ type: "updateGroup", group});
     },
     dragOff(ev) {
       console.log("Off");
@@ -58,6 +62,9 @@ export default {
     dragOn(ev) {
       console.log("On");
       console.log(ev);
+    },
+    updateBoard(){
+      this.$em
     },
     saveBoard() {
       this.$store.dispatch({ type: "setBoard", board: this.boardToShow });
