@@ -53,7 +53,7 @@ export default {
     },
     async updateGroup(group){
       console.log('group at board 55', group)
-      await this.$store.dispatch({ type: "updateGroup", group, board:this.boardToShow});
+      await this.$store.dispatch({ type: "updateGroup", group, boardId: this.boardToShow._id});
     },
     dragOff(ev) {
       console.log("Off");

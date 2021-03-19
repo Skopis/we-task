@@ -78,7 +78,7 @@ export default {
       this.isAddModalOpen = true;
     },
     updateGroup(){
-      console.log('this.group', this.group)
+      console.log('this.group at group-list 81', this.group)
       this.$emit('updateGroup', this.group)
     },
     updateTask(taskToUpdate) {

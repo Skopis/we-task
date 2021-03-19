@@ -28,7 +28,6 @@
           </div>
         </div>
       </div>
-
       <div class="task-activities">
         <h3>Activities</h3>
         <div v-if="activities">
@@ -44,7 +43,7 @@
           <task-comment :comment="comment" @saveComment="saveComment" />
         </div>
       </div>
-      <task-dev-tools @checkList="createCheckList" />
+      <task-dev-tools @checkList="createCheckList" @removeTask="removeTask"/>
     </div>
   </div>
 </template>
@@ -55,6 +54,8 @@ import taskComment from "./task-comment.cmp";
 import taskDevTools from "./task-dev-tools.cmp";
 import checkListAdd from "./check-list-add.cmp";
 import taskTodo from "./task-todo.cmp";
+import Avatar from 'vue-avatar'
+
 export default {
   data() {
     return {
@@ -83,7 +84,6 @@ export default {
     },
     saveCheckList(checkList) {
       this.checkListModal = false;
-      console.log("did I called twice");
       this.$store.dispatch({
         type: "addCheckList",
         checkList,
@@ -91,15 +91,21 @@ export default {
       });
     },
     addComment(){
+      console.log('comment', this.comment.txt)
       this.$store.dispatch({type:'saveComment', task:this.task, comment:this.comment})
-      this.comment.txt = '';
+      this.comment = {txt:''};
     },
     saveComment(comment){
+      console.log('edit comment',comment)
       this.$store.dispatch({type:'saveComment', task:this.task, comment})
+    },
+    removeTask(){
+      this.$store.dispatch('removeTask', {task:this.task})
     },
     closeDetailsModal() {
       this.$router.go(-1);
     },
+
   },
   computed: {
     boradId() {
@@ -121,6 +127,8 @@ export default {
     taskDevTools,
     checkListAdd,
     taskTodo,
+    Avatar
+
   },
 };
 </script>

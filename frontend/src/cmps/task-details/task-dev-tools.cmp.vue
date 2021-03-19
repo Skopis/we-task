@@ -8,6 +8,7 @@
       <button class="btn"><i class="el-icon-date"></i> Due Date</button>
       <button class="btn"><i class="el-icon-paperclip"></i> Attachment</button>
       <button class="btn"><i class="el-icon-brush"></i> Cover</button>
+      <button class="btn delete" @click="removeTask"><i class="el-icon-delete"></i> Delete</button>
     </div>
   </div>
 </template>
@@ -18,6 +19,10 @@ export default {
     methods:{
         addChecklist(){
             this.$emit('checkList')
+        },
+        removeTask(){
+          this.$router.go(-1)
+          this.$emit('removeTask')
         }
     }
 };
