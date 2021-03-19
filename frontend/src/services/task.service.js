@@ -231,7 +231,7 @@ async function query(filterBy = {}) {
             {
               "id": "c1043",
               "title": "save me",
-              "description": "description",
+              "description": "This is a demo of how the desciption will look like",
               "comments": [
                 {
                   "id": "ZdPnm3",

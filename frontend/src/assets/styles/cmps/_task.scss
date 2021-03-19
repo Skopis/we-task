@@ -194,3 +194,49 @@
         }
     }
 }
+
+.task-checklists{
+    border: 1px solid black;
+    
+    .checklist{
+        border: 1px solid springgreen;
+        position: relative;
+    }
+    .todo{
+        padding-left: 40px;
+    }
+
+    
+    .checkbox{
+        border-radius: 2px;
+        height: 16px;
+        width: 16px;
+        overflow: hidden;
+        white-space: nowrap;
+        transition: all .2s ease-in-out;
+        background-color: #fafbfc;
+        color: transparent;
+        box-shadow: inset 0 0 0 2px #dfe1e6;
+        position: absolute;
+        margin-top: 3px;
+        margin-left: 6px;
+        text-align: center;
+        cursor: pointer;
+    }
+
+    .completed{
+        p{
+            text-decoration: line-through;
+        }
+        .checkbox{
+            color: white;
+            box-shadow: inset 0 0 0 2px #dfe1e6;
+            background-color: #0079bf;
+            box-shadow: inset 0 0 0 2px #0079bf;
+            i{
+                font-size:13px;
+            }
+        }
+        
+    }
+}

@@ -8,6 +8,7 @@ import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import moment from 'moment';
 moment().format();
+export const eventBus = new Vue()
 
 
 

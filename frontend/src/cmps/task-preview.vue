@@ -46,31 +46,16 @@
 <script>
 import taskQuickEdit from "./task-quick-edit.vue";
 import memberPreview from "./member-preview.vue";
+import {eventBus} from '../main.js';
+
 
 export default {
   name: "task-preview",
-  props: ["task"],
+  props: ["task", "groupId"],
   data() {
     return {
       isEditModalOpen: false,
       isMemberModalOpen: false,
-      // task: {
-      //         "id": "c104",
-      //         "title": "Help me",
-      //         "description": "description",
-      //         "comments": [
-      //             {
-      //                 "id": "ZdPnm",
-      //                 "txt": "also @yaronb please CR this",
-      //                 "createdAt": 1590999817436.0,
-      //                 "byMember": {
-      //                     "_id": "u101",
-      //                     "fullname": "Tal Tarablus",
-      //                     "imgUrl": "http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
-      //                 }
-      //             }
-      //         ]
-      // }
     };
   },
   //TODO: when click on window anywhere but the modal - modal closes
@@ -88,13 +73,14 @@ export default {
     },
     removeMemberFromTask(member) {},
     openTaskDetails(taskId) {
+      this.$store.commit({type:'saveCurrGroupId', groupId:this.groupId})
       this.$router.push(`${this.boradId}/task/${taskId}`);
     },
   },
-  computed:{
-    boradId(){
-      return this.$store.getters.getBoardId
-    }
+  computed: {
+    boradId() {
+      return this.$store.getters.getBoardId;
+    },
   },
   components: {
     taskQuickEdit,
