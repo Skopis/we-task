@@ -22,15 +22,8 @@ export const taskService = {
 function getUser() {
   return {
     "_id": "u101",
-    "fullname": "Abi Abambi",
-    "username": "abi@ababmi.com",
-    "password": "aBambi123",
+    "fullname": "Guest",
     "imgUrl": "http://some-img.jpg",
-    "mentions": [{
-      "id": "m101",
-      "boardId": "m101",
-      "taskId": "t101"
-    }]
   }
 }
 
@@ -252,64 +245,64 @@ async function query(filterBy = {}) {
       ]
     },
     {
-      "_id": "b1013",
-      "title": "Second board",
+      "_id": "b102",
+      "title": "Second Board",
       "createdAt": 1589983468418,
       "createdBy": {
-        "_id": "u1013",
+        "_id": "u101",
         "fullname": "Abi Abambi",
         "imgUrl": "http://some-img"
       },
       "style": {},
       "labels": [
         {
-          "id": "l1013",
+          "id": "l102",
           "title": "Done",
           "color": "#61bd4f"
         }
       ],
       "members": [
         {
-          "_id": "u10133",
+          "_id": "u101",
           "fullname": "Tal Tarablus",
           "imgUrl": "https://www.google.com"
         }
       ],
       "groups": [
         {
-          "id": "g1013",
+          "id": "g101a",
           "title": "Group 1",
           "tasks": [
             {
-              "id": "c1013",
-              "title": "change logo"
+              "id": "c101a",
+              "title": "Update logo"
             },
             {
-              "id": "c1023",
-              "title": "change Samples"
+              "id": "c102a",
+              "title": "Update Samples"
             }
           ],
           "style": {}
         },
         {
-          "id": "g1023",
+          "id": "g102a",
           "title": "Group 2",
           "tasks": [
             {
-              "id": "c1033",
-              "title": "make that"
+              "id": "c103a",
+              "title": "Do that"
             },
             {
-              "id": "c10433",
-              "title": "save me",
-              "description": "This is a demo of how the desciption will look like",
+              "id": "c104a",
+              "title": "Assist me",
+              "description": "description",
               "comments": [
                 {
-                  "id": "ZdPnm3",
-                  "txt": "also @yaronb please CR this",
+                  "id": "ZdPnma",
+                  "txt": "also @marks please CR this",
                   "createdAt": 1590999817436.0,
                   "byMember": {
-                    "_id": "u10133",
+                    "_id": "u101",
                     "fullname": "Tal Tarablus",
                     "imgUrl": "http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
                   }
@@ -317,12 +310,12 @@ async function query(filterBy = {}) {
               ],
               "checkgroups": [
                 {
-                  "id": "YEhmF3",
-                  "title": "Checkgroup",
+                  "id": "YEhmFa",
+                  "title": "Updategroup",
                   "todos": [
                     {
-                      "id": "212jX3",
-                      "title": "To Do 2",
+                      "id": "212jXa",
+                      "title": "To Do 1",
                       "isDone": false
                     }
                   ]
@@ -330,17 +323,17 @@ async function query(filterBy = {}) {
               ],
               "members": [
                 {
-                  "_id": "u10133",
+                  "_id": "u101",
                   "username": "Tal",
                   "fullname": "Tal Tarablus",
                   "imgUrl": "http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
                 }
               ],
-              "labelIds": ["1013"],
+              "labelIds": ["101"],
               "createdAt": 1590999730348,
               "dueDate": 16156215211,
               "byMember": {
-                "_id": "u10133",
+                "_id": "u101",
                 "username": "Tal",
                 "fullname": "Tal Tarablus",
                 "imgUrl": "http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
@@ -355,45 +348,45 @@ async function query(filterBy = {}) {
       ],
       "activities": [
         {
-          "id": "a1013",
-          "txt": "Changed font",
+          "id": "a101a",
+          "txt": "Updated Color",
           "createdAt": 154514,
           "byMember": {
-            "_id": "u1013",
+            "_id": "u101",
             "fullname": "Abi Abambi",
             "imgUrl": "http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
           },
           "task": {
-            "id": "c1013",
-            "title": "update Logo"
+            "id": "c101a",
+            "title": "Update Logo"
           }
         },
         {
-          "id": "a1023",
-          "txt": "changed due date",
+          "id": "a102a",
+          "txt": "Updated due date",
           "createdAt": 154514,
           "byMember": {
-            "_id": "u1013",
+            "_id": "u101",
             "fullname": "Abi Abambi",
             "imgUrl": "http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
           },
           "task": {
-            "id": "c1023",
-            "title": "Replace Logo"
+            "id": "c102a",
+            "title": "Update Logo"
           }
         },
         {
-          "id": "a1033",
-          "txt": "Achanges due date",
+          "id": "a103a",
+          "txt": "Added due date",
           "createdAt": 154514,
           "byMember": {
-            "_id": "u1013",
+            "_id": "u101",
             "fullname": "Abi Abambi",
             "imgUrl": "http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
           },
           "task": {
-            "id": "c1043",
-            "title": "update Logo"
+            "id": "c104a",
+            "title": "Update Logo"
           }
         }
       ]
