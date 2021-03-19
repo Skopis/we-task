@@ -15,7 +15,6 @@ export const taskStore = {
             return state.tasks;
         },
         getBoard(state) {
-            console.log('state.board at store 17', state.board)
             return state.board
         },
         getBoardId(state){
@@ -37,7 +36,6 @@ export const taskStore = {
             state.boards.splice(boardIdx, 1, boardToUpdate)
         },
         setBoard(state, { board }) {
-            console.log('board at set board', board)
             state.board = board;
         },
         setBoards(state, { boards }) {
@@ -87,15 +85,15 @@ export const taskStore = {
                 const boardToUpdate = await taskService.updateGroup(group, boardIdx, groupIdx)
                 commit ({type: 'updateBoard', boardIdx, boardToUpdate})
             }
-            catch{
-
+            catch (err) {
+                console.log('taskStore: Error in updateGroup', err)
+                throw err
             }
         },
         async loadBoard({ commit, state }, {boardId}) {
             try {
                 await this.dispatch({ type: "loadBoards" })
                 var boardIdx = state.boards.findIndex(b => b._id === boardId)
-                console.log('boardIdx', boardIdx)
                 commit({ type: 'setBoard', board: state.boards[boardIdx] })
             } catch (err) {
                 console.log('taskStore: Error in loadBoard', err)

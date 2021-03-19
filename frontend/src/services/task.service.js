@@ -12,7 +12,7 @@ export const taskService = {
   getEmptyBoard,
   addBoard,
   saveBoard,
-  saveGroup
+  updateGroup
 }
 
 
@@ -27,10 +27,11 @@ function getUser() {
   }
 }
 
-async function saveGroup(group, boardIdx, groupIdx){
+async function updateGroup(group, boardIdx, groupIdx){
   var boards = await storageService.query('boards')
   boards[boardIdx].groups.splice(groupIdx, 1, group)
   storageService._save('boards', boards)
+  return boards
 }
 
 async function saveBoard(boardToUpdate, boardIdx){
@@ -50,10 +51,11 @@ function getEmptyBoard() {
     '_id': utilService.makeId(),
     'title': 'New board',
     'createdAt': Date.now(),
-    'groups': {
+    'groups': [{
       'id': utilService.makeId(),
       'title': 'New Group',
-    }
+      'tasks':[]
+    }]
   }
 }
 

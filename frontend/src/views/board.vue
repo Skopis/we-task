@@ -43,7 +43,6 @@ export default {
   },
   async created() {
     const boardId= this.$route.params.boardId
-    console.log('boardId', boardId)
     await this.$store.dispatch({ type: "loadBoard", boardId });
   },
   methods: {
@@ -53,7 +52,8 @@ export default {
       });
     },
     async updateGroup(group){
-      await this.$store.dispatch({ type: "updateGroup", group});
+      console.log('group at board 55', group)
+      await this.$store.dispatch({ type: "updateGroup", group, board:this.boardToShow});
     },
     dragOff(ev) {
       console.log("Off");

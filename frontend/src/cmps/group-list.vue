@@ -79,7 +79,7 @@ export default {
     },
     updateGroup(){
       console.log('this.group', this.group)
-      this.$emit('updateGroup', JSON.parse(JSON.stringify(this.group)))
+      this.$emit('updateGroup', this.group)
     },
     updateTask(taskToUpdate) {
       // need to check if this changes the board
