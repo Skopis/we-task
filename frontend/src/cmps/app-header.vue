@@ -11,9 +11,9 @@
       <router-link to="/login">Login / Signup</router-link>
     </nav>
     <section className="loggedin-user" v-if="loggedInUser">
-      <router-link :to="`/user/${loggedInUser._id}`">
-        {{ loggedInUser.fullname }}
-      </router-link>
+      <h3>Welcome, {{loggedInUser.fullname}}</h3>
+      <!-- <router-link :to="`/user/${loggedInUser._id}`"> -->
+      <!-- </router-link> -->
     </section>
     <button class="btn">weTaskbigger</button>
   </header>

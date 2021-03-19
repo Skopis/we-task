@@ -107,13 +107,13 @@ export const taskStore = {
                 throw err
             }
         },
-        async updateBoard({commit}, {boardToUpdate}){
+        async updateBoard({state, commit}, {boardToUpdate}){
             try{
                 console.log('boardToUpdate at store 112', boardToUpdate)
                 var boardIdx = state.boards.findIndex(b => b._id === boardToUpdate._id)
                 await taskService.saveBoard(boardToUpdate, boardIdx)
                 const boards = await taskService.query();
-                commit({ type: 'updateBoard', board: boards[boardIdx] })
+                commit({ type: 'updateBoard', boardIdx, board: boards[boardIdx] })
             }
             catch (err) {
                 console.log('taskStore: Error in updateBoard', err)

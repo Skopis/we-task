@@ -1,6 +1,12 @@
 <template>
   <div class="board" v-if="boardToShow">
-    <h3>Board Name: {{ boardToShow.title }}</h3>
+
+<h3 @click="editBoardTitle" v-if="isTitleModalOpen===false">Board Name: {{ boardToShow.title }}</h3>
+    <form @submit.prevent="saveBoardTitle" v-if="isTitleModalOpen">
+      <input type="text" placeholder="Board Title" v-model="boardToShow.title">
+      <button>Save</button>
+    </form>
+
     <!-- <section class="task-list-container"> -->
     <draggable
       tag="section"
@@ -28,6 +34,11 @@ import draggable from "vuedraggable";
 
 export default {
   name: "board",
+  data(){
+    return{
+      isTitleModalOpen: false
+    }
+  },
   computed: {
     boardToShow(){
       return JSON.parse(JSON.stringify(this.$store.getters.getBoard))
@@ -46,6 +57,13 @@ export default {
     await this.$store.dispatch({ type: "loadBoard", boardId });
   },
   methods: {
+    editBoardTitle(){
+      this.isTitleModalOpen = true
+    },
+    saveBoardTitle(){
+      this.isTitleModalOpen = false
+      this.$store.dispatch({type:'updateBoard', boardToUpdate: this.boardToShow})
+    },
     async updateTask(taskToUpdate, group){
       await this.$store.dispatch({
         type: "addTask", task: taskToUpdate, group, boardId: this.boardToShow._id
