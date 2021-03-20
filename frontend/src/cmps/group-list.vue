@@ -22,6 +22,7 @@
       ghostClass="ghost"
       dragClass="chosen-drag"
       v-model="group.tasks"
+      handle="li"
     >
       <li v-for="task in group.tasks" :key="'C' + task.id">
         <task-preview :task="task" @updateTask="updateTask" :groupId="group.id" :style="{'backgroundColor': task.style.bgColor}"/>
