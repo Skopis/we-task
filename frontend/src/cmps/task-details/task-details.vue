@@ -6,7 +6,12 @@
         <h1>{{ task.title }}</h1>
         <p><span>in list</span></p>
       </header>
-      <labels-menu />
+      <div v-if="task.labels" class="">
+          <div v-for="label in task.labels" :key="label.id">
+            <div class="label" :class="label.color">Hello</div>
+          </div>
+      </div>
+      // <labels-menu @setLabel="setTaskLabel" />
       <div class="task-members">
         <h3>MEMBERS</h3>
         <div v-if="task.members">
@@ -74,6 +79,8 @@ export default {
         this.task = JSON.parse(JSON.stringify(task));
         let taskActivities = this.$store.getters.taskActivities;
         this.activities = taskActivities;
+            console.log(this.task)
+
       } catch (err) {
         console.log("Cannot find task", err);
       }
@@ -114,6 +121,9 @@ export default {
       });
       this.$router.go(-1);
     },
+    setTaskLabel(label){
+      this.$store.dispatch({type:'setTaskLabel', task:this.task, label})
+    }
   },
   computed: {
     boradId() {

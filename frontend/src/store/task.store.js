@@ -1,5 +1,5 @@
 import { taskService } from '../services/task.service'
-import {utilService} from'../services/util.service'
+import { utilService } from '../services/util.service'
 import { socketService, SOCKET_EVENT_CARD_ADDED } from '../services/socket.service'
 
 export const taskStore = {
@@ -8,9 +8,9 @@ export const taskStore = {
         tasks: [],
         board: null,
         boards: null,
-        currTaskActivities:null,
-        currGroupId:null,
-        currTask:null,
+        currTaskActivities: null,
+        currGroupId: null,
+        currTask: null,
     },
     getters: {
         tasks(state) {
@@ -19,28 +19,28 @@ export const taskStore = {
         getBoard(state) {
             return state.board
         },
-        getBoardId(state){
+        getBoardId(state) {
             return state.board._id
         },
         getBoards(state) {
             return state.boards
         },
-        taskActivities(state){
+        taskActivities(state) {
             return state.currTaskActivities
         },
-        getArchive(state){
+        getArchive(state) {
             return state.archive
         }
     },
     mutations: {
-        addBoard(state, {newBoard}){
+        addBoard(state, { newBoard }) {
             state.boards.push(newBoard)
             state.board = newBoard
         },
-        addGroup(state, {newGroup}){
+        addGroup(state, { newGroup }) {
             state.board.groups.push(newGroup)
         },
-        updateBoard(state, {boardIdx, board}){
+        updateBoard(state, { boardIdx, board }) {
             console.log('boardIdx at 36', boardIdx)
             console.log('board at 37', board)//was undefined
             state.boards.splice(boardIdx, 1, board)
@@ -57,34 +57,34 @@ export const taskStore = {
             console.log('task id after remove from storage:', taskId)
         },
         getTaskActivities(state, { taskId }) {
-            var activities = state.board.activities.find(activity =>{
-                if(activity.task.id === taskId) return activity
+            var activities = state.board.activities.find(activity => {
+                if (activity.task.id === taskId) return activity
             })
             state.currTaskActivities = [activities]
         },
-        saveCurrGroupId(state ,{ groupId }){  
-            state.currGroupId = groupId  
+        saveCurrGroupId(state, { groupId }) {
+            state.currGroupId = groupId
         },
-        archiveGroup(state, {group}){
+        archiveGroup(state, { group }) {
             state.archive.push(group)
             console.log('state.archive', state.archive)
         },
-        setArchive(state, {archive}){
+        setArchive(state, { archive }) {
             state.archive = archive
         },
-        archiveBoard(state, {board}){
+        archiveBoard(state, { board }) {
             console.log('board at store 75', board)
             state.archive.push(board)
         }
     },
     actions: {
-        async archiveBoard({state, commit}, {board}){
-            try{
+        async archiveBoard({ state, commit }, { board }) {
+            try {
                 var boardIdx = state.boards.findIndex(b => b._id === board._id)
                 await taskService.archiveBoard(board, boardIdx)
                 const boards = await taskService.query();
-                
-                commit({ type: 'archiveBoard', board})
+
+                commit({ type: 'archiveBoard', board })
                 commit({ type: 'setBoards', boards })
             }
             catch (err) {
@@ -92,41 +92,41 @@ export const taskStore = {
                 throw err
             }
         },
-        async archiveGroup({state, commit},{group, boardId}){
+        async archiveGroup({ state, commit }, { group, boardId }) {
             try {
                 var boardIdx = state.boards.findIndex(b => b._id === boardId)
                 var groupIdx = state.board.groups.findIndex(g => g.id === group.id)
                 await taskService.archiveGroup(group, groupIdx, boardIdx)
                 const boards = await taskService.query();
-                commit({ type: 'archiveGroup', group})
+                commit({ type: 'archiveGroup', group })
                 commit({ type: 'setBoard', board: boards[boardIdx] })
             } catch (err) {
                 console.log('taskStore: Error in archiveGroup', err)
                 throw err
             }
         },
-        async addGroup({state, commit}, {boardId}){
-            try{
+        async addGroup({ state, commit }, { boardId }) {
+            try {
                 var boardIdx = state.boards.findIndex(b => b._id === boardId)
                 const newGroup = taskService.getEmptyGroup()
                 await taskService.addGroup(newGroup, boardIdx)
-                commit({type:'addGroup', newGroup})
+                commit({ type: 'addGroup', newGroup })
             } catch (err) {
                 console.log('taskStore: Error in addGroup', err)
                 throw err
             }
         },
-        async addBoard({commit}){
-            try{
+        async addBoard({ commit }) {
+            try {
                 const newBoard = taskService.getEmptyBoard()
                 await taskService.addBoard(newBoard)
-                commit({type:'addBoard', newBoard})
+                commit({ type: 'addBoard', newBoard })
             } catch (err) {
                 console.log('taskStore: Error in addBoard', err)
                 throw err
             }
         },
-        async addTask({ commit, state }, { task, group, boardId}) {
+        async addTask({ commit, state }, { task, group, boardId }) {
             try {
                 var boardIdx = state.boards.findIndex(b => b._id === boardId)
                 var groupIdx = state.board.groups.findIndex(g => g.id === group.id)
@@ -144,22 +144,22 @@ export const taskStore = {
                 throw err
             }
         },
-        async updateGroup({state, commit}, {group, boardId}){
-            try{
+        async updateGroup({ state, commit }, { group, boardId }) {
+            try {
                 console.log('state.boards at store 85', state.boards)
                 var boardIdx = state.boards.findIndex(b => b._id === boardId)
                 console.log('boardIdx at store', boardIdx)
                 var groupIdx = state.board.groups.findIndex(g => g.id === group.id)
                 await taskService.updateGroup(group, boardIdx, groupIdx)
                 const boards = await taskService.query();
-                commit ({type: 'updateBoard', boardIdx, board: boards[boardIdx]})
+                commit({ type: 'updateBoard', boardIdx, board: boards[boardIdx] })
             }
             catch (err) {
                 console.log('taskStore: Error in updateGroup', err)
                 throw err
             }
         },
-        async loadArchive({ commit }){
+        async loadArchive({ commit }) {
             try {
                 const archive = await taskService.loadArchive()
                 commit({ type: 'setArchive', archive })
@@ -168,7 +168,7 @@ export const taskStore = {
                 throw err
             }
         },
-        async loadBoard({ commit, state }, {boardId}) {
+        async loadBoard({ commit, state }, { boardId }) {
             try {
                 await this.dispatch({ type: "loadBoards" })
                 var boardIdx = state.boards.findIndex(b => b._id === boardId)
@@ -178,8 +178,8 @@ export const taskStore = {
                 throw err
             }
         },
-        async updateBoard({state, commit}, {boardToUpdate}){
-            try{
+        async updateBoard({ state, commit }, { boardToUpdate }) {
+            try {
                 console.log('boardToUpdate at store 112', boardToUpdate)
                 var boardIdx = state.boards.findIndex(b => b._id === boardToUpdate._id)
                 await taskService.saveBoard(boardToUpdate, boardIdx)
@@ -201,15 +201,15 @@ export const taskStore = {
                 throw err
             }
         },
-        async removeTask({ commit, state}, { task }) {
+        async removeTask({ commit, state }, { task }) {
             var boardIdx = state.boards.findIndex(b => b._id === state.board._id)
             var groupIdx = state.board.groups.findIndex(g => g.id === state.currGroupId)
             var taskIdx = state.board.groups[groupIdx].tasks.findIndex(t => t.id === task.id)
 
             try {
-                const boards= await taskService.remove(boardIdx, groupIdx, taskIdx);
+                const boards = await taskService.remove(boardIdx, groupIdx, taskIdx);
                 const currBoard = boards[boardIdx]
-                commit({ type: 'setBoard', board:currBoard })
+                commit({ type: 'setBoard', board: currBoard })
             } catch (err) {
                 console.log('taskStore: Error in removeTask', err)
                 throw err
@@ -220,33 +220,33 @@ export const taskStore = {
             commit({ type: "getTaskActivities", taskId: task.id })
             return task
         },
-        async addCheckList({commit, state} ,{checkList, task} ){
+        async addCheckList({ commit, state }, { checkList, task }) {
             checkList.id = utilService.makeId()
             checkList.todos.forEach(todo => {
                 todo.id = utilService.makeId()
             });
-            if(!task.checklists || !task.checklists.length) task.checklists = [checkList]
+            if (!task.checklists || !task.checklists.length) task.checklists = [checkList]
             else task.checklists.push(checkList)
-            
+
             var boardIdx = state.boards.findIndex(b => b._id === state.board._id)
             var groupIdx = state.board.groups.findIndex(g => g.id === state.currGroupId)
             var taskIdx = state.board.groups[groupIdx].tasks.findIndex(t => t.id === task.id)
 
-            try{
+            try {
                 await taskService.add(task, groupIdx, taskIdx)
                 const boards = await taskService.query();
                 commit({ type: 'setBoard', board: boards[boardIdx] })
 
-            } catch (err){
+            } catch (err) {
                 console.log('Cannot save checklist', err)
             }
         },
-        async saveComment({ commit, state }, {task, comment}){
-            
-            if(!comment.id){
+        async saveComment({ commit, state }, { task, comment }) {
+
+            if (!comment.id) {
                 comment.id = utilService.makeId();
                 comment.createdAt = Date.now()
-                if(!task.comments || !task.comments.length) task.comments = [comment]
+                if (!task.comments || !task.comments.length) task.comments = [comment]
                 else task.comments.push(comment)
             }
             else {
@@ -254,27 +254,49 @@ export const taskStore = {
                 task.comments.splice(commentIdx, 1, comment)
             }
             var boardIdx = state.boards.findIndex(b => b._id === state.board._id)
-            const groupId = await taskService.getGroupId()   
+            const groupId = await taskService.getGroupId()
             var groupIdx = state.board.groups.findIndex(g => g.id === JSON.parse(groupId))
-            
+
             var taskIdx = state.board.groups[groupIdx].tasks.findIndex(t => t.id === task.id)
 
-            try{
+            try {
                 await taskService.add(task, groupIdx, taskIdx, boardIdx)
                 const boards = await taskService.query();
                 commit({ type: 'setBoard', board: boards[boardIdx] })
 
-            } catch (err){
+            } catch (err) {
                 console.log('Cannot save comment', err)
             }
 
         },
-        updatePlaces({ state, commit }, { group }){
-            
+        updatePlaces({ state, commit }, { group }) {
+
         },
-        updatecurrGroupIdSession({commit}, {status, groupId}){
+        updatecurrGroupIdSession({ commit }, { status, groupId }) {
             const currGroupId = taskService.handleGroupInSession(status, groupId)
-            commit({type:'saveCurrGroupId', groupId:currGroupId})
+            commit({ type: 'saveCurrGroupId', groupId: currGroupId })
+        },
+        async setTaskLabel({ commit, state }, { task,label }){
+            label.id = utilService.makeId()
+            if(!task.labels || !task.labels.length){
+                task.labels = [label]
+            }else{
+                task.labels.push(label)
+            }
+            console.log('labels:', task.labels)
+            var boardIdx = state.boards.findIndex(b => b._id === state.board._id)
+            const groupId = await taskService.getGroupId()
+            var groupIdx = state.board.groups.findIndex(g => g.id === JSON.parse(groupId))
+            var taskIdx = state.board.groups[groupIdx].tasks.findIndex(t => t.id === task.id)
+
+            try {
+                await taskService.add(task, groupIdx, taskIdx, boardIdx)
+                const boards = await taskService.query();
+                commit({ type: 'setBoard', board: boards[boardIdx] })
+
+            } catch (err) {
+                console.log('Cannot save comment', err)
+            }
         }
     }
 }

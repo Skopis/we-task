@@ -18,7 +18,7 @@
     >
       <div v-for="group in boardToShow.groups" :key="'L' + group.id">
         <group-list :group="group" @updateTask="updateTask" @updateGroup="updateGroup" @archiveGroup="archiveGroup" @openModal="setMenuPos"/>
-        <group-menu  :group="group" :menuPos="menuPos" v-if="setMenuPos" @archiveGroup="archiveGroup" @updateGroupCover="updateGroupCover" />
+        <group-menu  :group="group" :menuPos="menuPos"  />
       </div>
       <!-- </section> -->
       <button class="btn" @click="addGroup">Add a New Group</button>
@@ -29,6 +29,8 @@
     </pre>
   </div>
 </template>
+
+:v-if="setMenuPos" @archiveGroup="archiveGroup" @updateGroupCover="updateGroupCover"
 
 <script>
 import groupList from "../cmps/group-list.vue";
