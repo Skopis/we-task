@@ -8,7 +8,7 @@
         <input type="text" placeholder="Group Title" v-model="group.title" />
         <button>Save</button>
       </form>
-      <button class="btn" @click="toggleGroupMenuModal">
+      <button class="btn" @click="toggleGroupMenuModal($event)">
         <img src="../assets/icons/3dots.png" alt="" />
       </button>
       
@@ -54,9 +54,11 @@ export default {
       this.isGroupMenuModalOpen = false;
       this.$emit("archiveGroup", groupToArchive);
     },
-    toggleGroupMenuModal() {
+    toggleGroupMenuModal(ev) {
+      console.log(ev)
       this.isGroupMenuModalOpen = !this.isGroupMenuModalOpen;
       this.$emit('toggleGroupMenuModal', this.isGroupMenuModalOpen, this.group.id)
+      this.$emit('openModal', this.group.id)
     },
     saveGroupTitle() {
       this.isTitleModalOpen = false;
