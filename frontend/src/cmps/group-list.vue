@@ -1,13 +1,17 @@
 <template>
-  <div class="group-list" :style="{'backgroundColor': group.style.bgColor}">
+  <div class="group-list" :style="{ backgroundColor: group.style.bgColor }">
     <div class="flex space-between align-center">
-    <h3 @click="editGroupTitle" v-if="isTitleModalOpen===false">{{ group.title }}</h3>
-    <form @submit.prevent="saveGroupTitle" v-if="isTitleModalOpen">
-      <input type="text" placeholder="Group Title" v-model="group.title">
-      <button>Save</button>
-    </form>
-    <button class="btn" @click="toggleGroupMenuModal"><img src="../assets/icons/3dots.png" alt=""></button>
-    <group-menu v-if="isGroupMenuModalOpen" :group="group" @archiveGroup="archiveGroup" @updateGroupCover="updateGroupCover"/>
+      <h3 @click="editGroupTitle" v-if="isTitleModalOpen === false">
+        {{ group.title }}
+      </h3>
+      <form @submit.prevent="saveGroupTitle" v-if="isTitleModalOpen">
+        <input type="text" placeholder="Group Title" v-model="group.title" />
+        <button>Save</button>
+      </form>
+      <button class="btn" @click="toggleGroupMenuModal">
+        <img src="../assets/icons/3dots.png" alt="" />
+      </button>
+      
     </div>
     <task-quick-edit v-if="isAddModalOpen" @updateTask="updateTask" />
     <draggable
@@ -19,7 +23,11 @@
       :move="moveCheck"
     >
       <li v-for="task in group.tasks" :key="'C' + task.id">
-        <task-preview :task="task" @updateTask="updateTask" :groupId="group.id" />
+        <task-preview
+          :task="task"
+          @updateTask="updateTask"
+          :groupId="group.id"
+        />
       </li>
       <button class="btn" @click="openAddModal">Add a new Task</button>
     </draggable>
@@ -31,7 +39,6 @@
 import taskPreview from "./task-preview.vue";
 import TaskQuickEdit from "./task-quick-edit.vue";
 import draggable from "vuedraggable";
-import groupMenu from './menu/group-menu'
 
 export default {
   name: "group-list",
@@ -58,19 +65,20 @@ export default {
     },
   },
   methods: {
-    archiveGroup(groupToArchive){
-      this.isGroupMenuModalOpen = false
-      this.$emit('archiveGroup', groupToArchive)
+    archiveGroup(groupToArchive) {
+      this.isGroupMenuModalOpen = false;
+      this.$emit("archiveGroup", groupToArchive);
     },
-    toggleGroupMenuModal(){
-      this.isGroupMenuModalOpen = !this.isGroupMenuModalOpen
+    toggleGroupMenuModal() {
+      this.isGroupMenuModalOpen = !this.isGroupMenuModalOpen;
+      this.$emit('openModal', this.group.id, this.isGroupMenuModalOpen)
     },
-    saveGroupTitle(){
-      this.isTitleModalOpen = false
-      this.updateGroup()
+    saveGroupTitle() {
+      this.isTitleModalOpen = false;
+      this.updateGroup();
     },
-    editGroupTitle(){
-      this.isTitleModalOpen = true
+    editGroupTitle() {
+      this.isTitleModalOpen = true;
     },
     moveCheck() {
       this.$emit("changedPlaces", this.group1);
@@ -90,26 +98,26 @@ export default {
     openAddModal() {
       this.isAddModalOpen = true;
     },
-    updateGroup(){
-      console.log('this.group at group-list 81', this.group)
-      this.$emit('updateGroup', this.group)
+    updateGroup() {
+      console.log("this.group at group-list 81", this.group);
+      this.$emit("updateGroup", this.group);
     },
     updateTask(taskToUpdate) {
       // need to check if this changes the board
       this.isAddModalOpen = false;
       this.$emit("updateTask", taskToUpdate, this.group);
     },
-    updateGroupCover(color){
-      var group=JSON.parse(JSON.stringify(this.group)) 
-      group.style.bgColor = color
-      this.$emit('updateGroup', group)
-    }
+    updateGroupCover(color) {
+      var group = JSON.parse(JSON.stringify(this.group));
+      group.style.bgColor = color;
+      this.$emit("updateGroup", group);
+    },
+   
   },
   components: {
     taskPreview,
     TaskQuickEdit,
     draggable,
-    groupMenu
   },
 };
 </script>

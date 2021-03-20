@@ -6,6 +6,7 @@
         <h1>{{ task.title }}</h1>
         <p><span>in list</span></p>
       </header>
+      <labels-menu />
       <div class="task-members">
         <h3>MEMBERS</h3>
         <div v-if="task.members">
@@ -53,6 +54,7 @@ import taskComment from "./task-comment.cmp";
 import taskDevTools from "./task-dev-tools.cmp";
 import checkListAdd from "./check-list-add.cmp";
 import taskTodo from "./task-todo.cmp";
+import labelsMenu from '../menu/labels-menu';
 
 export default {
   data() {
@@ -134,6 +136,7 @@ export default {
     taskDevTools,
     checkListAdd,
     taskTodo,
+    labelsMenu
   },
 };
 </script>

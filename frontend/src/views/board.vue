@@ -17,7 +17,8 @@
       class="task-list-container"
     >
       <div v-for="group in boardToShow.groups" :key="'L' + group.id">
-        <group-list :group="group" @updateTask="updateTask" @updateGroup="updateGroup" @archiveGroup="archiveGroup"/>
+        <group-list :group="group" @updateTask="updateTask" @updateGroup="updateGroup" @archiveGroup="archiveGroup" @openModal="setMenuPos"/>
+        <group-menu  :group="group" :menuPos="menuPos" v-if="setMenuPos" @archiveGroup="archiveGroup" @updateGroupCover="updateGroupCover" />
       </div>
       <!-- </section> -->
       <button class="btn" @click="addGroup">Add a New Group</button>
@@ -32,12 +33,15 @@
 <script>
 import groupList from "../cmps/group-list.vue";
 import draggable from "vuedraggable";
+import groupMenu from "../cmps/menu/group-menu";
+
 
 export default {
   name: "board",
   data(){
     return{
-      isTitleModalOpen: false
+      isTitleModalOpen: false,
+      menuPos:null,
     }
   },
   computed: {
@@ -53,6 +57,7 @@ export default {
       };
     },
   },
+
   async created() {
     const boardId= this.$route.params.boardId
     await this.$store.dispatch({ type: "loadBoard", boardId });
@@ -94,10 +99,21 @@ export default {
     saveBoard() {
       this.$store.dispatch({ type: "setBoard", board: this.boardToShow });
     },
+    setMenuPos(groupId, isGroupMenuModalOpen){
+      const groupIdx = this.boardToShow.groups.findIndex(group => group.id === groupId)
+        var amount = 276*(groupIdx+1)-12
+      if(groupIdx  < 1){
+        amount -=12
+      }
+      this.menuPos = {left:amount+'px'}
+     return isGroupMenuModalOpen
+    }
   },
   components: {
     groupList,
     draggable,
+    groupMenu,
+
   },
 };
 </script>
