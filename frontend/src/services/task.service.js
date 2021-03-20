@@ -183,7 +183,9 @@ async function query(filterBy = {}) {
               "title": "Add Samples"
             }
           ],
-          "style": {}
+          "style": {
+            "bgColor": "#26de81"
+          }
         },
         {
           "id": "g102",
@@ -244,7 +246,9 @@ async function query(filterBy = {}) {
               }
             }
           ],
-          "style": {}
+          "style": {
+            "bgColor": "#26de81"
+          }
         }
       ],
       "activities": [
