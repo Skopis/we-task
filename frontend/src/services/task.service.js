@@ -18,6 +18,8 @@ export const taskService = {
   archiveBoard,
   getEmptyGroup,
   getEmptyBoard,
+  handleGroupInSession,
+  getGroupId
 }
 
 
@@ -32,18 +34,35 @@ function getUser() {
   }
 }
 
-function getEmptyGroup(){
+function getEmptyGroup() {
   return {
     'id': utilService.makeId(),
     'title': 'New Group',
     'tasks': []
   }
 }
-async function loadArchive(){
+function handleGroupInSession(status, groupId) {
+ 
+  var currGroup = groupId
+  if (status === 'saveToSession') {
+    storageService.saveToSessionStorage('groupId', groupId)
+    return currGroup
+  }
+  else if (status === 'removeFromSession') {
+    currGroup = storageService.removeSessionStorage('groupId')
+    return currGroup = null
+  }
+
+}
+async function getGroupId() {
+  const groupId =  storageService.getFromSessionStorage('groupId')
+  return groupId
+}
+async function loadArchive() {
   const archive = await storageService.query('archive')
   return archive
 }
-async function archiveBoard(board, boardIdx){
+async function archiveBoard(board, boardIdx) {
   var boards = await storageService.query('boards')
   boards.splice(boardIdx, 1)
   storageService._save('boards', boards)
@@ -56,7 +75,7 @@ async function archiveBoard(board, boardIdx){
   storageService._save('archive', archive)
 }
 
-async function archiveGroup(group, groupIdx, boardIdx){
+async function archiveGroup(group, groupIdx, boardIdx) {
   var boards = await storageService.query('boards')
   boards[boardIdx].groups.splice(groupIdx, 1)
   storageService._save('boards', boards)
@@ -66,20 +85,20 @@ async function archiveGroup(group, groupIdx, boardIdx){
   else archive = [group]
   storageService._save('archive', archive)
 }
-async function addGroup(newGroup, boardIdx){
+async function addGroup(newGroup, boardIdx) {
   var boards = await storageService.query('boards')
   boards[boardIdx].groups.push(newGroup)
   storageService._save('boards', boards)
 }
 
-async function updateGroup(group, boardIdx, groupIdx){
+async function updateGroup(group, boardIdx, groupIdx) {
   console.log('boardIdx at service', boardIdx)
   var boards = await storageService.query('boards')
   boards[boardIdx].groups.splice(groupIdx, 1, group)
   storageService._save('boards', boards)
 }
 
-async function saveBoard(boardToUpdate, boardIdx){
+async function saveBoard(boardToUpdate, boardIdx) {
   console.log('boardIdx at service 39', boardIdx)
   var boards = await storageService.query('boards')
   boards.splice(boardIdx, 1, boardToUpdate)
@@ -100,19 +119,19 @@ function getEmptyBoard() {
     'groups': [{
       'id': utilService.makeId(),
       'title': 'New Group',
-      'tasks':[]
+      'tasks': []
     }]
   }
 }
 
 async function remove(boardIdx, groupIdx, taskIdx) {
   // return httpService.delete(`task/${taskId}`)
-  try{
+  try {
     let boards = await query()
     boards[boardIdx].groups[groupIdx].tasks.splice(taskIdx, 1)
     storageService._save('boards', boards)
     return boards
-  } catch (err){
+  } catch (err) {
     console.log('Cannot get boards', err)
   }
 }
@@ -167,6 +186,11 @@ async function query(filterBy = {}) {
           "_id": "u101",
           "fullname": "Tal Tarablus",
           "imgUrl": "https://www.google.com"
+        },
+        {
+          "_id": "u102",
+          "fullname": "Bibi Netanyahu",
+          "imgUrl": ""
         }
       ],
       "groups": [
@@ -230,6 +254,11 @@ async function query(filterBy = {}) {
                   "username": "Tal",
                   "fullname": "Tal Tarablus",
                   "imgUrl": "http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
+                },{
+                  "_id": "u102",
+                  "username": "BiBi",
+                  "fullname": "Bibi Netanyahu",
+                  "imgUrl": ""
                 }
               ],
               "labelIds": ["101"],

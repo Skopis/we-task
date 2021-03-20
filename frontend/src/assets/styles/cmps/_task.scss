@@ -88,7 +88,10 @@
         }
         span{
             color:$clr4;
-            
+        }
+        .task-desc{
+            color: pink;
+            display: block;
         }
 
         .description-area{
@@ -119,7 +122,16 @@
         .comment-txt{
             margin-left: 55px;
         }
-
+        .task-members{
+            :not(h3){
+                float: left;
+                :not(:first-child){
+                    margin-left:5px;
+                }
+            }
+            // border: 1px solid black;
+         
+        }
 
 
     }

@@ -9,9 +9,7 @@
       <div class="task-members">
         <h3>MEMBERS</h3>
         <div v-if="task.members">
-          <div v-for="member in task.members" :key="member._id">
-            <img class="avatar" :src="member.imgUrl" alt="" />
-          </div>
+            <member-avatar :members="task.members" :size="40"   />
         </div>
       </div>
       <div class="task-desc">
@@ -19,10 +17,10 @@
         <p v-if="task.description">{{ task.description }}</p>
         <p v-else class="description-area">Add a more detailed description</p>
       </div>
-      <div class="task-checklists" >
+      <div class="task-checklists">
         <check-list-add @saveCheckList="saveCheckList" v-if="checkListModal" />
         <div v-if="task.checklists">
-        <h3>Check List</h3>
+          <h3>Check List</h3>
           <div v-for="checklist in task.checklists" :key="checklist.id">
             <task-todo :checklist="checklist" />
           </div>
@@ -43,18 +41,18 @@
           <task-comment :comment="comment" @saveComment="saveComment" />
         </div>
       </div>
-      <task-dev-tools @checkList="createCheckList" @removeTask="removeTask"/>
+      <task-dev-tools @checkList="createCheckList" @removeTask="removeTask" />
     </div>
   </div>
 </template>
 
 <script>
 import taskActivities from "./task-activities.cmp";
+import memberAvatar from "./member-avatar.cmp";
 import taskComment from "./task-comment.cmp";
 import taskDevTools from "./task-dev-tools.cmp";
 import checkListAdd from "./check-list-add.cmp";
 import taskTodo from "./task-todo.cmp";
-import Avatar from 'vue-avatar'
 
 export default {
   data() {
@@ -62,7 +60,7 @@ export default {
       task: null,
       activities: null,
       checkListModal: false,
-      comment:{txt:''},
+      comment: { txt: "" },
     };
   },
   methods: {
@@ -90,22 +88,30 @@ export default {
         task: this.task,
       });
     },
-    addComment(){
-      console.log('comment', this.comment.txt)
-      this.$store.dispatch({type:'saveComment', task:this.task, comment:this.comment})
-      this.comment = {txt:''};
+    addComment() {
+      console.log("comment", this.comment.txt);
+      this.$store.dispatch({
+        type: "saveComment",
+        task: this.task,
+        comment: this.comment,
+      });
+      this.comment = { txt: "" };
     },
-    saveComment(comment){
-      console.log('edit comment',comment)
-      this.$store.dispatch({type:'saveComment', task:this.task, comment})
+    saveComment(comment) {
+      console.log("edit comment", comment);
+      this.$store.dispatch({ type: "saveComment", task: this.task, comment });
     },
-    removeTask(){
-      this.$store.dispatch('removeTask', {task:this.task})
+    removeTask() {
+      this.$store.dispatch("removeTask", { task: this.task });
     },
     closeDetailsModal() {
+      this.$store.dispatch({
+        type: "updatecurrGroupIdSession",
+        status: "removeFromSession",
+        groupId: null,
+      });
       this.$router.go(-1);
     },
-
   },
   computed: {
     boradId() {
@@ -116,19 +122,18 @@ export default {
     this.loadTask();
   },
   watch: {
-    "$route.params.toyId"(id) {
+    "$route.params.taskId"(id) {
       console.log("Changed to", id);
       this.loadTask();
     },
   },
   components: {
     taskActivities,
+    memberAvatar,
     taskComment,
     taskDevTools,
     checkListAdd,
     taskTodo,
-    Avatar
-
   },
 };
 </script>

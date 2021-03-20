@@ -7,6 +7,9 @@ export const storageService = {
     put,
     remove,
     postMany,
+    saveToSessionStorage,
+    removeSessionStorage,
+    getFromSessionStorage,
     _save
 }
 
@@ -58,6 +61,17 @@ function remove(entityType, entityId) {
             entities.splice(idx, 1)
             _save(entityType, entities)
         })
+}
+
+function saveToSessionStorage(entityType, entities){
+    sessionStorage.setItem(entityType, JSON.stringify(entities))
+}
+function removeSessionStorage(key){
+    sessionStorage.removeItem(key)
+}
+function getFromSessionStorage(entityType){
+    return sessionStorage.getItem(entityType);
+
 }
 
 

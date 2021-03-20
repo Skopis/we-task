@@ -10,6 +10,7 @@ export const taskStore = {
         boards: null,
         currTaskActivities:null,
         currGroupId:null,
+        currTask:null,
     },
     getters: {
         tasks(state) {
@@ -253,7 +254,9 @@ export const taskStore = {
                 task.comments.splice(commentIdx, 1, comment)
             }
             var boardIdx = state.boards.findIndex(b => b._id === state.board._id)
-            var groupIdx = state.board.groups.findIndex(g => g.id === state.currGroupId)
+            const groupId = await taskService.getGroupId()   
+            var groupIdx = state.board.groups.findIndex(g => g.id === JSON.parse(groupId))
+            
             var taskIdx = state.board.groups[groupIdx].tasks.findIndex(t => t.id === task.id)
 
             try{
@@ -268,6 +271,10 @@ export const taskStore = {
         },
         updatePlaces({ state, commit }, { group }){
             
+        },
+        updatecurrGroupIdSession({commit}, {status, groupId}){
+            const currGroupId = taskService.handleGroupInSession(status, groupId)
+            commit({type:'saveCurrGroupId', groupId:currGroupId})
         }
     }
 }
