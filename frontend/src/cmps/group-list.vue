@@ -19,7 +19,7 @@
       :move="moveCheck"
     >
       <li v-for="task in group.tasks" :key="'C' + task.id">
-        <task-preview :task="task" @updateTask="updateTask" :groupId="group.id" />
+        <task-preview :task="task" @updateTask="updateTask" :groupId="group.id" :style="{'backgroundColor': task.style.bgColor}"/>
       </li>
       <button class="btn" @click="openAddModal">Add a new Task</button>
     </draggable>
@@ -100,9 +100,8 @@ export default {
       this.$emit("updateTask", taskToUpdate, this.group);
     },
     updateGroupCover(color){
-      var group=JSON.parse(JSON.stringify(this.group)) 
-      group.style.bgColor = color
-      this.$emit('updateGroup', group)
+      this.group.style.bgColor = color
+      this.updateGroup()
     }
   },
   components: {

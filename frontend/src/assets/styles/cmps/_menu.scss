@@ -3,3 +3,15 @@
     background-color: rgb(48, 47, 47);
     z-index:1
 }
+
+.board{
+
+    button img {
+        width: 25px;
+        opacity: 0.7;
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+}

@@ -38,7 +38,10 @@ function getEmptyGroup() {
   return {
     'id': utilService.makeId(),
     'title': 'New Group',
-    'tasks': []
+    'tasks': [],
+    "style": {
+      "bgColor": "#dff0ea"
+    }
   }
 }
 function handleGroupInSession(status, groupId) {
@@ -115,6 +118,9 @@ function getEmptyBoard() {
   return {
     '_id': utilService.makeId(),
     'title': 'New board',
+    "style": {
+      "bgColor": "#ffff"
+    },
     'createdAt': Date.now(),
     'groups': [{
       'id': utilService.makeId(),
@@ -173,7 +179,9 @@ async function query(filterBy = {}) {
         "fullname": "Abi Abambi",
         "imgUrl": "http://some-img"
       },
-      "style": {},
+      "style": {
+        "bgColor": "#ffff"
+      },
       "labels": [
         {
           "id": "l101",
@@ -200,15 +208,21 @@ async function query(filterBy = {}) {
           "tasks": [
             {
               "id": "c101",
-              "title": "Replace logo"
+              "title": "Replace logo",
+              "style": {
+                "bgColor": "#ffff"
+              }
             },
             {
               "id": "c102",
-              "title": "Add Samples"
+              "title": "Add Samples",
+              "style": {
+                "bgColor": "#ffff"
+              }
             }
           ],
           "style": {
-            "bgColor": "#26de81"
+            "bgColor": "#dff0ea"
           }
         },
         {
@@ -217,11 +231,17 @@ async function query(filterBy = {}) {
           "tasks": [
             {
               "id": "c103",
-              "title": "Do that"
+              "title": "Do that",
+              "style": {
+                "bgColor": "#ffff"
+              }
             },
             {
               "id": "c104",
               "title": "Help me",
+              "style": {
+                "bgColor": "#ffff"
+              },
               "description": "description",
               "comments": [
                 {
@@ -270,13 +290,10 @@ async function query(filterBy = {}) {
                 "fullname": "Tal Tarablus",
                 "imgUrl": "http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
               },
-              "style": {
-                "bgColor": "#26de81"
-              }
             }
           ],
           "style": {
-            "bgColor": "#26de81"
+            "bgColor": "#dff0ea"
           }
         }
       ],
@@ -292,7 +309,7 @@ async function query(filterBy = {}) {
           },
           "task": {
             "id": "c101",
-            "title": "Replace Logo"
+            "title": "Replace Logo",
           }
         },
         {
@@ -334,7 +351,9 @@ async function query(filterBy = {}) {
         "fullname": "Abi Abambi",
         "imgUrl": "http://some-img"
       },
-      "style": {},
+      "style": {
+        "bgColor": "#ffff"
+      },
       "labels": [
         {
           "id": "l102",
@@ -356,14 +375,22 @@ async function query(filterBy = {}) {
           "tasks": [
             {
               "id": "c101a",
-              "title": "Update logo"
+              "title": "Update logo",
+              "style": {
+                "bgColor": "#ffff"
+              }
             },
             {
               "id": "c102a",
-              "title": "Update Samples"
+              "title": "Update Samples",
+              "style": {
+                "bgColor": "#ffff"
+              }
             }
           ],
-          "style": {}
+          "style": {
+            "bgColor": "#dff0ea"
+          }
         },
         {
           "id": "g102a",
@@ -371,11 +398,17 @@ async function query(filterBy = {}) {
           "tasks": [
             {
               "id": "c103a",
-              "title": "Do that"
+              "title": "Do that",
+              "style": {
+                "bgColor": "#ffff"
+              }
             },
             {
               "id": "c104a",
               "title": "Assist me",
+              "style": {
+                "bgColor": "#ffff"
+              },
               "description": "description",
               "comments": [
                 {
@@ -419,12 +452,11 @@ async function query(filterBy = {}) {
                 "fullname": "Tal Tarablus",
                 "imgUrl": "http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
               },
-              "style": {
-                "bgColor": "#26de81"
-              }
             }
           ],
-          "style": {}
+          "style": {
+            "bgColor": "#dff0ea"
+          }
         }
       ],
       "activities": [

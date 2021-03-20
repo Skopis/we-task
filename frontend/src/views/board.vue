@@ -1,12 +1,13 @@
 <template>
-  <div class="board" v-if="boardToShow">
+  <div class="board" v-if="boardToShow" :style="{'backgroundColor': boardToShow.style.bgColor}">
 
-<h2 @click="editBoardTitle" v-if="isTitleModalOpen===false">{{ boardToShow.title }}</h2>
+  <h2 @click="editBoardTitle" v-if="isTitleModalOpen===false">{{ boardToShow.title }}</h2>
     <form @submit.prevent="saveBoardTitle" v-if="isTitleModalOpen">
       <input type="text" placeholder="Board Title" v-model="boardToShow.title">
       <button>Save</button>
     </form>
-
+    <button class="btn" @click="toggleBoardMenuModal"><img src="../assets/icons/3dots.png" alt=""></button>
+    <board-menu v-if="isBoardMenuModalOpen" :board="boardToShow" @updateBoardCover="updateBoardCover"/>
     <!-- <section class="task-list-container"> -->
     <draggable
       tag="section"
@@ -32,12 +33,14 @@
 <script>
 import groupList from "../cmps/group-list.vue";
 import draggable from "vuedraggable";
+import boardMenu from '../cmps/menu/board-menu.vue';
 
 export default {
   name: "board",
   data(){
     return{
-      isTitleModalOpen: false
+      isTitleModalOpen: false,
+      isBoardMenuModalOpen: false,
     }
   },
   computed: {
@@ -58,6 +61,15 @@ export default {
     await this.$store.dispatch({ type: "loadBoard", boardId });
   },
   methods: {
+    updateBoardCover(color){
+      console.log('this.boardToShow before', this.boardToShow)
+      this.boardToShow.style.bgColor = color
+      console.log('this.boardToShow after', this.boardToShow)
+      this.$store.dispatch({type: 'updateBoard', boardToUpdate: this.boardToShow})
+    },
+    toggleBoardMenuModal(){
+      this.isBoardMenuModalOpen = !this.isBoardMenuModalOpen
+    },
     archiveGroup(groupToArchive){
       this.$store.dispatch({type: 'archiveGroup', group: groupToArchive, boardId: this.boardToShow._id})
     },
@@ -98,6 +110,7 @@ export default {
   components: {
     groupList,
     draggable,
+    boardMenu,
   },
 };
 </script>

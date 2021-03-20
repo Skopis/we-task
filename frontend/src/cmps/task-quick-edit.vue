@@ -18,7 +18,13 @@ export default{
         }
     },
     created(){
-        if(!this.task) this.taskToEdit = {id: '', title: ''}
+        if(!this.task) this.taskToEdit = {
+            'id': '',
+            'title': '',
+            'style': {
+                "bgColor": "#ffff"
+            }
+        }
         else this.taskToEdit = this.task
     },
     methods:{
