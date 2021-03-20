@@ -44,6 +44,7 @@ export const taskStore = {
             console.log('boardIdx at 36', boardIdx)
             console.log('board at 37', board)//was undefined
             state.boards.splice(boardIdx, 1, board)
+            state.board = board
         },
         setBoard(state, { board }) {
             // console.log('board at set board', board)
@@ -203,8 +204,9 @@ export const taskStore = {
                 console.log('boardToUpdate at store 112', boardToUpdate)
                 var boardIdx = state.boards.findIndex(b => b._id === boardToUpdate._id)
                 await taskService.saveBoard(boardToUpdate, boardIdx)
-                const boards = await taskService.query();
-                commit({ type: 'updateBoard', boardIdx, board: boards[boardIdx] })
+                commit({ type: 'updateBoard', boardIdx, board: boardToUpdate })
+                // const boards = await taskService.query();
+                // commit({ type: 'updateBoard', boardIdx, board: boards[boardIdx] })
             }
             catch (err) {
                 console.log('taskStore: Error in updateBoard', err)
