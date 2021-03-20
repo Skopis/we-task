@@ -1,19 +1,21 @@
 <template>
   <div class="task-comment">
     <div class="comment-creator" v-if="comment.byMember">
-      <img class="avatar" :src="comment.byMember.imgUrl" alt="" />
+      <member-avatar :member="comment.byMember" :size="40"  />
       <h3>{{ comment.byMember.fullname }}</h3>
       <p>{{ formattedTime(comment.createdAt) }}</p>
     </div>
     <input v-if="isCommentToEdit" v-model="editComment.txt" />
     <p v-else class="comment-txt">{{ editComment.txt }}</p>
-    <button class="btn">delete</button>
+    <button class="btn">Reply</button>
     <button class="btn" @click="saveComment">Save</button>
-    <button class="btn" @click="openEditModal">edit</button>
   </div>
 </template>
+     <button class="btn" @click="openEditModal">edit</button>
 
 <script>
+import memberAvatar from './member-avatar.cmp';
+import MemberAvatarCmp from './member-avatar.cmp.vue';
 export default {
   props: ["comment"],
   data() {
@@ -36,6 +38,9 @@ export default {
   },
   created(){
     this.editComment = JSON.parse(JSON.stringify(this.comment))
+  },
+  components:{
+    memberAvatar
   }
 };
 </script>

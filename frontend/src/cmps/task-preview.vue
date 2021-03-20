@@ -17,12 +17,7 @@
         :key="member._id"
         :v-if="task.members"
       >
-        <img
-          class="avatar"
-          :src="member.imgUrl"
-          alt="member-img"
-          @click="openMemberModal"
-        />
+      <member-avatar :member="member" :size="30" @click.native="openMemberModal" />
         <member-preview
           v-if="isMemberModalOpen"
           @removeMemberFromTask="removeMemberFromTask"
@@ -46,8 +41,8 @@
 <script>
 import taskQuickEdit from "./task-quick-edit.vue";
 import memberPreview from "./member-preview.vue";
-import {eventBus} from '../main.js';
-
+import memberAvatar from '../cmps/task-details/member-avatar.cmp';
+import MemberAvatarCmp from './task-details/member-avatar.cmp.vue';
 
 export default {
   name: "task-preview",
@@ -73,7 +68,8 @@ export default {
     },
     removeMemberFromTask(member) {},
     openTaskDetails(taskId) {
-      this.$store.commit({type:'saveCurrGroupId', groupId:this.groupId})
+      // this.$store.commit({type:'saveCurrGroupId', groupId:this.groupId})
+      this.$store.dispatch({type:'updatecurrGroupIdSession', status:'saveToSession', groupId:this.groupId})
       this.$router.push(`${this.boradId}/task/${taskId}`);
     },
   },
@@ -85,6 +81,8 @@ export default {
   components: {
     taskQuickEdit,
     memberPreview,
+    memberAvatar,
+    MemberAvatarCmp,
   },
 };
 </script>
