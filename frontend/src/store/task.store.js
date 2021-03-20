@@ -30,6 +30,9 @@ export const taskStore = {
         },
         getArchive(state) {
             return state.archive
+        },
+        getBoardLabels(state){
+            return state.board.labels
         }
     },
     mutations: {
@@ -296,24 +299,24 @@ export const taskStore = {
         updatePlaces({ state, commit }, { group }) {
 
         },
-        updatecurrGroupIdSession({ commit }, { status, groupId }) {
+        updateCurrGroupIdSession({ commit }, { status, groupId }) {
             const currGroupId = taskService.handleGroupInSession(status, groupId)
             commit({ type: 'saveCurrGroupId', groupId: currGroupId })
-<<<<<<< HEAD
-=======
         },
-        async setTaskLabel({ commit, state }, { task,label }){
-            label.id = utilService.makeId()
+        async setTaskLabel({ commit, state }, { task, label}){
+            // const label = state.board.labels.find(label => label.id === labelId)
             if(!task.labels || !task.labels.length){
                 task.labels = [label]
             }else{
-                task.labels.push(label)
+                if(task.labels.find(l=> l.id === label.id)) return
+                else task.labels.push(label)
             }
-            console.log('labels:', task.labels)
+            console.log('labels:', task.labels, task.id)
             var boardIdx = state.boards.findIndex(b => b._id === state.board._id)
             const groupId = await taskService.getGroupId()
             var groupIdx = state.board.groups.findIndex(g => g.id === JSON.parse(groupId))
             var taskIdx = state.board.groups[groupIdx].tasks.findIndex(t => t.id === task.id)
+            console.log(taskIdx)
 
             try {
                 await taskService.add(task, groupIdx, taskIdx, boardIdx)
@@ -323,7 +326,6 @@ export const taskStore = {
             } catch (err) {
                 console.log('Cannot save comment', err)
             }
->>>>>>> ced4812db4aa05dc8da93a14b52a2c077c05c7a1
         }
     }
 }

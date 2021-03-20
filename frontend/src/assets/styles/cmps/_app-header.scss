@@ -1,16 +1,11 @@
 .app-header {
-    // background-color: $header-clr;
-<<<<<<< HEAD
-    // background-color: rgba(23, 43, 77, 0.7);
     background-color: #0094ae;
-=======
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 10;
+    z-index: 1;
     background-color: rgba(23, 43, 77, 0.7);
->>>>>>> 32e04d440e0248aaf92d7e0dacec4da7f20aaa0c
     color: $light-clr;
     padding: 10px;
     display: flex;
