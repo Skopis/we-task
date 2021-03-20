@@ -146,6 +146,8 @@ export const taskStore = {
                 throw err
             }
         },
+        // async updateGroup({ state, commit }, { group, boardId }) {
+        //     try {
         // async addTask({ commit, state }, { task, group, boardId}) {
         //     try {
         //         var boardIdx = state.boards.findIndex(b => b._id === boardId)
@@ -297,6 +299,31 @@ export const taskStore = {
         updatecurrGroupIdSession({ commit }, { status, groupId }) {
             const currGroupId = taskService.handleGroupInSession(status, groupId)
             commit({ type: 'saveCurrGroupId', groupId: currGroupId })
+<<<<<<< HEAD
+=======
+        },
+        async setTaskLabel({ commit, state }, { task,label }){
+            label.id = utilService.makeId()
+            if(!task.labels || !task.labels.length){
+                task.labels = [label]
+            }else{
+                task.labels.push(label)
+            }
+            console.log('labels:', task.labels)
+            var boardIdx = state.boards.findIndex(b => b._id === state.board._id)
+            const groupId = await taskService.getGroupId()
+            var groupIdx = state.board.groups.findIndex(g => g.id === JSON.parse(groupId))
+            var taskIdx = state.board.groups[groupIdx].tasks.findIndex(t => t.id === task.id)
+
+            try {
+                await taskService.add(task, groupIdx, taskIdx, boardIdx)
+                const boards = await taskService.query();
+                commit({ type: 'setBoard', board: boards[boardIdx] })
+
+            } catch (err) {
+                console.log('Cannot save comment', err)
+            }
+>>>>>>> ced4812db4aa05dc8da93a14b52a2c077c05c7a1
         }
     }
 }

@@ -34,6 +34,7 @@
       handle=".group-list"
     >
       <div v-for="group in boardToShow.groups" :key="'L' + group.id">
+<<<<<<< HEAD
         <group-list
           :group="group"
           @itemDragged="itemDragged"
@@ -50,6 +51,10 @@
           @archiveGroup="archiveGroup"
           @updateGroupCover="updateGroupCover"
         />
+=======
+        <group-list :group="group" @itemDragged="itemDragged" @updateTask="updateTask" @updateGroup="updateGroup" @archiveGroup="archiveGroup" @openModal="setMenuPos" @toggleGroupMenuModal="toggleGroupMenuModal" />
+        <group-menu :group="group" :menuPos="menuPos" v-if="group.id === menuGroupId && isGroupMenuModalOpen" @archiveGroup="archiveGroup"   @updateGroupCover="updateGroupCover" />
+>>>>>>> ced4812db4aa05dc8da93a14b52a2c077c05c7a1
       </div>
       <!-- </section> -->
     </draggable>
@@ -58,6 +63,8 @@
     <router-view />
   </div>
 </template>
+
+:v-if="setMenuPos" @archiveGroup="archiveGroup" @updateGroupCover="updateGroupCover"
 
 <script>
 import groupList from "../cmps/group-list.vue";
@@ -159,7 +166,7 @@ export default {
     saveBoard() {
       this.$store.dispatch({ type: "setBoard", board: this.boardToShow });
     },
-    setMenuPos(groupId, isGroupMenuModalOpen) {
+    setMenuPos(groupId) {
       const groupIdx = this.boardToShow.groups.findIndex(
         (group) => group.id === groupId
       );
@@ -168,7 +175,8 @@ export default {
         amount -= 12;
       }
       this.menuPos = { left: amount + "px" };
-      return isGroupMenuModalOpen;
+      console.log(this.menuPos)
+      
     },
   },
   components: {
