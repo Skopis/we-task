@@ -30,11 +30,12 @@
             opacity: 1;
         }
     }
+}
     .group-menu{
+        background-color: springgreen;
         position: absolute;
         box-shadow: $box-shadow;
-        right: -40px;
-        top: 0;
+        top: 165px;
         display: flex;
         flex-direction: column;
         background-color: #fff;
@@ -52,5 +53,5 @@
                 margin: 0;
             }
         }
-    }
+ 
 }

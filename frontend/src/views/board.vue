@@ -13,24 +13,33 @@
     </form>
 
     <!-- <section class="task-list-container"> -->
-      <draggable
-        v-model="boardToShow.groups"
-        @end="dragOff"
-        animation="500"
-        ghostClass="ghost"
-        class="task-list-container"
-      >
-        <div v-for="group in boardToShow.groups" :key="'L' + group.id">
-          <group-list
-            :group="group"
-            @updateTask="updateTask"
-            @updateGroup="updateGroup"
-            @archiveGroup="archiveGroup"
-          />
-        </div>
-        <!-- </section> -->
-        <button class="btn" @click="addGroup">Add a New Group</button>
-      </draggable>
+    <draggable
+      v-model="boardToShow.groups"
+      @end="itemDragged"
+      animation="500"
+      ghostClass="ghost"
+      class="task-list-container"
+    >
+      <div v-for="group in boardToShow.groups" :key="'L' + group.id">
+        <group-list
+          :group="group"
+          @updateTask="updateTask"
+          @updateGroup="updateGroup"
+          @archiveGroup="archiveGroup"
+          @openModal="setMenuPos"
+          @itemDragged="itemDragged"
+        />
+        <group-menu
+          :group="group"
+          :menuPos="menuPos"
+          v-if="setMenuPos"
+          @archiveGroup="archiveGroup"
+          @updateGroupCover="updateGroupCover"
+        />
+      </div>
+      <!-- </section> -->
+      <button class="btn" @click="addGroup">Add a New Group</button>
+    </draggable>
     <router-view />
     <pre>
     {{ boardToShow.groups }}
@@ -41,12 +50,14 @@
 <script>
 import groupList from "../cmps/group-list.vue";
 import draggable from "vuedraggable";
+import groupMenu from "../cmps/menu/group-menu";
 
 export default {
   name: "board",
   data() {
     return {
       isTitleModalOpen: false,
+      menuPos: null,
     };
   },
   computed: {
@@ -54,6 +65,7 @@ export default {
       return JSON.parse(JSON.stringify(this.$store.getters.getBoard));
     },
   },
+
   async created() {
     const boardId = this.$route.params.boardId;
     await this.$store.dispatch({ type: "loadBoard", boardId });
@@ -95,9 +107,10 @@ export default {
         boardId: this.boardToShow._id,
       });
     },
-    dragOff(ev) {
+    itemDragged() {
       const board = this.boardToShow;
       board.groups = this.boardToShow.groups;
+      console.log(board.groups);
       this.updateBoard(board);
     },
     updateBoard(board) {
@@ -109,10 +122,22 @@ export default {
     saveBoard() {
       this.$store.dispatch({ type: "setBoard", board: this.boardToShow });
     },
+    setMenuPos(groupId, isGroupMenuModalOpen) {
+      const groupIdx = this.boardToShow.groups.findIndex(
+        (group) => group.id === groupId
+      );
+      var amount = 276 * (groupIdx + 1) - 12;
+      if (groupIdx < 1) {
+        amount -= 12;
+      }
+      this.menuPos = { left: amount + "px" };
+      return isGroupMenuModalOpen;
+    },
   },
   components: {
     groupList,
     draggable,
+    groupMenu,
   },
 };
 </script>

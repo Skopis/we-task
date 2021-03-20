@@ -11,17 +11,12 @@
       <button class="btn" @click="toggleGroupMenuModal">
         <img src="../assets/icons/3dots.png" alt="" />
       </button>
-      <group-menu
-        v-if="isGroupMenuModalOpen"
-        :group="group"
-        @archiveGroup="archiveGroup"
-        @updateGroupCover="updateGroupCover"
-      />
+      
     </div>
     <task-quick-edit v-if="isAddModalOpen" @updateTask="updateTask" />
     <ul>
     <draggable
-      @end="dragOff"
+      @end="itemDragged"
       animation="500"
       group="task"
       ghostClass="ghost"
@@ -46,7 +41,6 @@
 import taskPreview from "./task-preview.vue";
 import TaskQuickEdit from "./task-quick-edit.vue";
 import draggable from "vuedraggable";
-import groupMenu from "./menu/group-menu";
 
 export default {
   name: "group-list",
@@ -66,6 +60,7 @@ export default {
     },
     toggleGroupMenuModal() {
       this.isGroupMenuModalOpen = !this.isGroupMenuModalOpen;
+      this.$emit('openModal', this.group.id, this.isGroupMenuModalOpen)
     },
     saveGroupTitle() {
       this.isTitleModalOpen = false;
@@ -74,8 +69,11 @@ export default {
     editGroupTitle() {
       this.isTitleModalOpen = true;
     },
-    dragOff(ev) {
-      // this.$emit("taskDragged",this.)
+    editGroupTitle() {
+      this.isTitleModalOpen = true;
+    },
+    itemDragged(ev) {
+      this.$emit("itemDragged",this.group);
     },
     openAddModal() {
       this.isAddModalOpen = true;
@@ -99,7 +97,6 @@ export default {
     taskPreview,
     TaskQuickEdit,
     draggable,
-    groupMenu,
   },
 };
 </script>
