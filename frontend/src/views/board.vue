@@ -1,23 +1,21 @@
 <template>
-  <div
-    class="board"
-    v-if="boardToShow"
-    :style="{ backgroundColor: boardToShow.style.bgColor }"
-  >
-    <h2 @click="editBoardTitle" v-if="isTitleModalOpen === false">
-      {{ boardToShow.title }}
-    </h2>
+  <div class="board" v-if="boardToShow" :style="{'backgroundColor': boardToShow.style.bgColor}">
+  <header class="board-header">
+  <h2 @click="editBoardTitle" v-if="isTitleModalOpen===false">{{ boardToShow.title }}</h2>
     <form @submit.prevent="saveBoardTitle" v-if="isTitleModalOpen">
       <input
         type="text"
         placeholder="Board Title"
         v-model="boardToShow.title"
       />
-      <button>Save</button>
+      <!-- <button class="btn">Save</button> -->
     </form>
-    <button class="btn" @click="toggleBoardMenuModal">
-      <img src="../assets/icons/3dots.png" alt="" />
-    </button>
+    
+    <button class="btn" @click="toggleBoardMenuModal"><img src="../assets/icons/3dots.png" alt=""></button>
+    <board-menu v-if="isBoardMenuModalOpen" :board="boardToShow" @updateBoardCover="updateBoardCover"/>
+    <!-- <section class="task-list-container"> -->
+    <member-avatar :members="boardToShow.members" :size="28" />
+  </header>
     <board-menu
       v-if="isBoardMenuModalOpen"
       :board="boardToShow"
@@ -52,6 +50,7 @@ import groupList from "../cmps/group-list.vue";
 import draggable from "vuedraggable";
 import boardMenu from "../cmps/menu/board-menu.vue";
 import groupMenu from "../cmps/menu/group-menu";
+import memberAvatar from '../cmps/task-details/member-avatar.cmp.vue'
 
 export default {
   name: "board",
@@ -165,6 +164,7 @@ export default {
     draggable,
     boardMenu,
     groupMenu,
+    memberAvatar
   },
 };
 </script>
