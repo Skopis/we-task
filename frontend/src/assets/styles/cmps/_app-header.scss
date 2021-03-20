@@ -1,6 +1,7 @@
 .app-header {
     // background-color: $header-clr;
-    background-color: rgba(23, 43, 77, 0.7);
+    // background-color: rgba(23, 43, 77, 0.7);
+    background-color: #0094ae;
     color: $light-clr;
     padding: 10px;
     display: flex;
@@ -42,4 +43,25 @@
     }
 
 
+}
+
+.board-header{
+    height: auto;
+    padding: 8px 4px 4px 8px;
+    position: relative;
+    >*{
+        margin-left: 5px;
+    }
+    h2{
+        margin: 0;
+    }
+    background-color: #00aecc;
+    display: flex;
+    align-items: center;
+    .btn{
+        font-size: 18px;
+        font-weight: 700;
+        padding: 0 12px;
+        // background-color: #026aa7bf;
+    }
 }

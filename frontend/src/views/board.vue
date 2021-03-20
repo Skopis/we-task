@@ -1,6 +1,6 @@
 <template>
   <div class="board" v-if="boardToShow" :style="{'backgroundColor': boardToShow.style.bgColor}">
-
+  <header class="board-header">
   <h2 @click="editBoardTitle" v-if="isTitleModalOpen===false">{{ boardToShow.title }}</h2>
     <form @submit.prevent="saveBoardTitle" v-if="isTitleModalOpen">
       <input
@@ -8,11 +8,13 @@
         placeholder="Board Title"
         v-model="boardToShow.title"
       />
-      <button>Save</button>
+      <button class="btn">Save</button>
     </form>
+    
     <button class="btn" @click="toggleBoardMenuModal"><img src="../assets/icons/3dots.png" alt=""></button>
     <board-menu v-if="isBoardMenuModalOpen" :board="boardToShow" @updateBoardCover="updateBoardCover"/>
     <!-- <section class="task-list-container"> -->
+  </header>
     <draggable
       v-model="boardToShow.groups"
       @end="itemDragged"
