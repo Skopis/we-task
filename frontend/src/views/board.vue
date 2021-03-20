@@ -1,9 +1,10 @@
 <template>
   <div class="board" v-if="boardToShow" :style="{'backgroundColor': boardToShow.style.bgColor}">
   <header class="board-header">
-  <h2 @click="editBoardTitle" v-if="isTitleModalOpen===false">{{ boardToShow.title }}</h2>
-    <form @submit.prevent="saveBoardTitle" v-if="isTitleModalOpen">
-      <input
+  <h2 @click="editBoardTitle" v-show="isTitleModalOpen===false">{{ boardToShow.title }}</h2>
+    <form @focusout.prevent="saveBoardTitle" v-show="isTitleModalOpen">
+      <input autofocus
+        ref="titleChange"
         type="text"
         placeholder="Board Title"
         v-model="boardToShow.title"
@@ -16,11 +17,6 @@
     <!-- <section class="task-list-container"> -->
     <member-avatar :members="boardToShow.members" :size="28" />
   </header>
-    <board-menu
-      v-if="isBoardMenuModalOpen"
-      :board="boardToShow"
-      @updateBoardCover="updateBoardCover"
-    />
     <!-- <section class="task-list-container"> -->
       <section class="main-board-container">
     <draggable
@@ -107,6 +103,8 @@ export default {
     },
     editBoardTitle() {
       this.isTitleModalOpen = true;
+      console.log(' this.$refs',  this.$refs.titleChange)
+      this.$refs.titleChange.focus()//didn't work
     },
     saveBoardTitle() {
       this.isTitleModalOpen = false;

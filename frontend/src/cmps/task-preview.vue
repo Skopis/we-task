@@ -25,8 +25,8 @@
         />
       </div>
       <div class="btn-container">
-        <el-button class="btn badge" icon="el-icon-view"></el-button
-        ><!-- v-if logged in member = member assigned to task-->
+        <el-button class="btn badge eye" icon="el-icon-view" v-if="isloggedinUserMember"></el-button>
+        <!-- v-if logged in member = member assigned to task-->
         <button class="btn badge" v-if="task.comments">
           🗨 {{ task.comments.length }}
         </button>
@@ -55,7 +55,6 @@ export default {
   },
   //TODO: when click on window anywhere but the modal - modal closes
   methods: {
-    //dispatch or another emit? is this a smart or dumb component?
     openMemberModal() {
       this.isMemberModalOpen = true;
     },
@@ -66,7 +65,9 @@ export default {
       this.isEditModalOpen = false;
       this.$emit("updateTask", taskToUpdate);
     },
-    removeMemberFromTask(member) {},
+    removeMemberFromTask(member) {
+
+    },
     openTaskDetails(taskId) {
       // this.$store.commit({type:'saveCurrGroupId', groupId:this.groupId})
       this.$store.dispatch({type:'updatecurrGroupIdSession', status:'saveToSession', groupId:this.groupId})
@@ -77,6 +78,18 @@ export default {
     boradId() {
       return this.$store.getters.getBoardId;
     },
+    isloggedinUserMember(){
+      const loggedinUser = this.$store.getters.loggedinUser
+        if (!this.task.members) return false
+        for(let i=0; i<this.task.members.length; i++){
+          if (this.task.members[i]._id === loggedinUser._id) return true
+        }
+        
+        // return false
+    }
+  },
+  cerated(){
+    
   },
   components: {
     taskQuickEdit,
