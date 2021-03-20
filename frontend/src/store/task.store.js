@@ -299,8 +299,6 @@ export const taskStore = {
         updatecurrGroupIdSession({ commit }, { status, groupId }) {
             const currGroupId = taskService.handleGroupInSession(status, groupId)
             commit({ type: 'saveCurrGroupId', groupId: currGroupId })
-<<<<<<< HEAD
-=======
         },
         async setTaskLabel({ commit, state }, { task,label }){
             label.id = utilService.makeId()
@@ -323,7 +321,6 @@ export const taskStore = {
             } catch (err) {
                 console.log('Cannot save comment', err)
             }
->>>>>>> ced4812db4aa05dc8da93a14b52a2c077c05c7a1
         }
     }
 }
