@@ -5,7 +5,7 @@
             <button class="btn">X</button>
         </div>
         <button class="btn" @click="archiveGroup">Archive</button>
-        <button class="btn" @click="toggleColorPicker">Change Cover</button>
+        <button class="btn" @click="toggleColorPicker">Cover</button>
         <color-picker :group="group" @changeGroupCover="updateGroupCover" v-if="isColorPickerOpen"/>
     </section>
 </template>
@@ -30,7 +30,7 @@ export default{
             this.$emit('archiveGroup', this.group)
         },
         updateGroupCover(color){
-            this.$emit('updateGroupCover', color)
+            this.$emit('updateGroupCover', color,this.group)
         }
     },
     created(){

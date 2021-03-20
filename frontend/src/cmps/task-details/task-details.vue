@@ -1,21 +1,21 @@
 <template>
   <div v-if="task" class="task-details-modal">
     <div class="task-details-content">
-      <header>
+      <header :style="{ backgroundColor: task.style.bgColor }">
         <button class="btn close-btn" @click="closeDetailsModal">+</button>
         <h1>{{ task.title }}</h1>
         <p><span>in list</span></p>
       </header>
       <div v-if="task.labels" class="">
-          <div v-for="label in task.labels" :key="label.id">
-            <div class="label" :class="label.color">Hello</div>
-          </div>
+        <div v-for="label in task.labels" :key="label.id">
+          <div class="label" :class="label.color">Hello</div>
+        </div>
       </div>
       // <labels-menu @setLabel="setTaskLabel" />
       <div class="task-members">
         <h3>MEMBERS</h3>
         <div v-if="task.members">
-            <member-avatar :members="task.members" :size="40"   />
+          <member-avatar :members="task.members" :size="40" />
         </div>
       </div>
       <div class="task-desc">
@@ -47,7 +47,11 @@
           <task-comment :comment="comment" @saveComment="saveComment" />
         </div>
       </div>
-      <task-dev-tools @checkList="createCheckList" @removeTask="removeTask" />
+      <task-dev-tools
+        @checkList="createCheckList"
+        @removeTask="removeTask"
+        @updateTaskCover="updateTaskCover"
+      />
     </div>
   </div>
 </template>
@@ -59,7 +63,7 @@ import taskComment from "./task-comment.cmp";
 import taskDevTools from "./task-dev-tools.cmp";
 import checkListAdd from "./check-list-add.cmp";
 import taskTodo from "./task-todo.cmp";
-import labelsMenu from '../menu/labels-menu';
+import labelsMenu from "../menu/labels-menu";
 
 export default {
   data() {
@@ -79,8 +83,7 @@ export default {
         this.task = JSON.parse(JSON.stringify(task));
         let taskActivities = this.$store.getters.taskActivities;
         this.activities = taskActivities;
-            console.log(this.task)
-
+        console.log(this.task);
       } catch (err) {
         console.log("Cannot find task", err);
       }
@@ -121,9 +124,14 @@ export default {
       });
       this.$router.go(-1);
     },
-    setTaskLabel(label){
-      this.$store.dispatch({type:'setTaskLabel', task:this.task, label})
-    }
+    setTaskLabel(label) {
+      this.$store.dispatch({ type: "setTaskLabel", task: this.task, label });
+    },
+    updateTaskCover(color) {
+      console.log("this.task", this.task);
+      this.task.style.bgColor = color;
+      this.$store.dispatch({ type: "addTask", task: this.task });
+    },
   },
   computed: {
     boradId() {
@@ -146,7 +154,7 @@ export default {
     taskDevTools,
     checkListAdd,
     taskTodo,
-    labelsMenu
+    labelsMenu,
   },
 };
 </script>

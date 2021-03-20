@@ -4,7 +4,7 @@
             <strong>Choose a color:</strong>
         </div>
         <div class="form__input" >
-            <v-swatches v-model="color" popover-x="left" @input="saveNewCover"></v-swatches>
+            <v-swatches :swatches="swatches" v-model="color" popover-x="left" @input="saveNewCover"></v-swatches>
         </div>
     </div>
 </template>
@@ -14,19 +14,17 @@
     import "vue-swatches/dist/vue-swatches.css"
 
     export default {
-        props:['group', 'task', 'board'],
+        props:['group', 'board'],
         components: { VSwatches }, // window['vue-swatches'] - from CDN
         data () {
             return {
-                color: '#1CA085'
+                color: '#1CA085',
+                swatches: ['#ffff', '#CC859A', '#EECAB6', '#B1C294', '#D8C9FF', '#FBFFD4', '#D1F5F5', '#A4A9A7']
             }
         },
         created(){
             if (this.group){
                 this.color=this.group.style.bgColor
-            }
-            if (this.task){
-                this.color=this.task.style.bgColor
             }
             if (this.board){
                 this.color=this.board.style.bgColor
@@ -38,11 +36,11 @@
                 if (this.group){
                     this.$emit('changeGroupCover', this.color)
                 }
-                if (this.task){
-                    this.$emit('changeTaskCover', this.color)
-                }
                 if (this.board){
                     this.$emit('changeBoardCover', this.color)
+                }
+                else{
+                    this.$emit('changeTaskCover', this.color)
                 }
             }
         }

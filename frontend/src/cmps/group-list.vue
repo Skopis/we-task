@@ -14,23 +14,21 @@
       
     </div>
     <task-quick-edit v-if="isAddModalOpen" @updateTask="updateTask" />
+    <ul>
     <draggable
-      tag="ul"
-      v-bind="dragOptions"
-      :list="group1.tasks"
-      @start="dragOn"
-      @end="dragOff"
-      :move="moveCheck"
+      @end="itemDragged"
+      animation="500"
+      group="task"
+      ghostClass="ghost"
+      dragClass="chosen-drag"
+      v-model="group.tasks"
     >
       <li v-for="task in group.tasks" :key="'C' + task.id">
-        <task-preview
-          :task="task"
-          @updateTask="updateTask"
-          :groupId="group.id"
-        />
+        <task-preview :task="task" @updateTask="updateTask" :groupId="group.id" :style="{'backgroundColor': task.style.bgColor}"/>
       </li>
       <button class="btn" @click="openAddModal">Add a new Task</button>
     </draggable>
+    </ul>
   </div>
 </template>
 
@@ -51,19 +49,6 @@ export default {
       group1: this.group,
     };
   },
-  computed: {
-    dragOptions() {
-      return {
-        animation: 500,
-        group: "tasks",
-        disabled: false,
-        ghostClass: "ghost",
-        chosenClass: "chosen-move",
-        dragClass: "chosen-drag",
-        // disabled: "disableDraggable",
-      };
-    },
-  },
   methods: {
     archiveGroup(groupToArchive) {
       this.isGroupMenuModalOpen = false;
@@ -71,7 +56,7 @@ export default {
     },
     toggleGroupMenuModal() {
       this.isGroupMenuModalOpen = !this.isGroupMenuModalOpen;
-      this.$emit('openModal', this.group.id, this.isGroupMenuModalOpen)
+      this.$emit('toggleGroupMenuModal', this.isGroupMenuModalOpen, this.group.id)
     },
     saveGroupTitle() {
       this.isTitleModalOpen = false;
@@ -80,20 +65,11 @@ export default {
     editGroupTitle() {
       this.isTitleModalOpen = true;
     },
-    moveCheck() {
-      this.$emit("changedPlaces", this.group1);
+    editGroupTitle() {
+      this.isTitleModalOpen = true;
     },
-    dragOff(ev) {
-      // console.log("Off");
-      // console.log(ev);
-      // console.log(this.tasks);
-    },
-    dragOn(ev) {
-      // console.log("On");
-      // console.log(ev);
-    },
-    checkMove: function (evt) {
-      console.log(evt.draggedContext.element);
+    itemDragged(ev) {
+      this.$emit("itemDragged",this.group);
     },
     openAddModal() {
       this.isAddModalOpen = true;
@@ -107,17 +83,11 @@ export default {
       this.isAddModalOpen = false;
       this.$emit("updateTask", taskToUpdate, this.group);
     },
-    updateGroupCover(color) {
-      var group = JSON.parse(JSON.stringify(this.group));
-      group.style.bgColor = color;
-      this.$emit("updateGroup", group);
-    },
-   
   },
   components: {
     taskPreview,
     TaskQuickEdit,
     draggable,
   },
-};
+}; 
 </script>

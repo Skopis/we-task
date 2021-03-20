@@ -1,5 +1,5 @@
 <template>
-  <div class="task-activity">
+  <div class="task-activity" v-if="activity && activity.byMember">
     <img :src="activity.byMember.imgUrl" class="avatar" />
     <div class="txt">
       <p>
