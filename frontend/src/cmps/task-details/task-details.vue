@@ -1,7 +1,7 @@
 <template>
   <div v-if="task" class="task-details-modal">
     <div class="task-details-content">
-      <header>
+      <header :style="{'backgroundColor': task.style.bgColor}">
         <button class="btn close-btn" @click="closeDetailsModal">+</button>
         <h1>{{ task.title }}</h1>
         <p><span>in list</span></p>
@@ -42,7 +42,7 @@
           <task-comment :comment="comment" @saveComment="saveComment" />
         </div>
       </div>
-      <task-dev-tools @checkList="createCheckList" @removeTask="removeTask" />
+      <task-dev-tools @checkList="createCheckList" @removeTask="removeTask" @updateTaskCover="updateTaskCover"/>
     </div>
   </div>
 </template>
@@ -114,6 +114,11 @@ export default {
       });
       this.$router.go(-1);
     },
+    updateTaskCover(color){
+      console.log('this.task', this.task)
+      this.task.style.bgColor= color
+      this.$store.dispatch({type: 'addTask', task: this.task})
+    }
   },
   computed: {
     boradId() {

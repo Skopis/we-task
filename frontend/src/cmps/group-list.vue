@@ -24,11 +24,7 @@
       v-model="group.tasks"
     >
       <li v-for="task in group.tasks" :key="'C' + task.id">
-        <task-preview
-          :task="task"
-          @updateTask="updateTask"
-          :groupId="group.id"
-        />
+        <task-preview :task="task" @updateTask="updateTask" :groupId="group.id" :style="{'backgroundColor': task.style.bgColor}"/>
       </li>
       <button class="btn" @click="openAddModal">Add a new Task</button>
     </draggable>
@@ -60,7 +56,7 @@ export default {
     },
     toggleGroupMenuModal() {
       this.isGroupMenuModalOpen = !this.isGroupMenuModalOpen;
-      this.$emit('openModal', this.group.id, this.isGroupMenuModalOpen)
+      this.$emit('toggleGroupMenuModal', this.isGroupMenuModalOpen, this.group.id)
     },
     saveGroupTitle() {
       this.isTitleModalOpen = false;
@@ -87,16 +83,11 @@ export default {
       this.isAddModalOpen = false;
       this.$emit("updateTask", taskToUpdate, this.group);
     },
-    updateGroupCover(color) {
-      var group = JSON.parse(JSON.stringify(this.group));
-      group.style.bgColor = color;
-      this.$emit("updateGroup", group);
-    },
   },
   components: {
     taskPreview,
     TaskQuickEdit,
     draggable,
   },
-};
+}; 
 </script>
