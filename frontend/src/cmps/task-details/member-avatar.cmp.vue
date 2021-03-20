@@ -1,5 +1,5 @@
 <template>
-  <div >
+  <div class="avatar-container">
     <div v-for="member in members" :key="member._id">
       <img v-if="member.imgUrl" class="avatar" :src="member.imgUrl" alt="" />
       <avatar

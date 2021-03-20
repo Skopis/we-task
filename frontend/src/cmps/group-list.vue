@@ -6,7 +6,7 @@
       </h3>
       <form @submit.prevent="saveGroupTitle" v-if="isTitleModalOpen">
         <input type="text" placeholder="Group Title" v-model="group.title" />
-        <button>Save</button>
+        <!-- <button>Save</button> -->
       </form>
       <button class="btn" @click="toggleGroupMenuModal($event)">
         <img src="../assets/icons/3dots.png" alt="" />

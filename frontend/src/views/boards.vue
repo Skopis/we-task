@@ -1,5 +1,5 @@
 <template>
-    <section v-if="boardsToShow">
+    <section v-if="boardsToShow" class="boards">
         <h3>My Boards</h3>
         <button @click="addBoard" class="btn">Add a new Board</button>
         <section class="board-preview-container">

@@ -8,12 +8,13 @@
         placeholder="Board Title"
         v-model="boardToShow.title"
       />
-      <button class="btn">Save</button>
+      <!-- <button class="btn">Save</button> -->
     </form>
     
     <button class="btn" @click="toggleBoardMenuModal"><img src="../assets/icons/3dots.png" alt=""></button>
     <board-menu v-if="isBoardMenuModalOpen" :board="boardToShow" @updateBoardCover="updateBoardCover"/>
     <!-- <section class="task-list-container"> -->
+    <member-avatar :members="boardToShow.members" :size="28" />
   </header>
     <board-menu
       v-if="isBoardMenuModalOpen"
@@ -31,22 +32,6 @@
       handle=".group-list"
     >
       <div v-for="group in boardToShow.groups" :key="'L' + group.id">
-        <group-list
-          :group="group"
-          @itemDragged="itemDragged"
-          @updateTask="updateTask"
-          @updateGroup="updateGroup"
-          @archiveGroup="archiveGroup"
-          @openModal="setMenuPos"
-          @toggleGroupMenuModal="toggleGroupMenuModal"
-        />
-        <group-menu
-          :group="group"
-          :menuPos="menuPos"
-          v-if="group.id === menuGroupId && isGroupMenuModalOpen"
-          @archiveGroup="archiveGroup"
-          @updateGroupCover="updateGroupCover"
-        />
         <group-list :group="group" @itemDragged="itemDragged" @updateTask="updateTask" @updateGroup="updateGroup" @archiveGroup="archiveGroup" @openModal="setMenuPos" @toggleGroupMenuModal="toggleGroupMenuModal" />
         <group-menu :group="group" :menuPos="menuPos" v-if="group.id === menuGroupId && isGroupMenuModalOpen" @archiveGroup="archiveGroup"   @updateGroupCover="updateGroupCover" />
       </div>
@@ -65,6 +50,7 @@ import groupList from "../cmps/group-list.vue";
 import draggable from "vuedraggable";
 import boardMenu from "../cmps/menu/board-menu.vue";
 import groupMenu from "../cmps/menu/group-menu";
+import memberAvatar from '../cmps/task-details/member-avatar.cmp.vue'
 
 export default {
   name: "board",
@@ -178,6 +164,7 @@ export default {
     draggable,
     boardMenu,
     groupMenu,
+    memberAvatar
   },
 };
 </script>

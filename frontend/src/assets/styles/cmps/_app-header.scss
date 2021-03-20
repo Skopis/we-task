@@ -1,11 +1,14 @@
 .app-header {
+    
     background-color: #0094ae;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 1;
-    background-color: rgba(23, 43, 77, 0.7);
+    // background-color: rgba(23, 43, 77, 0.7);
+    height: 77px;
+    z-index: 1;
     color: $light-clr;
     padding: 10px;
     display: flex;
@@ -28,7 +31,7 @@
     nav {
         padding: 5px 0;
         display: flex;
-
+        align-items: center;
         a {
             .logo {
                 display: inline;
@@ -55,7 +58,7 @@
     padding: 8px 4px 4px 8px;
     position: relative;
     >*{
-        margin-left: 5px;
+        margin-left: 10px;
     }
     h2{
         margin: 0;
@@ -67,6 +70,19 @@
         font-size: 18px;
         font-weight: 700;
         padding: 0 12px;
+        
         // background-color: #026aa7bf;
+
+        img{
+            vertical-align: middle;
+        }
+    }
+    input{
+        width: 92px;
+        margin: 0;
+    }
+
+    form .btn{
+        width: 101px;
     }
 }
