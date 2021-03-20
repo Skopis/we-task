@@ -62,12 +62,15 @@
         display: inline-block;
         overflow: hidden;
         position: relative;
-        padding: 2px;
+        // padding: 2px;
         text-decoration: none;
         text-overflow: ellipsis;
         vertical-align: top;
+        border: none;
     }    
-
+    .eye{
+        background-color: transparent;
+    }
 }
 
 .task-details-modal{

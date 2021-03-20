@@ -1,8 +1,13 @@
 <template>
     <section class="task-edit">
-        <form @submit.prevent="updateTask">
-            <textarea placeholder="" v-model="taskToEdit.title"></textarea>
-            <button >Save</button>
+        <form >
+            <textarea 
+            placeholder=""
+            v-model="taskToEdit.title"
+            @keydown.enter.exact.prevent="updateTask"
+            >
+            </textarea>
+            <!-- <button >Save</button> -->
         </form>
     </section>
 </template>

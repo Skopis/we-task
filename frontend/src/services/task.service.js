@@ -207,7 +207,7 @@ async function query(filterBy = {}) {
       "title": "First Board",
       "createdAt": 1589983468418,
       "createdBy": {
-        "_id": "u101",
+        "_id": "u102",
         "fullname": "Abi Abambi",
         "imgUrl": "http://some-img"
       },
@@ -250,12 +250,18 @@ async function query(filterBy = {}) {
         {
           "_id": "u101",
           "fullname": "Tal Tarablus",
-          "imgUrl": "https://www.google.com"
+          "imgUrl": "http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
         },
         {
           "_id": "u102",
           "fullname": "Bibi Netanyahu",
           "imgUrl": ""
+        },
+        {
+          "_id": "u103",
+          "fullname": "Guest",
+          'username': 'guest',
+          "imgUrl": "",
         }
       ],
       "groups": [
@@ -268,7 +274,15 @@ async function query(filterBy = {}) {
               "title": "Replace logo",
               "style": {
                 "bgColor": "#ffff"
-              }
+              },
+              "members": [
+                {
+                  "_id": "u103",
+                  "fullname": "Guest",
+                  'username': 'guest',
+                  "imgUrl": "",
+                }
+              ]
             },
             {
               "id": "c102",
@@ -279,7 +293,7 @@ async function query(filterBy = {}) {
             }
           ],
           "style": {
-            "bgColor": "#dff0ea"
+            "bgColor": "#ebecf0"
           }
         },
         {
@@ -291,7 +305,15 @@ async function query(filterBy = {}) {
               "title": "Do that",
               "style": {
                 "bgColor": "#ffff"
-              }
+              },
+              "members": [
+                {
+                  "_id": "u103",
+                  "fullname": "Guest",
+                  'username': 'guest',
+                  "imgUrl": "",
+                }
+              ]
             },
             {
               "id": "c104",
@@ -327,12 +349,18 @@ async function query(filterBy = {}) {
               ],
               "members": [
                 {
+                  "_id": "u103",
+                  "fullname": "Guest",
+                  'username': 'guest',
+                  "imgUrl": "",
+                },
+                {
                   "_id": "u101",
                   "username": "Tal",
                   "fullname": "Tal Tarablus",
                   "imgUrl": "http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
                 },{
-                  "_id": "u102",
+                  "_id": "u104",
                   "username": "BiBi",
                   "fullname": "Bibi Netanyahu",
                   "imgUrl": ""
@@ -350,7 +378,7 @@ async function query(filterBy = {}) {
             }
           ],
           "style": {
-            "bgColor": "#dff0ea"
+            "bgColor": "#ebecf0"
           }
         }
       ],
@@ -360,7 +388,7 @@ async function query(filterBy = {}) {
           "txt": "Changed Color",
           "createdAt": 154514,
           "byMember": {
-            "_id": "u101",
+            "_id": "u102",
             "fullname": "Abi Abambi",
             "imgUrl": "http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
           },
@@ -374,7 +402,7 @@ async function query(filterBy = {}) {
           "txt": "Added due date",
           "createdAt": 154514,
           "byMember": {
-            "_id": "u101",
+            "_id": "u102",
             "fullname": "Abi Abambi",
             "imgUrl": "http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
           },
@@ -388,7 +416,7 @@ async function query(filterBy = {}) {
           "txt": "Added due date",
           "createdAt": 154514,
           "byMember": {
-            "_id": "u101",
+            "_id": "u102",
             "fullname": "Abi Abambi",
             "imgUrl": "http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
           },
@@ -404,7 +432,7 @@ async function query(filterBy = {}) {
       "title": "Second Board",
       "createdAt": 1589983468418,
       "createdBy": {
-        "_id": "u101",
+        "_id": "u102",
         "fullname": "Abi Abambi",
         "imgUrl": "http://some-img"
       },
@@ -422,7 +450,7 @@ async function query(filterBy = {}) {
         {
           "_id": "u101",
           "fullname": "Tal Tarablus",
-          "imgUrl": "https://www.google.com"
+          "imgUrl": "http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
         }
       ],
       "groups": [
@@ -435,7 +463,13 @@ async function query(filterBy = {}) {
               "title": "Update logo",
               "style": {
                 "bgColor": "#ffff"
-              }
+              },
+              "members":[{
+                "_id": "u103",
+                "fullname": "Guest",
+                'username': 'guest',
+                "imgUrl": "",
+              }]
             },
             {
               "id": "c102a",
@@ -446,7 +480,7 @@ async function query(filterBy = {}) {
             }
           ],
           "style": {
-            "bgColor": "#dff0ea"
+            "bgColor": "#ebecf0"
           }
         },
         {
@@ -458,7 +492,13 @@ async function query(filterBy = {}) {
               "title": "Do that",
               "style": {
                 "bgColor": "#ffff"
-              }
+              },
+              "members":[{
+                "_id": "u103",
+                "fullname": "Guest",
+                'username': 'guest',
+                "imgUrl": "",
+              }]
             },
             {
               "id": "c104a",
@@ -512,7 +552,7 @@ async function query(filterBy = {}) {
             }
           ],
           "style": {
-            "bgColor": "#dff0ea"
+            "bgColor": "#ebecf0"
           }
         }
       ],
@@ -522,7 +562,7 @@ async function query(filterBy = {}) {
           "txt": "Updated Color",
           "createdAt": 154514,
           "byMember": {
-            "_id": "u101",
+            "_id": "u102",
             "fullname": "Abi Abambi",
             "imgUrl": "http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
           },
@@ -536,7 +576,7 @@ async function query(filterBy = {}) {
           "txt": "Updated due date",
           "createdAt": 154514,
           "byMember": {
-            "_id": "u101",
+            "_id": "u102",
             "fullname": "Abi Abambi",
             "imgUrl": "http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
           },
@@ -550,7 +590,7 @@ async function query(filterBy = {}) {
           "txt": "Added due date",
           "createdAt": 154514,
           "byMember": {
-            "_id": "u101",
+            "_id": "u102",
             "fullname": "Abi Abambi",
             "imgUrl": "http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
           },
