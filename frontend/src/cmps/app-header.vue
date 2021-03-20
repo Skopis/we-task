@@ -3,7 +3,7 @@
     <nav>
       <router-link to="/">
         <!-- <span class="logo" role="img" aria-label="logo">  -->
-          <img class="logo" src="../assets/logo.svg"/>
+          <img class="logo" src="../assets/logo3.svg"/>
         <!-- </span> -->
       </router-link>
       <router-link to="/board">Boards</router-link>

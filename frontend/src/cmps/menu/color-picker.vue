@@ -4,7 +4,7 @@
             <strong>Choose a color:</strong>
         </div>
         <div class="form__input" >
-            <v-swatches v-model="color" popover-x="left" @input="saveNewCover"></v-swatches>
+            <v-swatches :swatches="swatches" v-model="color" popover-x="left" @input="saveNewCover"></v-swatches>
         </div>
     </div>
 </template>
@@ -18,7 +18,8 @@
         components: { VSwatches }, // window['vue-swatches'] - from CDN
         data () {
             return {
-                color: '#1CA085'
+                color: '#1CA085',
+                swatches: ['#ffff', '#CC859A', '#EECAB6', '#B1C294', '#D8C9FF', '#FBFFD4', '#D1F5F5', '#A4A9A7']
             }
         },
         created(){
