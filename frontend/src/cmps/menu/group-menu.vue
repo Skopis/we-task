@@ -1,5 +1,5 @@
 <template>
-    <section class="group-menu">
+    <section class="group-menu" :style="menuPos">
         <div class="group-menu-header">
             <h4>List actions</h4>
             <button class="btn">X</button>
@@ -15,7 +15,7 @@ import colorPicker from './color-picker.vue'
 
 export default{
     name: 'group-menu',
-    props:['group'],
+    props:['group', 'menuPos'],
     data(){
         return{
             isColorPickerOpen: false
@@ -30,8 +30,11 @@ export default{
             this.$emit('archiveGroup', this.group)
         },
         updateGroupCover(color){
-            this.$emit('updateGroupCover', color)
+            this.$emit('updateGroupCover', color,this.group)
         }
+    },
+    created(){
+        
     },
     components:{
         colorPicker

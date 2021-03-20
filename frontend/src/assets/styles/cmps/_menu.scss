@@ -5,7 +5,6 @@
 }
 
 .board{
-
     button img {
         width: 25px;
         opacity: 0.7;
@@ -13,5 +12,38 @@
         &:hover {
             opacity: 1;
         }
+    }
+}
+
+.task-lable-menu{
+    .label{
+        // background-color: steelblue;
+        cursor: pointer;
+        padding: 4px 0 0 20px;
+        color:$light-clr;
+        font-weight: 700;
+        letter-spacing: .7px;
+        height: 30px;
+        width: 240px;
+        border-radius: 4px;
+        margin-top:5px ;
+    }
+    .green{
+        background-color: $green;
+    }
+    .yellow{
+        background-color: $yellow;
+    }
+    .orange{
+        background-color: $orange;
+    }
+    .red{
+        background-color: $red;
+    }
+    .purple{
+        background-color: $purple;
+    }
+    .blue{
+        background-color: $blue;
     }
 }

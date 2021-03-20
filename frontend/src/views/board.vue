@@ -18,7 +18,8 @@
       class="task-list-container"
     >
       <div v-for="group in boardToShow.groups" :key="'L' + group.id">
-        <group-list :group="group" @updateTask="updateTask" @updateGroup="updateGroup" @archiveGroup="archiveGroup"/>
+        <group-list :group="group" @updateTask="updateTask" @updateGroup="updateGroup" @archiveGroup="archiveGroup" @openModal="setMenuPos" @toggleGroupMenuModal="toggleGroupMenuModal" />
+        <group-menu :group="group" :menuPos="menuPos" v-if="group.id === menuGroupId && isGroupMenuModalOpen" @archiveGroup="archiveGroup" @updateGroupCover="updateGroupCover" />
       </div>
       <!-- </section> -->
       <button class="btn" @click="addGroup">Add a New Group</button>
@@ -34,6 +35,8 @@
 import groupList from "../cmps/group-list.vue";
 import draggable from "vuedraggable";
 import boardMenu from '../cmps/menu/board-menu.vue';
+import groupMenu from "../cmps/menu/group-menu";
+
 
 export default {
   name: "board",
@@ -41,6 +44,9 @@ export default {
     return{
       isTitleModalOpen: false,
       isBoardMenuModalOpen: false,
+      menuPos:null,
+      isGroupMenuModalOpen: false,
+      menuGroupId: null
     }
   },
   computed: {
@@ -56,11 +62,21 @@ export default {
       };
     },
   },
+
   async created() {
     const boardId= this.$route.params.boardId
     await this.$store.dispatch({ type: "loadBoard", boardId });
   },
   methods: {
+    toggleGroupMenuModal(isGroupMenuModalOpen, groupId){
+      this.isGroupMenuModalOpen = isGroupMenuModalOpen
+      if (!isGroupMenuModalOpen) this.menuGroupId = null
+      else this.menuGroupId = groupId
+    },
+    updateGroupCover(color, group){
+      group.style.bgColor = color
+      this.updateGroup(group)
+    },
     updateBoardCover(color){
       console.log('this.boardToShow before', this.boardToShow)
       this.boardToShow.style.bgColor = color
@@ -106,11 +122,22 @@ export default {
     saveBoard() {
       this.$store.dispatch({ type: "setBoard", board: this.boardToShow });
     },
+    setMenuPos(groupId, isGroupMenuModalOpen){
+      console.log('isGroupMenuModalOpen', isGroupMenuModalOpen)
+      const groupIdx = this.boardToShow.groups.findIndex(group => group.id === groupId)
+        var amount = 276*(groupIdx+1)-12
+      if(groupIdx  < 1){
+        amount -=12
+      }
+      this.menuPos = {left:amount+'px'}
+      return isGroupMenuModalOpen
+    }
   },
   components: {
     groupList,
     draggable,
     boardMenu,
+    groupMenu,
   },
 };
 </script>
