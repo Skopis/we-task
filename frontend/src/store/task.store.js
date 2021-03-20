@@ -130,7 +130,7 @@ export const taskStore = {
         async addTask({ commit, state }, { task, group, boardId }) {
             try {
                 var boardIdx = state.boards.findIndex(b => b._id === state.board._id)
-                if(state.currGroupId) var groupIdx = state.board.groups.findIndex(g => g.id === state.currGroupId)
+                if (state.currGroupId) var groupIdx = state.board.groups.findIndex(g => g.id === state.currGroupId)
                 else groupIdx = state.board.groups.findIndex(g => g.id === group.id)
                 if (task.id) {
                     var taskIdx = state.board.groups[groupIdx].tasks.findIndex(t => t.id === task.id)
@@ -167,8 +167,8 @@ export const taskStore = {
         //         throw err
         //     }
         // },
-        async updateGroup({state, commit}, {group, boardId}){
-            try{
+        async updateGroup({ state, commit }, { group, boardId }) {
+            try {
                 console.log('state.boards at store 85', state.boards)
                 var boardIdx = state.boards.findIndex(b => b._id === boardId)
                 console.log('boardIdx at store', boardIdx)
@@ -299,6 +299,8 @@ export const taskStore = {
         updatecurrGroupIdSession({ commit }, { status, groupId }) {
             const currGroupId = taskService.handleGroupInSession(status, groupId)
             commit({ type: 'saveCurrGroupId', groupId: currGroupId })
+<<<<<<< HEAD
+=======
         },
         async setTaskLabel({ commit, state }, { task,label }){
             label.id = utilService.makeId()
@@ -321,6 +323,7 @@ export const taskStore = {
             } catch (err) {
                 console.log('Cannot save comment', err)
             }
+>>>>>>> ced4812db4aa05dc8da93a14b52a2c077c05c7a1
         }
     }
 }

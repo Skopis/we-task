@@ -15,24 +15,46 @@
     <board-menu v-if="isBoardMenuModalOpen" :board="boardToShow" @updateBoardCover="updateBoardCover"/>
     <!-- <section class="task-list-container"> -->
   </header>
+    <board-menu
+      v-if="isBoardMenuModalOpen"
+      :board="boardToShow"
+      @updateBoardCover="updateBoardCover"
+    />
+    <!-- <section class="task-list-container"> -->
+      <section class="main-board-container">
     <draggable
       v-model="boardToShow.groups"
       @end="itemDragged"
       animation="500"
       ghostClass="ghost"
       class="task-list-container"
+      handle=".group-list"
     >
       <div v-for="group in boardToShow.groups" :key="'L' + group.id">
+        <group-list
+          :group="group"
+          @itemDragged="itemDragged"
+          @updateTask="updateTask"
+          @updateGroup="updateGroup"
+          @archiveGroup="archiveGroup"
+          @openModal="setMenuPos"
+          @toggleGroupMenuModal="toggleGroupMenuModal"
+        />
+        <group-menu
+          :group="group"
+          :menuPos="menuPos"
+          v-if="group.id === menuGroupId && isGroupMenuModalOpen"
+          @archiveGroup="archiveGroup"
+          @updateGroupCover="updateGroupCover"
+        />
         <group-list :group="group" @itemDragged="itemDragged" @updateTask="updateTask" @updateGroup="updateGroup" @archiveGroup="archiveGroup" @openModal="setMenuPos" @toggleGroupMenuModal="toggleGroupMenuModal" />
         <group-menu :group="group" :menuPos="menuPos" v-if="group.id === menuGroupId && isGroupMenuModalOpen" @archiveGroup="archiveGroup"   @updateGroupCover="updateGroupCover" />
       </div>
       <!-- </section> -->
-      <button class="btn" @click="addGroup">Add a New Group</button>
     </draggable>
+      <button class="btn" @click="addGroup">Add a New Group</button>
+      </section>
     <router-view />
-    <pre>
-    {{ boardToShow.groups }}
-    </pre>
   </div>
 </template>
 
@@ -41,7 +63,7 @@
 <script>
 import groupList from "../cmps/group-list.vue";
 import draggable from "vuedraggable";
-import boardMenu from '../cmps/menu/board-menu.vue';
+import boardMenu from "../cmps/menu/board-menu.vue";
 import groupMenu from "../cmps/menu/group-menu";
 
 export default {
@@ -50,10 +72,10 @@ export default {
     return {
       isTitleModalOpen: false,
       isBoardMenuModalOpen: false,
-      menuPos:null,
+      menuPos: null,
       isGroupMenuModalOpen: false,
-      menuGroupId: null
-    }
+      menuGroupId: null,
+    };
   },
   computed: {
     boardToShow() {
@@ -66,26 +88,33 @@ export default {
     await this.$store.dispatch({ type: "loadBoard", boardId });
   },
   methods: {
-    toggleGroupMenuModal(isGroupMenuModalOpen, groupId){
-      this.isGroupMenuModalOpen = isGroupMenuModalOpen
-      if (!isGroupMenuModalOpen) this.menuGroupId = null
-      else this.menuGroupId = groupId
+    toggleGroupMenuModal(isGroupMenuModalOpen, groupId) {
+      this.isGroupMenuModalOpen = isGroupMenuModalOpen;
+      if (!isGroupMenuModalOpen) this.menuGroupId = null;
+      else this.menuGroupId = groupId;
     },
-    updateGroupCover(color, group){
-      group.style.bgColor = color
-      this.updateGroup(group)
+    updateGroupCover(color, group) {
+      group.style.bgColor = color;
+      this.updateGroup(group);
     },
-    updateBoardCover(color){
-      console.log('this.boardToShow before', this.boardToShow)
-      this.boardToShow.style.bgColor = color
-      console.log('this.boardToShow after', this.boardToShow)
-      this.$store.dispatch({type: 'updateBoard', boardToUpdate: this.boardToShow})
+    updateBoardCover(color) {
+      console.log("this.boardToShow before", this.boardToShow);
+      this.boardToShow.style.bgColor = color;
+      console.log("this.boardToShow after", this.boardToShow);
+      this.$store.dispatch({
+        type: "updateBoard",
+        boardToUpdate: this.boardToShow,
+      });
     },
-    toggleBoardMenuModal(){
-      this.isBoardMenuModalOpen = !this.isBoardMenuModalOpen
+    toggleBoardMenuModal() {
+      this.isBoardMenuModalOpen = !this.isBoardMenuModalOpen;
     },
-    archiveGroup(groupToArchive){
-      this.$store.dispatch({type: 'archiveGroup', group: groupToArchive, boardId: this.boardToShow._id})
+    archiveGroup(groupToArchive) {
+      this.$store.dispatch({
+        type: "archiveGroup",
+        group: groupToArchive,
+        boardId: this.boardToShow._id,
+      });
     },
     addGroup() {
       this.$store.dispatch({ type: "addGroup", boardId: this.boardToShow._id });

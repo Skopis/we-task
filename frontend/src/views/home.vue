@@ -1,8 +1,9 @@
 <template>
   <section class="home text-center main-container">
     <section class="home-txt">
-      <p class="main-header">WeTask</p>
-      <p class="text-center sub-header">Organizing your work & life</p>
+      <!-- <p class="main-header">WeTask</p> -->
+      <img src="../assets/logo2.svg">
+      <!-- <p class="text-center sub-header">Organizing your work & life</p> -->
       <button @click="pushRoute">Try it now</button>
     </section>
     <section>

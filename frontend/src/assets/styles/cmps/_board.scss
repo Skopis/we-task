@@ -1,18 +1,23 @@
 /* Ghost for movable object */
-.ghost { 
+.ghost {
     opacity: 0.5;
     background: #F7FAFC;
     border: 1px solid #4299e1;
     border: 5px solid gray;
 }
 
-.chosen-drag{
+.chosen-drag {
     transform: rotate(90deg);
     transform: scaleY(1.5);
     transform: skewY(20deg);
     border: 5px solid blue;
+}
+
+.main-board-container {
+    display: flex;
+    flex: 1;
+
+    .btn {
+        flex-shrink: 0;
     }
-
-
-
-
+}
