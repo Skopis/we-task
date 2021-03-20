@@ -6,12 +6,12 @@
         <h1>{{ task.title }}</h1>
         <p><span>in list</span></p>
       </header>
-      <div v-if="task.labels" class="">
+      <labels-menu @setLabel="setTaskLabel" />
+      <div v-if="task.labels" class=""> Labels
         <div v-for="label in task.labels" :key="label.id">
           <div class="label" :class="label.color">Hello</div>
         </div>
       </div>
-      // <labels-menu @setLabel="setTaskLabel" />
       <div class="task-members">
         <h3>MEMBERS</h3>
         <div v-if="task.members">

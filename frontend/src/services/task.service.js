@@ -121,6 +121,38 @@ function getEmptyBoard() {
     "style": {
       "bgColor": "#ffff"
     },
+    "labels": [
+      {
+        "id": "l101",
+        "title": "",
+        "color": "green"
+      },
+      {
+        "id": "l102",
+        "title": "",
+        "color": "yellow"
+      },
+      {
+        "id": "l103",
+        "title": "Done",
+        "color": "orange"
+      },
+      {
+        "id": "l104",
+        "title": "",
+        "color": "red"
+      },
+      {
+        "id": "l105",
+        "title": "",
+        "color": "purple"
+      },
+      {
+        "id": "l106",
+        "title": "",
+        "color": "blue"
+      },
+    ],
     'createdAt': Date.now(),
     'groups': [{
       'id': utilService.makeId(),
@@ -185,9 +217,34 @@ async function query(filterBy = {}) {
       "labels": [
         {
           "id": "l101",
+          "title": "",
+          "color": "green"
+        },
+        {
+          "id": "l102",
+          "title": "",
+          "color": "yellow"
+        },
+        {
+          "id": "l103",
           "title": "Done",
-          "color": "#61bd4f"
-        }
+          "color": "orange"
+        },
+        {
+          "id": "l104",
+          "title": "",
+          "color": "red"
+        },
+        {
+          "id": "l105",
+          "title": "",
+          "color": "purple"
+        },
+        {
+          "id": "l106",
+          "title": "",
+          "color": "blue"
+        },
       ],
       "members": [
         {

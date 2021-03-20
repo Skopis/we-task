@@ -30,12 +30,16 @@
             opacity: 1;
         }
     }
+
+    input{
+        margin: 0;
+    }
 }
     .group-menu{
         background-color: springgreen;
         position: absolute;
-        box-shadow: $box-shadow;
-        top: 165px;
+        box-shadow: 0 0px 4px 0px rgba(9 ,30, 66, 0.5 );
+        top: 180px;
         display: flex;
         flex-direction: column;
         background-color: #fff;
