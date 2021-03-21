@@ -4,7 +4,8 @@
     v-if="boardToShow"
     :style="{ backgroundColor: boardToShow.style.bgColor }"
   >
-    <header class="board-header">
+    <header class="board-header flex space-between">
+      <div class="flex">
       <h2 @click="editBoardTitle" v-show="isTitleModalOpen === false">
         {{ boardToShow.title }}
       </h2>
@@ -20,9 +21,10 @@
           placeholder="Board Title"
           v-model="boardToShow.title"
         />
-        <!-- <button class="btn">Save</button> -->
       </form>
-
+      <member-avatar :members="boardToShow.members" :size="28" />
+      </div>
+      <div class="flex row-reverse align-center">
       <button class="btn" @click="toggleBoardMenuModal">
         <img src="../assets/icons/3dots.png" alt="" />
       </button>
@@ -31,8 +33,7 @@
         :board="boardToShow"
         @updateBoardCover="updateBoardCover"
       />
-      <!-- <section class="task-list-container"> -->
-      <member-avatar :members="boardToShow.members" :size="28" />
+      </div>
     </header>
     <!-- <section class="task-list-container"> -->
     <section class="main-board-container">
