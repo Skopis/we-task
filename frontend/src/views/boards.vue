@@ -4,7 +4,7 @@
         <button @click="addBoard" class="btn">Add a new Board</button>
         <section class="board-preview-container">
             <div v-for="board in boardsToShow" :key="'B'+board._id">
-                <board-preview @click.native.self.stop="pushBoard(board._id)" :board="board" @archiveBoard="archiveBoard"/>
+                <board-preview @click.native.stop="pushBoard(board._id)" :board="board" @archiveBoard="archiveBoard"/>
                 <!-- <router-link :to="'board/'+board._id"></router-link>  -->
             </div>
         </section>

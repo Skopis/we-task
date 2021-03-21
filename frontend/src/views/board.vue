@@ -1,44 +1,73 @@
 <template>
-  <div class="board" v-if="boardToShow" :style="{'backgroundColor': boardToShow.style.bgColor}">
-  <header class="board-header">
-  <h2 @click="editBoardTitle" v-if="isTitleModalOpen===false">{{ boardToShow.title }}</h2>
-    <form @submit.prevent="saveBoardTitle" v-if="isTitleModalOpen">
-      <input
-        type="text"
-        placeholder="Board Title"
-        v-model="boardToShow.title"
+  <div
+    class="board"
+    v-if="boardToShow"
+    :style="{ backgroundColor: boardToShow.style.bgColor }"
+  >
+    <header class="board-header">
+      <h2 @click="editBoardTitle" v-show="isTitleModalOpen === false">
+        {{ boardToShow.title }}
+      </h2>
+      <form
+        @focusout.prevent="saveBoardTitle"
+        v-show="isTitleModalOpen"
+        @submit.prevent.stop="saveBoardTitle"
+      >
+        <input
+          autofocus
+          ref="titleChange"
+          type="text"
+          placeholder="Board Title"
+          v-model="boardToShow.title"
+        />
+        <!-- <button class="btn">Save</button> -->
+      </form>
+
+      <button class="btn" @click="toggleBoardMenuModal">
+        <img src="../assets/icons/3dots.png" alt="" />
+      </button>
+      <board-menu
+        v-if="isBoardMenuModalOpen"
+        :board="boardToShow"
+        @updateBoardCover="updateBoardCover"
       />
-      <!-- <button class="btn">Save</button> -->
-    </form>
-    
-    <button class="btn" @click="toggleBoardMenuModal"><img src="../assets/icons/3dots.png" alt=""></button>
-    <board-menu v-if="isBoardMenuModalOpen" :board="boardToShow" @updateBoardCover="updateBoardCover"/>
+      <!-- <section class="task-list-container"> -->
+      <member-avatar :members="boardToShow.members" :size="28" />
+    </header>
     <!-- <section class="task-list-container"> -->
-    <member-avatar :members="boardToShow.members" :size="28" />
-  </header>
-    <board-menu
-      v-if="isBoardMenuModalOpen"
-      :board="boardToShow"
-      @updateBoardCover="updateBoardCover"
-    />
-    <!-- <section class="task-list-container"> -->
-      <section class="main-board-container">
-    <draggable
-      v-model="boardToShow.groups"
-      @end="itemDragged"
-      animation="500"
-      ghostClass="ghost"
-      class="task-list-container"
-      handle=".group-list"
-    >
-      <div v-for="group in boardToShow.groups" :key="'L' + group.id">
-        <group-list :group="group" @itemDragged="itemDragged" @updateTask="updateTask" @updateGroup="updateGroup" @archiveGroup="archiveGroup" @openModal="setMenuPos" @toggleGroupMenuModal="toggleGroupMenuModal" />
-        <group-menu :group="group" :menuPos="menuPos" v-if="group.id === menuGroupId && isGroupMenuModalOpen" @archiveGroup="archiveGroup"   @updateGroupCover="updateGroupCover" />
-      </div>
-      <!-- </section> -->
-    </draggable>
-      <button class="btn" @click="addGroup">Add a New Group</button>
-      </section>
+    <section class="main-board-container">
+      <draggable
+        v-model="boardToShow.groups"
+        @end="itemDragged"
+        animation="500"
+        ghostClass="ghost"
+        class="task-list-container"
+        handle=".group-list"
+      >
+        <div v-for="group in boardToShow.groups" :key="'L' + group.id">
+          <group-list
+            :group="group"
+            @itemDragged="itemDragged"
+            @updateTask="updateTask"
+            @updateGroup="updateGroup"
+            @archiveGroup="archiveGroup"
+            @openModal="setMenuPos"
+            @toggleGroupMenuModal="toggleGroupMenuModal"
+          />
+          <group-menu
+            :group="group"
+            :menuPos="menuPos"
+            v-if="group.id === menuGroupId && isGroupMenuModalOpen"
+            @archiveGroup="archiveGroup"
+            @updateGroupCover="updateGroupCover"
+          />
+        </div>
+        <!-- </section> -->
+      </draggable>
+      <button class="btn new-group" @click="addGroup">
+        <span>＋</span> Add a New Group
+      </button>
+    </section>
     <router-view />
   </div>
 </template>
@@ -50,7 +79,7 @@ import groupList from "../cmps/group-list.vue";
 import draggable from "vuedraggable";
 import boardMenu from "../cmps/menu/board-menu.vue";
 import groupMenu from "../cmps/menu/group-menu";
-import memberAvatar from '../cmps/task-details/member-avatar.cmp.vue'
+import memberAvatar from "../cmps/task-details/member-avatar.cmp.vue";
 
 export default {
   name: "board",
@@ -107,6 +136,10 @@ export default {
     },
     editBoardTitle() {
       this.isTitleModalOpen = true;
+      console.log(" this.$refs", this.$refs.titleChange);
+      setTimeout(() => {
+        this.$refs.titleChange.focus();
+      }, 300);
     },
     saveBoardTitle() {
       this.isTitleModalOpen = false;
@@ -155,8 +188,7 @@ export default {
         amount -= 12;
       }
       this.menuPos = { left: amount + "px" };
-      console.log(this.menuPos)
-      
+      console.log(this.menuPos);
     },
   },
   components: {
@@ -164,7 +196,7 @@ export default {
     draggable,
     boardMenu,
     groupMenu,
-    memberAvatar
+    memberAvatar,
   },
 };
 </script>

@@ -6,9 +6,7 @@
     left: 0;
     width: 100%;
     z-index: 1;
-    // background-color: rgba(23, 43, 77, 0.7);
     height: 77px;
-    z-index: 1;
     color: $light-clr;
     padding: 10px;
     display: flex;
@@ -63,7 +61,7 @@
     h2{
         margin: 0;
     }
-    background-color: #00aecc;
+    // background-color: #00aecc;
     display: flex;
     align-items: center;
     .btn{

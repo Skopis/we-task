@@ -5,30 +5,40 @@
         {{ group.title }}
       </h3>
       <form @submit.prevent="saveGroupTitle" v-if="isTitleModalOpen">
-        <input type="text" placeholder="Group Title" v-model="group.title" />
+        <input
+          type="text"
+          ref="groupTitle"
+          placeholder="Group Title"
+          v-model="group.title"
+          autofocus
+        />
         <!-- <button>Save</button> -->
       </form>
       <button class="btn" @click="toggleGroupMenuModal($event)">
         <img src="../assets/icons/3dots.png" alt="" />
       </button>
-      
     </div>
     <task-quick-edit v-if="isAddModalOpen" @updateTask="updateTask" />
     <ul>
-    <draggable
-      @end="itemDragged"
-      animation="500"
-      group="task"
-      ghostClass="ghost"
-      dragClass="chosen-drag"
-      v-model="group.tasks"
-      handle="li"
-    >
-      <li v-for="task in group.tasks" :key="'C' + task.id">
-        <task-preview :task="task" @updateTask="updateTask" :groupId="group.id" :style="{'backgroundColor': task.style.bgColor}"/>
-      </li>
-      <button class="btn" @click="openAddModal">Add a new Task</button>
-    </draggable>
+      <draggable
+        @end="itemDragged"
+        animation="500"
+        group="task"
+        ghostClass="ghost"
+        dragClass="chosen-drag"
+        v-model="group.tasks"
+        handle="li"
+      >
+        <li v-for="task in group.tasks" :key="'C' + task.id">
+          <task-preview
+            :task="task"
+            @updateTask="updateTask"
+            :groupId="group.id"
+            :style="{ backgroundColor: task.style.bgColor }"
+          />
+        </li>
+        <button class="btn" @click="openAddModal">Add a new Task</button>
+      </draggable>
     </ul>
   </div>
 </template>
@@ -56,10 +66,14 @@ export default {
       this.$emit("archiveGroup", groupToArchive);
     },
     toggleGroupMenuModal(ev) {
-      console.log(ev)
+      console.log(ev);
       this.isGroupMenuModalOpen = !this.isGroupMenuModalOpen;
-      this.$emit('toggleGroupMenuModal', this.isGroupMenuModalOpen, this.group.id)
-      this.$emit('openModal', this.group.id)
+      this.$emit(
+        "toggleGroupMenuModal",
+        this.isGroupMenuModalOpen,
+        this.group.id
+      );
+      this.$emit("openModal", this.group.id);
     },
     saveGroupTitle() {
       this.isTitleModalOpen = false;
@@ -67,12 +81,12 @@ export default {
     },
     editGroupTitle() {
       this.isTitleModalOpen = true;
-    },
-    editGroupTitle() {
-      this.isTitleModalOpen = true;
+      setTimeout(() => {
+        this.$refs.groupTitle.focus();
+      }, 300);
     },
     itemDragged(ev) {
-      this.$emit("itemDragged",this.group);
+      this.$emit("itemDragged", this.group);
     },
     openAddModal() {
       this.isAddModalOpen = true;
@@ -92,5 +106,5 @@ export default {
     TaskQuickEdit,
     draggable,
   },
-}; 
+};
 </script>

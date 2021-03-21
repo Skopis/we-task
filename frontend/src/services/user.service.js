@@ -72,10 +72,10 @@ function _saveLocalUser(user) {
 
 function getLoggedinUser() {
     const user = {
-        "_id": "u101",
+        "_id": "u103",
         "fullname": "Guest",
         'username': 'guest',
-        "imgUrl": "http://some-img.jpg",
+        "imgUrl": "",
     }
     if (sessionStorage.getItem('loggedinUser')) return JSON.parse(sessionStorage.getItem('loggedinUser'))
     else {

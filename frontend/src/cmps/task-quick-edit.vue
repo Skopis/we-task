@@ -1,8 +1,15 @@
 <template>
     <section class="task-edit">
-        <form @submit.prevent="updateTask">
-            <textarea placeholder="" v-model="taskToEdit.title"></textarea>
-            <button >Save</button>
+        <form >
+            <textarea 
+            ref="taskTxt"
+            placeholder=""
+            v-model="taskToEdit.title"
+            @keydown.enter.exact.prevent="updateTask"
+            autofocus
+            >
+            </textarea>
+            <!-- <button >Save</button> -->
         </form>
     </section>
 </template>
@@ -26,6 +33,9 @@ export default{
             }
         }
         else this.taskToEdit = this.task
+        setTimeout(() => {
+        this.$refs.taskTxt.focus();
+    }, 300);
     },
     methods:{
         updateTask(){

@@ -1,10 +1,10 @@
 <template>
-    <section class="board-preview">
+    <section class="board-preview" :style="{ backgroundColor: board.style.bgColor }">
         <div >
-            <p>{{board._id}}</p>
             <p>{{board.title}}</p>
+            <p>{{board.groups.length || 0}} Groups</p>
         </div>
-        <button class="btn" @click="toggleBoardMenuModal">
+        <button class="btn" @click.stop.prevent="toggleBoardMenuModal">
             <img src="../assets/icons/3dots.png" alt="" />
         </button>
         <board-preview-menu v-if="isBoardMenuModalOpen" :board="board" @archiveBoard="archiveBoard"/>
