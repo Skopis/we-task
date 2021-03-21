@@ -8,6 +8,7 @@
 
     .sub-header {
         font-size: 3rem;
+        margin-bottom: 2rem;
     }
 
     .home-txt {
@@ -37,6 +38,8 @@
             // background-color: $task-txt;
             background-color:rgb(138, 183, 37);
             color: black;
+            outline: none;
+            font-size: large;
         }
     }
 
@@ -55,10 +58,22 @@
 
         h2 {
             font-size: 2.5rem;
+            margin-bottom: 1.5rem;
         }
 
         p {
             font-size: large;
+        }
+
+        
+    }
+    @include for-wide-layout23 {
+        article{
+            display: flex;
+            flex-direction: column;
+        }
+        article:nth-child(2n){
+            flex-direction: column-reverse;
         }
     }
 }

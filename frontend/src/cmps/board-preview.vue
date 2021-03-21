@@ -4,7 +4,7 @@
             <p>{{board.title}}</p>
             <p>{{board.groups.length || 0}} Groups</p>
         </div>
-        <button class="btn" @click="toggleBoardMenuModal">
+        <button class="btn" @click.stop.prevent="toggleBoardMenuModal">
             <img src="../assets/icons/3dots.png" alt="" />
         </button>
         <board-preview-menu v-if="isBoardMenuModalOpen" :board="board" @archiveBoard="archiveBoard"/>
