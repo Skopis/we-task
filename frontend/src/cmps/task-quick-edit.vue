@@ -5,6 +5,7 @@
             ref="taskTxt"
             placeholder=""
             v-model="taskToEdit.title"
+            @click.stop=""
             @keydown.enter.exact.prevent="updateTask"
             autofocus
             >
