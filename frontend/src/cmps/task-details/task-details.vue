@@ -118,7 +118,7 @@ export default {
     },
     closeDetailsModal() {
       this.$store.dispatch({
-        type: "updatecurrGroupIdSession",
+        type: "updateCurrGroupIdSession",
         status: "removeFromSession",
         groupId: null,
       });

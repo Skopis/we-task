@@ -1,5 +1,5 @@
 <template>
-  <section class="task-preview">
+  <section class="task-preview" @click="openTaskDetails(task.id)">
     <header class="task-header">
       <task-quick-edit
         v-if="isEditModalOpen"
@@ -7,8 +7,8 @@
         :task="task"
       />
       <section v-else>
-        <h4>{{ task.title }}</h4>
-        <button class="btn edit-task-title" @click="openEditModal">✎</button>
+        <p>{{ task.title }}</p>
+        <button class="btn edit-task-title" @click.stop="openEditModal">✎</button>
       </section>
     </header>
     <div class="task-body">
@@ -29,9 +29,6 @@
         <!-- v-if logged in member = member assigned to task-->
         <button class="btn badge" v-if="task.comments">
           🗨 {{ task.comments.length }}
-        </button>
-        <button class="btn badge" @click="openTaskDetails(task.id)">
-          Details
         </button>
       </div>
     </div>
@@ -70,7 +67,7 @@ export default {
     },
     openTaskDetails(taskId) {
       // this.$store.commit({type:'saveCurrGroupId', groupId:this.groupId})
-      this.$store.dispatch({type:'updatecurrGroupIdSession', status:'saveToSession', groupId:this.groupId})
+      this.$store.dispatch({type:'updateCurrGroupIdSession', status:'saveToSession', groupId:this.groupId})
       this.$router.push(`${this.boradId}/task/${taskId}`);
     },
   },
