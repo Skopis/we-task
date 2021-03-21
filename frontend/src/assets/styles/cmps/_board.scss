@@ -14,9 +14,11 @@
 }
 
 .main-board-container {
+    overflow-y:hidden;
     display: flex;
     flex: 1;
-    height: calc(100vh - 130px);
+    // height: calc(100vh - 136px);
+    height: calc(100vh - 153px);
 
     .btn {
         flex-shrink: 0;
@@ -33,7 +35,8 @@
 }
 
 .board {
-    margin-top: 77px;
+    overflow-y:hidden;
+    margin-top: 136px;
     height: 100%;
     min-width: 100%;
     width: max-content;

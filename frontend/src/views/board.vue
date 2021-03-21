@@ -4,7 +4,7 @@
     v-if="boardToShow"
     :style="{ backgroundColor: boardToShow.style.bgColor }"
   >
-    <header class="board-header flex space-between">
+    <header class="board-header flex space-between" :style="{ backgroundColor: boardToShow.style.bgColor }">
       <div class="flex">
       <h2 @click="editBoardTitle" v-show="isTitleModalOpen === false">
         {{ boardToShow.title }}
@@ -187,9 +187,11 @@ export default {
       this.$store.dispatch({ type: "setBoard", board: this.boardToShow });
     },
     setMenuPos(groupId) {
+      console.log('groupId', groupId)
       const groupIdx = this.boardToShow.groups.findIndex(
         (group) => group.id === groupId
       );
+      console.log('groupIdx', groupIdx)
       var amount = 276 * (groupIdx + 1) - 12;
       if (groupIdx < 1) {
         amount -= 12;

@@ -40,7 +40,7 @@ function getEmptyGroup() {
     'title': 'New Group',
     'tasks': [],
     "style": {
-      "bgColor": "#dff0ea"
+      "bgColor": "#ebecf0"
     }
   }
 }
