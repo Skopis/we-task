@@ -295,7 +295,7 @@ export const taskStore = {
                 console.log('Cannot save comment', err)
             }
         },
-        updatecurrGroupIdSession({ commit }, { status, groupId }) {
+        updateCurrGroupIdSession({ commit }, { status, groupId }) {
             const currGroupId = taskService.handleGroupInSession(status, groupId)
             commit({ type: 'saveCurrGroupId', groupId: currGroupId })
         },

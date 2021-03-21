@@ -212,12 +212,12 @@ async function query(filterBy = {}) {
         "imgUrl": "http://some-img"
       },
       "style": {
-        "bgColor": "#b1c294"
+        "bgColor": "#d8c9ff"
       },
       "labels": [
         {
           "id": "l101",
-          "title": "",
+          "title": "Done",
           "color": "green"
         },
         {
@@ -227,7 +227,7 @@ async function query(filterBy = {}) {
         },
         {
           "id": "l103",
-          "title": "Done",
+          "title": "",
           "color": "orange"
         },
         {
@@ -283,25 +283,28 @@ async function query(filterBy = {}) {
                   'username': 'guest',
                   "imgUrl": "",
                 }
-              ]
+              ],
+              "labels": []
             },
             {
               "id": "c1012",
               "title": "Weekly Updates",
               "style": {
-                "bgColor": "#ffff"
-              }
+                "bgColor": "#ebecf0"
+              },
+              "labels": []
             },
             {
               "id": "c1014",
               "title": "Stakeholders",
               "style": {
-                "bgColor": "#ffff"
-              }
+                "bgColor": "#b1c294"
+              },
+              "labels": []
             }
           ],
           "style": {
-            "bgColor": "#ebecf0"
+            "bgColor": "#eecab6"
           }
         },
         {
@@ -312,8 +315,9 @@ async function query(filterBy = {}) {
               "id": "c103",
               "title": "Who's the best person to fix my HTML snag?",
               "style": {
-                "bgColor": "#ffff"
+                "bgColor": "#cc859a"
               },
+              "labels": [],
               "members": [
                 {
                   "_id": "u103",
@@ -329,7 +333,8 @@ async function query(filterBy = {}) {
               "style": {
                 "bgColor": "#ffff"
               },
-              "description": "description",
+              "labels": [],
+              "description": "Please find a way to open this file",
               "comments": [
                 {
                   "id": "ZdPnm",
@@ -344,11 +349,11 @@ async function query(filterBy = {}) {
               ],
               "checkgroups": [
                 {
-                  "id": "YEhmF",
+                  "id": "YEhmFtt",
                   "title": "Checkgroup",
                   "todos": [
                     {
-                      "id": "212jX",
+                      "id": "212jXz",
                       "title": "Edit Email drafts",
                       "isDone": false
                     }
@@ -368,7 +373,7 @@ async function query(filterBy = {}) {
                   "fullname": "Tal Tarablus",
                   "imgUrl": "http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
                 },{
-                  "_id": "u104",
+                  "_id": "u107",
                   "username": "Kobi",
                   "fullname": "Kobi Tohar",
                   "imgUrl": ""
@@ -399,6 +404,7 @@ async function query(filterBy = {}) {
               "style": {
                 "bgColor": "#ffff"
               },
+              "labels": [],
               "members": [
                 {
                   "_id": "u103",
@@ -410,15 +416,16 @@ async function query(filterBy = {}) {
             },
             {
               "id": "c1057",
-              "title": "How can I get access to the super secret document?",
+              "title": "Please add permissions for new members",
               "style": {
-                "bgColor": "#ffff"
+                "bgColor": "#fbffd4"
               },
+              "labels": [],
               "description": "description",
               "comments": [
                 {
-                  "id": "ZdPnm",
-                  "txt": "also @yaronb please CR this",
+                  "id": "ZdPnmk",
+                  "txt": "@dudug please CR this",
                   "createdAt": 1590999817436.0,
                   "byMember": {
                     "_id": "u101",
@@ -453,7 +460,7 @@ async function query(filterBy = {}) {
                   "fullname": "Tal Tarablus",
                   "imgUrl": "http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
                 },{
-                  "_id": "u104",
+                  "_id": "u107",
                   "username": "Kobi",
                   "fullname": "Kobi Tohar",
                   "imgUrl": ""
@@ -471,19 +478,20 @@ async function query(filterBy = {}) {
             }
           ],
           "style": {
-            "bgColor": "#ebecf0"
+            "bgColor": "#b1c294"
           }
         },
         {
-          "id": "g111",///////////////////I'm Here
+          "id": "g111",
           "title": "Pending",
           "tasks": [
             {
               "id": "c1017",
               "title": "Legal review",
               "style": {
-                "bgColor": "#ffff"
+                "bgColor": "#ebecf0"
               },
+              "labels": [],
               "members": [
                 {
                   "_id": "u103",
@@ -494,16 +502,33 @@ async function query(filterBy = {}) {
               ]
             },
             {
-              "id": "c1014",
-              "title": "How can I get access to the super secret document?",
+              "id": "c101474",
+              "title": "Await final approval",
               "style": {
-                "bgColor": "#ffff"
+                "bgColor": "#eecab6"
               },
+              "labels": [],
+            },
+            {
+              "id": "c102374",
+              "title": "Fix Margin issue",
+              "style": {
+                "bgColor": "#eecab6"
+              },
+              "labels": []
+            },
+            {
+              "id": "c1015",
+              "title": "WorkFlow changed!!",
+              "style": {
+                "bgColor": "#ebecf0"
+              },
+              "labels": [],
               "description": "description",
               "comments": [
                 {
-                  "id": "ZdPnm",
-                  "txt": "also @yaronb please CR this",
+                  "id": "ZdPntm",
+                  "txt": "also @mikel please CR this",
                   "createdAt": 1590999817436.0,
                   "byMember": {
                     "_id": "u101",
@@ -514,12 +539,12 @@ async function query(filterBy = {}) {
               ],
               "checkgroups": [
                 {
-                  "id": "YEhmF",
+                  "id": "YEhmFl",
                   "title": "Checkgroup",
                   "todos": [
                     {
-                      "id": "212jX",
-                      "title": "Find the password",
+                      "id": "212jXx",
+                      "title": "Find the document",
                       "isDone": false
                     }
                   ]
@@ -538,7 +563,7 @@ async function query(filterBy = {}) {
                   "fullname": "Tal Tarablus",
                   "imgUrl": "http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
                 },{
-                  "_id": "u104",
+                  "_id": "u107",
                   "username": "Kobi",
                   "fullname": "Kobi Tohar",
                   "imgUrl": ""
@@ -556,28 +581,158 @@ async function query(filterBy = {}) {
             }
           ],
           "style": {
-            "bgColor": "#ebecf0"
+            "bgColor": "#ffff"
+          }
+        },
+        {
+          "id": "g118",
+          "title": "Blocked",
+          "tasks": [
+            {
+              "id": "c10177",
+              "title": "Freelancer contracts",
+              "style": {
+                "bgColor": "#d1f5f5"
+              },
+              "members": [
+              ],
+              "labels": []
+            },
+            {
+              "id": "c10157",
+              "title": "Social media assets",
+              "style": {
+                "bgColor": "#b1c294"
+              },
+              "labels": [],
+              "description": "The twitter banner looks great, can we get another version in red",
+              "comments": [
+                {
+                  "id": "ZdPntmk",
+                  "txt": "Sure thing, just attached!",
+                  "createdAt": 1590956817436.0,
+                  "byMember": {
+                    "_id": "u101",
+                    "fullname": "Tal Tarablus",
+                    "imgUrl": "http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
+                  }
+                }
+              ],
+              "checkgroups": [
+                {
+                  "id": "YEhmFlk",
+                  "title": "Main Checkgroup",
+                  "todos": [
+                    {
+                      "id": "212jXxe",
+                      "title": "Check the DB error",
+                      "isDone": false
+                    }
+                  ]
+                }
+              ],
+              "members": [
+                {
+                  "_id": "u103",
+                  "fullname": "Guest",
+                  'username': 'guest',
+                  "imgUrl": "",
+                },
+                {
+                  "_id": "u101",
+                  "username": "Tal",
+                  "fullname": "Tal Tarablus",
+                  "imgUrl": "http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
+                },{
+                  "_id": "u107",
+                  "username": "Kobi",
+                  "fullname": "Kobi Tohar",
+                  "imgUrl": ""
+                }
+              ],
+              "labelIds": ["101"],
+              "createdAt": 1590899770748,
+              "dueDate": 16156215211,
+              "byMember": {
+                "_id": "u101",
+                "username": "Tal",
+                "fullname": "Tal Tarablus",
+                "imgUrl": "http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
+              },
+            }
+          ],
+          "style": {
+            "bgColor": "#cc859a"
+          }
+        },
+        {
+          "id": "g10134",
+          "title": "Done",
+          "tasks": [
+            {
+              "id": "c10134",
+              "title": `Finalize Campaign Name: WeTaskBigger`,
+              "style": {
+                "bgColor": "#a4a9a7"
+              },
+              "labels": [],
+              "members": [
+                {
+                  "_id": "u103",
+                  "fullname": "Guest",
+                  'username': 'guest',
+                  "imgUrl": "",
+                }
+              ]
+            },
+            {
+              "id": "c101234",
+              "title": "Submit Q1 report",
+              "style": {
+                "bgColor": "#eecab6"
+              },
+              "labels": []
+            },
+            {
+              "id": "c101239",
+              "title": "Get Manager approval",
+              "style": {
+                "bgColor": "#d1f5f5"
+              },
+              "labels": []
+            },
+            {
+              "id": "c101434",
+              "title": "Campaign Proposal",
+              "style": {
+                "bgColor": "#ffff"
+              },
+              "labels": []
+            }
+          ],
+          "style": {
+            "bgColor": "#fbffd4"
           }
         }
       ],
       "activities": [
         {
-          "id": "a101",
-          "txt": "Changed Header",
-          "createdAt": 154514,
+          "id": "a1015",
+          "txt": "Added Footer",
+          "createdAt": 15451456789,
           "byMember": {
             "_id": "u102",
             "fullname": "Abi Abambi",
             "imgUrl": "http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
           },
           "task": {
-            "id": "c101",
-            "title": `Project "Teamwork Dream Work" Launch Timeline`,
+            "id": "c1019",
+            "title": `Project "WeTask" Timeline`,
           }
         },
         {
           "id": "a102",
-          "txt": "Added due date",
+          "txt": "Removed bug in Backend",
           "createdAt": 154514,
           "byMember": {
             "_id": "u102",
@@ -585,13 +740,13 @@ async function query(filterBy = {}) {
             "imgUrl": "http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
           },
           "task": {
-            "id": "c102",
+            "id": "c10299",
             "title": "Use color-picker component"
           }
         },
         {
           "id": "a103",
-          "txt": "Added due date",
+          "txt": "Changed due date",
           "createdAt": 154514,
           "byMember": {
             "_id": "u102",
@@ -667,6 +822,7 @@ async function query(filterBy = {}) {
               "style": {
                 "bgColor": "#ffff"
               },
+              "labels": [],
               "members":[{
                 "_id": "u103",
                 "fullname": "Guest",
@@ -679,7 +835,8 @@ async function query(filterBy = {}) {
               "title": "Update Samples",
               "style": {
                 "bgColor": "#ffff"
-              }
+              },
+              "labels": []
             }
           ],
           "style": {
@@ -696,6 +853,7 @@ async function query(filterBy = {}) {
               "style": {
                 "bgColor": "#ffff"
               },
+              "labels": [],
               "members":[{
                 "_id": "u103",
                 "fullname": "Guest",
@@ -709,6 +867,7 @@ async function query(filterBy = {}) {
               "style": {
                 "bgColor": "#ffff"
               },
+              "labels": [],
               "description": "description",
               "comments": [
                 {
@@ -785,7 +944,7 @@ async function query(filterBy = {}) {
           },
           "task": {
             "id": "c102a",
-            "title": "Update Logo"
+            "title": "Update Samples"
           }
         },
         {
@@ -799,7 +958,7 @@ async function query(filterBy = {}) {
           },
           "task": {
             "id": "c104a",
-            "title": "Update Logo"
+            "title": "Assist me"
           }
         }
       ]

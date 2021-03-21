@@ -1,6 +1,6 @@
 <template>
   <div class="task-side-bar">
-  <h4>ADD TO CARD</h4>
+  <h4>ADD TO TASK</h4>
     <div class="dev-tools">
       <button  class="btn"><i class="el-icon-user"></i> Members</button>
       <button class="btn" @click="openLabelModal"><i class="el-icon-collection-tag"></i> Labels</button>

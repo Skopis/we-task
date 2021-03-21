@@ -4,7 +4,8 @@
     v-if="boardToShow"
     :style="{ backgroundColor: boardToShow.style.bgColor }"
   >
-    <header class="board-header">
+    <header class="board-header flex space-between">
+      <div class="flex">
       <h2 @click="editBoardTitle" v-show="isTitleModalOpen === false">
         {{ boardToShow.title }}
       </h2>
@@ -20,9 +21,10 @@
           placeholder="Board Title"
           v-model="boardToShow.title"
         />
-        <!-- <button class="btn">Save</button> -->
       </form>
-
+      <member-avatar :members="boardToShow.members" :size="28" />
+      </div>
+      <div class="flex row-reverse align-center">
       <button class="btn" @click="toggleBoardMenuModal">
         <img src="../assets/icons/3dots.png" alt="" />
       </button>
@@ -31,8 +33,7 @@
         :board="boardToShow"
         @updateBoardCover="updateBoardCover"
       />
-      <!-- <section class="task-list-container"> -->
-      <member-avatar :members="boardToShow.members" :size="28" />
+      </div>
     </header>
     <!-- <section class="task-list-container"> -->
     <section class="main-board-container">
@@ -57,15 +58,16 @@
           <group-menu
             :group="group"
             :menuPos="menuPos"
-            v-if="group.id === menuGroupId && isGroupMenuModalOpen"
+            v-if="group.id === menuGroupId"
             @archiveGroup="archiveGroup"
             @updateGroupCover="updateGroupCover"
+            @closeMenu="closeMenu"
           />
         </div>
         <!-- </section> -->
       </draggable>
       <button class="btn new-group" @click="addGroup">
-        <span>＋</span> Add a New Group
+        <span class="big-plus">＋</span> Add a New Group
       </button>
     </section>
     <router-view />
@@ -88,7 +90,6 @@ export default {
       isTitleModalOpen: false,
       isBoardMenuModalOpen: false,
       menuPos: null,
-      isGroupMenuModalOpen: false,
       menuGroupId: null,
     };
   },
@@ -103,10 +104,15 @@ export default {
     await this.$store.dispatch({ type: "loadBoard", boardId });
   },
   methods: {
-    toggleGroupMenuModal(isGroupMenuModalOpen, groupId) {
-      this.isGroupMenuModalOpen = isGroupMenuModalOpen;
-      if (!isGroupMenuModalOpen) this.menuGroupId = null;
-      else this.menuGroupId = groupId;
+    closeMenu() {
+      this.menuGroupId = null;
+    },
+    toggleGroupMenuModal(groupId) {
+      if (groupId === this.menuGroupId) {
+        this.menuGroupId = null;
+      } else {
+        this.menuGroupId = groupId;
+      }
     },
     updateGroupCover(color, group) {
       group.style.bgColor = color;
@@ -122,6 +128,7 @@ export default {
       });
     },
     toggleBoardMenuModal() {
+      //TODO:
       this.isBoardMenuModalOpen = !this.isBoardMenuModalOpen;
     },
     archiveGroup(groupToArchive) {

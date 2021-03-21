@@ -19,7 +19,7 @@
         data () {
             return {
                 color: '#1CA085',
-                swatches: ['#ffff', '#CC859A', '#EECAB6', '#B1C294', '#D8C9FF', '#FBFFD4', '#D1F5F5', '#A4A9A7']
+                swatches: ['#ebecf0', '#ffff', '#CC859A', '#EECAB6', '#B1C294', '#D8C9FF', '#FBFFD4', '#D1F5F5', '#A4A9A7']
             }
         },
         async created(){

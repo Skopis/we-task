@@ -37,7 +37,9 @@
             :style="{ backgroundColor: task.style.bgColor }"
           />
         </li>
-        <button class="btn" @click="openAddModal">Add a new Task</button>
+        <button class="btn add-task" @click="openAddModal">
+          <span class="big-plus">＋</span> Add a new Task
+        </button>
       </draggable>
     </ul>
   </div>
@@ -56,7 +58,6 @@ export default {
     return {
       isTitleModalOpen: false,
       isAddModalOpen: false,
-      isGroupMenuModalOpen: false,
       group1: this.group,
     };
   },
@@ -68,11 +69,7 @@ export default {
     toggleGroupMenuModal(ev) {
       console.log(ev);
       this.isGroupMenuModalOpen = !this.isGroupMenuModalOpen;
-      this.$emit(
-        "toggleGroupMenuModal",
-        this.isGroupMenuModalOpen,
-        this.group.id
-      );
+      this.$emit("toggleGroupMenuModal", this.group.id);
       this.$emit("openModal", this.group.id);
     },
     saveGroupTitle() {
