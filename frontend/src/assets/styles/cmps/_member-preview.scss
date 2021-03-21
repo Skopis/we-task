@@ -7,4 +7,10 @@
     width: 40px;
     border-radius: 25em;
     object-fit: cover;
+    display: flex; 
+    border-radius: 50%;
+    font: 11px / 28px Helvetica, Arial, sans-serif;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(245, 245, 245, 0.479);
 }

@@ -1,15 +1,18 @@
 <template>
-  <div v-if="task" class="task-details-modal">
-    <div class="task-details-content">
+  <div v-if="task" class="task-details-modal" >
+    <div class="task-details-content" @click.self="closeModals">
       <header :style="{ backgroundColor: task.style.bgColor }">
         <button class="btn close-btn" @click="closeDetailsModal">+</button>
         <h1>{{ task.title }}</h1>
         <p><span>in list</span></p>
       </header>
-      <labels-menu @setLabel="setTaskLabel" />
-      <div v-if="task.labels" class=""> Labels
-        <div v-for="label in task.labels" :key="label.id">
-          <div class="label" :class="label.color">Hello</div>
+      <labels-menu v-if="labelsModal" @setLabel="setTaskLabel" @closeLabelMenu="manageLabelMenu"/>
+      <div class="task-labels-wrapper">
+        <div v-if="task.labels"> 
+          <p>Labels</p>
+          <div v-for="label in task.labels" :key="label.id">
+            <div class="task-label" :class="label.color">{{label.title}}</div>
+          </div>
         </div>
       </div>
       <div class="task-members">
@@ -24,7 +27,7 @@
         <p v-else class="description-area">Add a more detailed description</p>
       </div>
       <div class="task-checklists">
-        <check-list-add @saveCheckList="saveCheckList" v-if="checkListModal" />
+        <check-list-add @saveCheckList="saveCheckList" v-if="checkListModal" @closeCheckList="closeCheckList"/>
         <div v-if="task.checklists">
           <h3>Check List</h3>
           <div v-for="checklist in task.checklists" :key="checklist.id">
@@ -34,14 +37,16 @@
       </div>
       <div class="task-activities">
         <h3>Activities</h3>
+        <div class="comment-section">
+      <textarea placeholder="write a comment" v-model="comment.txt" class="comment-box"></textarea>
+      <button @click="addComment" class="btn">Save</button>
+        </div>
         <div v-if="activities">
           <div v-for="(activity, idx) in activities" :key="idx">
             <task-activities :activity="activity" />
           </div>
         </div>
       </div>
-      <textarea placeholder="write a comment" v-model="comment.txt"></textarea>
-      <button @click="addComment">Save</button>
       <div v-if="task.comments">
         <div v-for="(comment, idx) in task.comments" :key="idx">
           <task-comment :comment="comment" @saveComment="saveComment" />
@@ -51,6 +56,7 @@
         @checkList="createCheckList"
         @removeTask="removeTask"
         @updateTaskCover="updateTaskCover"
+        @openLabelModal="manageLabelMenu"
       />
     </div>
   </div>
@@ -72,6 +78,7 @@ export default {
       activities: null,
       checkListModal: false,
       comment: { txt: "" },
+      labelsModal:false,
     };
   },
   methods: {
@@ -92,6 +99,10 @@ export default {
       console.log("checklist");
       this.checkListModal = true;
     },
+    closeCheckList(){
+      console.log('yahoo')
+      this.checkListModal = false;
+    },
     saveCheckList(checkList) {
       this.checkListModal = false;
       this.$store.dispatch({
@@ -101,7 +112,7 @@ export default {
       });
     },
     addComment() {
-      console.log("comment", this.comment.txt);
+      if(!this.comment.txt) return
       this.$store.dispatch({
         type: "saveComment",
         task: this.task,
@@ -132,6 +143,15 @@ export default {
       this.task.style.bgColor = color;
       this.$store.dispatch({ type: "addTask", task: this.task });
     },
+    manageLabelMenu(status){
+      console.log(status)
+      this.labelsModal = JSON.parse(status)
+    },
+    closeModals(){
+      this.labelsModal = false 
+      this.checkListModal = false
+      console.log( this.labelsModal,this.checkListModal)
+    }
   },
   computed: {
     boradId() {

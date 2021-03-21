@@ -1,7 +1,19 @@
 <template>
   <div class="task-comment">
     <div class="comment-creator" v-if="comment.byMember">
-      <member-avatar :member="comment.byMember" :size="40"  />
+      <img
+        v-if="comment.byMember.imgUrl"
+        class="avatar"
+        :src="comment.byMember.imgUrl"
+        alt=""
+        :style="{ height: 30 + 'px', width: 30 + 'px' }"
+      />
+      <avatar
+        class="avatar"
+        v-else
+        :username="comment.byMember.fullname"
+        :size="30"
+      ></avatar>
       <h3>{{ comment.byMember.fullname }}</h3>
       <p>{{ formattedTime(comment.createdAt) }}</p>
     </div>
@@ -14,34 +26,33 @@
      <button class="btn" @click="openEditModal">edit</button>
 
 <script>
-import memberAvatar from './member-avatar.cmp';
-import MemberAvatarCmp from './member-avatar.cmp.vue';
+import memberAvatar from "./member-avatar.cmp";
 export default {
   props: ["comment"],
   data() {
     return {
       isCommentToEdit: false,
-      editComment:null
+      editComment: null,
     };
   },
   methods: {
-    formattedTime(timeStamp){
-      return moment(timeStamp).fromNow()
+    formattedTime(timeStamp) {
+      return moment(timeStamp).fromNow();
     },
     openEditModal() {
       this.isCommentToEdit = true;
     },
     saveComment() {
       this.$emit("saveComment", this.editComment);
-       this.isCommentToEdit = false;
+      this.isCommentToEdit = false;
     },
   },
-  created(){
-    this.editComment = JSON.parse(JSON.stringify(this.comment))
+  created() {
+    this.editComment = JSON.parse(JSON.stringify(this.comment));
   },
-  components:{
-    memberAvatar
-  }
+  components: {
+    memberAvatar,
+  },
 };
 </script>
 

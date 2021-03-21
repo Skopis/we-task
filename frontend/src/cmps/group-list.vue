@@ -37,7 +37,9 @@
             :style="{ backgroundColor: task.style.bgColor }"
           />
         </li>
-        <button class="btn" @click="openAddModal">Add a new Task</button>
+        <button class="btn add-task" @click="openAddModal">
+          <span class="big-plus">＋</span> Add a new Task
+        </button>
       </draggable>
     </ul>
   </div>

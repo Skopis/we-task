@@ -6,14 +6,13 @@
 
 
 .label{
-        // background-color: steelblue;
     cursor: pointer;
     padding: 4px 0 0 20px;
     color:$light-clr;
     font-weight: 700;
     letter-spacing: .7px;
     height: 30px;
-    width: 240px;
+    width: 220px;
     border-radius: 4px;
     margin-top:5px ;
 }
@@ -34,4 +33,39 @@
 }
 .blue{
     background-color: $blue;
+}
+
+.task-lable-menu{
+    border-radius: 3px;
+    z-index: 4;
+    background-color: whitesmoke;
+    box-shadow:0 0px 3px -1px ;
+    padding: 10px 5px;
+    position: absolute;
+    top: 165px;
+    right: 36px;
+     
+    header{
+        // outline: 1px solid black;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        p{
+            margin: 0;
+            font-size: rem(18px);
+            font-weight: 600;
+        }
+        i{
+            font-weight: 600;
+        }
+    }
+
+    .close{
+        float: right;
+
+    }
+    .label-container{
+        display: flex;
+    }
 }
