@@ -612,17 +612,42 @@ async function query(filterBy = {}) {
       "createdBy": {
         "_id": "u102",
         "fullname": "Abi Abambi",
-        "imgUrl": "http://some-img"
+        "imgUrl": ""
       },
       "style": {
         "bgColor": "#ffff"
       },
       "labels": [
         {
+          "id": "l101",
+          "title": "",
+          "color": "green"
+        },
+        {
           "id": "l102",
+          "title": "",
+          "color": "yellow"
+        },
+        {
+          "id": "l103",
           "title": "Done",
-          "color": "#61bd4f"
-        }
+          "color": "orange"
+        },
+        {
+          "id": "l104",
+          "title": "",
+          "color": "red"
+        },
+        {
+          "id": "l105",
+          "title": "",
+          "color": "purple"
+        },
+        {
+          "id": "l106",
+          "title": "",
+          "color": "blue"
+        },
       ],
       "members": [
         {

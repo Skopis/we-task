@@ -1,7 +1,7 @@
 <template>
   <div class="avatar-container">
     <div v-for="member in members" :key="member._id">
-      <img v-if="member.imgUrl" class="avatar" :src="member.imgUrl" alt="" />
+      <img v-if="member.imgUrl" class="avatar" :src="member.imgUrl" alt="" :style="{height:size+'px', width:size+'px'}" />
       <avatar
         class="avatar"
         v-else
@@ -16,18 +16,16 @@
 import Avatar from "vue-avatar";
 
 export default {
-  props: {
-    members: {
-      type: Array,
-    },
-    size: {
-      type: Number,
-    },
-  },
+  props: ['members', 'size'],
   computed: {
     fullname() {
       return this.member.fullname;
     },
+  },
+  created(){
+    console.log(this.members)
+    // console.log(comment.member)
+
   },
   components: {
     Avatar,
