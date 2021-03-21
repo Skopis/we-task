@@ -6,26 +6,32 @@
     border-radius: 3px;
     padding: 0 10px;
     z-index: 2;
-    h4{
+
+    h4 {
         word-break: break-all;
     }
-    .task-header{
+
+    .task-header {
         color: $task-txt;
-        background-color:inherit;
-        section{
+        background-color: inherit;
+
+        section {
             display: flex;
             justify-content: space-between;
             align-items: center;
             letter-spacing: 0.5px;
-            button{
+
+            button {
                 padding: 0 0;
                 min-width: 0;
             }
         }
-        p{
+
+        p {
             margin: 0 0;
         }
-        textarea{
+
+        textarea {
             width: 100%;
             background: transparent;
             border-radius: 3px;
@@ -38,18 +44,21 @@
             padding: 4px 8px;
             resize: none;
             max-height: 256px;
-            :focus{
+
+            :focus {
                 background-color: #fff;
                 box-shadow: inset 0 0 0 2px #0079bf;
             }
         }
     }
-    .btn{
+
+    .btn {
         color: $task-txt;
         padding: 0 5px;
         min-width: 0;
     }
-    .avatar{
+
+    .avatar {
         margin: 0 2px;
         float: right;
         height: 30px;
@@ -57,7 +66,8 @@
         align-self: center;
         margin-top: 8px;
     }
-    .badge{
+
+    .badge {
         margin: 0 4px 4px 0;
         max-width: 100%;
         min-height: 20px;
@@ -69,47 +79,67 @@
         text-overflow: ellipsis;
         vertical-align: top;
         border: none;
-    }    
-    .eye{
+    }
+
+    .eye {
         background-color: transparent;
     }
 }
 
-.task-details-modal{
-    position: absolute;
+.task-details-modal {
+    // position: absolute;
+    position: fixed;
     top: 0;
-    z-index: 5;
+    z-index: 15;
 
     width: 100%;
     height: 100%;
     background-color: rgba(2, 2, 2, 0.7);
-    h5, h4, h3, h2 {
+
+    h5,
+    h4,
+    h3,
+    h2 {
         margin: .6em 0 .6em 0;
     }
-    .task-details-content{
+
+    .task-details-content {
         background-color: rgb(242, 248, 248);
         min-height: 600px;
-        padding: 0 15px;
-        width:770px;
-        margin:48px auto 80px auto;
+        // padding: 0 15px;
+        width: 770px;
+        margin: 48px auto 80px auto;
         position: relative;
-        h1{
+
+        header{
+            padding: 0 15px;
+            h1{
+                margin-bottom: 3px;
+            }
+        }
+        
+        main{
+            padding: 0 15px;
+        }
+
+        h1 {
             font-size: 22px;
             padding-top: 20px;
 
         }
-        span{
-            color:$clr4;
+
+        span {
+            color: $clr4;
         }
-     
-        .task-desc{
+
+        .task-desc {
             clear: both;
             margin-bottom: 24px;
             position: relative;
             display: flex inline-block;
         }
 
-        .description-area{
+        .description-area {
             cursor: pointer;
             background-color: rgb(226, 228, 233);
             box-shadow: none;
@@ -119,82 +149,101 @@
             min-height: 50px;
             padding: 8px 12px;
         }
-        
-        .description-area:active{
+
+        .description-area:active {
             background-color: #e4f0f6;
             box-shadow: none;
             border: none;
             color: #0079bf;
             outline: 0;
         }
-       
-        .comment-box{
+
+        .comment-box {
             background-color: #fff;
             border-radius: 3px;
-            box-shadow: 0 1px 2px -1px rgba(9, 30, 66, 0.25), 0 0 0 1px rgba(9, 30, 66,  0.8);
+            box-shadow: 0 1px 2px -1px rgba(9, 30, 66, 0.25), 0 0 0 1px rgba(9, 30, 66, 0.8);
             margin: 4px 4px 12px 0;
             overflow: hidden;
             position: relative;
             transition: box-shadow 85ms ease;
             font-family: roboto;
         }
-        .comment-section{
-           display: flex;
-           align-items: center;
-           vertical-align: middle;
-           .btn{
-               margin-bottom:8px;
-           }
-        }
-        .task-comment{
-            outline: 1px solid black;
-            padding: 5px ;
-            // display: flex;
-            // flex-direction: row;
-            
-        }
-        .comment-creator{
+
+        .comment-section {
             display: flex;
             align-items: center;
-            >*{
+            vertical-align: middle;
+
+            .btn {
+                margin-bottom: 8px;
+            }
+
+            textarea {
+                resize: none;
+                width: 500px;
+            }
+        }
+
+        .task-comment {
+            // outline: 1px solid black;
+            padding: 5px;
+            // display: flex;
+            // flex-direction: row;
+
+        }
+
+        .comment-creator {
+            display: flex;
+            align-items: center;
+
+            >* {
                 margin: 0 4px;
             }
         }
-        .comment-txt{
+
+        .comment-txt {
             margin-top: 3px;
             margin-left: 42px;
         }
-        .task-members{
+
+        .task-members {
             clear: both;
-            margin-bottom: 24px;
+            margin-bottom: 70px;
             position: relative;
             display: flex inline-flex;
-            :not(h3){
+
+            :not(h3) {
                 float: left;
-                :not(:first-child){
-                    margin-left:5px;
+
+                :not(:first-child) {
+                    margin-left: 5px;
                 }
             }
         }
     }
-    .close-btn{
+
+    .close-btn {
         background-color: rgba(245, 245, 245, 0);
         font-size: 30px;
         transform: rotate(45deg);
         position: absolute;
         right: 1px;
     }
-    .close-btn:focus{
-        outline:none;
+
+    .close-btn:focus {
+        outline: none;
     }
-    .close-btn:hover{
+
+    .close-btn:hover {
         opacity: .7;
     }
-    .task-labels-wrapper{
+
+    .task-labels-wrapper {
         margin-bottom: 20px;
-        outline: 1px solid black;
-        .task-label{
-            color:$light-clr;
+
+        // outline: 1px solid black;
+        .task-label {
+            color: $light-clr;
             border-radius: 4px;
             float: left;
             font-weight: 600;
@@ -208,44 +257,49 @@
     }
 }
 
-.task-activity{
+.task-activity {
     display: flex;
     align-items: center;
-    .avatar{
+
+    .avatar {
         height: 35px;
         width: 35px;
     }
-    .txt{
+
+    .txt {
         margin-left: 5px;
-        >*{
+
+        >* {
             margin: 0;
         }
-        span{
+
+        span {
             color: black;
             font-weight: 700;
             margin-right: 2px;
-            
+
         }
     }
 }
 
-.task-side-bar{
+.task-side-bar {
     // border: 1px solid lightpink;
     float: right;
     padding: 0 16px 8px 8px;
-    width:170px;
+    width: 170px;
     position: absolute;
-    top:70px;
+    top: 70px;
     right: 0;
-    .dev-tools{
+
+    .dev-tools {
         display: flex;
         justify-content: center;
         flex-direction: column;
         margin-bottom: 24px;
         position: relative;
 
-        button{
-            background-color: rgba(9,30,66,.04);
+        button {
+            background-color: rgba(9, 30, 66, .04);
             height: 32px;
             margin-top: 8px;
             max-width: 300px;
@@ -255,35 +309,38 @@
             text-overflow: ellipsis;
             user-select: none;
             white-space: nowrap;
-            transition-property: background-color,border-color,box-shadow;
+            transition-property: background-color, border-color, box-shadow;
             transition-duration: 85ms;
             transition-timing-function: ease;
             font-size: 14px;
             text-align: left;
-            i{
+
+            i {
                 margin-right: 3px;
             }
-            .delete{
+
+            .delete {
                 background-color: $red;
-    
+
             }
-    }
+        }
     }
 }
 
-.task-checklists{
+.task-checklists {
     // border: 1px solid black;
-    
-    .checklist{
+
+    .checklist {
         // border: 1px solid springgreen;
         position: relative;
     }
-    .todo{
+
+    .todo {
         padding-left: 40px;
     }
 
-    
-    .checkbox{
+
+    .checkbox {
         border-radius: 2px;
         height: 16px;
         width: 16px;
@@ -300,19 +357,21 @@
         cursor: pointer;
     }
 
-    .completed{
-        p{
+    .completed {
+        p {
             text-decoration: line-through;
         }
-        .checkbox{
+
+        .checkbox {
             color: white;
             box-shadow: inset 0 0 0 2px #dfe1e6;
             background-color: #0079bf;
             box-shadow: inset 0 0 0 2px #0079bf;
-            i{
-                font-size:13px;
+
+            i {
+                font-size: 13px;
             }
         }
-        
+
     }
 }

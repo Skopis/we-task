@@ -57,9 +57,10 @@
           <group-menu
             :group="group"
             :menuPos="menuPos"
-            v-if="group.id === menuGroupId && isGroupMenuModalOpen"
+            v-if="group.id === menuGroupId"
             @archiveGroup="archiveGroup"
             @updateGroupCover="updateGroupCover"
+            @closeMenu="closeMenu"
           />
         </div>
         <!-- </section> -->
@@ -88,7 +89,6 @@ export default {
       isTitleModalOpen: false,
       isBoardMenuModalOpen: false,
       menuPos: null,
-      isGroupMenuModalOpen: false,
       menuGroupId: null,
     };
   },
@@ -103,10 +103,15 @@ export default {
     await this.$store.dispatch({ type: "loadBoard", boardId });
   },
   methods: {
-    toggleGroupMenuModal(isGroupMenuModalOpen, groupId) {
-      this.isGroupMenuModalOpen = isGroupMenuModalOpen;
-      if (!isGroupMenuModalOpen) this.menuGroupId = null;
-      else this.menuGroupId = groupId;
+    closeMenu() {
+      this.menuGroupId = null;
+    },
+    toggleGroupMenuModal(groupId) {
+      if (groupId === this.menuGroupId) {
+        this.menuGroupId = null;
+      } else {
+        this.menuGroupId = groupId;
+      }
     },
     updateGroupCover(color, group) {
       group.style.bgColor = color;
@@ -122,6 +127,7 @@ export default {
       });
     },
     toggleBoardMenuModal() {
+      //TODO:
       this.isBoardMenuModalOpen = !this.isBoardMenuModalOpen;
     },
     archiveGroup(groupToArchive) {

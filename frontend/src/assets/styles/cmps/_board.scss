@@ -16,21 +16,25 @@
 .main-board-container {
     display: flex;
     flex: 1;
-    height: calc(100vh - 136px);
+    height: calc(100vh - 150px);
+
     .btn {
         flex-shrink: 0;
-        &.new-group{
+
+        &.new-group {
             width: 276px;
             text-align: left;
-            background-color: rgba(128, 128, 128,0.1);
+            background-color: rgba(128, 128, 128, 0.1);
             color: white;
-            
+
         }
     }
 }
 
-.board{
+.board {
     margin-top: 77px;
+    width: fit-content;
+
     button img {
         width: 15px;
         opacity: 0.7;
@@ -41,7 +45,6 @@
     }
 }
 
-.boards{
+.boards {
     margin-top: 77px;
 }
-

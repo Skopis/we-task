@@ -6,6 +6,7 @@
         <h1>{{ task.title }}</h1>
         <p><span>in list</span></p>
       </header>
+      <main>
       <labels-menu v-if="labelsModal" @setLabel="setTaskLabel" @closeLabelMenu="manageLabelMenu"/>
       <div class="task-labels-wrapper">
         <div v-if="task.labels"> 
@@ -52,6 +53,7 @@
           <task-comment :comment="comment" @saveComment="saveComment" />
         </div>
       </div>
+      </main>
       <task-dev-tools
         @checkList="createCheckList"
         @removeTask="removeTask"
@@ -78,7 +80,7 @@ export default {
       activities: null,
       checkListModal: false,
       comment: { txt: "" },
-      labelsModal:false,
+      labelsModal: false,
     };
   },
   methods: {
@@ -99,8 +101,8 @@ export default {
       console.log("checklist");
       this.checkListModal = true;
     },
-    closeCheckList(){
-      console.log('yahoo')
+    closeCheckList() {
+      console.log("yahoo");
       this.checkListModal = false;
     },
     saveCheckList(checkList) {
@@ -112,7 +114,7 @@ export default {
       });
     },
     addComment() {
-      if(!this.comment.txt) return
+      if (!this.comment.txt) return;
       this.$store.dispatch({
         type: "saveComment",
         task: this.task,
@@ -143,15 +145,15 @@ export default {
       this.task.style.bgColor = color;
       this.$store.dispatch({ type: "addTask", task: this.task });
     },
-    manageLabelMenu(status){
-      console.log(status)
-      this.labelsModal = JSON.parse(status)
+    manageLabelMenu(status) {
+      console.log(status);
+      this.labelsModal = JSON.parse(status);
     },
-    closeModals(){
-      this.labelsModal = false 
-      this.checkListModal = false
-      console.log( this.labelsModal,this.checkListModal)
-    }
+    closeModals() {
+      this.labelsModal = false;
+      this.checkListModal = false;
+      console.log(this.labelsModal, this.checkListModal);
+    },
   },
   computed: {
     boradId() {
