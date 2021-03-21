@@ -1,6 +1,9 @@
 <template>
   <section class="task-preview" @click="openTaskDetails(task.id)">
     <header class="task-header">
+      <div class="task-label-container">
+        <span v-for="label in task.labels" :key="label.id" :class="label.color" class="small-label"></span>
+      </div>
       <task-quick-edit
         v-if="isEditModalOpen"
         @updateTask="updateTask"
@@ -38,8 +41,8 @@
 <script>
 import taskQuickEdit from "./task-quick-edit.vue";
 import memberPreview from "./member-preview.vue";
-import memberAvatar from '../cmps/task-details/member-avatar.cmp';
-import MemberAvatarCmp from './task-details/member-avatar.cmp.vue';
+import memberAvatar from "../cmps/task-details/member-avatar.cmp";
+import MemberAvatarCmp from "./task-details/member-avatar.cmp.vue";
 
 export default {
   name: "task-preview",
@@ -62,12 +65,14 @@ export default {
       this.isEditModalOpen = false;
       this.$emit("updateTask", taskToUpdate);
     },
-    removeMemberFromTask(member) {
-
-    },
+    removeMemberFromTask(member) {},
     openTaskDetails(taskId) {
       // this.$store.commit({type:'saveCurrGroupId', groupId:this.groupId})
-      this.$store.dispatch({type:'updateCurrGroupIdSession', status:'saveToSession', groupId:this.groupId})
+      this.$store.dispatch({
+        type: "updateCurrGroupIdSession",
+        status: "saveToSession",
+        groupId: this.groupId,
+      });
       this.$router.push(`${this.boradId}/task/${taskId}`);
     },
   },
@@ -75,19 +80,17 @@ export default {
     boradId() {
       return this.$store.getters.getBoardId;
     },
-    isloggedinUserMember(){
-      const loggedinUser = this.$store.getters.loggedinUser
-        if (!this.task.members) return false
-        for(let i=0; i<this.task.members.length; i++){
-          if (this.task.members[i]._id === loggedinUser._id) return true
-        }
-        
-        // return false
-    }
+    isloggedinUserMember() {
+      const loggedinUser = this.$store.getters.loggedinUser;
+      if (!this.task.members) return false;
+      for (let i = 0; i < this.task.members.length; i++) {
+        if (this.task.members[i]._id === loggedinUser._id) return true;
+      }
+
+      // return false
+    },
   },
-  cerated(){
-    
-  },
+  cerated() {},
   components: {
     taskQuickEdit,
     memberPreview,
