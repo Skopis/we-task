@@ -250,7 +250,7 @@ async function query(filterBy = {}) {
         {
           "_id": "u101",
           "fullname": "Tal Tarablus",
-          "imgUrl": "https://www.google.com"
+          "imgUrl": "http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
         },
         {
           "_id": "u102",
@@ -406,17 +406,42 @@ async function query(filterBy = {}) {
       "createdBy": {
         "_id": "u101",
         "fullname": "Abi Abambi",
-        "imgUrl": "http://some-img"
+        "imgUrl": ""
       },
       "style": {
         "bgColor": "#ffff"
       },
       "labels": [
         {
+          "id": "l101",
+          "title": "",
+          "color": "green"
+        },
+        {
           "id": "l102",
+          "title": "",
+          "color": "yellow"
+        },
+        {
+          "id": "l103",
           "title": "Done",
-          "color": "#61bd4f"
-        }
+          "color": "orange"
+        },
+        {
+          "id": "l104",
+          "title": "",
+          "color": "red"
+        },
+        {
+          "id": "l105",
+          "title": "",
+          "color": "purple"
+        },
+        {
+          "id": "l106",
+          "title": "",
+          "color": "blue"
+        },
       ],
       "members": [
         {

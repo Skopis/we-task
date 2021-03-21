@@ -1,5 +1,6 @@
 <template>
   <section class="add-note">
+  <button @click="closeCheckList">X</button>
     <form @submit.prevent="saveTodo()">
       <input
         type="text"
@@ -39,6 +40,10 @@ export default {
     saveCheckList(){
         // console.log(this.checkList)
         this.$emit('saveCheckList', this.checkList)
+    },
+    closeCheckList(){
+      console.log('hello')
+      this.$emit('closeCheckList')
     }
   },
 };
