@@ -37,9 +37,11 @@
             font-weight: bold;
             // background-color: $task-txt;
             background-color:rgb(138, 183, 37);
+            border: 1px solid gray;
             color: black;
             outline: none;
             font-size: large;
+            cursor: pointer;
         }
     }
 
