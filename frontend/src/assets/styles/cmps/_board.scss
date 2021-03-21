@@ -26,7 +26,8 @@
             text-align: left;
             background-color: rgba(128, 128, 128, 0.1);
             color: white;
-
+            display: flex;
+            align-items: center;
         }
     }
 }
@@ -34,7 +35,7 @@
 .board {
     margin-top: 77px;
     width: fit-content;
-
+    // height: 100%;
     button img {
         width: 15px;
         opacity: 0.7;
