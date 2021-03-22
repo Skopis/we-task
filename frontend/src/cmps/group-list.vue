@@ -38,14 +38,14 @@
               :style="{ backgroundColor: task.style.bgColor }"
             />
           </li>
+        </draggable>
+      </ul>
+    </div>
           <footer>
             <button class="btn add-task" @click="openAddModal">
               <span class="big-plus">＋</span> Add another card
             </button>
           </footer>
-        </draggable>
-      </ul>
-    </div>
   </div>
 </template>
 

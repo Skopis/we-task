@@ -3,9 +3,8 @@
 
     display: flex;
     .group-list{
-        overflow-y:scroll !important;
-        // outline: 1px solid powderblue;
-        max-height: 70vh;
+        // overflow-y:scroll !important;
+        // max-height: 70vh;
         width: 257px;
         margin-left: 10px;
         border-radius: 4px;
@@ -31,7 +30,10 @@
         }
     }
     .preview-content{
+        overflow-y: scroll;
         padding: 0 8px;
+        overflow-y:scroll !important;
+        max-height: 70vh;
     }
     footer{
         height: 38px;
