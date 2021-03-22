@@ -15,6 +15,22 @@
         color: $task-txt;
         background-color: inherit;
 
+        .task-label-container {
+            padding-top: 4px;
+            display: flex;
+            flex-wrap: wrap;
+
+            .small-label {
+                display: block;
+                width: 40px;
+                height: 8px;
+                margin-right: 4px;
+                margin-bottom: 4px;
+                border-radius: 4px;
+            }
+        }
+
+
         section {
             display: flex;
             justify-content: space-between;
@@ -64,7 +80,7 @@
         height: 30px;
         width: 30px;
         align-self: center;
-        margin-top: 8px;
+        // margin-top: 8px;
     }
 
     .badge {
@@ -83,6 +99,19 @@
 
     .eye {
         background-color: transparent;
+        margin: 0;
+    }
+    .task-body{
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        align-items: center;
+        align-content: center;
+        align-self:center;
+        vertical-align: middle;
+        p{
+            margin: 0;
+        }
     }
 }
 
@@ -111,14 +140,15 @@
         margin: 48px auto 80px auto;
         position: relative;
 
-        header{
+        header {
             padding: 0 15px;
-            h1{
+
+            h1 {
                 margin-bottom: 3px;
             }
         }
-        
-        main{
+
+        main {
             padding: 0 15px;
         }
 

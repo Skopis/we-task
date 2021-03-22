@@ -2,7 +2,7 @@
   <section class="group-menu" :style="menuPos">
     <div class="group-menu-header">
       <h4>List actions</h4>
-      <button @click="closeMenu" class="btn">X</button>
+      <button @click="closeMenu" class="btn big-plus">X</button>
     </div>
     <button class="btn" @click="archiveGroup">Archive</button>
     <button class="btn" @click="toggleColorPicker">Cover</button>
@@ -30,7 +30,6 @@ export default {
       this.isColorPickerOpen = !this.isColorPickerOpen;
     },
     archiveGroup() {
-      console.log("hi archive group");
       this.$emit("archiveGroup", this.group);
     },
     updateGroupCover(color) {

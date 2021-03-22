@@ -23,7 +23,7 @@ export default {
     },
   },
   created(){
-    console.log(this.members)
+    // console.log(this.members)
     // console.log(comment.member)
 
   },

@@ -40,7 +40,6 @@
         },
         methods:{
             saveNewCover(){
-                console.log('hi color')
                 if (this.group){
                     this.$emit('changeGroupCover', this.color)
                 }

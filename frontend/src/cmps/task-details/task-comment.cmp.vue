@@ -8,12 +8,19 @@
         alt=""
         :style="{ height: 30 + 'px', width: 30 + 'px' }"
       />
-      <avatar
+      <member-avatar2
+        class="avatar"
+        v-else
+        :member="comment.byMember"
+        :size="32"
+      >
+      </member-avatar2>
+      <!-- <avatar
         class="avatar"
         v-else
         :username="comment.byMember.fullname"
         :size="30"
-      ></avatar>
+      ></avatar> -->
       <h3>{{ comment.byMember.fullname }}</h3>
       <p>{{ formattedTime(comment.createdAt) }}</p>
     </div>
@@ -23,10 +30,10 @@
     <button class="btn" @click="saveComment">Save</button>
   </div>
 </template>
-     <button class="btn" @click="openEditModal">edit</button>
+<button class="btn" @click="openEditModal">edit</button>
 
 <script>
-import memberAvatar from "./member-avatar.cmp";
+import memberAvatar2 from './member-avatar2.vue';
 export default {
   props: ["comment"],
   data() {
@@ -51,7 +58,7 @@ export default {
     this.editComment = JSON.parse(JSON.stringify(this.comment));
   },
   components: {
-    memberAvatar,
+    memberAvatar2,
   },
 };
 </script>

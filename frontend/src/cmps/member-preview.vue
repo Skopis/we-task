@@ -2,9 +2,9 @@
 
 <template>
     <section class="member-preview">
-        <img :src="member.imgUrl" alt="member-img">
+        <img v-if="member.imgUrl" :src="member.imgUrl" alt="member-img">
         <p>{{member.fullname}}</p>
-        <p>@{{member.fullname.toLowerCase(member)}}</p>
+        <p>@{{member.fullname.toLowerCase().replace(/\s/g, '')}}</p>
         <button @click="removeMemberFromTask">Remove from Task</button>
     </section>
 </template>

@@ -119,9 +119,7 @@ export default {
       this.updateGroup(group);
     },
     updateBoardCover(color) {
-      console.log("this.boardToShow before", this.boardToShow);
       this.boardToShow.style.bgColor = color;
-      console.log("this.boardToShow after", this.boardToShow);
       this.$store.dispatch({
         type: "updateBoard",
         boardToUpdate: this.boardToShow,
@@ -143,7 +141,6 @@ export default {
     },
     editBoardTitle() {
       this.isTitleModalOpen = true;
-      console.log(" this.$refs", this.$refs.titleChange);
       setTimeout(() => {
         this.$refs.titleChange.focus();
       }, 300);
@@ -164,7 +161,6 @@ export default {
       });
     },
     async updateGroup(group) {
-      console.log("group at board 55", group);
       await this.$store.dispatch({
         type: "updateGroup",
         group,
@@ -174,7 +170,7 @@ export default {
     itemDragged() {
       const board = this.boardToShow;
       board.groups = this.boardToShow.groups;
-      console.log(board.groups);
+      // console.log(board.groups);
       this.updateBoard(board);
     },
     updateBoard(board) {
@@ -187,17 +183,17 @@ export default {
       this.$store.dispatch({ type: "setBoard", board: this.boardToShow });
     },
     setMenuPos(groupId) {
-      console.log('groupId', groupId)
+      // console.log('groupId', groupId)
       const groupIdx = this.boardToShow.groups.findIndex(
         (group) => group.id === groupId
       );
-      console.log('groupIdx', groupIdx)
+      // console.log('groupIdx', groupIdx)
       var amount = 276 * (groupIdx + 1) - 12;
       if (groupIdx < 1) {
         amount -= 12;
       }
       this.menuPos = { left: amount + "px" };
-      console.log(this.menuPos);
+      // console.log(this.menuPos);
     },
   },
   components: {

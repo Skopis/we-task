@@ -2,7 +2,7 @@
   <div class="task-side-bar">
   <h4>ADD TO TASK</h4>
     <div class="dev-tools">
-      <button  class="btn"><i class="el-icon-user"></i> Members</button>
+      <button  class="btn" @click="openMembersMenu"><i class="el-icon-user"></i> Members</button>
       <button class="btn" @click="openLabelModal"><i class="el-icon-collection-tag"></i> Labels</button>
       <button class="btn" @click="addChecklist"><i class="el-icon-finished"></i> Checklist</button>
       <button class="btn"><i class="el-icon-date"></i> Due Date</button>
@@ -23,6 +23,9 @@ export default {
         }
     },
     methods:{
+      openMembersMenu(){
+        this.$emit('openMembersMenu', true)
+      },
         toggleColorPicker(){
             this.isColorPickerOpen = !this.isColorPickerOpen
         },

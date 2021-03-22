@@ -10,7 +10,6 @@ export default{
     props:['board'],
     methods:{
         archiveBoard(){
-            console.log('hi archive board')
             this.$emit('archiveBoard', this.board)
         }
     }

@@ -1,6 +1,9 @@
 <template>
   <section class="task-preview" @click="openTaskDetails(task.id)">
     <header class="task-header">
+      <div class="task-label-container">
+        <span v-for="label in task.labels" :key="label.id" :class="label.color" class="small-label"></span>
+      </div>
       <task-quick-edit
         v-if="isEditModalOpen"
         @updateTask="updateTask"
@@ -12,12 +15,8 @@
       </section>
     </header>
     <div class="task-body">
-      <div
-        v-for="member in task.members"
-        :key="member._id"
-        :v-if="task.members"
-      >
-      <member-avatar :member="member" :size="30" @click.native="openMemberModal" />
+      <member-avatar :v-if="task.members" :members="task.members" :size="30" @click.native="openMemberModal" />
+      <div :v-if="task.members" v-for="member in task.members" :key="member._id">
         <member-preview
           v-if="isMemberModalOpen"
           @removeMemberFromTask="removeMemberFromTask"
@@ -27,9 +26,9 @@
       <div class="btn-container">
         <el-button class="btn badge eye" icon="el-icon-view" v-if="isloggedinUserMember"></el-button>
         <!-- v-if logged in member = member assigned to task-->
-        <button class="btn badge" v-if="task.comments">
-          🗨 {{ task.comments.length }}
-        </button>
+        <p v-if="task.comments">
+          💬{{ task.comments.length }}
+        </p>
       </div>
     </div>
   </section>
@@ -38,8 +37,7 @@
 <script>
 import taskQuickEdit from "./task-quick-edit.vue";
 import memberPreview from "./member-preview.vue";
-import memberAvatar from '../cmps/task-details/member-avatar.cmp';
-import MemberAvatarCmp from './task-details/member-avatar.cmp.vue';
+import memberAvatar from "./task-details/member-avatar.cmp.vue";
 
 export default {
   name: "task-preview",
@@ -62,12 +60,14 @@ export default {
       this.isEditModalOpen = false;
       this.$emit("updateTask", taskToUpdate);
     },
-    removeMemberFromTask(member) {
-
-    },
+    removeMemberFromTask(member) {},
     openTaskDetails(taskId) {
       // this.$store.commit({type:'saveCurrGroupId', groupId:this.groupId})
-      this.$store.dispatch({type:'updateCurrGroupIdSession', status:'saveToSession', groupId:this.groupId})
+      this.$store.dispatch({
+        type: "updateCurrGroupIdSession",
+        status: "saveToSession",
+        groupId: this.groupId,
+      });
       this.$router.push(`${this.boradId}/task/${taskId}`);
     },
   },
@@ -75,24 +75,21 @@ export default {
     boradId() {
       return this.$store.getters.getBoardId;
     },
-    isloggedinUserMember(){
-      const loggedinUser = this.$store.getters.loggedinUser
-        if (!this.task.members) return false
-        for(let i=0; i<this.task.members.length; i++){
-          if (this.task.members[i]._id === loggedinUser._id) return true
-        }
-        
-        // return false
-    }
+    isloggedinUserMember() {
+      const loggedinUser = this.$store.getters.loggedinUser;
+      if (!this.task.members) return false;
+      for (let i = 0; i < this.task.members.length; i++) {
+        if (this.task.members[i]._id === loggedinUser._id) return true;
+      }
+
+      // return false
+    },
   },
-  cerated(){
-    
-  },
+  cerated() {},
   components: {
     taskQuickEdit,
     memberPreview,
     memberAvatar,
-    MemberAvatarCmp,
   },
 };
 </script>

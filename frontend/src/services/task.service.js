@@ -22,7 +22,6 @@ export const taskService = {
   getGroupId
 }
 
-
 // More ways to send query params:
 // return axios.get('api/toy/?id=1223&balance=13')
 // return axios.get('api/toy/?', {params: {id: 1223, balanse:13}})
@@ -30,7 +29,7 @@ function getUser() {
   return {
     "_id": "u101",
     "fullname": "Guest",
-    "imgUrl": "http://some-img.jpg",
+    "imgUrl": "",
   }
 }
 
@@ -45,7 +44,7 @@ function getEmptyGroup() {
   }
 }
 function handleGroupInSession(status, groupId) {
- 
+
   var currGroup = groupId
   if (status === 'saveToSession') {
     storageService.saveToSessionStorage('groupId', groupId)
@@ -58,7 +57,7 @@ function handleGroupInSession(status, groupId) {
 
 }
 async function getGroupId() {
-  const groupId =  storageService.getFromSessionStorage('groupId')
+  const groupId = storageService.getFromSessionStorage('groupId')
   return groupId
 }
 async function loadArchive() {
@@ -73,8 +72,6 @@ async function archiveBoard(board, boardIdx) {
   var archive = await storageService.query('archive')
   if (archive) archive.push(board)
   else archive = [boardIdx]
-  console.log('boards at service 54', boards)
-  console.log('archive at service 55', archive)
   storageService._save('archive', archive)
 }
 
@@ -95,14 +92,12 @@ async function addGroup(newGroup, boardIdx) {
 }
 
 async function updateGroup(group, boardIdx, groupIdx) {
-  console.log('boardIdx at service', boardIdx)
   var boards = await storageService.query('boards')
   boards[boardIdx].groups.splice(groupIdx, 1, group)
   storageService._save('boards', boards)
 }
 
 async function saveBoard(boardToUpdate, boardIdx) {
-  console.log('boardIdx at service 39', boardIdx)
   var boards = await storageService.query('boards')
   boards.splice(boardIdx, 1, boardToUpdate)
   storageService._save('boards', boards)
@@ -208,8 +203,9 @@ async function query(filterBy = {}) {
       "createdAt": 1589983468418,
       "createdBy": {
         "_id": "u102",
-        "fullname": "Abi Abambi",
-        "imgUrl": "http://some-img"
+        "nickname": "Nofar",
+        "fullname": "Nofar Gabso",
+        "imgUrl": ""
       },
       "style": {
         "bgColor": "#d8c9ff"
@@ -249,19 +245,25 @@ async function query(filterBy = {}) {
       "members": [
         {
           "_id": "u101",
-          "fullname": "Tal Tarablus",
-          "imgUrl": "http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
+          "fullname": "Shachar Dorfzaun",
+          "imgUrl": ""
         },
         {
-          "_id": "u107",
-          "username": "Kobi",
-          "fullname": "Koby Tohar",
+          "_id": "u102",
+          "nickname": "Nofar",
+          "fullname": "Nofar Gabso",
           "imgUrl": ""
         },
         {
           "_id": "u103",
           "fullname": "Guest",
           'username': 'guest',
+          "imgUrl": "",
+        },
+        {
+          "_id": "u177",
+          "fullname": "Lian Skopis",
+          'username': 'Lian',
           "imgUrl": "",
         }
       ],
@@ -281,6 +283,12 @@ async function query(filterBy = {}) {
                   "_id": "u103",
                   "fullname": "Guest",
                   'username': 'guest',
+                  "imgUrl": "",
+                },
+                {
+                  "_id": "u177",
+                  "fullname": "Lian Skopis",
+                  'username': 'Lian',
                   "imgUrl": "",
                 }
               ],
@@ -342,8 +350,8 @@ async function query(filterBy = {}) {
                   "createdAt": 1590999817436.0,
                   "byMember": {
                     "_id": "u101",
-                    "fullname": "Tal Tarablus",
-                    "imgUrl": "http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
+                    "fullname": "Shachar Dorfzaun",
+                    "imgUrl": ""
                   }
                 }
               ],
@@ -368,11 +376,18 @@ async function query(filterBy = {}) {
                   "imgUrl": "",
                 },
                 {
-                  "_id": "u101",
-                  "username": "Tal",
-                  "fullname": "Tal Tarablus",
-                  "imgUrl": "http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
-                },{
+                  "_id": "u177",
+                  "fullname": "Lian Skopis",
+                  'username': 'Lian',
+                  "imgUrl": "",
+                },
+                {
+                  "_id": "u102",
+                  "username": "Nofar",
+                  "fullname": "Nofar Gabso",
+                  "imgUrl": ""
+                },
+                {
                   "_id": "u107",
                   "username": "Kobi",
                   "fullname": "Kobi Tohar",
@@ -383,10 +398,9 @@ async function query(filterBy = {}) {
               "createdAt": 1590999730348,
               "dueDate": 16156215211,
               "byMember": {
-                "_id": "u101",
-                "username": "Tal",
-                "fullname": "Tal Tarablus",
-                "imgUrl": "http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
+                "_id": "u177",
+                "fullname": "Lian Skopis",
+                "imgUrl": "",
               },
             }
           ],
@@ -428,9 +442,9 @@ async function query(filterBy = {}) {
                   "txt": "@dudug please CR this",
                   "createdAt": 1590999817436.0,
                   "byMember": {
-                    "_id": "u101",
-                    "fullname": "Tal Tarablus",
-                    "imgUrl": "http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
+                    "_id": "u177",
+                    "fullname": "Lian Skopis",
+                    "imgUrl": "",
                   }
                 }
               ],
@@ -456,10 +470,10 @@ async function query(filterBy = {}) {
                 },
                 {
                   "_id": "u101",
-                  "username": "Tal",
-                  "fullname": "Tal Tarablus",
-                  "imgUrl": "http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
-                },{
+                  "username": "Shachar",
+                  "fullname": "Shachar Dorfzaun",
+                  "imgUrl": ""
+                }, {
                   "_id": "u107",
                   "username": "Kobi",
                   "fullname": "Kobi Tohar",
@@ -470,10 +484,9 @@ async function query(filterBy = {}) {
               "createdAt": 1590899770748,
               "dueDate": 16156215211,
               "byMember": {
-                "_id": "u101",
-                "username": "Tal",
-                "fullname": "Tal Tarablus",
-                "imgUrl": "http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
+                "_id": "u103",
+                "fullname": "Guest",
+                "imgUrl": "",
               },
             }
           ],
@@ -497,6 +510,11 @@ async function query(filterBy = {}) {
                   "_id": "u103",
                   "fullname": "Guest",
                   'username': 'guest',
+                  "imgUrl": "",
+                },
+                {
+                  "_id": "u177",
+                  "fullname": "Lian Skopis",
                   "imgUrl": "",
                 }
               ]
@@ -531,9 +549,9 @@ async function query(filterBy = {}) {
                   "txt": "also @mikel please CR this",
                   "createdAt": 1590999817436.0,
                   "byMember": {
-                    "_id": "u101",
-                    "fullname": "Tal Tarablus",
-                    "imgUrl": "http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
+                    "_id": "u107",
+                    "fullname": "Kobi Tohar",
+                    "imgUrl": ""
                   }
                 }
               ],
@@ -559,10 +577,11 @@ async function query(filterBy = {}) {
                 },
                 {
                   "_id": "u101",
-                  "username": "Tal",
-                  "fullname": "Tal Tarablus",
-                  "imgUrl": "http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
-                },{
+                  "username": "Shachar",
+                  "fullname": "Shachar Dorfzaun",
+                  "imgUrl": ""
+                },
+                {
                   "_id": "u107",
                   "username": "Kobi",
                   "fullname": "Kobi Tohar",
@@ -573,10 +592,9 @@ async function query(filterBy = {}) {
               "createdAt": 1590899770748,
               "dueDate": 16156215211,
               "byMember": {
-                "_id": "u101",
-                "username": "Tal",
-                "fullname": "Tal Tarablus",
-                "imgUrl": "http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
+                "_id": "u103",
+                "fullname": "Guest",
+                "imgUrl": "",
               },
             }
           ],
@@ -613,8 +631,8 @@ async function query(filterBy = {}) {
                   "createdAt": 1590956817436.0,
                   "byMember": {
                     "_id": "u101",
-                    "fullname": "Tal Tarablus",
-                    "imgUrl": "http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
+                    "fullname": "Shachar Dorfzaun",
+                    "imgUrl": ""
                   }
                 }
               ],
@@ -640,10 +658,10 @@ async function query(filterBy = {}) {
                 },
                 {
                   "_id": "u101",
-                  "username": "Tal",
-                  "fullname": "Tal Tarablus",
-                  "imgUrl": "http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
-                },{
+                  "username": "Shachar",
+                  "fullname": "Shachar Dorfzaun",
+                  "imgUrl": ""
+                }, {
                   "_id": "u107",
                   "username": "Kobi",
                   "fullname": "Kobi Tohar",
@@ -654,10 +672,9 @@ async function query(filterBy = {}) {
               "createdAt": 1590899770748,
               "dueDate": 16156215211,
               "byMember": {
-                "_id": "u101",
-                "username": "Tal",
-                "fullname": "Tal Tarablus",
-                "imgUrl": "http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
+                "_id": "u102",
+                "fullname": "Nofar Gabso",
+                "imgUrl": ""
               },
             }
           ],
@@ -681,6 +698,12 @@ async function query(filterBy = {}) {
                   "_id": "u103",
                   "fullname": "Guest",
                   'username': 'guest',
+                  "imgUrl": "",
+                },
+                {
+                  "_id": "u177",
+                  'username': 'Lian',
+                  "fullname": "Lian Skopis",
                   "imgUrl": "",
                 }
               ]
@@ -722,8 +745,8 @@ async function query(filterBy = {}) {
           "createdAt": 15451456789,
           "byMember": {
             "_id": "u102",
-            "fullname": "Abi Abambi",
-            "imgUrl": "http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
+            "fullname": "Nofar Gabso",
+            "imgUrl": ""
           },
           "task": {
             "id": "c1019",
@@ -735,9 +758,9 @@ async function query(filterBy = {}) {
           "txt": "Removed bug in Backend",
           "createdAt": 154514,
           "byMember": {
-            "_id": "u102",
-            "fullname": "Abi Abambi",
-            "imgUrl": "http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
+            "_id": "u177",
+            "fullname": "Lian Skopis",
+            "imgUrl": "",
           },
           "task": {
             "id": "c10299",
@@ -750,8 +773,8 @@ async function query(filterBy = {}) {
           "createdAt": 154514,
           "byMember": {
             "_id": "u102",
-            "fullname": "Abi Abambi",
-            "imgUrl": "http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
+            "fullname": "Nofar Gabso",
+            "imgUrl": ""
           },
           "task": {
             "id": "c1044",
@@ -766,7 +789,8 @@ async function query(filterBy = {}) {
       "createdAt": 1589983468418,
       "createdBy": {
         "_id": "u102",
-        "fullname": "Abi Abambi",
+        "nickname": "Nofar",
+        "fullname": "Nofar Gabso",
         "imgUrl": ""
       },
       "style": {
@@ -807,8 +831,20 @@ async function query(filterBy = {}) {
       "members": [
         {
           "_id": "u101",
-          "fullname": "Tal Tarablus",
-          "imgUrl": "http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
+          "fullname": "Shachar Dorfzaun",
+          "imgUrl": ""
+        },
+        {
+          "_id": "u177",
+          "fullname": "Lian Skopis",
+          'username': 'Lian',
+          "imgUrl": "",
+        },
+        {
+          "_id": "u103",
+          "fullname": "Guest",
+          'username': 'guest',
+          "imgUrl": "",
         }
       ],
       "groups": [
@@ -823,12 +859,20 @@ async function query(filterBy = {}) {
                 "bgColor": "#ffff"
               },
               "labels": [],
-              "members":[{
-                "_id": "u103",
-                "fullname": "Guest",
-                'username': 'guest',
-                "imgUrl": "",
-              }]
+              "members": [
+                {
+                  "_id": "u103",
+                  "fullname": "Guest",
+                  'username': 'guest',
+                  "imgUrl": "",
+                },
+                {
+                  "_id": "u177",
+                  "fullname": "Lian Skopis",
+                  'username': 'Lian',
+                  "imgUrl": "",
+                }
+              ]
             },
             {
               "id": "c102a",
@@ -854,7 +898,7 @@ async function query(filterBy = {}) {
                 "bgColor": "#ffff"
               },
               "labels": [],
-              "members":[{
+              "members": [{
                 "_id": "u103",
                 "fullname": "Guest",
                 'username': 'guest',
@@ -876,8 +920,8 @@ async function query(filterBy = {}) {
                   "createdAt": 1590999817436.0,
                   "byMember": {
                     "_id": "u101",
-                    "fullname": "Tal Tarablus",
-                    "imgUrl": "http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
+                    "fullname": "Shachar Dorfzaun",
+                    "imgUrl": ""
                   }
                 }
               ],
@@ -897,9 +941,9 @@ async function query(filterBy = {}) {
               "members": [
                 {
                   "_id": "u101",
-                  "username": "Tal",
-                  "fullname": "Tal Tarablus",
-                  "imgUrl": "http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
+                  "username": "Shachar",
+                  "fullname": "Shachar Dorfzaun",
+                  "imgUrl": ""
                 }
               ],
               "labelIds": ["101"],
@@ -907,9 +951,8 @@ async function query(filterBy = {}) {
               "dueDate": 16156215211,
               "byMember": {
                 "_id": "u101",
-                "username": "Tal",
-                "fullname": "Tal Tarablus",
-                "imgUrl": "http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
+                "fullname": "Shachar Dorfzaun",
+                "imgUrl": ""
               },
             }
           ],
@@ -925,8 +968,8 @@ async function query(filterBy = {}) {
           "createdAt": 154514,
           "byMember": {
             "_id": "u102",
-            "fullname": "Abi Abambi",
-            "imgUrl": "http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
+            "fullname": "Nofar Gabso",
+            "imgUrl": ""
           },
           "task": {
             "id": "c101a",
@@ -939,8 +982,8 @@ async function query(filterBy = {}) {
           "createdAt": 154514,
           "byMember": {
             "_id": "u102",
-            "fullname": "Abi Abambi",
-            "imgUrl": "http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
+            "fullname": "Nofar Gabso",
+            "imgUrl": ""
           },
           "task": {
             "id": "c102a",
@@ -953,8 +996,8 @@ async function query(filterBy = {}) {
           "createdAt": 154514,
           "byMember": {
             "_id": "u102",
-            "fullname": "Abi Abambi",
-            "imgUrl": "http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
+            "fullname": "Nofar Gabso",
+            "imgUrl": ""
           },
           "task": {
             "id": "c104a",
