@@ -71,7 +71,6 @@ export default {
       this.$emit("archiveGroup", groupToArchive);
     },
     toggleGroupMenuModal(ev) {
-      // console.log(ev);
       this.isGroupMenuModalOpen = !this.isGroupMenuModalOpen;
       this.$emit("toggleGroupMenuModal", this.group.id);
       this.$emit("openModal", this.group.id);

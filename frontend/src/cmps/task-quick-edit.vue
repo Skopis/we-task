@@ -31,7 +31,8 @@ export default{
             'title': '',
             'style': {
                 "bgColor": "#ffff"
-            }
+            },
+            "members": []
         }
         else this.taskToEdit = this.task
         setTimeout(() => {
@@ -40,6 +41,7 @@ export default{
     },
     methods:{
         updateTask(){
+            this.taskToEdit.byUser = this.$store.getters.loggedinUser
             this.$emit('updateTask', JSON.parse(JSON.stringify(this.taskToEdit)))
         }
     }

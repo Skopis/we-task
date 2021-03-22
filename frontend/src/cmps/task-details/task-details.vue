@@ -182,11 +182,11 @@ export default {
       this.$store.dispatch({type: 'addTask', task:this.task})
     },
     addMemberToTask(member){
+      if(!this.task.members) this.task.members=[]
       for(let i=0; i<this.task.members.length; i++){
         if (this.task.members[i]._id === member._id) return
       }
       this.task.members.push(member)
-        console.log(this.task, 'this.task')
       this.$store.dispatch({type: 'addTask', task:this.task})
     },
     updateTaskCover(color) {

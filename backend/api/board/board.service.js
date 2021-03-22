@@ -47,7 +47,7 @@ async function save(board) {
     try {
         let savedBoard = null;
         const collection = await dbService.getCollection('board');
-        if (board._id) {
+        if (board && board._id) {
             const boardToUpdate = { ...board };
             delete boardToUpdate._id;
             await collection.updateOne({ _id: ObjectId(board._id) }, { $set: { ...boardToUpdate } });
@@ -55,7 +55,9 @@ async function save(board) {
         } else {
             const newBoard = _getEmptyBoard()
             savedBoard = await collection.insert(newBoard);
-            return savedBoard.ops[0];
+            console.log('savedBoard', savedBoard)
+            return newBoard
+            // return savedBoard.ops[0];
         }
     } catch (err) {
         throw err;
@@ -108,12 +110,13 @@ function _getEmptyBoard() {
         "createdAt": Date.now(),
         "groups": [
             {
-                "id": createRandomId(),
+                "id": _createRandomId(),
                 "title": "New Group",
                 "tasks": []
             }
         ]
     }
+    return newBoard
 }
 
 function _createRandomId(){
