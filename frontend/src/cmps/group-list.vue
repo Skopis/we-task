@@ -95,7 +95,6 @@ export default {
       this.$emit("updateGroup", this.group);
     },
     updateTask(taskToUpdate) {
-      // need to check if this changes the board
       this.isAddModalOpen = false;
       this.$emit("updateTask", taskToUpdate, this.group);
     },

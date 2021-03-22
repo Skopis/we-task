@@ -132,12 +132,14 @@ export const taskStore = {
         async addTask({ commit, state }, { task, group, boardId }) {
             try {
                 console.log('state.currGroupId', state.currGroupId)
-                var boardIdx = state.boards.findIndex(b => b._id === state.board._id)
-                var board = state.boards.find(b => b._id === state.board._id)
+                const boardIdx = state.boards.findIndex(b => b._id === state.board._id)
+                const board = state.boards.find(b => b._id === state.board._id)
                 if (state.currGroupId) var groupIdx = state.board.groups.findIndex(g => g.id === state.currGroupId)
                 else groupIdx = state.board.groups.findIndex(g => g.id === group.id)
                 if (task.id) {
                     var taskIdx = state.board.groups[groupIdx].tasks.findIndex(t => t.id === task.id)
+                    console.log("task store line 141");
+                    console.log(taskIdx);
                     await taskService.add(task, groupIdx, taskIdx, board)
                 }
                 else {

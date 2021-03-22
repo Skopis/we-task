@@ -73,7 +73,7 @@ async function archiveGroup(group, groupIdx, board) { //delete group and update
   // boards[boardIdx].groups.splice(groupIdx, 1)
   const boardToUpdate = JSON.parse(JSON.stringify(board))
   boardToUpdate.groups.splice(groupIdx, 1);
-  httpService.put(`board/${boardToUpdate._id}`,boardToUpdate);
+  httpService.put(`board/${boardToUpdate._id}`, boardToUpdate);
   // storageService._save('boards', boards)
 
   var archive = await storageService.query('archive')
@@ -87,7 +87,7 @@ async function addGroup(newGroup, board) { // add group and update board
   // boards[boardIdx].groups.push(newGroup)
   const boardToUpdate = JSON.parse(JSON.stringify(board))
   boardToUpdate.groups.push(newGroup);
-  httpService.put(`board/${board._id}`,boardToUpdate);
+  httpService.put(`board/${board._id}`, boardToUpdate);
   // storageService._save('boards', boards)
 }
 
@@ -97,7 +97,7 @@ async function updateGroup(group, board, groupIdx) { // update group and update 
   const boardToUpdate = JSON.parse(JSON.stringify(board))
   boardToUpdate.groups.splice(groupIdx, 1, group)
   // storageService._save('boards', boards)
-  httpService.put(`board/${boardToUpdate._id}`,boardToUpdate);
+  httpService.put(`board/${boardToUpdate._id}`, boardToUpdate);
 }
 
 async function remove(board, groupIdx, taskIdx) { // remove task
@@ -105,7 +105,7 @@ async function remove(board, groupIdx, taskIdx) { // remove task
     const boardToUpdate = JSON.parse(JSON.stringify(board))
     boardToUpdate.groups[groupIdx].tasks.splice(taskIdx, 1)
     // storageService._save('boards', boards)
-    await httpService.put(`board/${boardToUpdate._id}`,boardToUpdate);
+    await httpService.put(`board/${boardToUpdate._id}`, boardToUpdate);
     return query();
   } catch (err) {
     console.log('Cannot get boards', err)
@@ -115,15 +115,17 @@ async function remove(board, groupIdx, taskIdx) { // remove task
 async function add(task, groupIdx, taskIdx, board) { // add task
   // const addedTask = await httpService.post(`task`, task)
   // let boards = await query()
-  var taskForUpdate = JSON.parse(JSON.stringify(task))
+  let taskForUpdate = JSON.parse(JSON.stringify(task))
   const boardToUpdate = JSON.parse(JSON.stringify(board))
   if (taskIdx != -1) boardToUpdate.groups[groupIdx].tasks.splice(taskIdx, 1, taskForUpdate)
   else {
+    console.log(boardToUpdate.groups[groupIdx].tasks); 
     taskForUpdate.id = utilService.makeId()
-    boardToUpdate.groups[groupIdx].tasks.unshift(taskForUpdate)
+    boardToUpdate.groups[groupIdx].tasks.unshift(taskForUpdate);
+    console.log(boardToUpdate.groups[groupIdx].tasks); 
   }
   // storageService._save('boards', boards)
-  await httpService.put(`board/${boardToUpdate._id}`,boardToUpdate);
+  await httpService.put(`board/${boardToUpdate._id}`, boardToUpdate);
   return boardToUpdate;
 }
 
@@ -162,6 +164,8 @@ async function saveBoard(boardToUpdate, boardIdx) { // update board
 async function addBoard() { // add empty board
   // var boards = await storageService.query('boards')
   const board = await httpService.post('board');
+  console.log(board);
+  //return board;
   // boards.push(board);
   // storageService._save('boards', boards)
 }
