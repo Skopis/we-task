@@ -26,6 +26,7 @@
           animation="500"
           group="task"
           ghostClass="ghost"
+          chosen-class="chosen"
           dragClass="chosen-drag"
           v-model="group.tasks"
           handle="li"
