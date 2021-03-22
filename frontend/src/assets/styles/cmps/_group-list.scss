@@ -1,9 +1,11 @@
 .task-list-container{
     margin: 0;
-   
+
     display: flex;
     .group-list{
+        overflow-y:scroll !important;
         // outline: 1px solid powderblue;
+        max-height: 70vh;
         width: 257px;
         margin-left: 10px;
         border-radius: 4px;
@@ -11,7 +13,7 @@
         ul{
             margin: 0;
         }
-       }
+    }
     .preview-header{
         display: flex;
         align-items: center;
@@ -51,7 +53,6 @@
     }
 }
 
-
     .group-menu{
         background-color: springgreen;
         position: absolute;
@@ -75,5 +76,4 @@
                 margin: 0;
             }
         }
- 
 }

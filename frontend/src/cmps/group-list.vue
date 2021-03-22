@@ -1,5 +1,5 @@
 <template>
-  <div class="group-list" :style="{ backgroundColor: group.style.bgColor }">
+  <div class="group-list" v-if="group" :style="{ backgroundColor: group.style.bgColor }">
     <div class="preview-header">
       <h4 @click="editGroupTitle" v-if="isTitleModalOpen === false">
         {{ group.title }}

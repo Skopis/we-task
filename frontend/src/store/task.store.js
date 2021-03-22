@@ -74,8 +74,9 @@ export const taskStore = {
         setArchive(state, { archive }) {
             state.archive = archive
         },
-        archiveBoard(state, { board }) {
+        archiveBoard(state, { board, boardIdx }) {
             state.archive.push(board)
+            state.boards.splice(boardIdx, 1)
         }
     },
     actions: {
@@ -83,9 +84,9 @@ export const taskStore = {
             try {
                 var boardIdx = state.boards.findIndex(b => b._id === board._id)
                 await taskService.archiveBoard(board, boardIdx)
-                const boards = await taskService.query();
-                commit({ type: 'archiveBoard', board })
-                commit({ type: 'setBoards', boards })
+                // const boards = await taskService.query();
+                commit({ type: 'archiveBoard', board, boardIdx })
+                // commit({ type: 'setBoards', boards })
             }
             catch (err) {
                 console.log('taskStore: Error in archiveBoard', err)
@@ -117,7 +118,7 @@ export const taskStore = {
         },
         async addBoard({ commit }) {
             try {
-                 const newBoard = await taskService.addBoard()//newBoard)
+                const newBoard = await taskService.addBoard()//newBoard)
                 commit({ type: 'addBoard', newBoard })
             } catch (err) {
                 console.log('taskStore: Error in addBoard', err)

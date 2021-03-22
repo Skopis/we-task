@@ -116,9 +116,9 @@ export default {
     },
     reply(memberName){
       console.log(memberName)
-      this.comment.txt = "@"+ memberName.toLowerCase().replace(/\s/g, '') +' '
       setTimeout(() => {
         this.$refs.writeComment.focus();
+        this.comment.txt = "@"+ memberName.toLowerCase().replace(/\s/g, '') +' '
       }, 300);
     },
     formattedDate(date){

@@ -36,7 +36,7 @@ async function deleteBoard(req, res) {
 async function addBoard(req, res) {
     try {
         var board = req.body
-        console.log(board);
+        // console.log(board);
         // board.byUserId = req.session.user._id
         board = await boardService.save(board)
         console.log('board at addBoard', board)
