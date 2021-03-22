@@ -51,7 +51,20 @@
             }
         }
     }
-    
+    .task-label-container {
+        padding-top: 4px;
+        display: flex;
+        flex-wrap: wrap;
+        .small-label {
+            display: block;
+            width: 40px;
+            height: 8px;
+            margin-right: 4px;
+            margin-bottom: 4px;
+            border-radius: 4px;
+        }
+    }
+
 
     .btn {
         color: $task-txt;
