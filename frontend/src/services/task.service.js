@@ -45,7 +45,6 @@ function getEmptyGroup() {
   }
 }
 function handleGroupInSession(status, groupId) {
- 
   var currGroup = groupId
   if (status === 'saveToSession') {
     storageService.saveToSessionStorage('groupId', groupId)
