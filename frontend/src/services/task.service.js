@@ -35,9 +35,9 @@ function getUser() {
 
 function getEmptyGroup() {
   return {
-    'id': utilService.makeId(),
-    'title': 'New List',
-    'tasks': [],
+    "id": utilService.makeId(),
+    "title": "New List",
+    "tasks": [],
     "style": {
       "bgColor": "#ebecf0"
     }
@@ -110,8 +110,8 @@ async function addBoard(boardToAdd) {
 
 function getEmptyBoard() {
   return {
-    '_id': utilService.makeId(),
-    'title': 'New Board',
+    "_id": utilService.makeId(),
+    "title": "New Board",
     "style": {
       "bgColor": "#b1c294"
     },
@@ -147,11 +147,14 @@ function getEmptyBoard() {
         "color": "blue"
       },
     ],
-    'createdAt': Date.now(),
-    'groups': [{
-      'id': utilService.makeId(),
-      'title': 'New List',
-      'tasks': []
+    "createdAt": Date.now(),
+    "groups": [{
+      "id": utilService.makeId(),
+      "title": "New List",
+      "tasks": [],
+      "style": {
+        "bgColor": "#ebecf0"
+      }
     }]
   }
 }
@@ -202,12 +205,12 @@ async function query(filterBy = {}) {
       "createdAt": 1589983468418,
       "createdBy": {
         "_id": "u102",
-        "nickname": "Nofar",
+        "username": "nofargabso",
         "fullname": "Nofar Gabso",
         "imgUrl": ""
       },
       "style": {
-        "bgColor": "#d8c9ff"
+        "bgColor": "#29cce5"
       },
       "labels": [
         {
@@ -244,25 +247,26 @@ async function query(filterBy = {}) {
       "members": [
         {
           "_id": "u101",
+          "username": "shachardorfzaun",
           "fullname": "Shachar Dorfzaun",
           "imgUrl": ""
         },
         {
           "_id": "u102",
-          "nickname": "Nofar",
+          "username": "nofargabso",
           "fullname": "Nofar Gabso",
           "imgUrl": ""
         },
         {
           "_id": "u103",
           "fullname": "Guest",
-          'username': 'guest',
+          "username": "guest",
           "imgUrl": "",
         },
         {
           "_id": "u177",
           "fullname": "Lian Skopis",
-          'username': 'Lian',
+          "username": "lianskopis",
           "imgUrl": "",
         }
       ],
@@ -275,19 +279,19 @@ async function query(filterBy = {}) {
               "id": "c101",
               "title": `Project "Teamwork Dream Work" Launch Timeline`,
               "style": {
-                "bgColor": "#ffff"
+                "bgColor": "#ffffff"
               },
               "members": [
                 {
                   "_id": "u103",
                   "fullname": "Guest",
-                  'username': 'guest',
+                  "username": "guest",
                   "imgUrl": "",
                 },
                 {
                   "_id": "u177",
                   "fullname": "Lian Skopis",
-                  'username': 'Lian',
+                  "username": "lianskopis",
                   "imgUrl": "",
                 }
               ],
@@ -297,7 +301,7 @@ async function query(filterBy = {}) {
               "id": "c1012",
               "title": "Weekly Updates",
               "style": {
-                "bgColor": "#ebecf0"
+                "bgColor": "#ffffff"
               },
               "labels": []
             },
@@ -305,13 +309,13 @@ async function query(filterBy = {}) {
               "id": "c1014",
               "title": "Stakeholders",
               "style": {
-                "bgColor": "#b1c294"
+                "bgColor": "#ffffff"
               },
               "labels": []
             }
           ],
           "style": {
-            "bgColor": "#eecab6"
+            "bgColor": "#ebecf0"
           }
         },
         {
@@ -320,16 +324,16 @@ async function query(filterBy = {}) {
           "tasks": [
             {
               "id": "c103",
-              "title": "Who's the best person to fix my HTML snag?",
+              "title": "Whos the best person to fix my HTML snag?",
               "style": {
-                "bgColor": "#cc859a"
+                "bgColor": "#ffffff"
               },
               "labels": [],
               "members": [
                 {
                   "_id": "u103",
                   "fullname": "Guest",
-                  'username': 'guest',
+                  "username": "guest",
                   "imgUrl": "",
                 }
               ]
@@ -338,7 +342,7 @@ async function query(filterBy = {}) {
               "id": "c104",
               "title": "How can I get access to the super secret document?",
               "style": {
-                "bgColor": "#ffff"
+                "bgColor": "#ffffff"
               },
               "labels": [],
               "description": "Please find a way to open this file",
@@ -371,18 +375,18 @@ async function query(filterBy = {}) {
                 {
                   "_id": "u103",
                   "fullname": "Guest",
-                  'username': 'guest',
+                  "username": "guest",
                   "imgUrl": "",
                 },
                 {
                   "_id": "u177",
                   "fullname": "Lian Skopis",
-                  'username': 'Lian',
+                  "username": "lianskopis",
                   "imgUrl": "",
                 },
                 {
                   "_id": "u102",
-                  "username": "Nofar",
+                  "username": "nofargabso",
                   "fullname": "Nofar Gabso",
                   "imgUrl": ""
                 },
@@ -395,7 +399,6 @@ async function query(filterBy = {}) {
               ],
               "labelIds": ["101"],
               "createdAt": 1590999730348,
-              "dueDate": 16156215211,
               "byMember": {
                 "_id": "u177",
                 "fullname": "Lian Skopis",
@@ -415,14 +418,14 @@ async function query(filterBy = {}) {
               "id": "c1013",
               "title": "Sketch site banner",
               "style": {
-                "bgColor": "#ffff"
+                "bgColor": "#ffffff"
               },
               "labels": [],
               "members": [
                 {
                   "_id": "u103",
                   "fullname": "Guest",
-                  'username': 'guest',
+                  "username": "guest",
                   "imgUrl": "",
                 }
               ]
@@ -431,7 +434,7 @@ async function query(filterBy = {}) {
               "id": "c1057",
               "title": "Please add permissions for new members",
               "style": {
-                "bgColor": "#fbffd4"
+                "bgColor": "#ffffff"
               },
               "labels": [],
               "description": "description",
@@ -464,12 +467,12 @@ async function query(filterBy = {}) {
                 {
                   "_id": "u103",
                   "fullname": "Guest",
-                  'username': 'guest',
+                  "username": "guest",
                   "imgUrl": "",
                 },
                 {
                   "_id": "u101",
-                  "username": "Shachar",
+                  "username": "shachardorfzaun",
                   "fullname": "Shachar Dorfzaun",
                   "imgUrl": ""
                 }, {
@@ -481,7 +484,6 @@ async function query(filterBy = {}) {
               ],
               "labelIds": ["101"],
               "createdAt": 1590899770748,
-              "dueDate": 16156215211,
               "byMember": {
                 "_id": "u103",
                 "fullname": "Guest",
@@ -490,7 +492,7 @@ async function query(filterBy = {}) {
             }
           ],
           "style": {
-            "bgColor": "#b1c294"
+            "bgColor": "#ebecf0"
           }
         },
         {
@@ -501,14 +503,14 @@ async function query(filterBy = {}) {
               "id": "c1017",
               "title": "Legal review",
               "style": {
-                "bgColor": "#ebecf0"
+                "bgColor": "#ffffff"
               },
               "labels": [],
               "members": [
                 {
                   "_id": "u103",
                   "fullname": "Guest",
-                  'username': 'guest',
+                  "username": "guest",
                   "imgUrl": "",
                 },
                 {
@@ -522,7 +524,7 @@ async function query(filterBy = {}) {
               "id": "c101474",
               "title": "Await final approval",
               "style": {
-                "bgColor": "#eecab6"
+                "bgColor": "#ffffff"
               },
               "labels": [],
             },
@@ -530,7 +532,7 @@ async function query(filterBy = {}) {
               "id": "c102374",
               "title": "Fix Margin issue",
               "style": {
-                "bgColor": "#eecab6"
+                "bgColor": "#ffffff"
               },
               "labels": []
             },
@@ -538,7 +540,7 @@ async function query(filterBy = {}) {
               "id": "c1015",
               "title": "WorkFlow changed!!",
               "style": {
-                "bgColor": "#ebecf0"
+                "bgColor": "#ffffff"
               },
               "labels": [],
               "description": "description",
@@ -571,12 +573,12 @@ async function query(filterBy = {}) {
                 {
                   "_id": "u103",
                   "fullname": "Guest",
-                  'username': 'guest',
+                  "username": "guest",
                   "imgUrl": "",
                 },
                 {
                   "_id": "u101",
-                  "username": "Shachar",
+                  "username": "shachardorfzaun",
                   "fullname": "Shachar Dorfzaun",
                   "imgUrl": ""
                 },
@@ -589,7 +591,6 @@ async function query(filterBy = {}) {
               ],
               "labelIds": ["101"],
               "createdAt": 1590899770748,
-              "dueDate": 16156215211,
               "byMember": {
                 "_id": "u103",
                 "fullname": "Guest",
@@ -598,7 +599,7 @@ async function query(filterBy = {}) {
             }
           ],
           "style": {
-            "bgColor": "#ffff"
+            "bgColor": "#ebecf0"
           }
         },
         {
@@ -609,7 +610,7 @@ async function query(filterBy = {}) {
               "id": "c10177",
               "title": "Freelancer contracts",
               "style": {
-                "bgColor": "#d1f5f5"
+                "bgColor": "#ffffff"
               },
               "members": [
               ],
@@ -619,7 +620,7 @@ async function query(filterBy = {}) {
               "id": "c10157",
               "title": "Social media assets",
               "style": {
-                "bgColor": "#b1c294"
+                "bgColor": "#ffffff"
               },
               "labels": [],
               "description": "The twitter banner looks great, can we get another version in red",
@@ -652,12 +653,12 @@ async function query(filterBy = {}) {
                 {
                   "_id": "u103",
                   "fullname": "Guest",
-                  'username': 'guest',
+                  "username": "guest",
                   "imgUrl": "",
                 },
                 {
                   "_id": "u101",
-                  "username": "Shachar",
+                  "username": "shachardorfzaun",
                   "fullname": "Shachar Dorfzaun",
                   "imgUrl": ""
                 }, {
@@ -669,7 +670,6 @@ async function query(filterBy = {}) {
               ],
               "labelIds": ["101"],
               "createdAt": 1590899770748,
-              "dueDate": 16156215211,
               "byMember": {
                 "_id": "u102",
                 "fullname": "Nofar Gabso",
@@ -678,7 +678,7 @@ async function query(filterBy = {}) {
             }
           ],
           "style": {
-            "bgColor": "#cc859a"
+            "bgColor": "#ebecf0"
           }
         },
         {
@@ -689,19 +689,19 @@ async function query(filterBy = {}) {
               "id": "c10134",
               "title": `Finalize Campaign Name: WeTaskBigger`,
               "style": {
-                "bgColor": "#a4a9a7"
+                "bgColor": "#ffffff"
               },
               "labels": [],
               "members": [
                 {
                   "_id": "u103",
                   "fullname": "Guest",
-                  'username': 'guest',
+                  "username": "guest",
                   "imgUrl": "",
                 },
                 {
                   "_id": "u177",
-                  'username': 'Lian',
+                  "username": "lianskopis",
                   "fullname": "Lian Skopis",
                   "imgUrl": "",
                 }
@@ -711,7 +711,7 @@ async function query(filterBy = {}) {
               "id": "c101234",
               "title": "Submit Q1 report",
               "style": {
-                "bgColor": "#eecab6"
+                "bgColor": "#ffffff"
               },
               "labels": []
             },
@@ -719,7 +719,7 @@ async function query(filterBy = {}) {
               "id": "c101239",
               "title": "Get Manager approval",
               "style": {
-                "bgColor": "#d1f5f5"
+                "bgColor": "#ffffff"
               },
               "labels": []
             },
@@ -727,13 +727,13 @@ async function query(filterBy = {}) {
               "id": "c101434",
               "title": "Campaign Proposal",
               "style": {
-                "bgColor": "#ffff"
+                "bgColor": "#ffffff"
               },
               "labels": []
             }
           ],
           "style": {
-            "bgColor": "#fbffd4"
+            "bgColor": "#ebecf0"
           }
         }
       ],
@@ -788,12 +788,12 @@ async function query(filterBy = {}) {
       "createdAt": 1589983468418,
       "createdBy": {
         "_id": "u102",
-        "nickname": "Nofar",
+        "username": "nofargabso",
         "fullname": "Nofar Gabso",
         "imgUrl": ""
       },
       "style": {
-        "bgColor": "#ffff"
+        "bgColor": "#7bc86c"
       },
       "labels": [
         {
@@ -836,13 +836,13 @@ async function query(filterBy = {}) {
         {
           "_id": "u177",
           "fullname": "Lian Skopis",
-          'username': 'Lian',
+          "username": "lianskopis",
           "imgUrl": "",
         },
         {
           "_id": "u103",
           "fullname": "Guest",
-          'username': 'guest',
+          "username": "guest",
           "imgUrl": "",
         }
       ],
@@ -855,20 +855,20 @@ async function query(filterBy = {}) {
               "id": "c101a",
               "title": "Update logo",
               "style": {
-                "bgColor": "#ffff"
+                "bgColor": "#ffffff"
               },
               "labels": [],
               "members": [
                 {
                   "_id": "u103",
                   "fullname": "Guest",
-                  'username': 'guest',
+                  "username": "guest",
                   "imgUrl": "",
                 },
                 {
                   "_id": "u177",
                   "fullname": "Lian Skopis",
-                  'username': 'Lian',
+                  "username": "lianskopis",
                   "imgUrl": "",
                 }
               ]
@@ -877,7 +877,7 @@ async function query(filterBy = {}) {
               "id": "c102a",
               "title": "Update Samples",
               "style": {
-                "bgColor": "#ffff"
+                "bgColor": "#ffffff"
               },
               "labels": []
             }
@@ -894,13 +894,13 @@ async function query(filterBy = {}) {
               "id": "c103a",
               "title": "Do that",
               "style": {
-                "bgColor": "#ffff"
+                "bgColor": "#ffffff"
               },
               "labels": [],
               "members": [{
                 "_id": "u103",
                 "fullname": "Guest",
-                'username': 'guest',
+                "username": "guest",
                 "imgUrl": "",
               }]
             },
@@ -908,7 +908,7 @@ async function query(filterBy = {}) {
               "id": "c104a",
               "title": "Assist me",
               "style": {
-                "bgColor": "#ffff"
+                "bgColor": "#ffffff"
               },
               "labels": [],
               "description": "description",
@@ -940,14 +940,13 @@ async function query(filterBy = {}) {
               "members": [
                 {
                   "_id": "u101",
-                  "username": "Shachar",
+                  "username": "shachardorfzaun",
                   "fullname": "Shachar Dorfzaun",
                   "imgUrl": ""
                 }
               ],
               "labelIds": ["101"],
               "createdAt": 1590999730348,
-              "dueDate": 16156215211,
               "byMember": {
                 "_id": "u101",
                 "fullname": "Shachar Dorfzaun",

@@ -1,8 +1,9 @@
 <template>
-  <div class="block">
-    <span class="demonstration">Default</span>
+  <div class=" date-picker">
+    <span class="demonstration"></span>
     <el-date-picker
-      v-model="value1"
+      @change="changeDate"
+      v-model="value"
       type="date"
       placeholder="Pick a day">
     </el-date-picker>
@@ -11,36 +12,23 @@
 
 <script>
   export default {
+    name:'date-picker',
     data() {
       return {
+        value: '',
         pickerOptions: {
           disabledDate(time) {
-            return time.getTime() > Date.now();
+            return Date.now();
           },
-          shortcuts: [{
-            text: 'Today',
-            onClick(picker) {
-              picker.$emit('pick', new Date());
-            }
-          }, {
-            text: 'Yesterday',
-            onClick(picker) {
-              const date = new Date();
-              date.setTime(date.getTime() - 3600 * 1000 * 24);
-              picker.$emit('pick', date);
-            }
-          }, {
-            text: 'A week ago',
-            onClick(picker) {
-              const date = new Date();
-              date.setTime(date.getTime() - 3600 * 1000 * 24 * 7);
-              picker.$emit('pick', date);
-            }
-          }]
         },
-        value1: '',
-        value2: '',
       };
-    }
+    },
+    methods:{
+      changeDate(){
+        // console.log('value', this.value)
+        this.$emit('closeDateModal', false)
+        this.$emit('updateDueDate', this.value)
+      }
+    },
   };
 </script>
