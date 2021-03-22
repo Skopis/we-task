@@ -8,23 +8,30 @@
       </header>
       <main>
       
-      <members-menu v-if="membersMenu" @addMemberToTask="addMemberToTask" @closeMembersMenu="manageMembersMenu"/>   
+      <date-picker v-if="dateMenu" @closeDateModal="manageDateMenu" @updateDueDate="updateDueDate"/>
+      <div v-if="task.dueDate">
+        <p>DUE DATE</p>
+        <p>{{task.dueDate}}</p>
+      </div>
 
       <labels-menu v-if="labelsModal" @setLabel="setTaskLabel" @closeLabelMenu="manageLabelMenu"/>
       <div class="task-labels-wrapper">
         <div v-if="task.labels"> 
-          <p>Labels</p>
+          <p>LABELS</p>
           <div v-for="label in task.labels" :key="label.id">
             <div class="task-label" :class="label.color">{{label.title}}</div>
           </div>
         </div>
       </div>
+
+      <members-menu v-if="membersMenu" @addMemberToTask="addMemberToTask" @closeMembersMenu="manageMembersMenu"/>   
       <div class="task-members">
-        <h3>MEMBERS</h3>
+        <p>MEMBERS</p>
         <div v-if="task.members">
           <member-avatar :members="task.members" :size="32" />
         </div>
       </div>
+
       <div class="task-desc">
         <h3>Description</h3>
         <p v-if="task.description">{{ task.description }}</p>
@@ -42,7 +49,7 @@
       <div class="task-activities">
         <h3>Activities</h3>
         <div class="comment-section">
-      <textarea placeholder="write a comment" v-model="comment.txt" class="comment-box"></textarea>
+      <textarea ref="writeComment" placeholder="write a comment" v-model="comment.txt" class="comment-box"></textarea>
       <button @click="addComment" class="btn">Save</button>
         </div>
         <div v-if="activities">
@@ -53,7 +60,8 @@
       </div>
       <div v-if="task.comments">
         <div v-for="(comment, idx) in task.comments" :key="idx">
-          <task-comment :comment="comment" @saveComment="saveComment" />
+          <task-comment :comment="comment" @reply="reply"/> 
+          <!-- <task-comment :comment="comment" @saveComment="saveComment" /> -->
         </div>
       </div>
       </main>
@@ -63,6 +71,7 @@
         @updateTaskCover="updateTaskCover"
         @openLabelModal="manageLabelMenu"
         @openMembersMenu="manageMembersMenu"
+        @openDateModal="manageDateMenu"
         />
     </div>
   </div>
@@ -77,6 +86,7 @@ import checkListAdd from "./check-list-add.cmp";
 import taskTodo from "./task-todo.cmp";
 import labelsMenu from "../menu/labels-menu";
 import membersMenu from '../menu/members-menu'
+import DatePicker from './date-picker.vue';
 
 export default {
   data() {
@@ -86,7 +96,8 @@ export default {
       checkListModal: false,
       comment: { txt: "" },
       labelsModal: false,
-      membersMenu: false
+      membersMenu: false,
+      dateMenu: false
     };
   },
   methods: {
@@ -102,6 +113,21 @@ export default {
       } catch (err) {
         console.log("Cannot find task", err);
       }
+    },
+    reply(memberName){
+      console.log(memberName)
+      setTimeout(() => {
+        this.$refs.writeComment.focus();
+        this.comment.txt = "@"+ memberName.toLowerCase().replace(/\s/g, '') +' '
+      }, 300);
+    },
+    formattedDate(date){
+      console.log('date', date)
+      const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+      return date.toLocaleDateString(undefined, options)
+    },
+    manageDateMenu(status){
+      this.dateMenu = status
     },
     manageMembersMenu(status) {////////////////////
       console.log(status);
@@ -150,12 +176,17 @@ export default {
     setTaskLabel(label) {
       this.$store.dispatch({ type: "setTaskLabel", task: this.task, label });
     },
+    updateDueDate(date){
+      console.log('date', date)
+      this.task.dueDate = this.formattedDate(date)
+      this.$store.dispatch({type: 'addTask', task:this.task})
+    },
     addMemberToTask(member){
+      if(!this.task.members) this.task.members=[]
       for(let i=0; i<this.task.members.length; i++){
         if (this.task.members[i]._id === member._id) return
       }
       this.task.members.push(member)
-        console.log(this.task, 'this.task')
       this.$store.dispatch({type: 'addTask', task:this.task})
     },
     updateTaskCover(color) {
@@ -195,7 +226,8 @@ export default {
     checkListAdd,
     taskTodo,
     labelsMenu,
-    membersMenu
+    membersMenu,
+    DatePicker
   },
 };
 </script>

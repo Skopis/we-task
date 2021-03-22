@@ -1,6 +1,6 @@
 <template>
     <section class="board-preview-menu">
-        <button class="btn" @click="archiveBoard">Archive</button>
+        <button class="btn" @click.stop="archiveBoard">Archive</button>
     </section>
 </template>
 

@@ -39,6 +39,7 @@ async function addBoard(req, res) {
         // console.log(board);
         // board.byUserId = req.session.user._id
         board = await boardService.save(board)
+        console.log('board at addBoard', board)
         console.log('CTRL SessionId:', req.sessionID);
         // socketService.broadcast({ type: 'board-added', data: board })
         // socketService.emitToAll({ type: 'user-updated', data: board.byUser, room: req.session.user._id })

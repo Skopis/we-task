@@ -15,19 +15,13 @@
         :size="32"
       >
       </member-avatar2>
-      <!-- <avatar
-        class="avatar"
-        v-else
-        :username="comment.byMember.fullname"
-        :size="30"
-      ></avatar> -->
       <h3>{{ comment.byMember.fullname }}</h3>
       <p>{{ formattedTime(comment.createdAt) }}</p>
     </div>
     <input v-if="isCommentToEdit" v-model="editComment.txt" />
     <p v-else class="comment-txt">{{ editComment.txt }}</p>
-    <button class="btn">Reply</button>
-    <button class="btn" @click="saveComment">Save</button>
+    <button class="btn" @click="reply">Reply</button>
+    <!-- <button class="btn" @click="saveComment">Save</button> -->
   </div>
 </template>
 <button class="btn" @click="openEditModal">edit</button>
@@ -49,10 +43,14 @@ export default {
     openEditModal() {
       this.isCommentToEdit = true;
     },
-    saveComment() {
-      this.$emit("saveComment", this.editComment);
-      this.isCommentToEdit = false;
-    },
+    reply(){
+      this.$emit('reply', this. comment.byMember.fullname)
+    }
+    // saveComment() {
+    //   console.log('this.editComment', this.editComment)
+    //   this.$emit("saveComment", this.editComment);
+    //   this.isCommentToEdit = false;
+    // },
   },
   created() {
     this.editComment = JSON.parse(JSON.stringify(this.comment));
