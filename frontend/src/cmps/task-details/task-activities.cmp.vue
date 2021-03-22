@@ -1,6 +1,6 @@
 <template>
   <div class="task-activity" v-if="activity && activity.byMember">
-    <img :src="activity.byMember.imgUrl" class="avatar" />
+    <img v-if="activity.byMember.imgUrl" :src="activity.byMember.imgUrl" class="avatar" />
     <div class="txt">
       <p>
         <span v-if="activity.byMember">{{ activity.byMember.fullname }}</span>  {{ activity.txt }}
@@ -14,7 +14,7 @@
 export default {
   props: ["activity"],
   created(){
-      console.log(this.activity)
+      // console.log(this.activity)
   },
   methods:{
     formattedTime(timeStamp){

@@ -4,9 +4,12 @@
       <header :style="{ backgroundColor: task.style.bgColor }">
         <button class="btn close-btn" @click="closeDetailsModal">+</button>
         <h1>{{ task.title }}</h1>
-        <p><span>in list</span></p>
+        <p><span>in List</span></p>
       </header>
       <main>
+      
+      <members-menu v-if="membersMenu" @addMemberToTask="addMemberToTask" @closeMembersMenu="manageMembersMenu"/>   
+
       <labels-menu v-if="labelsModal" @setLabel="setTaskLabel" @closeLabelMenu="manageLabelMenu"/>
       <div class="task-labels-wrapper">
         <div v-if="task.labels"> 
@@ -19,7 +22,7 @@
       <div class="task-members">
         <h3>MEMBERS</h3>
         <div v-if="task.members">
-          <member-avatar :members="task.members" :size="40" />
+          <member-avatar :members="task.members" :size="32" />
         </div>
       </div>
       <div class="task-desc">
@@ -59,19 +62,21 @@
         @removeTask="removeTask"
         @updateTaskCover="updateTaskCover"
         @openLabelModal="manageLabelMenu"
-      />
+        @openMembersMenu="manageMembersMenu"
+        />
     </div>
   </div>
 </template>
 
 <script>
 import taskActivities from "./task-activities.cmp";
-import memberAvatar from "./member-avatar.cmp";
+import memberAvatar from "./member-avatar.cmp.vue";
 import taskComment from "./task-comment.cmp";
 import taskDevTools from "./task-dev-tools.cmp";
 import checkListAdd from "./check-list-add.cmp";
 import taskTodo from "./task-todo.cmp";
 import labelsMenu from "../menu/labels-menu";
+import membersMenu from '../menu/members-menu'
 
 export default {
   data() {
@@ -81,6 +86,7 @@ export default {
       checkListModal: false,
       comment: { txt: "" },
       labelsModal: false,
+      membersMenu: false
     };
   },
   methods: {
@@ -92,17 +98,21 @@ export default {
         this.task = JSON.parse(JSON.stringify(task));
         let taskActivities = this.$store.getters.taskActivities;
         this.activities = taskActivities;
-        console.log(this.task);
+        // console.log(this.task);
       } catch (err) {
         console.log("Cannot find task", err);
       }
     },
+    manageMembersMenu(status) {////////////////////
+      console.log(status);
+      this.membersMenu = status;
+    },
     createCheckList() {
-      console.log("checklist");
+      // console.log("checklist");
       this.checkListModal = true;
     },
     closeCheckList() {
-      console.log("yahoo");
+      // console.log("yahoo");
       this.checkListModal = false;
     },
     saveCheckList(checkList) {
@@ -123,7 +133,7 @@ export default {
       this.comment = { txt: "" };
     },
     saveComment(comment) {
-      console.log("edit comment", comment);
+      // console.log("edit comment", comment);
       this.$store.dispatch({ type: "saveComment", task: this.task, comment });
     },
     removeTask() {
@@ -140,19 +150,27 @@ export default {
     setTaskLabel(label) {
       this.$store.dispatch({ type: "setTaskLabel", task: this.task, label });
     },
+    addMemberToTask(member){
+      for(let i=0; i<this.task.members.length; i++){
+        if (this.task.members[i]._id === member._id) return
+      }
+      this.task.members.push(member)
+        console.log(this.task, 'this.task')
+      this.$store.dispatch({type: 'addTask', task:this.task})
+    },
     updateTaskCover(color) {
-      console.log("this.task", this.task);
+      // console.log("this.task", this.task);
       this.task.style.bgColor = color;
       this.$store.dispatch({ type: "addTask", task: this.task });
     },
     manageLabelMenu(status) {
-      console.log(status);
+      // console.log(status);
       this.labelsModal = JSON.parse(status);
     },
     closeModals() {
       this.labelsModal = false;
       this.checkListModal = false;
-      console.log(this.labelsModal, this.checkListModal);
+      // console.log(this.labelsModal, this.checkListModal);
     },
   },
   computed: {
@@ -177,6 +195,7 @@ export default {
     checkListAdd,
     taskTodo,
     labelsMenu,
+    membersMenu
   },
 };
 </script>

@@ -20,7 +20,6 @@ export default{
             this.isColorPickerOpen = !this.isColorPickerOpen
         },
         updateBoardCover(color){
-            console.log('color', color)
             this.$emit('updateBoardCover', color)
         }
     },

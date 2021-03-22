@@ -32,9 +32,12 @@
 }
 
 .big-plus {
-    font-weight: bolder;
-    font-size: 1.5rem;
+    // cursor: pointer;
+    transform: rotate(45deg);
+    // font-weight: bolder;
+    // font-size: 1.5rem;
     line-height: 1.5rem;
+    // align-self: center;
 }
 
 // flex helpers

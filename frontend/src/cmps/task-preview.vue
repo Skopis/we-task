@@ -16,12 +16,8 @@
       </section>
     </header>
     <div class="task-body">
-      <div
-        v-for="member in task.members"
-        :key="member._id"
-        :v-if="task.members"
-      >
-      <member-avatar :member="member" :size="30" @click.native="openMemberModal" />
+      <member-avatar :v-if="task.members" :members="task.members" :size="30" @click.native="openMemberModal" />
+      <div :v-if="task.members" v-for="member in task.members" :key="member._id">
         <member-preview
           v-if="isMemberModalOpen"
           @removeMemberFromTask="removeMemberFromTask"
@@ -42,8 +38,7 @@
 <script>
 import taskQuickEdit from "./task-quick-edit.vue";
 import memberPreview from "./member-preview.vue";
-import memberAvatar from "../cmps/task-details/member-avatar.cmp";
-import MemberAvatarCmp from "./task-details/member-avatar.cmp.vue";
+import memberAvatar from "./task-details/member-avatar.cmp.vue";
 
 export default {
   name: "task-preview",
@@ -96,7 +91,6 @@ export default {
     taskQuickEdit,
     memberPreview,
     memberAvatar,
-    MemberAvatarCmp,
   },
 };
 </script>

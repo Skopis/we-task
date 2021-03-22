@@ -72,7 +72,7 @@ export default {
       this.$emit("archiveGroup", groupToArchive);
     },
     toggleGroupMenuModal(ev) {
-      console.log(ev);
+      // console.log(ev);
       this.isGroupMenuModalOpen = !this.isGroupMenuModalOpen;
       this.$emit("toggleGroupMenuModal", this.group.id);
       this.$emit("openModal", this.group.id);
@@ -94,7 +94,6 @@ export default {
       this.isAddModalOpen = true;
     },
     updateGroup() {
-      console.log("this.group at group-list 81", this.group);
       this.$emit("updateGroup", this.group);
     },
     updateTask(taskToUpdate) {
