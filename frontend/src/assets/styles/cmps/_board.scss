@@ -3,8 +3,6 @@
     opacity: 0.5;
     background: #F7FAFC;
     border: 1px solid #4299e1;
-    border: 5px solid gray;
-    transform: rotate(90deg);
 }
 
 .chosen-drag {
@@ -15,9 +13,7 @@
     overflow-y:hidden;
     display: flex;
     flex: 1;
-    // height: calc(100vh - 136px);
     height: calc(100vh - 153px);
-
     .btn {
         flex-shrink: 0;
 
