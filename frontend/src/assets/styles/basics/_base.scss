@@ -5,8 +5,15 @@
 
 
 html {
-    font-family: roboto;
-    // font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Noto Sans,Ubuntu,Droid Sans,Helvetica Neue,sans-serif;
+    font-family: -apple-system, 
+    BlinkMacSystemFont, 
+    "Segoe UI", 
+    Roboto, 
+    Oxygen-Sans, 
+    Ubuntu, 
+    Cantarell, 
+    "Helvetica Neue", 
+    sans-serif;
     line-height: 1.6;
     // color: $clr2;
     // height: 100%;
@@ -41,7 +48,7 @@ ul {
 section,
 main,
 footer {
-    padding: 5px;
+    // padding: 5px;
 }
 
 

@@ -36,7 +36,7 @@ function getUser() {
 function getEmptyGroup() {
   return {
     'id': utilService.makeId(),
-    'title': 'New Group',
+    'title': 'New List',
     'tasks': [],
     "style": {
       "bgColor": "#ebecf0"
@@ -44,7 +44,6 @@ function getEmptyGroup() {
   }
 }
 function handleGroupInSession(status, groupId) {
-
   var currGroup = groupId
   if (status === 'saveToSession') {
     storageService.saveToSessionStorage('groupId', groupId)
@@ -151,7 +150,7 @@ function getEmptyBoard() {
     'createdAt': Date.now(),
     'groups': [{
       'id': utilService.makeId(),
-      'title': 'New Group',
+      'title': 'New List',
       'tasks': []
     }]
   }
@@ -850,7 +849,7 @@ async function query(filterBy = {}) {
       "groups": [
         {
           "id": "g101a",
-          "title": "Group 1",
+          "title": "List 1",
           "tasks": [
             {
               "id": "c101a",
@@ -889,7 +888,7 @@ async function query(filterBy = {}) {
         },
         {
           "id": "g102a",
-          "title": "Group 2",
+          "title": "List 2",
           "tasks": [
             {
               "id": "c103a",

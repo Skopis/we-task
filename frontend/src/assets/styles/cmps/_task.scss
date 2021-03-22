@@ -213,10 +213,9 @@
                 width: 500px;
             }
         }
-
-        .task-comment {
+        .task-comment{
             // outline: 1px solid black;
-            padding: 5px;
+            padding: 5px ;
             // display: flex;
             // flex-direction: row;
 
@@ -270,8 +269,6 @@
 
     .task-labels-wrapper {
         margin-bottom: 20px;
-
-        // outline: 1px solid black;
         .task-label {
             color: $light-clr;
             border-radius: 4px;

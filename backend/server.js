@@ -13,8 +13,8 @@ const session = expressSession({
     cookie: { secure: false }
 })
 // Express App Config
-app.use(express.json())
-app.use(session)
+app.use(express.json());
+app.use(session);
 
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static(path.resolve(__dirname, 'public')))
@@ -28,15 +28,15 @@ if (process.env.NODE_ENV === 'production') {
 
 const authRoutes = require('./api/auth/auth.routes')
 const userRoutes = require('./api/user/user.routes')
-const reviewRoutes = require('./api/review/review.routes')
-const {connectSockets} = require('./services/socket.service')
+const boardRoutes = require('./api/board/board.routes')
+const { connectSockets } = require('./services/socket.service')
 
 // routes
 const setupAsyncLocalStorage = require('./middlewares/setupAls.middleware')
 app.all('*', setupAsyncLocalStorage)
 
 // TODO: check with app.use
-app.get('/api/setup-session', (req, res) =>{
+app.get('/api/setup-session', (req, res) => {
     req.session.connectedAt = Date.now()
     console.log('setup-session:', req.sessionID);
     res.end()
@@ -44,7 +44,7 @@ app.get('/api/setup-session', (req, res) =>{
 
 app.use('/api/auth', authRoutes)
 app.use('/api/user', userRoutes)
-app.use('/api/review', reviewRoutes)
+app.use('/api/board', boardRoutes)
 connectSockets(http, session)
 
 // Make every server-side-route to match the index.html

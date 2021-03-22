@@ -11,7 +11,8 @@
       />
       <section v-else>
         <p>{{ task.title }}</p>
-        <button class="btn edit-task-title" @click.stop="openEditModal">✎</button>
+        <button class="btn edit-task-title" @click.stop="openEditModal"><i class="el-icon-edit"></i>
+        </button>
       </section>
     </header>
     <div class="task-body">
@@ -26,9 +27,9 @@
       <div class="btn-container">
         <el-button class="btn badge eye" icon="el-icon-view" v-if="isloggedinUserMember"></el-button>
         <!-- v-if logged in member = member assigned to task-->
-        <p v-if="task.comments">
-          💬{{ task.comments.length }}
-        </p>
+        <button class="btn badge" v-if="task.comments">
+          <i class="el-icon-chat-square"></i> <span>{{ task.comments.length }}</span>
+        </button>
       </div>
     </div>
   </section>

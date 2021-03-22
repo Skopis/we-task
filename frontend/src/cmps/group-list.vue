@@ -1,9 +1,9 @@
 <template>
   <div class="group-list" :style="{ backgroundColor: group.style.bgColor }">
-    <div class="flex space-between align-center">
-      <h3 @click="editGroupTitle" v-if="isTitleModalOpen === false">
+    <div class="preview-header">
+      <h4 @click="editGroupTitle" v-if="isTitleModalOpen === false">
         {{ group.title }}
-      </h3>
+      </h4>
       <form @submit.prevent="saveGroupTitle" v-if="isTitleModalOpen">
         <input
           type="text"
@@ -18,30 +18,34 @@
         <img src="../assets/icons/3dots.png" alt="" />
       </button>
     </div>
-    <task-quick-edit v-if="isAddModalOpen" @updateTask="updateTask" />
-    <ul>
-      <draggable
-        @end="itemDragged"
-        animation="500"
-        group="task"
-        ghostClass="ghost"
-        dragClass="chosen-drag"
-        v-model="group.tasks"
-        handle="li"
-      >
-        <li v-for="task in group.tasks" :key="'C' + task.id">
-          <task-preview
-            :task="task"
-            @updateTask="updateTask"
-            :groupId="group.id"
-            :style="{ backgroundColor: task.style.bgColor }"
-          />
-        </li>
-        <button class="btn add-task" @click="openAddModal">
-          <span class="big-plus">＋</span> Add a new Task
-        </button>
-      </draggable>
-    </ul>
+    <div class="preview-content">
+      <task-quick-edit v-if="isAddModalOpen" @updateTask="updateTask" />
+      <ul>
+        <draggable
+          @end="itemDragged"
+          animation="500"
+          group="task"
+          ghostClass="ghost"
+          dragClass="chosen-drag"
+          v-model="group.tasks"
+          handle="li"
+        >
+          <li v-for="task in group.tasks" :key="'C' + task.id">
+            <task-preview
+              :task="task"
+              @updateTask="updateTask"
+              :groupId="group.id"
+              :style="{ backgroundColor: task.style.bgColor }"
+            />
+          </li>
+          <footer>
+            <button class="btn add-task" @click="openAddModal">
+              <span class="big-plus">＋</span> Add another card
+            </button>
+          </footer>
+        </draggable>
+      </ul>
+    </div>
   </div>
 </template>
 

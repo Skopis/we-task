@@ -67,7 +67,7 @@
         <!-- </section> -->
       </draggable>
       <button class="btn new-group" @click="addGroup">
-        <span class="big-plus">＋</span> Add a New Group
+        <span class="big-plus">＋</span> Add a new list
       </button>
     </section>
     <router-view />
