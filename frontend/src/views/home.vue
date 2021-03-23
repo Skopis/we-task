@@ -53,7 +53,7 @@ export default {
   created() {},
   methods: {
     pushRoute() {
-      this.$router.push("/board/b101");
+      this.$router.push("/board/");
     },
   },
 };
