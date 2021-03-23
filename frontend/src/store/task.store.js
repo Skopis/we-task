@@ -76,12 +76,12 @@ export const taskStore = {
             state.archive.push(board)
             state.boards.splice(boardIdx, 1)
         },
-        // addActivity(state, {activity}){
-        //     console.log('activity at store commit', activity)
-        //     console.log('state.board before', state.board)
-        //     state.board.activities.push(activity)
-        //     console.log('state.board after', state.board)
-        // }
+        addActivity(state, {activityToAdd}){
+            console.log('activity at store commit', activityToAdd)
+            console.log('state.board before', state.board)
+            state.board.activities.push(activityToAdd)
+            console.log('state.board after', state.board)
+        }
     },
     actions: {
         async archiveBoard({ state, commit }, { board }) {
@@ -251,11 +251,10 @@ export const taskStore = {
             var board = state.boards.find(b => b._id === state.board._id)
             const groupId = await taskService.getGroupId()
             var groupIdx = state.board.groups.findIndex(g => g.id === JSON.parse(groupId))
-
-            var taskIdx = state.board.groups[groupIdx].tasks.findIndex(t => t.id === task.id)
+            // var taskIdx = state.board.groups[groupIdx].tasks.findIndex(t => t.id === task.id)
 
             try {
-                await taskService.add(task, groupIdx, taskIdx, board)
+                await taskService.add(task, groupIdx, board)
                 const boards = await taskService.query();
                 commit({ type: 'setBoard', board: boards[boardIdx] })
 
@@ -295,7 +294,8 @@ export const taskStore = {
         async addActivity({state, commit }, {activity}){
             try{
                 console.log('state.board.activities', state.board.activities)
-                const boardToUpdate = await taskService.addActivity(activity, state.board)
+                const {activityToAdd, boardToUpdate} = await taskService.addActivity(activity, state.board)
+                commit({type: 'addActivity', activityToAdd})
                 this.dispatch({type: 'updateBoard', boardToUpdate})
             }
             catch (err) {
