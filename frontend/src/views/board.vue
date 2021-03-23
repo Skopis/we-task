@@ -54,6 +54,7 @@
             @archiveGroup="archiveGroup"
             @openModal="setMenuPos"
             @toggleGroupMenuModal="toggleGroupMenuModal"
+            @removeMemberFromTask="removeMemberFromTask"
           />
           <group-menu
             :group="group"
@@ -104,6 +105,15 @@ export default {
     await this.$store.dispatch({ type: "loadBoard", boardId });
   },
   methods: {
+    removeMemberFromTask(member, task, group){
+      console.log('member', member)
+      console.log('task', task)
+      console.log('group', group)
+      var memberIdx = task.members.findIndex(m=> m._id === member._id)
+      console.log('memberIdx', memberIdx)
+      task.members.splice(memberIdx, 1)
+      this.updateTask(task, group)
+    },
     closeMenu() {
       this.menuGroupId = null;
     },

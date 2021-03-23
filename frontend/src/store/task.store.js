@@ -58,10 +58,8 @@ export const taskStore = {
             console.log('task id after remove from storage:', taskId)
         },
         getTaskActivities(state, { taskId }) {
-            var activities = state.board.activities.find(activity => {
-                if (activity.task.id === taskId) return activity
-            })
-            state.currTaskActivities = [activities]
+            var activities = state.board.activities.filter(a => a.task.id === taskId)
+            state.currTaskActivities = activities
         },
         saveCurrGroupId(state, { groupId }) {
             state.currGroupId = groupId
@@ -77,7 +75,13 @@ export const taskStore = {
         archiveBoard(state, { board, boardIdx }) {
             state.archive.push(board)
             state.boards.splice(boardIdx, 1)
-        }
+        },
+        // addActivity(state, {activity}){
+        //     console.log('activity at store commit', activity)
+        //     console.log('state.board before', state.board)
+        //     state.board.activities.push(activity)
+        //     console.log('state.board after', state.board)
+        // }
     },
     actions: {
         async archiveBoard({ state, commit }, { board }) {
@@ -286,6 +290,16 @@ export const taskStore = {
 
             } catch (err) {
                 console.log('Cannot save comment', err)
+            }
+        },
+        async addActivity({state, commit }, {activity}){
+            try{
+                console.log('state.board.activities', state.board.activities)
+                const boardToUpdate = await taskService.addActivity(activity, state.board)
+                this.dispatch({type: 'updateBoard', boardToUpdate})
+            }
+            catch (err) {
+                console.log('Cannot addActivity', err)
             }
         }
     }

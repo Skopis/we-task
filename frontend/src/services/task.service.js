@@ -14,6 +14,7 @@ export const taskService = {
   saveBoard,
   getGroupId,
   loadArchive,
+  addActivity,
   updateGroup,
   archiveGroup,
   archiveBoard,
@@ -27,6 +28,14 @@ function getUser() { // TODO: is this really usefull?
     "fullname": "Guest",
     "imgUrl": "",
   }
+}
+async function addActivity(activity, board){
+  const boardToUpdate = JSON.parse(JSON.stringify(board))
+  var activityToAdd = JSON.parse(JSON.stringify(activity))
+  activityToAdd.id = utilService.makeId()
+  boardToUpdate.activities.push(activityToAdd)
+  await httpService.put(`board/${boardToUpdate._id}`,boardToUpdate);
+  return boardToUpdate
 }
 
 function handleGroupInSession(status, groupId) { // saves groupId to session

@@ -21,13 +21,10 @@
       </section>
     </header>
     <div class="task-body">
-      <member-avatar :v-if="task.members" :members="task.members" :size="30" @click.native="openMemberModal" />
-      <div :v-if="task.members" v-for="member in task.members" :key="member._id">
-        <member-preview
-          v-if="isMemberModalOpen"
-          @removeMemberFromTask="removeMemberFromTask"
-          :member="member"
-        />
+      <div class="members-container">
+        <div :v-if="task.members" v-for="member in task.members" :key="member._id">
+          <member-avatar2 :member="member" :size="30" @click.native.stop="toggleMemberModal(member)"/>
+        </div>
       </div>
       <div class="btn-container">
         <el-button class="btn badge eye" icon="el-icon-view" v-if="isloggedinUserMember"></el-button>
@@ -42,8 +39,7 @@
 
 <script>
 import taskQuickEdit from "./task-quick-edit.vue";
-import memberPreview from "./member-preview.vue";
-import memberAvatar from "./task-details/member-avatar.cmp.vue";
+import memberAvatar2 from "./task-details/member-avatar2.vue";
 
 export default {
   name: "task-preview",
@@ -66,6 +62,10 @@ export default {
     openMemberModal() {
       this.isMemberModalOpen = true;
     },
+    toggleMemberModal(member) {
+      this.isMemberModalOpen = !this.isMemberModalOpen;
+      this.$emit('toggleMemberModal', member, this.isMemberModalOpen, this.task)
+    },
     openEditModal() {
       this.isEditModalOpen = true;
     },
@@ -73,7 +73,6 @@ export default {
       this.isEditModalOpen = false;
       this.$emit("updateTask", taskToUpdate);
     },
-    removeMemberFromTask(member) {},
     openTaskDetails(taskId) {
       // this.$store.commit({type:'saveCurrGroupId', groupId:this.groupId})
       this.$store.dispatch({
@@ -81,6 +80,8 @@ export default {
         status: "saveToSession",
         groupId: this.groupId,
       });
+      console.log('taskId', taskId)
+      console.log(`${this.boradId}/task/${taskId}`)
       this.$router.push(`${this.boradId}/task/${taskId}`);
     },
   },
@@ -101,8 +102,7 @@ export default {
   cerated() {},
   components: {
     taskQuickEdit,
-    memberPreview,
-    memberAvatar,
+    memberAvatar2,
   },
 };
 </script>

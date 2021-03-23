@@ -572,7 +572,7 @@
         "activities": [
             {
                 "id": "a1015",
-                "txt": "Added Footer",
+                "txt": "Added a comment",
                 "createdAt": 15451456789,
                 "byMember": {
                     "_id": "u102",
@@ -580,13 +580,13 @@
                     "imgUrl": ""
                 },
                 "task": {
-                    "id": "c1019",
-                    "title": "Project \"WeTask\" Timeline"
+                    "id": "c10134",
+                    "title": "Finalize Campaign Name: WeTaskBigger"
                 }
             },
             {
                 "id": "a102",
-                "txt": "Removed bug in Backend",
+                "txt": "Changed DueDate",
                 "createdAt": 154514,
                 "byMember": {
                     "_id": "u177",
@@ -594,13 +594,13 @@
                     "imgUrl": ""
                 },
                 "task": {
-                    "id": "c10299",
-                    "title": "Use color-picker component"
+                    "id": "c101234",
+                    "title": "Submit Q1 report"
                 }
             },
             {
                 "id": "a103",
-                "txt": "Changed due date",
+                "txt": "Added Label",
                 "createdAt": 154514,
                 "byMember": {
                     "_id": "u102",
@@ -608,8 +608,8 @@
                     "imgUrl": ""
                 },
                 "task": {
-                    "id": "c1044",
-                    "title": "Changed font for all h1 tags"
+                    "id": "c10177",
+                    "title": "Freelancer contracts"
                 }
             }
         ]

@@ -28,7 +28,7 @@
         background-color: inherit;
 
         .task-label-container {
-            padding-top: 4px;
+            // padding-top: 4px;
             display: flex;
             flex-wrap: wrap;
 
@@ -146,4 +146,17 @@
             }
         }
     }
+
+    .eye {
+        background-color: transparent;
+        font-size: 18px;
+        // font-weight: 700;
+        &:hover{
+            background-color: unset;
+            color: unset;
+
+        }
+    }
+
+    
 }
