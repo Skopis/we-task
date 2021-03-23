@@ -20,7 +20,6 @@ export default{
     name: 'archive',
     computed:{
         archive(){
-            console.log('this.$store.getters.getArchive', this.$store.getters.getArchive)
             return this.$store.getters.getArchive
         },
     },

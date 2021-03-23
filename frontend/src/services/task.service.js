@@ -35,7 +35,7 @@ async function addActivity(activity, board){
   activityToAdd.id = utilService.makeId()
   boardToUpdate.activities.push(activityToAdd)
   await httpService.put(`board/${boardToUpdate._id}`,boardToUpdate);
-  return boardToUpdate
+  return {activityToAdd, boardToUpdate}
 }
 
 function handleGroupInSession(status, groupId) { // saves groupId to session
@@ -72,7 +72,7 @@ async function archiveBoard(board, boardIdx) { // remove board
 async function archiveGroup(group, groupIdx, board) { //delete group and update
   const boardToUpdate = JSON.parse(JSON.stringify(board))
   boardToUpdate.groups.splice(groupIdx, 1);
-  httpService.put(`board/${boardToUpdate._id}`,boardToUpdate);
+  httpService.put(`board/${boardToUpdate._id}`, boardToUpdate);
 
   var archive = await storageService.query('archive')
   if (archive) archive.push(group)
@@ -83,13 +83,13 @@ async function archiveGroup(group, groupIdx, board) { //delete group and update
 async function addGroup(newGroup, board) { // add group and update board
   const boardToUpdate = JSON.parse(JSON.stringify(board))
   boardToUpdate.groups.push(newGroup);
-  httpService.put(`board/${board._id}`,boardToUpdate);
+  httpService.put(`board/${board._id}`, boardToUpdate);
 }
 
 async function updateGroup(group, board, groupIdx) { // update group and update board
   const boardToUpdate = JSON.parse(JSON.stringify(board))
   boardToUpdate.groups.splice(groupIdx, 1, group)
-  httpService.put(`board/${boardToUpdate._id}`,boardToUpdate);
+  httpService.put(`board/${boardToUpdate._id}`, boardToUpdate);
   return boardToUpdate
 }
 
@@ -97,7 +97,7 @@ async function remove(board, groupIdx, taskIdx) { // remove task
   try {
     const boardToUpdate = JSON.parse(JSON.stringify(board))
     boardToUpdate.groups[groupIdx].tasks.splice(taskIdx, 1)
-    await httpService.put(`board/${boardToUpdate._id}`,boardToUpdate);
+    await httpService.put(`board/${boardToUpdate._id}`, boardToUpdate);
     return query();
   } catch (err) {
     console.log('Cannot get boards', err)
@@ -113,15 +113,14 @@ async function add(task, groupIdx, board) { // add task
   }
   else {
     taskForUpdate.id = utilService.makeId()
-    boardToUpdate.groups[groupIdx].tasks.unshift(taskForUpdate)
+    boardToUpdate.groups[groupIdx].tasks.unshift(taskForUpdate);
   }
-  await httpService.put(`board/${boardToUpdate._id}`,boardToUpdate);
+  await httpService.put(`board/${boardToUpdate._id}`, boardToUpdate);
   return boardToUpdate;
 }
 
 function getEmptyGroup() { // create a new group
   const rnd = utilService.makeId();
-  console.log(rnd);
   return {
     'id': rnd,
     'title': 'New List',

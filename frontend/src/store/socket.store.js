@@ -12,8 +12,8 @@ export const socketStore = {
     },
     actions: {
         // TODO: show on
-        sendMsg(context, {msg}) {
-            socketService.emit('sendMsg', msg)
+        sendBoard(context, {board}) {
+            socketService.emit('sendBoard', board)
         },
         getChatHistory(context, {chatId}) {
             socketService.emit('getHistory', chatId)

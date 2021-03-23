@@ -44,7 +44,6 @@ async function addBoard(req, res) {
         // socketService.broadcast({ type: 'board-added', data: board })
         // socketService.emitToAll({ type: 'user-updated', data: board.byUser, room: req.session.user._id })
         res.send(board)
-
     } catch (err) {
         console.log(err)
         logger.error('Failed to add board', err)

@@ -26,7 +26,6 @@ export default {
     },
     methods:{
         addMemberToTask(member){
-            console.log('member', member)
             this.$emit('addMemberToTask', member)
         },
         closeMenu(){

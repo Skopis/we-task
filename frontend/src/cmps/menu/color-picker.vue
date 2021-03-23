@@ -32,7 +32,6 @@
                 return
             }
             const id = this.$route.params.taskId;
-            console.log("id from paprms", id);
             const task = await this.$store.dispatch({ type: "getById", id });
             if(task){
                 this.color=task.style.bgColor

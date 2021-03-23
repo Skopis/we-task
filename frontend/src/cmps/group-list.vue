@@ -23,7 +23,11 @@
       </button>
     </div>
     <div class="preview-content">
-      <task-quick-edit v-if="isAddModalOpen" @updateTask="updateTask" />
+      <task-quick-edit
+        v-if="isAddModalOpen"
+        @updateTask="updateTask"
+        @stopEdit="stopEdit"
+      />
       <ul>
         <draggable
           @end="itemDragged"
@@ -51,7 +55,6 @@
         <span class="big-plus">＋</span> Add another card
       </button>
     </footer>
-
     <member-preview
       v-if="isMemberModalOpen && member"
       @removeMemberFromTask="removeMemberFromTask"
@@ -85,10 +88,9 @@ export default {
       this.isMemberModalOpen = status;
       this.member = member;
       this.task = task;
-      console.log('task at 88', task)
     },
     removeMemberFromTask(member) {
-      this.$emit('removeMemberFromTask', member, this.task, this.group)
+      this.$emit("removeMemberFromTask", member, this.task, this.group);
     },
     archiveGroup(groupToArchive) {
       this.isGroupMenuModalOpen = false;
@@ -118,10 +120,19 @@ export default {
     updateGroup() {
       this.$emit("updateGroup", this.group);
     },
-    updateTask(taskToUpdate) {
-      // need to check if this changes the board
+    updateTask({ taskToUpdate, isEdit }) {
       this.isAddModalOpen = false;
-      this.$emit("updateTask", taskToUpdate, this.group);
+      if (!isEdit) {
+        setTimeout(() => {
+          this.isAddModalOpen = true;
+        }, 300);
+      }
+      if (taskToUpdate.title != "") {
+        this.$emit("updateTask", taskToUpdate, this.group);
+      }
+    },
+    stopEdit() {
+      this.isAddModalOpen = false;
     },
   },
   components: {

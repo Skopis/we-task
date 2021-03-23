@@ -4,35 +4,38 @@
     v-if="boardToShow"
     :style="{ backgroundColor: boardToShow.style.bgColor }"
   >
-    <header class="board-header flex space-between" :style="{ backgroundColor: boardToShow.style.bgColor }">
+    <header
+      class="board-header flex space-between"
+      :style="{ backgroundColor: boardToShow.style.bgColor }"
+    >
       <div class="flex">
-      <h2 @click="editBoardTitle" v-show="isTitleModalOpen === false">
-        {{ boardToShow.title }}
-      </h2>
-      <form
-        @focusout.prevent="saveBoardTitle"
-        v-show="isTitleModalOpen"
-        @submit.prevent.stop="saveBoardTitle"
-      >
-        <input
-          autofocus
-          ref="titleChange"
-          type="text"
-          placeholder="Board Title"
-          v-model="boardToShow.title"
-        />
-      </form>
-      <member-avatar :members="boardToShow.members" :size="28" />
+        <h2 @click="editBoardTitle" v-show="isTitleModalOpen === false">
+          {{ boardToShow.title }}
+        </h2>
+        <form
+          @focusout.prevent="saveBoardTitle"
+          v-show="isTitleModalOpen"
+          @submit.prevent.stop="saveBoardTitle"
+        >
+          <input
+            autofocus
+            ref="titleChange"
+            type="text"
+            placeholder="Board Title"
+            v-model="boardToShow.title"
+          />
+        </form>
+        <member-avatar :members="boardToShow.members" :size="28" />
       </div>
       <div class="flex row-reverse align-center">
-      <button class="btn" @click="toggleBoardMenuModal">
-        <img src="../assets/icons/3dots.png" alt="" />
-      </button>
-      <board-menu
-        v-if="isBoardMenuModalOpen"
-        :board="boardToShow"
-        @updateBoardCover="updateBoardCover"
-      />
+        <button class="btn" @click="toggleBoardMenuModal">
+          <img src="../assets/icons/3dots.png" alt="" />
+        </button>
+        <board-menu
+          v-if="isBoardMenuModalOpen"
+          :board="boardToShow"
+          @updateBoardCover="updateBoardCover"
+        />
       </div>
     </header>
     <!-- <section class="task-list-container"> -->
@@ -72,12 +75,16 @@
       </button>
     </section>
     <router-view />
+    <button class="bfb" @click.stop="sendUpdatedBoard">
+      aaaaaaaaaaaaaaaaa
+    </button>
   </div>
 </template>
 
-:v-if="setMenuPos" @archiveGroup="archiveGroup" @updateGroupCover="updateGroupCover"
+// :v-if="setMenuPos" @archiveGroup="archiveGroup" @updateGroupCover="updateGroupCover"
 
 <script>
+import { socketService } from "@/services/socket.service";
 import groupList from "../cmps/group-list.vue";
 import draggable from "vuedraggable";
 import boardMenu from "../cmps/menu/board-menu.vue";
@@ -103,16 +110,35 @@ export default {
   async created() {
     const boardId = this.$route.params.boardId;
     await this.$store.dispatch({ type: "loadBoard", boardId });
+    socketService.setup();
+    socketService.emit("board id", this.boardToShow._id);
+    socketService.on("updated board", this.updateBoard);
   },
+  destroyed() {
+    {
+      socketService.off("updated board", this.updateBoard);
+      socketService.terminate();
+    }
+  },
+  //socketService.emit('board change', this.msg) //on board change(will send)
   methods: {
-    removeMemberFromTask(member, task, group){
-      console.log('member', member)
-      console.log('task', task)
-      console.log('group', group)
-      var memberIdx = task.members.findIndex(m=> m._id === member._id)
-      console.log('memberIdx', memberIdx)
-      task.members.splice(memberIdx, 1)
-      this.updateTask(task, group)
+    updateBoard(boardToUpdate) {
+      console.log(boardToUpdate);
+      console.log("getting the changes");
+      this.$store.emit({
+        type: "updateBoard",
+        boardIdx: 0,
+        board: boardToUpdate,
+      });
+    },
+    // sendUpdatedBoard() {
+    //   console.log("Sending", this.boardToShow);
+    //   socketService.emit("board change", this.boardToShow);
+    // },
+    removeMemberFromTask(member, task, group) {
+      var memberIdx = task.members.findIndex((m) => m._id === member._id);
+      task.members.splice(memberIdx, 1);
+      this.updateTask(task, group);
     },
     closeMenu() {
       this.menuGroupId = null;

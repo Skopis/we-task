@@ -1,5 +1,7 @@
 
 .task-details-modal {
+    // position: absolute;
+    overflow-y: scroll;
     position: fixed;
     top: 0;
     z-index: 15;
@@ -263,7 +265,7 @@
             width: auto;
             border-radius: 3px;
         }
-    }
+    
 }
 
 .task-activity {
@@ -419,4 +421,5 @@
         }
 
     }
+}
 }
