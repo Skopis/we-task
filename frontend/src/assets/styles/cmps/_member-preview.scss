@@ -1,16 +1,40 @@
-.member-preview{
+.member-preview {
+    width: 304px;
+    height: 116px;
+    border-radius: 3px;
+    padding: 0 12px 12px;
+    margin: 8px 0;
+    z-index: 15;
     position: absolute;
+    background-color: rgb(255, 255, 255);
+    top: 136px;
+
+    .member-preview-main{
+        margin: 8px 0;
+        display: flex;
+        p{
+            margin: 0;
+        }
+    }
+    :last-child{
+        padding: 6px 12px;
+    }
+    
 }
 
-.avatar{
+.avatar {
     height: 40px;
     width: 40px;
     border-radius: 25em;
     object-fit: cover;
-    display: flex; 
+    display: flex;
     border-radius: 50%;
     font: 11px / 28px Helvetica, Arial, sans-serif;
     align-items: center;
     justify-content: center;
     border: 1px solid rgba(245, 245, 245, 0.479);
+}
+
+.members-container {
+    display: flex;
 }
