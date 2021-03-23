@@ -48,9 +48,11 @@
             @closeDateModal="manageDateMenu"
             @updateDueDate="updateDueDate"
           />
-          <div v-if="task.dueDate">
-            <p>DUE DATE</p>
-            <p>{{ task.dueDate }}</p>
+          <div class="due-date-continer container">
+            <div v-if="task.dueDate" class="due-date-wrapper">
+              <h3>Due Date</h3>
+              <p class="due-date">{{ task.dueDate }}</p>
+            </div>
           </div>
         </div>
         <div class="task-desc module">
@@ -81,20 +83,30 @@
             <i class="el-icon-s-order"></i>Activities
           </h3>
           <div class="comment-section">
-                 <textarea ref="writeComment" placeholder="write a comment" v-model="comment.txt" class="comment-box"></textarea>
+            <textarea
+              ref="writeComment"
+              placeholder="write a comment"
+              v-model="comment.txt"
+              class="comment-box"
+            ></textarea>
             <button @click="addComment" class="btn">Save</button>
           </div>
         </div>
-             <div v-if="(this.task.comments && this.task.comments ) || (this.activities && this.activities.length)">
-        <div v-for="item in activitiesToShow" :key="item.id">
-          <div v-if="item.task">
-            <task-activities :activity="item" :type="item.txt"/>
-          </div>
-          <div v-else>
-            <task-comment :comment="item" @reply="reply"/> 
+        <div
+          v-if="
+            (this.task.comments && this.task.comments) ||
+            (this.activities && this.activities.length)
+          "
+        >
+          <div v-for="item in activitiesToShow" :key="item.id">
+            <div v-if="item.task">
+              <task-activities :activity="item" :type="item.txt" />
+            </div>
+            <div v-else>
+              <task-comment :comment="item" @reply="reply" />
+            </div>
           </div>
         </div>
-      </div>
       </main>
       <task-dev-tools
         @checkList="createCheckList"
@@ -103,7 +115,7 @@
         @openLabelModal="manageLabelMenu"
         @openMembersMenu="manageMembersMenu"
         @openDateModal="manageDateMenu"
-        />
+      />
     </div>
   </div>
 </template>
@@ -116,8 +128,8 @@ import taskDevTools from "./task-dev-tools.cmp";
 import checkListAdd from "./check-list-add.cmp";
 import taskTodo from "./task-todo.cmp";
 import labelsMenu from "../menu/labels-menu";
-import membersMenu from '../menu/members-menu'
-import DatePicker from './date-picker.vue';
+import membersMenu from "../menu/members-menu";
+import DatePicker from "./date-picker.vue";
 
 export default {
   data() {
@@ -129,7 +141,7 @@ export default {
       labelsModal: false,
       membersMenu: false,
       dateMenu: false,
-      loggedinUser: null
+      loggedinUser: null,
     };
   },
   methods: {
@@ -144,20 +156,27 @@ export default {
         console.log("Cannot find task", err);
       }
     },
-    reply(memberName){
+    reply(memberName) {
       setTimeout(() => {
         this.$refs.writeComment.focus();
-        this.comment.txt = "@"+ memberName.toLowerCase().replace(/\s/g, '') +' '
+        this.comment.txt =
+          "@" + memberName.toLowerCase().replace(/\s/g, "") + " ";
       }, 300);
     },
-    formattedDate(date){
-      const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-      return date.toLocaleDateString(undefined, options)
+    formattedDate(date) {
+      const options = {
+        weekday: "long",
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      };
+      return date.toLocaleDateString(undefined, options);
     },
-    manageDateMenu(status){
-      this.dateMenu = status
+    manageDateMenu(status) {
+      this.dateMenu = status;
     },
-    manageMembersMenu(status) {////////////////////
+    manageMembersMenu(status) {
+      ////////////////////
       this.membersMenu = status;
     },
     createCheckList() {
@@ -175,8 +194,8 @@ export default {
         checkList,
         task: this.task,
       });
-      this.addActivity('Added CheckList')
-      this.loadTask()
+      this.addActivity("Added CheckList");
+      this.loadTask();
     },
     addComment() {
       if (!this.comment.txt) return;
@@ -203,29 +222,38 @@ export default {
       this.$router.go(-1);
     },
     async setTaskLabel(label) {
-      await this.$store.dispatch({ type: "setTaskLabel", task: this.task, label });
-      this.addActivity('Added Label')
-      this.loadTask()
+      await this.$store.dispatch({
+        type: "setTaskLabel",
+        task: this.task,
+        label,
+      });
+      this.addActivity("Added Label");
+      this.loadTask();
     },
-    async updateDueDate(date){
-      var taskToEdit = JSON.parse(JSON.stringify(this.task)) 
-      taskToEdit.dueDate = this.formattedDate(date)
-      await this.$store.dispatch({type: 'addTask', task:taskToEdit})
-      this.addActivity('Added Due Date')
+    async updateDueDate(date) {
+      var taskToEdit = JSON.parse(JSON.stringify(this.task));
+      taskToEdit.dueDate = this.formattedDate(date);
+      await this.$store.dispatch({ type: "addTask", task: taskToEdit });
+      this.addActivity("Added Due Date");
     },
-    async addActivity(activityType){
-      const {id, title} = this.task
-      var activity = {txt: activityType, createdAt: Date.now(), byMember: this.loggedinUser, task: {id, title}}
-      await this.$store.dispatch({type: 'addActivity', activity })
-      this.loadTask()
+    async addActivity(activityType) {
+      const { id, title } = this.task;
+      var activity = {
+        txt: activityType,
+        createdAt: Date.now(),
+        byMember: this.loggedinUser,
+        task: { id, title },
+      };
+      await this.$store.dispatch({ type: "addActivity", activity });
+      this.loadTask();
     },
-    addMemberToTask(member){
-      if(!this.task.members) this.task.members=[]
-      for(let i=0; i<this.task.members.length; i++){
-        if (this.task.members[i]._id === member._id) return
+    addMemberToTask(member) {
+      if (!this.task.members) this.task.members = [];
+      for (let i = 0; i < this.task.members.length; i++) {
+        if (this.task.members[i]._id === member._id) return;
       }
-      this.task.members.push(member)
-      this.$store.dispatch({type: 'addTask', task:this.task})
+      this.task.members.push(member);
+      this.$store.dispatch({ type: "addTask", task: this.task });
     },
     updateTaskCover(color) {
       // console.log("this.task", this.task);
@@ -243,25 +271,28 @@ export default {
     },
   },
   computed: {
-    activitiesToShow(){
-      if (this.activities && this.activities.length &&
-      this.task.comments && this.task.comments.length)
-      var allArr = this.activities.concat(this.task.comments);
-      
+    activitiesToShow() {
+      if (
+        this.activities &&
+        this.activities.length &&
+        this.task.comments &&
+        this.task.comments.length
+      )
+        var allArr = this.activities.concat(this.task.comments);
       else if (this.activities && this.activities.length)
-        allArr = this.activities
-      else allArr = this.task.comments
-      var sortedArr = allArr.sort((a, b)=>{
-        return b.createdAt - a.createdAt
-      })
-      return sortedArr
+        allArr = this.activities;
+      else allArr = this.task.comments;
+      var sortedArr = allArr.sort((a, b) => {
+        return b.createdAt - a.createdAt;
+      });
+      return sortedArr;
     },
     boradId() {
       return this.$store.getters.getBoardId;
     },
   },
   created() {
-    this.loggedinUser = this.$store.getters.loggedinUser
+    this.loggedinUser = this.$store.getters.loggedinUser;
     this.loadTask();
   },
   watch: {
@@ -279,7 +310,7 @@ export default {
     taskTodo,
     labelsMenu,
     membersMenu,
-    DatePicker
+    DatePicker,
   },
 };
 </script>

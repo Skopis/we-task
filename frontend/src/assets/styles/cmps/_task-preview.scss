@@ -28,24 +28,17 @@
         background-color: inherit;
 
         .task-label-container {
-            // padding-top: 4px;
             display: flex;
             flex-wrap: wrap;
-
-            
+                        
             .small-label {
                 cursor: pointer;
-                // display: block;
-                // width: 40px;
-                // height: 8px;
-                // margin-right: 4px;
-                // margin-bottom: 4px;
                 border-radius: 4px;
                 float: left;
                 font-size: 12px;
                 font-weight: 700;
                 height: 8px;
-                margin: 0 4px 4px 0;
+                margin: 4px 4px 4px 0;
                 max-width: 40px;
                 min-width: 40px;
                 padding: 0;
@@ -76,7 +69,7 @@
         }
 
         p {
-            margin: 0 0;
+            margin: 4px 0;
         }
 
         textarea {
@@ -109,6 +102,7 @@
     .eye {
         background-color: transparent;
         margin: 0;
+        // padding-bottom: 0.5px;
     }
     .task-body{
         display: flex;
@@ -129,7 +123,7 @@
         }
     
         .badge {
-            margin: 0 4px 0 0;
+            // margin: 0 4px 0 0;
             max-width: 100%;
             min-height: 20px;
             display: inline-block;
@@ -139,6 +133,14 @@
             text-overflow: ellipsis;
             vertical-align: top;
             border: none;
+            >*{
+                color: #5e6c84;
+                font-size: 14px;
+            }
+
+            span{ 
+                margin-left:2px;
+            }
             &:hover{
                 background-color: transparent;
                 border: none;
@@ -146,17 +148,5 @@
             }
         }
     }
-
-    .eye {
-        background-color: transparent;
-        font-size: 18px;
-        // font-weight: 700;
-        &:hover{
-            background-color: unset;
-            color: unset;
-
-        }
-    }
-
-    
+ 
 }

@@ -4,6 +4,14 @@
     background: #F7FAFC;
     border: 1px solid #4299e1;
 }
+.avatar{
+    span{
+        font-size: 13px;
+        font-weight: 600;
+        text-align: center;
+       letter-spacing: .5px;
+    }
+}
 
 .chosen-drag {
     border: 5px solid blue;
@@ -16,21 +24,23 @@
     height: calc(100vh - 153px);
     .btn {
         flex-shrink: 0;
-
+        i{
+            font-size: rem(16px);
+            font-weight: 700;
+        }
         &.new-group {
             width: 255px;
-            // text-align: left;
             background-color: #ebecf0;
             color: #667388;
             display: flex;
             align-items: center;
             margin-left: 8px;
+            margin-right: 6px;
         }
     }
 }
 
 .board {
-    // overflow-y:hidden;
     margin-top: 136px;
     height: 100%;
     min-width: 100%;

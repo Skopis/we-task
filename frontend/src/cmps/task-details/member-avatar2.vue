@@ -7,6 +7,7 @@
         :username="member.fullname"
         :size="size"
         :style="{ marginRight:0+'px' }"
+        
         >
         </avatar>
     </div>
