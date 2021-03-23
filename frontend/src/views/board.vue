@@ -136,11 +136,7 @@ export default {
     //   socketService.emit("board change", this.boardToShow);
     // },
     removeMemberFromTask(member, task, group) {
-      console.log("member", member);
-      console.log("task", task);
-      console.log("group", group);
       var memberIdx = task.members.findIndex((m) => m._id === member._id);
-      console.log("memberIdx", memberIdx);
       task.members.splice(memberIdx, 1);
       this.updateTask(task, group);
     },
