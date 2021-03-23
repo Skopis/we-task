@@ -12,16 +12,16 @@ export const taskService = {
   addBoard,
   addGroup,
   saveBoard,
+  getGroupId,
   loadArchive,
   updateGroup,
   archiveGroup,
   archiveBoard,
   getEmptyGroup,
-  handleGroupInSession,
-  getGroupId
+  handleGroupInSession
 }
 
-function getUser() {
+function getUser() { // TODO: is this really usefull?
   return {
     "_id": "u101",
     "fullname": "Guest",
@@ -39,7 +39,6 @@ function handleGroupInSession(status, groupId) { // saves groupId to session
     currGroup = storageService.removeSessionStorage('groupId')
     return currGroup = null
   }
-
 }
 
 async function getGroupId() { // get groupId from session
@@ -76,11 +75,9 @@ async function addGroup(newGroup, board) { // add group and update board
   const boardToUpdate = JSON.parse(JSON.stringify(board))
   boardToUpdate.groups.push(newGroup);
   httpService.put(`board/${board._id}`, boardToUpdate);
-
 }
 
 async function updateGroup(group, board, groupIdx) { // update group and update board
-
   const boardToUpdate = JSON.parse(JSON.stringify(board))
   boardToUpdate.groups.splice(groupIdx, 1, group)
   httpService.put(`board/${boardToUpdate._id}`, boardToUpdate);

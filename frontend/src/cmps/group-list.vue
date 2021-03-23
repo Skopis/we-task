@@ -1,5 +1,9 @@
 <template>
-  <div class="group-list" v-if="group" :style="{ backgroundColor: group.style.bgColor }">
+  <div
+    class="group-list"
+    v-if="group"
+    :style="{ backgroundColor: group.style.bgColor }"
+  >
     <div class="preview-header">
       <h4 @click="editGroupTitle" v-if="isTitleModalOpen === false">
         {{ group.title }}
@@ -19,7 +23,11 @@
       </button>
     </div>
     <div class="preview-content">
-      <task-quick-edit v-if="isAddModalOpen" @updateTask="updateTask" />
+      <task-quick-edit
+        v-if="isAddModalOpen"
+        @updateTask="updateTask"
+        @stopEdit="stopEdit"
+      />
       <ul>
         <draggable
           @end="itemDragged"
@@ -38,14 +46,14 @@
               :style="{ backgroundColor: task.style.bgColor }"
             />
           </li>
-          <footer>
-            <button class="btn add-task" @click="openAddModal">
-              <span class="big-plus">＋</span> Add another card
-            </button>
-          </footer>
         </draggable>
       </ul>
     </div>
+    <footer>
+      <button class="btn add-task" @click="openAddModal">
+        <span class="big-plus">＋</span> Add another card
+      </button>
+    </footer>
   </div>
 </template>
 
@@ -94,9 +102,19 @@ export default {
     updateGroup() {
       this.$emit("updateGroup", this.group);
     },
-    updateTask(taskToUpdate) {
+    updateTask({taskToUpdate, isEdit}) {
       this.isAddModalOpen = false;
-      this.$emit("updateTask", taskToUpdate, this.group);
+      if (!isEdit) {
+        setTimeout(() => {
+          this.isAddModalOpen = true;
+        }, 300);
+      }
+      if (taskToUpdate.title != "") {
+        this.$emit("updateTask", taskToUpdate, this.group);
+      }
+    },
+    stopEdit() {
+      this.isAddModalOpen = false;
     },
   },
   components: {

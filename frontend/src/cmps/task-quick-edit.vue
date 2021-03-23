@@ -1,50 +1,63 @@
 <template>
-    <section class="task-edit">
-        <form >
-            <textarea 
-            ref="taskTxt"
-            placeholder=""
-            v-model="taskToEdit.title"
-            @click.stop=""
-            @keydown.enter.exact.prevent="updateTask"
-            autofocus
-            >
-            </textarea>
-            <!-- <button >Save</button> -->
-        </form>
-    </section>
+  <section class="task-edit">
+    <form>
+      <textarea
+        ref="taskTxt"
+        placeholder=""
+        v-model="taskToEdit.title"
+        @click.stop=""
+        @focusout.prevent="stopEdit"
+        @keydown.enter.exact.prevent="updateTask"
+        autofocus
+      >
+      </textarea>
+      <!-- <button >Save</button> -->
+    </form>
+  </section>
 </template>
 
 <script>
 //task edit on task list task preview
-export default{
-    name: 'task-quick-edit',
-    props:['task'],
-    data(){
-        return{
-            taskToEdit: null
-        }
-    },
-    created(){
-        if(!this.task) this.taskToEdit = {
-            'id': '',
-            'title': '',
-            'style': {
-                "bgColor": "#ffff"
-            },
-            "members": []
-        }
-        else this.taskToEdit = this.task
-        setTimeout(() => {
-        this.$refs.taskTxt.focus();
-    }, 300);
-    },
-    methods:{
-        updateTask(){
-            this.taskToEdit.byUser = this.$store.getters.loggedinUser
-            this.$emit('updateTask', JSON.parse(JSON.stringify(this.taskToEdit)))
-        }
+export default {
+  name: "task-quick-edit",
+  props: ["task"],
+  data() {
+    return {
+      taskToEdit: null,
+      isEdit: true,
+    };
+  },
+  created() {
+    if (!this.task) {
+      this.taskToEdit = {
+        id: "",
+        title: "",
+        style: {
+          bgColor: "#ffff",
+        },
+        members: [],
+      };
+      this.isEdit = false;
+    } else {
+      this.taskToEdit = this.task;
+      this.isEdit = true;
     }
-}
-
+    setTimeout(() => {
+      this.$refs.taskTxt.focus();
+    }, 300);
+  },
+  methods: {
+    updateTask() {
+      this.taskToEdit.byUser = this.$store.getters.loggedinUser;
+      const sendData = {
+          taskToUpdate:JSON.parse(JSON.stringify(this.taskToEdit)),
+          isEdit : this.isEdit
+      }
+      this.$emit("updateTask",sendData)//JSON.parse(JSON.stringify(this.taskToEdit)),this.isEdit);
+    },
+    stopEdit() {
+      this.$emit("stopEdit");
+    },
+  },
+};
 </script>
