@@ -97,7 +97,8 @@ export default {
       comment: { txt: "" },
       labelsModal: false,
       membersMenu: false,
-      dateMenu: false
+      dateMenu: false,
+      loggedinUser: null
     };
   },
   methods: {
@@ -109,7 +110,7 @@ export default {
         this.task = JSON.parse(JSON.stringify(task));
         let taskActivities = this.$store.getters.taskActivities;
         this.activities = taskActivities;
-        // console.log(this.task);
+        console.log(this.activities, 'this.activities');
       } catch (err) {
         console.log("Cannot find task", err);
       }
@@ -180,6 +181,9 @@ export default {
       console.log('date', date)
       this.task.dueDate = this.formattedDate(date)
       this.$store.dispatch({type: 'addTask', task:this.task})
+      const {id, title} = this.task
+      var activity = {txt: 'Added Due Date',  byMember: this.loggedinUser, task: {id, title}}
+      this.$store.dispatch({type: 'addActivity', activity })
     },
     addMemberToTask(member){
       if(!this.task.members) this.task.members=[]
@@ -210,6 +214,7 @@ export default {
     },
   },
   created() {
+    this.loggedinUser = this.$store.getters.loggedinUser
     this.loadTask();
   },
   watch: {

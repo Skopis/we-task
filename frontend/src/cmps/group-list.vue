@@ -42,6 +42,7 @@
             <task-preview
               :task="task"
               @updateTask="updateTask"
+              @toggleMemberModal="toggleMemberPreview"
               :groupId="group.id"
               :style="{ backgroundColor: task.style.bgColor }"
             />
@@ -54,11 +55,17 @@
         <span class="big-plus">＋</span> Add another card
       </button>
     </footer>
+    <member-preview
+      v-if="isMemberModalOpen && member"
+      @removeMemberFromTask="removeMemberFromTask"
+      :member="member"
+    />
   </div>
 </template>
 
 <script>
 // import taskDetails from "./task-details/task-details.vue";
+import memberPreview from "./member-preview.vue";
 import taskPreview from "./task-preview.vue";
 import TaskQuickEdit from "./task-quick-edit.vue";
 import draggable from "vuedraggable";
@@ -71,9 +78,21 @@ export default {
       isTitleModalOpen: false,
       isAddModalOpen: false,
       group1: this.group,
+      isMemberModalOpen: false,
+      member: null,
+      task: null,
     };
   },
   methods: {
+    toggleMemberPreview(member, status, task) {
+      this.isMemberModalOpen = status;
+      this.member = member;
+      this.task = task;
+      console.log("task at 88", task);
+    },
+    removeMemberFromTask(member) {
+      this.$emit("removeMemberFromTask", member, this.task, this.group);
+    },
     archiveGroup(groupToArchive) {
       this.isGroupMenuModalOpen = false;
       this.$emit("archiveGroup", groupToArchive);
@@ -102,7 +121,7 @@ export default {
     updateGroup() {
       this.$emit("updateGroup", this.group);
     },
-    updateTask({taskToUpdate, isEdit}) {
+    updateTask({ taskToUpdate, isEdit }) {
       this.isAddModalOpen = false;
       if (!isEdit) {
         setTimeout(() => {
@@ -121,6 +140,7 @@ export default {
     taskPreview,
     TaskQuickEdit,
     draggable,
+    memberPreview,
   },
 };
 </script>
