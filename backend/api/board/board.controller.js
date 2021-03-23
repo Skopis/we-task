@@ -36,9 +36,10 @@ async function deleteBoard(req, res) {
 async function addBoard(req, res) {
     try {
         var board = req.body
-        console.log(board);
+        // console.log(board);
         // board.byUserId = req.session.user._id
         board = await boardService.save(board)
+        console.log('board at addBoard', board)
         console.log('CTRL SessionId:', req.sessionID);
         // socketService.broadcast({ type: 'board-added', data: board })
         // socketService.emitToAll({ type: 'user-updated', data: board.byUser, room: req.session.user._id })

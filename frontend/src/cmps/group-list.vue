@@ -1,5 +1,5 @@
 <template>
-  <div class="group-list" :style="{ backgroundColor: group.style.bgColor }">
+  <div class="group-list" v-if="group" :style="{ backgroundColor: group.style.bgColor }">
     <div class="preview-header">
       <h4 @click="editGroupTitle" v-if="isTitleModalOpen === false">
         {{ group.title }}
@@ -38,14 +38,14 @@
               :style="{ backgroundColor: task.style.bgColor }"
             />
           </li>
+        </draggable>
+      </ul>
+    </div>
           <footer>
             <button class="btn add-task" @click="openAddModal">
               <span ><i class="el-icon-plus"></i></span> Add another card
             </button>
           </footer>
-        </draggable>
-      </ul>
-    </div>
   </div>
 </template>
 
@@ -71,7 +71,6 @@ export default {
       this.$emit("archiveGroup", groupToArchive);
     },
     toggleGroupMenuModal(ev) {
-      // console.log(ev);
       this.isGroupMenuModalOpen = !this.isGroupMenuModalOpen;
       this.$emit("toggleGroupMenuModal", this.group.id);
       this.$emit("openModal", this.group.id);

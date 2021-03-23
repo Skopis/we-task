@@ -3,23 +3,17 @@
     opacity: 0.5;
     background: #F7FAFC;
     border: 1px solid #4299e1;
-    border: 5px solid gray;
 }
 
 .chosen-drag {
-    transform: rotate(90deg);
-    transform: scaleY(1.5);
-    transform: skewY(20deg);
     border: 5px solid blue;
 }
 
 .main-board-container {
-    overflow-y:hidden;
+    
     display: flex;
     flex: 1;
-    // height: calc(100vh - 136px);
     height: calc(100vh - 153px);
-
     .btn {
         flex-shrink: 0;
 
@@ -36,7 +30,7 @@
 }
 
 .board {
-    overflow-y:hidden;
+    // overflow-y:hidden;
     margin-top: 136px;
     height: 100%;
     min-width: 100%;

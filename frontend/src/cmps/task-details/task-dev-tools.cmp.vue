@@ -14,7 +14,7 @@
        <button class="btn">Save</button>
       </form>
       </div>
-      <button class="btn"><i class="el-icon-date"></i> Due Date</button>
+      <button class="btn" @click="openDateModal"><i class="el-icon-date"></i> Due Date</button>
       <button class="btn"><i class="el-icon-paperclip"></i> Attachment</button>
       <button class="btn" @click="toggleColorPicker"><i class="el-icon-brush"></i> Cover</button>
       <color-picker @changeTaskCover="updateTaskCover" v-if="isColorPickerOpen"/>
@@ -37,6 +37,9 @@ export default {
     methods:{
       openMembersMenu(){
         this.$emit('openMembersMenu', true)
+      },
+      openDateModal(){
+        this.$emit('openDateModal', true)
       },
         toggleColorPicker(){
             this.isColorPickerOpen = !this.isColorPickerOpen

@@ -44,10 +44,14 @@ export default {
     openEditModal() {
       this.isCommentToEdit = true;
     },
-    saveComment() {
-      this.$emit("saveComment", this.editComment);
-      this.isCommentToEdit = false;
-    },
+    reply(){
+      this.$emit('reply', this. comment.byMember.fullname)
+    }
+    // saveComment() {
+    //   console.log('this.editComment', this.editComment)
+    //   this.$emit("saveComment", this.editComment);
+    //   this.isCommentToEdit = false;
+    // },
   },
   created() {
     this.editComment = JSON.parse(JSON.stringify(this.comment));
