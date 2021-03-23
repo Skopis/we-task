@@ -84,7 +84,7 @@ export const taskStore = {
                 var boardIdx = state.boards.findIndex(b => b._id === boardToUpdate._id)
                 await taskService.saveBoard(boardToUpdate, boardIdx)
                 commit({ type: 'updateBoard', boardIdx, board: boardToUpdate })
-                //TODO: check if infi loop
+                //TODO: check if infi loop - it is
                 // this.dispatch({ type: 'sendUpdatedBoard' });
             }
             catch (err) {
@@ -93,7 +93,7 @@ export const taskStore = {
             }
         },
         async sendUpdatedBoard({ state }) {
-            console.log("Sending", state.board);
+            // console.log("Sending", state.board);
             await socketService.emit("board change", state.board);
         },
         async addTask({ commit, state }, { task, group }) {

@@ -549,8 +549,9 @@ export default {
     updateDueDate(date){
       console.log('date', date)
     async updateDueDate(date){
-      this.task.dueDate = this.formattedDate(date)
-      await this.$store.dispatch({type: 'addTask', task:this.task})
+      var taskToEdit = JSON.parse(JSON.stringify(this.task)) 
+      taskToEdit.dueDate = this.formattedDate(date)
+      await this.$store.dispatch({type: 'addTask', task:taskToEdit})
       this.addActivity('Added Due Date')
     },
     async addActivity(activityType){
@@ -592,7 +593,7 @@ export default {
         allArr = this.activities
       else allArr = this.task.comments
       var sortedArr = allArr.sort((a, b)=>{
-        return a.createdAt - b.createdAt
+        return b.createdAt - a.createdAt
       })
       return sortedArr
     },
