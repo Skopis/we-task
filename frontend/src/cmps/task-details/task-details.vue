@@ -54,7 +54,7 @@
         </div>
         <div v-if="activities">
           <div v-for="(activity, idx) in activities" :key="idx">
-            <task-activities :activity="activity" />
+            <task-activities :activity="activity" :type="activity.txt"/>
           </div>
         </div>
       </div>
@@ -149,6 +149,7 @@ export default {
         checkList,
         task: this.task,
       });
+      this.addActivity('Added CheckList')
     },
     addComment() {
       if (!this.comment.txt) return;
@@ -181,9 +182,13 @@ export default {
       console.log('date', date)
       this.task.dueDate = this.formattedDate(date)
       this.$store.dispatch({type: 'addTask', task:this.task})
+      this.addActivity('Added Due Date')
+    },
+    async addActivity(activityType){
       const {id, title} = this.task
-      var activity = {txt: 'Added Due Date',  byMember: this.loggedinUser, task: {id, title}}
-      this.$store.dispatch({type: 'addActivity', activity })
+      var activity = {txt: activityType,  byMember: this.loggedinUser, task: {id, title}}
+      await this.$store.dispatch({type: 'addActivity', activity })
+      this.loadTask()
     },
     addMemberToTask(member){
       if(!this.task.members) this.task.members=[]

@@ -35,7 +35,7 @@ async function addActivity(activity, board){
   activityToAdd.id = utilService.makeId()
   boardToUpdate.activities.push(activityToAdd)
   await httpService.put(`board/${boardToUpdate._id}`,boardToUpdate);
-  return boardToUpdate
+  return {activityToAdd, boardToUpdate}
 }
 
 function handleGroupInSession(status, groupId) { // saves groupId to session
