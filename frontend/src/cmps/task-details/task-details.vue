@@ -52,16 +52,15 @@
       <textarea ref="writeComment" placeholder="write a comment" v-model="comment.txt" class="comment-box"></textarea>
       <button @click="addComment" class="btn">Save</button>
         </div>
-        <div v-if="activities">
-          <div v-for="(activity, idx) in activities" :key="idx">
-            <task-activities :activity="activity" :type="activity.txt"/>
-          </div>
-        </div>
       </div>
-      <div v-if="task.comments">
-        <div v-for="(comment, idx) in task.comments" :key="idx">
-          <task-comment :comment="comment" @reply="reply"/> 
-          <!-- <task-comment :comment="comment" @saveComment="saveComment" /> -->
+      <div v-if="(this.task.comments && this.task.comments ) || (this.activities && this.activities.length)">
+        <div v-for="item in activitiesToShow" :key="item.id">
+          <div v-if="item.task">
+            <task-activities :activity="item" :type="item.txt"/>
+          </div>
+          <div v-else>
+            <task-comment :comment="item" @reply="reply"/> 
+          </div>
         </div>
       </div>
       </main>
@@ -104,26 +103,22 @@ export default {
   methods: {
     async loadTask() {
       const id = this.$route.params.taskId;
-      console.log("id from paprms", id);
       try {
         const task = await this.$store.dispatch({ type: "getById", id });
         this.task = JSON.parse(JSON.stringify(task));
         let taskActivities = this.$store.getters.taskActivities;
         this.activities = taskActivities;
-        console.log(this.activities, 'this.activities');
       } catch (err) {
         console.log("Cannot find task", err);
       }
     },
     reply(memberName){
-      console.log(memberName)
       setTimeout(() => {
         this.$refs.writeComment.focus();
         this.comment.txt = "@"+ memberName.toLowerCase().replace(/\s/g, '') +' '
       }, 300);
     },
     formattedDate(date){
-      console.log('date', date)
       const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
       return date.toLocaleDateString(undefined, options)
     },
@@ -131,7 +126,6 @@ export default {
       this.dateMenu = status
     },
     manageMembersMenu(status) {////////////////////
-      console.log(status);
       this.membersMenu = status;
     },
     createCheckList() {
@@ -142,14 +136,15 @@ export default {
       // console.log("yahoo");
       this.checkListModal = false;
     },
-    saveCheckList(checkList) {
+    async saveCheckList(checkList) {
       this.checkListModal = false;
-      this.$store.dispatch({
+      await this.$store.dispatch({
         type: "addCheckList",
         checkList,
         task: this.task,
       });
       this.addActivity('Added CheckList')
+      this.loadTask()
     },
     addComment() {
       if (!this.comment.txt) return;
@@ -175,18 +170,19 @@ export default {
       });
       this.$router.go(-1);
     },
-    setTaskLabel(label) {
-      this.$store.dispatch({ type: "setTaskLabel", task: this.task, label });
+    async setTaskLabel(label) {
+      await this.$store.dispatch({ type: "setTaskLabel", task: this.task, label });
+      this.addActivity('Added Label')
+      this.loadTask()
     },
-    updateDueDate(date){
-      console.log('date', date)
+    async updateDueDate(date){
       this.task.dueDate = this.formattedDate(date)
-      this.$store.dispatch({type: 'addTask', task:this.task})
+      await this.$store.dispatch({type: 'addTask', task:this.task})
       this.addActivity('Added Due Date')
     },
     async addActivity(activityType){
       const {id, title} = this.task
-      var activity = {txt: activityType,  byMember: this.loggedinUser, task: {id, title}}
+      var activity = {txt: activityType, createdAt: Date.now(), byMember: this.loggedinUser, task: {id, title}}
       await this.$store.dispatch({type: 'addActivity', activity })
       this.loadTask()
     },
@@ -214,6 +210,19 @@ export default {
     },
   },
   computed: {
+    activitiesToShow(){
+      if (this.activities && this.activities.length &&
+      this.task.comments && this.task.comments.length)
+      var allArr = this.activities.concat(this.task.comments);
+      
+      else if (this.activities && this.activities.length)
+        allArr = this.activities
+      else allArr = this.task.comments
+      var sortedArr = allArr.sort((a, b)=>{
+        return a.createdAt - b.createdAt
+      })
+      return sortedArr
+    },
     boradId() {
       return this.$store.getters.getBoardId;
     },

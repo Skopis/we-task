@@ -88,7 +88,6 @@ export default {
       this.isMemberModalOpen = status;
       this.member = member;
       this.task = task;
-      console.log("task at 88", task);
     },
     removeMemberFromTask(member) {
       this.$emit("removeMemberFromTask", member, this.task, this.group);
