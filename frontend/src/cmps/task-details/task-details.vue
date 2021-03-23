@@ -81,11 +81,7 @@
             <i class="el-icon-s-order"></i>Activities
           </h3>
           <div class="comment-section">
-            <textarea
-              placeholder="write a comment"
-              v-model="comment.txt"
-              class="comment-box"
-            ></textarea>
+                 <textarea ref="writeComment" placeholder="write a comment" v-model="comment.txt" class="comment-box"></textarea>
             <button @click="addComment" class="btn">Save</button>
           </div>
         </div>
