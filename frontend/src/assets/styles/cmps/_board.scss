@@ -18,12 +18,13 @@
         flex-shrink: 0;
 
         &.new-group {
-            width: 276px;
-            text-align: left;
-            background-color: rgba(128, 128, 128, 0.1);
-            color: white;
+            width: 255px;
+            // text-align: left;
+            background-color: #ebecf0;
+            color: #667388;
             display: flex;
             align-items: center;
+            margin-left: 8px;
         }
     }
 }

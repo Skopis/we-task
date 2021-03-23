@@ -2,7 +2,12 @@
   <section class="task-preview" @click="openTaskDetails(task.id)">
     <header class="task-header">
       <div class="task-label-container">
-        <span v-for="label in task.labels" :key="label.id" :class="label.color" class="small-label"></span>
+      <div v-if="labelDataShown"  class="task-label-container">
+        <span v-for="label in task.labels" :key="label.id" :class="label.color" class="label-info small-label" @click.stop="classChange(label, false)">{{label.title}}</span>
+      </div>
+      <div v-else  class="task-label-container">
+        <span v-for="label in task.labels" :key="label.id" :class="label.color" class="small-label" @click.stop="classChange(label, true)"></span>
+      </div>
       </div>
       <task-quick-edit
         v-if="isEditModalOpen"
@@ -43,10 +48,20 @@ export default {
     return {
       isEditModalOpen: false,
       isMemberModalOpen: false,
+      labelDataShown:false,
     };
   },
   //TODO: when click on window anywhere but the modal - modal closes
   methods: {
+    classChange(label, status){
+      console.log(label)
+      console.log(status)
+      this.labelDataShown = status
+      console.log(this.labelDataShown)
+    },
+    openMemberModal() {
+      this.isMemberModalOpen = true;
+    },
     toggleMemberModal(member) {
       this.isMemberModalOpen = !this.isMemberModalOpen;
       this.$emit('toggleMemberModal', member, this.isMemberModalOpen, this.task)
@@ -65,6 +80,8 @@ export default {
         status: "saveToSession",
         groupId: this.groupId,
       });
+      console.log('taskId', taskId)
+      console.log(`${this.boradId}/task/${taskId}`)
       this.$router.push(`${this.boradId}/task/${taskId}`);
     },
   },

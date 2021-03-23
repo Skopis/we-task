@@ -2,13 +2,21 @@
     margin: 0;
 
     display: flex;
+    
+        li:last-of-type{
+            section{
+
+                margin-bottom: 0;
+            }
+        }
     .group-list{
-        // overflow-y:scroll !important;
-        // max-height: 70vh;
+        background-color: #ebecf0;
         width: 257px;
         margin-left: 10px;
         border-radius: 4px;
         box-shadow: 0 1px 7px -2px; 
+        height: auto;
+        padding-bottom: 4px;
         ul{
             margin: 0;
         }
@@ -40,42 +48,93 @@
         margin-top: -4px;
         margin-bottom: 8px;
         border-radius: 4px;
+        padding-bottom: 4px;
+        padding-top: 4px;
         .btn{
-
             flex: 1 0 auto;
             margin: -4px 0 8px 0;
-            // padding: 4px 8px;
             text-align: start;
             position: relative;  
-            // background-color: tan;
             width: 100%;
+        }
+        .btn.add-task{
+            height: unset;
+            margin-bottom: 4px;
+            margin-top: 8px;
+            border-radius:4px;
+            padding-bottom: 6px;
+            padding-top: 8px;
+            display: flex;
+            align-items: center;
+            &:hover{
+                background-color: #dadbe2;
+            }
         }
         
 
     }
 }
 
-    .group-menu{
-        background-color: springgreen;
-        position: absolute;
-        box-shadow: 0 0px 4px 0px rgba(9 ,30, 66, 0.5 );
-        top: 180px;
-        display: flex;
-        flex-direction: column;
-        background-color: #fff;
-        z-index: 3;
 
-        .group-menu-header{
-            display:flex;
-            justify-content: space-between;
-            align-items: center;
-            align-content: center;
-            align-self: center;
-            vertical-align: middle;
-            border-bottom: 1px solid rgb(168, 168, 168);
+.group-menu{
+    background-color: springgreen;
+    position: absolute;
+    box-shadow: 0 0px 4px 0px rgba(9 ,30, 66, 0.5 );
+    top: 180px;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    z-index: 3;
 
-            h4{
-                margin: 0;
-            }
+    .group-menu-header{
+        height: 40px;
+        position: relative;
+        margin-bottom: 8px;
+        text-align: center;
+        h4{
+            box-sizing: border-box;
+            color: #5e6c84;
+            display: block;
+            line-height: 40px;
+            border-bottom: 1px solid rgba(9,30,66,.13);
+            margin: 0 12px;
+            overflow: hidden;
+            padding: 0 32px;
+            position: relative;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            z-index: 1;
         }
+        .btn{
+            color: #6b778c;
+            padding: 10px 12px 10px 8px;
+            position: absolute;
+            top: 0;
+            right: 0;
+            z-index: 2
+        }
+    }
+    ul{
+        margin:0;
+    }
+    li{
+        cursor: pointer;
+        display: block;
+        font-weight: 400;
+        padding: 6px 12px;
+        position: relative;
+        // margin: 0 -12px;
+        text-decoration: none;
+        &:hover{
+            background-color: rgba(9,30,66,.04);
+        }
+    }
+    strong{
+        color:#5e6c84;
+        margin: 0 12px;
+    }
+    .vue-swatches{
+        margin: 0 12px;
+    }
+ 
 }

@@ -2,16 +2,17 @@
   <section class="group-menu" :style="menuPos">
     <div class="group-menu-header">
       <h4>List actions</h4>
-      <!-- <button @click="closeMenu" class="btn big-plus">X</button> -->
-      <button @click="closeMenu" class="btn"><i class="el-icon-close"></i></button>
+      <button @click="closeMenu" class="btn close-menu"><i class="el-icon-close"></i></button>
     </div>
-    <button class="btn" @click="archiveGroup">Archive</button>
-    <button class="btn" @click="toggleColorPicker">Cover</button>
+    <ul>
+    <li class="btn" @click="archiveGroup">Archive</li>
+    <li class="btn" @click="toggleColorPicker">Cover</li>
     <color-picker
       :group="group"
       @changeGroupCover="updateGroupCover"
       v-if="isColorPickerOpen"
     />
+    </ul>
   </section>
 </template>
 
