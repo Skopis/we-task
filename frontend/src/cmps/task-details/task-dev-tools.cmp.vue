@@ -1,10 +1,19 @@
 <template>
   <div class="task-side-bar">
-  <h4>ADD TO TASK</h4>
+  <h3>ADD TO CARD</h3>
     <div class="dev-tools">
       <button  class="btn" @click="openMembersMenu"><i class="el-icon-user"></i> Members</button>
       <button class="btn" @click="openLabelModal"><i class="el-icon-collection-tag"></i> Labels</button>
-      <button class="btn" @click="addChecklist"><i class="el-icon-finished"></i> Checklist</button>
+      <button class="btn" @click="openCheckListTitleModal"><i class="el-icon-finished"></i> Checklist</button>
+      <div class="checklist-title-modal" v-if="checklistTitleModal">
+      <div class="checklist-modal-header">Add checklist
+        <button class="btn close" @click="closeTitleModal"><i class="el-icon-close"></i></button>
+      </div>
+      <form @submit.prevent="startNewChecklist">
+         <input class="new-todo-input new-checklist-title" type="text" placeholder="Title for CheckList" v-model="checklistTitle" />
+       <button class="btn">Save</button>
+      </form>
+      </div>
       <button class="btn"><i class="el-icon-date"></i> Due Date</button>
       <button class="btn"><i class="el-icon-paperclip"></i> Attachment</button>
       <button class="btn" @click="toggleColorPicker"><i class="el-icon-brush"></i> Cover</button>
@@ -17,9 +26,12 @@
 <script>
 import colorPicker from '../menu/color-picker.vue'
 export default {
+  props:[],
     data(){
         return{
-            isColorPickerOpen: false
+            isColorPickerOpen: false,
+            checklistTitleModal:false,
+            checklistTitle :'',
         }
     },
     methods:{
@@ -32,8 +44,16 @@ export default {
         updateTaskCover(color){
             this.$emit('updateTaskCover', color)
         },
-        addChecklist(){
-            this.$emit('checkList')
+        openCheckListTitleModal(){
+          this.checklistTitleModal = true;
+        },
+        closeTitleModal(){
+          this.checklistTitleModal = false;
+        },
+        startNewChecklist(){
+          if(!this.checklistTitle) this.checklistTitle = 'Checklist'
+          this.$emit('checkList', this.checklistTitle )
+          this.checklistTitleModal = false;
         },
         removeTask(){
           this.$router.go(-1)

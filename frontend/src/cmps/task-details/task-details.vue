@@ -1,61 +1,84 @@
 <template>
-  <div v-if="task" class="task-details-modal" >
+  <div v-if="task" class="task-details-modal">
     <div class="task-details-content" @click.self="closeModals">
       <header :style="{ backgroundColor: task.style.bgColor }">
+      <div class="header-content">
         <button class="btn close-btn" @click="closeDetailsModal">+</button>
         <h1>{{ task.title }}</h1>
         <p><span>in List</span></p>
+      </div>
       </header>
       <main>
-      
-      <members-menu v-if="membersMenu" @addMemberToTask="addMemberToTask" @closeMembersMenu="manageMembersMenu"/>   
-
-      <labels-menu v-if="labelsModal" @setLabel="setTaskLabel" @closeLabelMenu="manageLabelMenu"/>
-      <div class="task-labels-wrapper">
-        <div v-if="task.labels"> 
-          <p>Labels</p>
-          <div v-for="label in task.labels" :key="label.id">
-            <div class="task-label" :class="label.color">{{label.title}}</div>
+        <div class="task-info">
+          <div class="members-container container">
+            <h3>MEMBERS</h3>
+            <div v-if="task.members">
+              <member-avatar :members="task.members" :size="32" />
+            </div>
+            <div class="avatar">+</div>
+          </div>
+          <members-menu
+            v-if="membersMenu"
+            @addMemberToTask="addMemberToTask"
+            @closeMembersMenu="manageMembersMenu"
+          />
+          <labels-menu
+            v-if="labelsModal"
+            @setLabel="setTaskLabel"
+            @closeLabelMenu="manageLabelMenu"
+          />
+          <div class="labels-container container">
+            <div v-if="task.labels"  class="task-labels-wrapper" >
+                <h3>Labels</h3>
+              <div v-for="label in task.labels" :key="label.id" >
+                <div  :class="label.color" class="task-label" >
+                  {{ label.title }}
+                </div>
+              </div>
+              <div class="task-label add-label">+</div>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="task-members">
-        <h3>MEMBERS</h3>
-        <div v-if="task.members">
-          <member-avatar :members="task.members" :size="32" />
+        <div class="task-desc module">
+          <h3 class="module-header"><i class="el-icon-s-unfold"></i>Description</h3>
+          <p v-if="task.description">{{ task.description }}</p>
+          <p v-else class="description-area">Add a more detailed description</p>
         </div>
-      </div>
-      <div class="task-desc">
-        <h3>Description</h3>
-        <p v-if="task.description">{{ task.description }}</p>
-        <p v-else class="description-area">Add a more detailed description</p>
-      </div>
-      <div class="task-checklists">
-        <check-list-add @saveCheckList="saveCheckList" v-if="checkListModal" @closeCheckList="closeCheckList"/>
-        <div v-if="task.checklists">
-          <h3>Check List</h3>
-          <div v-for="checklist in task.checklists" :key="checklist.id">
-            <task-todo :checklist="checklist" />
+        <div class="task-checklists module">
+          <check-list-add
+          :checklistTitle="checklistTitle"
+            @saveCheckList="saveCheckList"
+            v-if="checkListModal"
+            @closeCheckList="closeCheckList"
+          />
+          <div v-if="task.checklists" >
+            <h3 class="module-header"><i class="el-icon-finished"></i>Check List</h3>
+            <div v-for="checklist in task.checklists" :key="checklist.id">
+              <task-todo :checklist="checklist" />
+            </div>
           </div>
         </div>
-      </div>
-      <div class="task-activities">
-        <h3>Activities</h3>
-        <div class="comment-section">
-      <textarea placeholder="write a comment" v-model="comment.txt" class="comment-box"></textarea>
-      <button @click="addComment" class="btn">Save</button>
-        </div>
-        <div v-if="activities">
-          <div v-for="(activity, idx) in activities" :key="idx">
-            <task-activities :activity="activity" />
+        <div class=" module">
+          <h3 class="module-header"><i class="el-icon-s-order"></i>Activities</h3>
+          <div class="comment-section">
+            <textarea
+              placeholder="write a comment"
+              v-model="comment.txt"
+              class="comment-box"
+            ></textarea>
+            <button @click="addComment" class="btn">Save</button>
+          </div>
+          <div v-if="activities" class="task-activities module">
+            <div v-for="(activity, idx) in activities" :key="idx">
+              <task-activities :activity="activity" />
+            </div>
           </div>
         </div>
-      </div>
-      <div v-if="task.comments">
-        <div v-for="(comment, idx) in task.comments" :key="idx">
-          <task-comment :comment="comment" @saveComment="saveComment" />
+        <div v-if="task.comments" class="task-comments module">
+          <div v-for="(comment, idx) in task.comments" :key="idx">
+            <task-comment :comment="comment" @saveComment="saveComment" />
+          </div>
         </div>
-      </div>
       </main>
       <task-dev-tools
         @checkList="createCheckList"
@@ -63,7 +86,7 @@
         @updateTaskCover="updateTaskCover"
         @openLabelModal="manageLabelMenu"
         @openMembersMenu="manageMembersMenu"
-        />
+      />
     </div>
   </div>
 </template>
@@ -76,7 +99,7 @@ import taskDevTools from "./task-dev-tools.cmp";
 import checkListAdd from "./check-list-add.cmp";
 import taskTodo from "./task-todo.cmp";
 import labelsMenu from "../menu/labels-menu";
-import membersMenu from '../menu/members-menu'
+import membersMenu from "../menu/members-menu";
 
 export default {
   data() {
@@ -86,7 +109,8 @@ export default {
       checkListModal: false,
       comment: { txt: "" },
       labelsModal: false,
-      membersMenu: false
+      membersMenu: false,
+      checklistTitle:'',
     };
   },
   methods: {
@@ -103,12 +127,13 @@ export default {
         console.log("Cannot find task", err);
       }
     },
-    manageMembersMenu(status) {////////////////////
+    manageMembersMenu(status) {
+      ////////////////////
       console.log(status);
       this.membersMenu = status;
     },
-    createCheckList() {
-      // console.log("checklist");
+    createCheckList(checklistTitle) {
+      this.checklistTitle = checklistTitle
       this.checkListModal = true;
     },
     closeCheckList() {
@@ -150,13 +175,13 @@ export default {
     setTaskLabel(label) {
       this.$store.dispatch({ type: "setTaskLabel", task: this.task, label });
     },
-    addMemberToTask(member){
-      for(let i=0; i<this.task.members.length; i++){
-        if (this.task.members[i]._id === member._id) return
+    addMemberToTask(member) {
+      for (let i = 0; i < this.task.members.length; i++) {
+        if (this.task.members[i]._id === member._id) return;
       }
-      this.task.members.push(member)
-        console.log(this.task, 'this.task')
-      this.$store.dispatch({type: 'addTask', task:this.task})
+      this.task.members.push(member);
+      console.log(this.task, "this.task");
+      this.$store.dispatch({ type: "addTask", task: this.task });
     },
     updateTaskCover(color) {
       // console.log("this.task", this.task);
@@ -195,7 +220,7 @@ export default {
     checkListAdd,
     taskTodo,
     labelsMenu,
-    membersMenu
+    membersMenu,
   },
 };
 </script>

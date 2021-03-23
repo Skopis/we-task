@@ -311,7 +311,7 @@ async function query(filterBy = {}) {
             }
           ],
           "style": {
-            "bgColor": "#eecab6"
+            "bgColor": "#ebecf0"
           }
         },
         {
@@ -490,7 +490,7 @@ async function query(filterBy = {}) {
             }
           ],
           "style": {
-            "bgColor": "#b1c294"
+            "bgColor": "#ebecf0"
           }
         },
         {
@@ -598,7 +598,7 @@ async function query(filterBy = {}) {
             }
           ],
           "style": {
-            "bgColor": "#ffff"
+            "bgColor": "#ebecf0"
           }
         },
         {

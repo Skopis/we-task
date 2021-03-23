@@ -2,12 +2,8 @@
   <section class="add-note">
   <button @click="closeCheckList">X</button>
     <form @submit.prevent="saveTodo()">
-      <input
-        type="text"
-        placeholder="Title for CheckList"
-        v-model="checkList.title"
-      />
-      <input type="text" placeholder="Write your To Do here" v-model="todo" />
+    <h3>{{checklistTitle}}</h3>   
+      <textarea class="new-todo-input" type="text" placeholder="Write your To Do here" v-model="todo"></textarea>
       <ul class="todo" v-if="checkList.todos">
         <li v-for="(todo, idx) in checkList.todos" :key="idx">
           <p>{{ todo.text }}</p>
@@ -21,11 +17,12 @@
 
 <script>
 export default {
+  props:['checklistTitle'],
   data() {
     return {
       todo: "",
       checkList: {
-        title: "check-list",
+        title: this.checklistTitle,
         todos: [],
       },
     };

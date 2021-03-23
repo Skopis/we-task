@@ -40,7 +40,7 @@
           </li>
           <footer>
             <button class="btn add-task" @click="openAddModal">
-              <span class="big-plus">＋</span> Add another card
+              <span ><i class="el-icon-plus"></i></span> Add another card
             </button>
           </footer>
         </draggable>
