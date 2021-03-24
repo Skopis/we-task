@@ -246,6 +246,7 @@ export const taskStore = {
                 comment.byMember = { fullname, _id, imgUrl }
                 if (!task.comments || !task.comments.length) task.comments = [comment]
                 else task.comments.push(comment)
+                // task.comments.push(comment)
             }
             else {
                 const commentIdx = task.comments.findIndex(c => c.id === comment.id)

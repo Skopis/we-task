@@ -36,6 +36,7 @@ export default {
           bgColor: "#ffff",
         },
         members: [],
+        comments: []
       };
       this.isEdit = false;
     } else {
