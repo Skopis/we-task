@@ -6,15 +6,17 @@
     border-radius: 3px;
     padding: 0 10px;
     z-index: 2;
-    &:hover{
-        .edit-task-title{
-            i{
+
+    &:hover {
+        .edit-task-title {
+            i {
                 color: $task-txt;
             }
         }
     }
-    .edit-task-title{
-        i{
+
+    .edit-task-title {
+        i {
             color: transparent;
         }
     }
@@ -30,7 +32,7 @@
         .task-label-container {
             display: flex;
             flex-wrap: wrap;
-                        
+
             .small-label {
                 cursor: pointer;
                 border-radius: 4px;
@@ -44,14 +46,18 @@
                 padding: 0;
                 text-shadow: none;
                 width: auto;
+                // transition: all 1s ease-in-out;
+                transition: all 0.5s linear;
             }
-            .label-info{
+
+            .label-info {
                 min-height: 22px;
-                height: auto;
+                // height: auto;
                 text-align: center;
                 font-size: rem(13px);
                 color: white;
-                padding-bottom:2px ;
+                padding-bottom: 2px;
+                transform: scale(1.1, 2.5);
             }
         }
 
@@ -104,15 +110,18 @@
         margin: 0;
         // padding-bottom: 0.5px;
     }
-    .task-body{
+
+    .task-body {
         display: flex;
         flex-direction: row-reverse;
         justify-content: space-between;
         vertical-align: middle;
         align-items: center;
-        p{
+
+        p {
             margin: 0;
         }
+
         .avatar {
             margin: 0 2px;
             float: right;
@@ -121,7 +130,7 @@
             align-self: center;
             // margin-top: 8px;
         }
-    
+
         .badge {
             // margin: 0 4px 0 0;
             max-width: 100%;
@@ -133,20 +142,22 @@
             text-overflow: ellipsis;
             vertical-align: top;
             border: none;
-            >*{
+
+            >* {
                 color: #5e6c84;
                 font-size: 14px;
             }
 
-            span{ 
-                margin-left:2px;
+            span {
+                margin-left: 2px;
             }
-            &:hover{
+
+            &:hover {
                 background-color: transparent;
                 border: none;
                 color: unset;
             }
         }
     }
- 
+
 }

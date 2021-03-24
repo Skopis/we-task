@@ -78,6 +78,8 @@ async function archiveGroup(group, groupIdx, board) { //delete group and update
   if (archive) archive.push(group)
   else archive = [group]
   storageService._save('archive', archive)
+
+  return boardToUpdate
 }
 
 async function addGroup(newGroup, board) { // add group and update board

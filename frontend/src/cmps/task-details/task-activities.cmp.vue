@@ -29,9 +29,15 @@ export default {
       return moment(timeStamp).fromNow();
     },
   },
+  methods:{
+    formattedTime(timeStamp){
+      console.log('timeStamp', timeStamp)
+      return moment(timeStamp).fromNow()
+    }
+  },
   components: {
     memberAvatar2,
-  },
+  }
 };
 </script>
 

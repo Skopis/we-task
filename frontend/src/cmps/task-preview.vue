@@ -29,8 +29,8 @@
       <div class="btn-container">
         <el-button class="btn badge eye" icon="el-icon-view" v-if="isloggedinUserMember"></el-button>
         <!-- v-if logged in member = member assigned to task-->
-        <button class="btn badge" v-if="task.comments">
-          <i class="el-icon-chat-square"></i> <span>{{ task.comments.length }}</span>
+        <button class="btn badge" v-if="task.comments && task.comments.length">
+          <i class="el-icon-chat-square" ></i> <span>{{ task.comments.length }}</span>
         </button>
       </div>
     </div>
@@ -54,10 +54,10 @@ export default {
   //TODO: when click on window anywhere but the modal - modal closes
   methods: {
     classChange(label, status){
-      console.log(label)
-      console.log(status)
+      // console.log(label)
+      // console.log(status)
       this.labelDataShown = status
-      console.log(this.labelDataShown)
+      // console.log(this.labelDataShown)
     },
     openMemberModal() {
       this.isMemberModalOpen = true;
@@ -80,8 +80,8 @@ export default {
         status: "saveToSession",
         groupId: this.groupId,
       });
-      console.log('taskId', taskId)
-      console.log(`${this.boradId}/task/${taskId}`)
+      // console.log('taskId', taskId)
+      // console.log(`${this.boradId}/task/${taskId}`)
       this.$router.push(`${this.boradId}/task/${taskId}`);
     },
   },
@@ -95,7 +95,6 @@ export default {
       for (let i = 0; i < this.task.members.length; i++) {
         if (this.task.members[i]._id === loggedinUser._id) return true;
       }
-
       // return false
     },
   },

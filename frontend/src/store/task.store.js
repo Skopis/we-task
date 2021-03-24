@@ -44,6 +44,7 @@ export const taskStore = {
             state.board.groups.push(newGroup)
         },
         updateBoard(state, { boardIdx, board }) {
+            console.log("bbbbbbbbbbb");
             state.boards.splice(boardIdx, 1, board)
             state.board = board
         },
@@ -80,7 +81,7 @@ export const taskStore = {
     actions: {
         async updateBoard({ state, commit }, { boardToUpdate }) {
             try {
-                console.log(boardToUpdate);
+                // console.log(boardToUpdate);
                 var boardIdx = state.boards.findIndex(b => b._id === boardToUpdate._id)
                 await taskService.saveBoard(boardToUpdate, boardIdx)
                 commit({ type: 'updateBoard', boardIdx, board: boardToUpdate })
@@ -124,12 +125,12 @@ export const taskStore = {
         },
         async archiveGroup({ state, commit }, { group }) {
             try {
-                var boardIdx = state.boards.findIndex(b => b._id === state.board._id)
+                // var boardIdx = state.boards.findIndex(b => b._id === state.board._id)
                 var groupIdx = state.board.groups.findIndex(g => g.id === group.id)
-                await taskService.archiveGroup(group, groupIdx, state.board)
-                const boards = await taskService.query();
+                const boardToUpdate = await taskService.archiveGroup(group, groupIdx, state.board)
+                // const boards = await taskService.query();
                 commit({ type: 'archiveGroup', group })
-                commit({ type: 'setBoard', board: boards[boardIdx] })
+                commit({ type: 'setBoard', board: boardToUpdate })
                 this.dispatch({ type: 'sendUpdatedBoard' });
             } catch (err) {
                 console.log('taskStore: Error in archiveGroup', err)
@@ -158,7 +159,7 @@ export const taskStore = {
         },
         async updateGroup({ state, commit }, { group, boardId }) {
             try {
-                var boardIdx = state.boards.findIndex(b => b._id === boardId)
+                // var boardIdx = state.boards.findIndex(b => b._id === boardId)
                 var groupIdx = state.board.groups.findIndex(g => g.id === group.id)
                 const boardForUpdate = await taskService.updateGroup(group, state.board, groupIdx)
                 // commit({ type: 'updateBoard', boardIdx, board: boardForUpdate })
@@ -182,8 +183,11 @@ export const taskStore = {
         async loadBoard({ commit, state }, { boardId }) {
             try {
                 await this.dispatch({ type: "loadBoards" })
-                var boardIdx = state.boards.findIndex(b => b._id === boardId)
-                commit({ type: 'setBoard', board: state.boards[boardIdx] })
+                if(boardId){
+                    var boardIdx = state.boards.findIndex(b => b._id === boardId)
+                    commit({ type: 'setBoard', board: state.boards[boardIdx] })
+                }
+                else commit({ type: 'setBoard', board: state.boards[0] })
             } catch (err) {
                 console.log('taskStore: Error in loadBoard', err)
                 throw err
@@ -243,6 +247,7 @@ export const taskStore = {
                 comment.byMember = { fullname, _id, imgUrl }
                 if (!task.comments || !task.comments.length) task.comments = [comment]
                 else task.comments.push(comment)
+                // task.comments.push(comment)
             }
             else {
                 const commentIdx = task.comments.findIndex(c => c.id === comment.id)
@@ -281,7 +286,7 @@ export const taskStore = {
         },
         async addActivity({ state, commit }, { activity }) {
             try {
-                console.log('state.board.activities', state.board.activities)
+                // console.log('state.board.activities', state.board.activities)
                 const { activityToAdd, boardToUpdate } = await taskService.addActivity(activity, state.board)
                 commit({ type: 'addActivity', activityToAdd })
                 this.dispatch({ type: 'updateBoard', boardToUpdate })
