@@ -5,7 +5,7 @@
       <button class="btn close" @click="closeModal"><i class="el-icon-close"></i></button>
     </header>
     <div v-for="label in labels" :key="label.id" class="label-container">
-      <div class="label" :class="label.color"  @click="addLabel(label)">{{ label.title }}</div>
+      <div class="label" :class="label.color"  @click="addLabel(label)"><p>{{ label.title }}</p></div>
       <button class="btn" ><i class="el-icon-edit"></i></button>
     </div>
   </div>
