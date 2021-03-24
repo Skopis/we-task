@@ -71,14 +71,12 @@
         <!-- </section> -->
       </draggable>
       <button class="btn new-group" @click="addGroup">
-        <span class="big-plus">＋</span> Add a new list
+        <span><i class="el-icon-plus"></i></span> Add a new list
       </button>
     </section>
     <router-view />
   </div>
 </template>
-
-// :v-if="setMenuPos" @archiveGroup="archiveGroup" @updateGroupCover="updateGroupCover"
 
 <script>
 import { socketService } from "@/services/socket.service";
@@ -106,7 +104,12 @@ export default {
 
   async created() {
     const boardId = this.$route.params.boardId;
-    await this.$store.dispatch({ type: "loadBoard", boardId });
+    if(boardId != 'b') await this.$store.dispatch({ type: "loadBoard", boardId });
+    else {
+      await this.$store.dispatch({ type: "loadBoard" });
+      const boardId = this.$store.getters.getBoard._id
+      this.$router.push(`/board/${boardId}`);
+    }
     socketService.setup();
     socketService.emit("board id", this.boardToShow._id);
     socketService.on("updated board", this.updateBoard);

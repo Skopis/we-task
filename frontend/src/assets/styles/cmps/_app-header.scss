@@ -6,9 +6,9 @@
     left: 0;
     width: 100%;
     z-index: 1;
-    height: 77px;
+    height: 40px;
     color: $light-clr;
-    padding: 10px;
+    padding: 4px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -34,7 +34,7 @@
         a {
             .logo {
                 display: inline;
-                height: 30px;
+                height: 28px;
             }
         }
     }
@@ -53,12 +53,12 @@
 }
 
 .board-header{
-    height: 59px;
+    height: 52px;
     padding: 8px 4px 4px 8px;
     position: fixed;
     left:0px;
     right: 0px;
-    top: 77px;
+    top: 40px;
     z-index: 14;
     display: flex;
     align-items: center;

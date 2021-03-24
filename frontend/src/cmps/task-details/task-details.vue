@@ -1,68 +1,112 @@
 <template>
-  <div v-if="task" class="task-details-modal" >
+  <div v-if="task" class="task-details-modal">
     <div class="task-details-content" @click.self="closeModals">
       <header :style="{ backgroundColor: task.style.bgColor }">
-        <button class="btn close-btn" @click="closeDetailsModal">+</button>
-        <h1>{{ task.title }}</h1>
-        <p><span>in List</span></p>
+        <div class="header-content">
+          <button class="btn close-btn" @click="closeDetailsModal">+</button>
+          <h1>{{ task.title }}</h1>
+          <p><span>in List</span></p>
+        </div>
       </header>
       <main>
-      
-      <date-picker v-if="dateMenu" @closeDateModal="manageDateMenu" @updateDueDate="updateDueDate"/>
-      <div v-if="task.dueDate">
-        <p>DUE DATE</p>
-        <p>{{task.dueDate}}</p>
-      </div>
-
-      <labels-menu v-if="labelsModal" @setLabel="setTaskLabel" @closeLabelMenu="manageLabelMenu"/>
-      <div class="task-labels-wrapper">
-        <div v-if="task.labels"> 
-          <p>LABELS</p>
-          <div v-for="label in task.labels" :key="label.id">
-            <div class="task-label" :class="label.color">{{label.title}}</div>
+        <div class="task-info">
+          <members-menu
+            v-if="membersMenu"
+            @addMemberToTask="addMemberToTask"
+            @closeMembersMenu="manageMembersMenu"
+          />
+          <div class="members-container container">
+            <h3>MEMBERS</h3>
+            <div v-if="task.members">
+              <member-avatar :members="task.members" :size="32" />
+            </div>
+            <div class="avatar">+</div>
+          </div>
+          <members-menu
+            v-if="membersMenu"
+            @addMemberToTask="addMemberToTask"
+            @closeMembersMenu="manageMembersMenu"
+          />
+          <labels-menu
+            v-if="labelsModal"
+            @setLabel="setTaskLabel"
+            @closeLabelMenu="manageLabelMenu"
+          />
+          <div class="labels-container container">
+            <div v-if="task.labels" class="task-labels-wrapper">
+              <h3>Labels</h3>
+              <div v-for="label in task.labels" :key="label.id">
+                <div :class="label.color" class="task-label">
+                  {{ label.title }}
+                </div>
+              </div>
+              <div class="task-label add-label">+</div>
+            </div>
+          </div>
+          <date-picker
+            v-if="dateMenu"
+            @closeDateModal="manageDateMenu"
+            @updateDueDate="updateDueDate"
+          />
+          <div class="due-date-continer container">
+            <div v-if="task.dueDate" class="due-date-wrapper">
+              <h3>Due Date</h3>
+              <p class="due-date">{{ task.dueDate }}</p>
+            </div>
           </div>
         </div>
-      </div>
-
-      <members-menu v-if="membersMenu" @addMemberToTask="addMemberToTask" @closeMembersMenu="manageMembersMenu"/>   
-      <div class="task-members">
-        <p>MEMBERS</p>
-        <div v-if="task.members">
-          <member-avatar :members="task.members" :size="32" />
+        <div class="task-desc module">
+          <h3 class="module-header">
+            <i class="el-icon-s-unfold"></i>Description
+          </h3>
+          <p v-if="task.description">{{ task.description }}</p>
+          <p v-else class="description-area">Add a more detailed description</p>
         </div>
-      </div>
-
-      <div class="task-desc">
-        <h3>Description</h3>
-        <p v-if="task.description">{{ task.description }}</p>
-        <p v-else class="description-area">Add a more detailed description</p>
-      </div>
-      <div class="task-checklists">
-        <check-list-add @saveCheckList="saveCheckList" v-if="checkListModal" @closeCheckList="closeCheckList"/>
-        <div v-if="task.checklists">
-          <h3>Check List</h3>
-          <div v-for="checklist in task.checklists" :key="checklist.id">
-            <task-todo :checklist="checklist" />
+        <div class="task-checklists module">
+          <check-list-add
+            :checklistTitle="checklistTitle"
+            @saveCheckList="saveCheckList"
+            v-if="checkListModal"
+            @closeCheckList="closeCheckList"
+          />
+          <div v-if="task.checklists">
+            <h3 class="module-header">
+              <i class="el-icon-finished"></i>Check List
+            </h3>
+            <div v-for="checklist in task.checklists" :key="checklist.id">
+              <task-todo :checklist="checklist" />
+            </div>
           </div>
         </div>
-      </div>
-      <div class="task-activities">
-        <h3>Activities</h3>
-        <div class="comment-section">
-      <textarea ref="writeComment" placeholder="write a comment" v-model="comment.txt" class="comment-box"></textarea>
-      <button @click="addComment" class="btn">Save</button>
-        </div>
-      </div>
-      <div v-if="(this.task.comments && this.task.comments ) || (this.activities && this.activities.length)">
-        <div v-for="item in activitiesToShow" :key="item.id">
-          <div v-if="item.task">
-            <task-activities :activity="item" :type="item.txt"/>
-          </div>
-          <div v-else>
-            <task-comment :comment="item" @reply="reply"/> 
+        <div class="module">
+          <h3 class="module-header">
+            <i class="el-icon-s-order"></i>Activities
+          </h3>
+          <div class="comment-section">
+            <textarea
+              ref="writeComment"
+              placeholder="write a comment"
+              v-model="comment.txt"
+              class="comment-box"
+            ></textarea>
+            <button @click="addComment" class="btn">Save</button>
           </div>
         </div>
-      </div>
+        <div
+          v-if="
+            (this.task.comments && this.task.comments) ||
+            (this.activities && this.activities.length)
+          "
+        >
+          <div v-for="item in activitiesToShow" :key="item.id">
+            <div v-if="item.task">
+              <task-activities :activity="item" :type="item.txt" />
+            </div>
+            <div v-else>
+              <task-comment :comment="item" @reply="reply" />
+            </div>
+          </div>
+        </div>
       </main>
       <task-dev-tools
         @checkList="createCheckList"
@@ -71,7 +115,7 @@
         @openLabelModal="manageLabelMenu"
         @openMembersMenu="manageMembersMenu"
         @openDateModal="manageDateMenu"
-        />
+      />
     </div>
   </div>
 </template>
@@ -84,8 +128,8 @@ import taskDevTools from "./task-dev-tools.cmp";
 import checkListAdd from "./check-list-add.cmp";
 import taskTodo from "./task-todo.cmp";
 import labelsMenu from "../menu/labels-menu";
-import membersMenu from '../menu/members-menu'
-import DatePicker from './date-picker.vue';
+import membersMenu from "../menu/members-menu";
+import DatePicker from "./date-picker.vue";
 
 export default {
   data() {
@@ -97,7 +141,7 @@ export default {
       labelsModal: false,
       membersMenu: false,
       dateMenu: false,
-      loggedinUser: null
+      loggedinUser: null,
     };
   },
   methods: {
@@ -112,20 +156,27 @@ export default {
         console.log("Cannot find task", err);
       }
     },
-    reply(memberName){
+    reply(memberName) {
       setTimeout(() => {
         this.$refs.writeComment.focus();
-        this.comment.txt = "@"+ memberName.toLowerCase().replace(/\s/g, '') +' '
+        this.comment.txt =
+          "@" + memberName.toLowerCase().replace(/\s/g, "") + " ";
       }, 300);
     },
-    formattedDate(date){
-      const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-      return date.toLocaleDateString(undefined, options)
+    formattedDate(date) {
+      const options = {
+        weekday: "long",
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      };
+      return date.toLocaleDateString(undefined, options);
     },
-    manageDateMenu(status){
-      this.dateMenu = status
+    manageDateMenu(status) {
+      this.dateMenu = status;
     },
-    manageMembersMenu(status) {////////////////////
+    manageMembersMenu(status) {
+      ////////////////////
       this.membersMenu = status;
     },
     createCheckList() {
@@ -143,8 +194,8 @@ export default {
         checkList,
         task: this.task,
       });
-      this.addActivity('Added CheckList')
-      this.loadTask()
+      this.addActivity("Added CheckList");
+      this.loadTask();
     },
     addComment() {
       if (!this.comment.txt) return;
@@ -155,10 +206,10 @@ export default {
       });
       this.comment = { txt: "" };
     },
-    saveComment(comment) {
-      // console.log("edit comment", comment);
-      this.$store.dispatch({ type: "saveComment", task: this.task, comment });
-    },
+    // saveComment(comment) {
+    //   console.log("edit comment", comment);
+    //   this.$store.dispatch({ type: "saveComment", task: this.task, comment });
+    // },
     removeTask() {
       this.$store.dispatch("removeTask", { task: this.task });
     },
@@ -171,29 +222,38 @@ export default {
       this.$router.go(-1);
     },
     async setTaskLabel(label) {
-      await this.$store.dispatch({ type: "setTaskLabel", task: this.task, label });
-      this.addActivity('Added Label')
-      this.loadTask()
+      await this.$store.dispatch({
+        type: "setTaskLabel",
+        task: this.task,
+        label,
+      });
+      this.addActivity("Added Label");
+      this.loadTask();
     },
-    async updateDueDate(date){
+    async updateDueDate(date) {
       var taskToEdit = JSON.parse(JSON.stringify(this.task));
-      taskToEdit.dueDate = this.formattedDate(date)
-      await this.$store.dispatch({type: 'addTask', task:taskToEdit})
-      this.addActivity('Added Due Date')
+      taskToEdit.dueDate = this.formattedDate(date);
+      await this.$store.dispatch({ type: "addTask", task: taskToEdit });
+      this.addActivity("Added Due Date");
     },
-    async addActivity(activityType){
-      const {id, title} = this.task
-      var activity = {txt: activityType, createdAt: Date.now(), byMember: this.loggedinUser, task: {id, title}}
-      await this.$store.dispatch({type: 'addActivity', activity })
-      this.loadTask()
+    async addActivity(activityType) {
+      const { id, title } = this.task;
+      var activity = {
+        txt: activityType,
+        createdAt: Date.now(),
+        byMember: this.loggedinUser,
+        task: { id, title },
+      };
+      await this.$store.dispatch({ type: "addActivity", activity });
+      this.loadTask();
     },
-    addMemberToTask(member){
-      if(!this.task.members) this.task.members=[]
-      for(let i=0; i<this.task.members.length; i++){
-        if (this.task.members[i]._id === member._id) return
+    addMemberToTask(member) {
+      if (!this.task.members) this.task.members = [];
+      for (let i = 0; i < this.task.members.length; i++) {
+        if (this.task.members[i]._id === member._id) return;
       }
-      this.task.members.push(member)
-      this.$store.dispatch({type: 'addTask', task:this.task})
+      this.task.members.push(member);
+      this.$store.dispatch({ type: "addTask", task: this.task });
     },
     updateTaskCover(color) {
       // console.log("this.task", this.task);
@@ -214,13 +274,13 @@ export default {
     activitiesToShow(){
       if (this.activities && this.activities.length &&
       this.task.comments && this.task.comments.length)
-      var allArr = this.activities.concat(this.task.comments);
+      var allArr = JSON.parse(JSON.stringify(this.activities.concat(this.task.comments)))
       
       else if (this.activities && this.activities.length)
-        allArr = this.activities
-      else allArr = this.task.comments
+        allArr = JSON.parse(JSON.stringify(this.activities))
+      else allArr = JSON.parse(JSON.stringify(this.task.comments))
       var sortedArr = allArr.sort((a, b)=>{
-        return a.createdAt - b.createdAt
+        return b.createdAt - a.createdAt
       })
       return sortedArr
     },
@@ -229,12 +289,12 @@ export default {
     },
   },
   created() {
-    this.loggedinUser = this.$store.getters.loggedinUser
+    this.loggedinUser = this.$store.getters.loggedinUser;
     this.loadTask();
   },
   watch: {
     "$route.params.taskId"(id) {
-      console.log("Changed to", id);
+      // console.log("Changed to", id);
       this.loadTask();
     },
   },
@@ -247,10 +307,7 @@ export default {
     taskTodo,
     labelsMenu,
     membersMenu,
-    DatePicker
+    DatePicker,
   },
 };
 </script>
-
-<style>
-</style>
