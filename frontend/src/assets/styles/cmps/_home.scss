@@ -1,7 +1,7 @@
 .home {
     // overflow-y:initial !important;
     padding: 0px;
-    margin-top: 77px;
+    margin-top: 32px;
 
     .main-header {
         font-size: 6rem;
@@ -13,7 +13,7 @@
     }
 
     .home-txt {
-        height: calc(100vh - 77px);
+        height: calc(100vh - 40px);
         background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("~@/assets/Pictures/hero1.png");
         background-position: center;
         background-repeat: no-repeat;

@@ -10,10 +10,9 @@
 }
 
 .main-board-container {
-    
     display: flex;
     flex: 1;
-    height: calc(100vh - 153px);
+    height: calc(100vh - 92px);
     .btn {
         flex-shrink: 0;
 
@@ -30,8 +29,7 @@
 }
 
 .board {
-    // overflow-y:hidden;
-    margin-top: 136px;
+    margin-top: 92px;
     height: 100%;
     min-width: 100%;
     width: max-content;
@@ -47,7 +45,6 @@
     h2{
         font-size: 18px;
     }
-
     section.board-menu{
         padding: 0px;
     }
@@ -62,5 +59,5 @@
 }
 
 .boards {
-    margin-top: 77px;
+    margin-top: 40px;
 }

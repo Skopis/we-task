@@ -75,9 +75,9 @@
       </button>
     </section>
     <router-view />
-    <button class="bfb" @click.stop="sendUpdatedBoard">
+    <!-- <button class="bfb" @click.stop="sendUpdatedBoard">
       aaaaaaaaaaaaaaaaa
-    </button>
+    </button> -->
   </div>
 </template>
 
@@ -109,7 +109,12 @@ export default {
 
   async created() {
     const boardId = this.$route.params.boardId;
-    await this.$store.dispatch({ type: "loadBoard", boardId });
+    if(boardId != 'b') await this.$store.dispatch({ type: "loadBoard", boardId });
+    else {
+      await this.$store.dispatch({ type: "loadBoard" });
+      const boardId = this.$store.getters.getBoard._id
+      this.$router.push(`/board/${boardId}`);
+    }
     socketService.setup();
     socketService.emit("board id", this.boardToShow._id);
     socketService.on("updated board", this.updateBoard);
@@ -123,8 +128,8 @@ export default {
   //socketService.emit('board change', this.msg) //on board change(will send)
   methods: {
     updateBoard(boardToUpdate) {
-      console.log(boardToUpdate);
-      console.log("getting the changes");
+      // console.log(boardToUpdate);
+      // console.log("getting the changes");
       this.$store.emit({
         type: "updateBoard",
         boardIdx: 0,

@@ -81,11 +81,11 @@
             <i class="el-icon-s-order"></i>Activities
           </h3>
           <div class="comment-section">
-                 <textarea ref="writeComment" placeholder="write a comment" v-model="comment.txt" class="comment-box"></textarea>
+                <textarea ref="writeComment" placeholder="write a comment" v-model="comment.txt" class="comment-box"></textarea>
             <button @click="addComment" class="btn">Save</button>
           </div>
         </div>
-             <div v-if="(this.task.comments && this.task.comments ) || (this.activities && this.activities.length)">
+            <div v-if="(this.task.comments && this.task.comments ) || (this.activities && this.activities.length)">
         <div v-for="item in activitiesToShow" :key="item.id">
           <div v-if="item.task">
             <task-activities :activity="item" :type="item.txt"/>
@@ -187,10 +187,10 @@ export default {
       });
       this.comment = { txt: "" };
     },
-    saveComment(comment) {
-      // console.log("edit comment", comment);
-      this.$store.dispatch({ type: "saveComment", task: this.task, comment });
-    },
+    // saveComment(comment) {
+    //   console.log("edit comment", comment);
+    //   this.$store.dispatch({ type: "saveComment", task: this.task, comment });
+    // },
     removeTask() {
       this.$store.dispatch("removeTask", { task: this.task });
     },
@@ -246,11 +246,11 @@ export default {
     activitiesToShow(){
       if (this.activities && this.activities.length &&
       this.task.comments && this.task.comments.length)
-      var allArr = this.activities.concat(this.task.comments);
+      var allArr = JSON.parse(JSON.stringify(this.activities.concat(this.task.comments)))
       
       else if (this.activities && this.activities.length)
-        allArr = this.activities
-      else allArr = this.task.comments
+        allArr = JSON.parse(JSON.stringify(this.activities))
+      else allArr = JSON.parse(JSON.stringify(this.task.comments))
       var sortedArr = allArr.sort((a, b)=>{
         return b.createdAt - a.createdAt
       })
@@ -266,7 +266,7 @@ export default {
   },
   watch: {
     "$route.params.taskId"(id) {
-      console.log("Changed to", id);
+      // console.log("Changed to", id);
       this.loadTask();
     },
   },

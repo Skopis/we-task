@@ -20,6 +20,7 @@ export default {
   },
   methods:{
     formattedTime(timeStamp){
+      console.log('timeStamp', timeStamp)
       return moment(timeStamp).fromNow()
     }
   },
