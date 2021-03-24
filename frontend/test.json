@@ -67,6 +67,12 @@
                 "fullname": "Lian Skopis",
                 "username": "lianskopis",
                 "imgUrl": ""
+            },
+            {
+                "_id": "u777",
+                "fullname": "Itay Azulay",
+                "username": "itayazulay",
+                "imgUrl": ""
             }
         ],
         "groups": [

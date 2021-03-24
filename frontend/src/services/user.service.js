@@ -11,7 +11,8 @@ export const userService = {
     remove,
     update,
     getLoggedinUser,
-    increaseScore
+    increaseScore,
+    getAllMembers
 }
 
 window.userService = userService
@@ -23,6 +24,42 @@ window.userService = userService
 function getUsers() {
     return storageService.query('user')
     // return httpService.get(`user`)
+}
+
+
+function getAllMembers() {
+    return [
+        {
+            "_id": "u101",
+            "username": "shachardorfzaun",
+            "fullname": "Shachar Dorfzaun",
+            "imgUrl": ""
+        },
+        {
+            "_id": "u102",
+            "username": "nofargabso",
+            "fullname": "Nofar Gabso",
+            "imgUrl": ""
+        },
+        {
+            "_id": "u103",
+            "fullname": "Guest",
+            "username": "guest",
+            "imgUrl": ""
+        },
+        {
+            "_id": "u177",
+            "fullname": "Lian Skopis",
+            "username": "lianskopis",
+            "imgUrl": ""
+        },
+        {
+            "_id": "u777",
+            "fullname": "Itay Azulay",
+            "username": "itayazulay",
+            "imgUrl": ""
+        }
+    ]
 }
 
 function getById(userId) {
@@ -81,6 +118,6 @@ function getLoggedinUser() {
     else {
         _saveLocalUser(user)
         return user
-    }   
+    }
 }
 

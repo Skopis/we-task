@@ -17,13 +17,8 @@
 <script>
 import memberAvatar2 from './task-details/member-avatar2.vue'
 export default{
-    name: 'member-preview',
+    name: 'task-member-preview',
     props: ['member'],
-    data() {
-        return{
-
-        } 
-    },
     methods:{
         removeMemberFromTask(){
             this.$emit('removeMemberFromTask', this.member)

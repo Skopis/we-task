@@ -3,7 +3,7 @@ import { storageService } from './async-storage.service'
 import { userService } from './user.service'
 import { utilService } from './util.service'
 
-export const taskService = {
+export const boardService = {
   add,
   query,
   remove,
@@ -13,9 +13,9 @@ export const taskService = {
   addGroup,
   saveBoard,
   getGroupId,
-  loadArchive,
   addActivity,
   updateGroup,
+  loadArchive,
   archiveGroup,
   archiveBoard,
   getEmptyGroup,
@@ -24,18 +24,19 @@ export const taskService = {
 
 function getUser() { // TODO: is this really usefull?
   return {
-    "_id": "u101",
+    "_id": "u111",
     "fullname": "Guest",
     "imgUrl": "",
   }
 }
-async function addActivity(activity, board){
+
+async function addActivity(activity, board) {
   const boardToUpdate = JSON.parse(JSON.stringify(board))
   var activityToAdd = JSON.parse(JSON.stringify(activity))
   activityToAdd.id = utilService.makeId()
   boardToUpdate.activities.push(activityToAdd)
-  await httpService.put(`board/${boardToUpdate._id}`,boardToUpdate);
-  return {activityToAdd, boardToUpdate}
+  await httpService.put(`board/${boardToUpdate._id}`, boardToUpdate);
+  return { activityToAdd, boardToUpdate }
 }
 
 function handleGroupInSession(status, groupId) { // saves groupId to session

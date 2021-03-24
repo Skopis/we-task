@@ -25,6 +25,8 @@
 
 <script>
 import colorPicker from '../menu/color-picker.vue'
+import Swal from 'sweetalert2'
+
 export default {
   props:[],
     data(){
@@ -59,8 +61,29 @@ export default {
           this.checklistTitleModal = false;
         },
         removeTask(){
-          this.$router.go(-1)
-          this.$emit('removeTask')
+          Swal.fire({
+            title: 'Are you sure?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Yes, delete it!',
+            cancelButtonText: 'No, keep it'
+          }).then((result) => {
+            if (result.value) {
+              this.$emit('removeTask')
+              Swal.fire(
+                'Deleted!',
+                'Task has been deleted.',
+                'success'
+              )
+              this.$router.go(-1)
+            } else if (result.dismiss === Swal.DismissReason.cancel) {
+              Swal.fire(
+                'Cancelled',
+              )
+              return
+            }
+          })
+          
         },
         openLabelModal(){
           this.$emit('openLabelModal', 'true')

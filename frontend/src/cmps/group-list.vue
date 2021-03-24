@@ -65,7 +65,7 @@
 
 <script>
 // import taskDetails from "./task-details/task-details.vue";
-import memberPreview from "./member-preview.vue";
+import memberPreview from "./task-member-modal.vue";
 import taskPreview from "./task-preview.vue";
 import TaskQuickEdit from "./task-quick-edit.vue";
 import draggable from "vuedraggable";
@@ -91,6 +91,7 @@ export default {
     },
     removeMemberFromTask(member) {
       this.$emit("removeMemberFromTask", member, this.task, this.group);
+      this.isMemberModalOpen = false
     },
     archiveGroup(groupToArchive) {
       this.isGroupMenuModalOpen = false;

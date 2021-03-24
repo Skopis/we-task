@@ -59,8 +59,12 @@
           <h3 class="module-header">
             <i class="el-icon-s-unfold"></i>Description
           </h3>
-          <p v-if="task.description">{{ task.description }}</p>
-          <p v-else class="description-area">Add a more detailed description</p>
+          <p v-if="task.description && !isDescEditOpen" @click="editTaskDescription">{{ task.description }}</p>
+          <p v-else-if="!isDescEditOpen" class="description-area" @click="editTaskDescription">Add a more detailed description</p>
+          <form @submit.prevent="saveTaskDescription" v-if="isDescEditOpen">
+            <textarea name="" id="" cols="20" rows="3" v-model="task.description"></textarea>
+            <button class="btn" type="submit">Save</button>
+          </form>
         </div>
         <div class="task-checklists module">
           <check-list-add
@@ -142,6 +146,7 @@ export default {
       membersMenu: false,
       dateMenu: false,
       loggedinUser: null,
+      isDescEditOpen: false
     };
   },
   methods: {
@@ -155,6 +160,14 @@ export default {
       } catch (err) {
         console.log("Cannot find task", err);
       }
+    },
+    async saveTaskDescription(){
+      this.isDescEditOpen = false
+      await this.$store.dispatch({ type: "addTask", task: JSON.parse(JSON.stringify(this.task)) });
+      this.addActivity("Changed Task Description");
+    },
+    editTaskDescription(){
+      this.isDescEditOpen = true
     },
     reply(memberName) {
       setTimeout(() => {

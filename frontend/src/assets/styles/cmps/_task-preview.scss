@@ -10,7 +10,8 @@
     &:hover {
         .edit-task-title {
             i {
-                color: $task-txt;
+                // color: $task-txt;
+                color: grey;
             }
         }
     }
@@ -57,7 +58,7 @@
                 font-size: rem(13px);
                 color: white;
                 padding-bottom: 2px;
-                transform: scale(1.1, 2.5);
+                transform: scale(1.1, 1.0);
             }
         }
 

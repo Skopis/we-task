@@ -25,7 +25,12 @@
             v-model="boardToShow.title"
           />
         </form>
-        <member-avatar :members="boardToShow.members" :size="28" />
+        <div v-for="member in boardToShow.members" :key="member._id">
+          <member-avatar2 :member="member" :size="28" @click.native="toggleMemberModal(member)"/>
+        </div>
+        <board-member-modal v-if="isMemberModalOpen" :member="member" @removeMemberFromBoard="removeMemberFromBoard"/>
+        <button class="btn" @click="toggleAddMemberModal">Invite</button>
+        <add-board-member @addMemberToBoard="addMemberToBoard" v-if="isAddMemberModalOpen"/>
       </div>
       <div class="flex row-reverse align-center">
         <button class="btn" @click="toggleBoardMenuModal">
@@ -84,7 +89,9 @@ import groupList from "../cmps/group-list.vue";
 import draggable from "vuedraggable";
 import boardMenu from "../cmps/menu/board-menu.vue";
 import groupMenu from "../cmps/menu/group-menu";
-import memberAvatar from "../cmps/task-details/member-avatar.cmp.vue";
+import memberAvatar2 from "../cmps/task-details/member-avatar2.vue";
+import boardMemberModal from '../cmps/board-member-modal.vue'
+import AddBoardMember from '../cmps/add-board-member.vue';
 
 export default {
   name: "board",
@@ -94,6 +101,8 @@ export default {
       isBoardMenuModalOpen: false,
       menuPos: null,
       menuGroupId: null,
+      isMemberModalOpen: false,
+      isAddMemberModalOpen: false
     };
   },
   computed: {
@@ -101,7 +110,6 @@ export default {
       return JSON.parse(JSON.stringify(this.$store.getters.getBoard));
     },
   },
-
   async created() {
     const boardId = this.$route.params.boardId;
     if(boardId != 'b') await this.$store.dispatch({ type: "loadBoard", boardId });
@@ -122,6 +130,24 @@ export default {
   },
   //socketService.emit('board change', this.msg) //on board change(will send)
   methods: {
+    addMemberToBoard(member){
+      this.isAddMemberModalOpen = false
+      this.boardToShow.members.push(member)
+      this.updateBoard(this.boardToShow)
+    },
+    toggleAddMemberModal(){
+      this.isAddMemberModalOpen = !this.isAddMemberModalOpen
+    },
+    removeMemberFromBoard(member){
+      const memberIdx = this.boardToShow.members.findIndex(m => m._id === member._id)
+      this.boardToShow.members.splice(memberIdx, 1)
+      this.updateBoard(this.boardToShow)
+      this.isMemberModalOpen = false
+    },
+    toggleMemberModal(member){
+      this.member = member
+      this.isMemberModalOpen = !this.isMemberModalOpen
+    },
     updateBoard(boardToUpdate) {
       console.log(boardToUpdate);
       console.log("getting the changes");
@@ -238,7 +264,9 @@ export default {
     draggable,
     boardMenu,
     groupMenu,
-    memberAvatar,
+    memberAvatar2,
+    boardMemberModal,
+    AddBoardMember
   },
 };
 </script>
