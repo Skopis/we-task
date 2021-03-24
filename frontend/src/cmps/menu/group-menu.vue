@@ -7,6 +7,7 @@
     <ul>
     <li class="btn" @click="archiveGroup">Delete</li>
     <li class="btn" @click="toggleColorPicker">Cover</li>
+    <li class="btn" @click="addCard">Add card</li>
     <color-picker
       :group="group"
       @changeGroupCover="updateGroupCover"
@@ -19,6 +20,9 @@
 <script>
 import colorPicker from "./color-picker.vue";
 import Swal from 'sweetalert2'
+import {
+    eventBus
+} from '../../services/event-bus.service.js';
 
 export default {
   name: "group-menu",
@@ -29,6 +33,10 @@ export default {
     };
   },
   methods: {
+    addCard(){
+      eventBus.$emit("addCard",this.group.id);
+      this.closeMenu();
+    },
     toggleColorPicker() {
       this.isColorPickerOpen = !this.isColorPickerOpen;
     },

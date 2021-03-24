@@ -7,7 +7,7 @@
         v-else
         :username="member.fullname"
         :size="size"
-        lighten="80"
+        
       ></avatar>
     </div>
   </div>

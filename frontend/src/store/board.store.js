@@ -11,6 +11,7 @@ export const boardStore = {
         currTaskActivities: null,
         currGroupId: null,
         currTask: null,
+        filterBy: '',
     },
     getters: {
         boardMembers(state){
@@ -20,7 +21,24 @@ export const boardStore = {
             return state.tasks;
         },
         getBoard(state) {
-            return state.board
+            const fillteredBoard = JSON.parse(
+                JSON.stringify(state.board)
+            );
+            if (fillteredBoard) {
+                fillteredBoard.groups.forEach((group, gIdx) => {
+                    for (let tIdx = 0; tIdx < group.tasks.length; tIdx++) {
+                        if (
+                            !group.tasks[tIdx].title
+                                .toLowerCase()
+                                .includes(state.filterBy.toLowerCase())
+                        ) {
+                            fillteredBoard.groups[gIdx].tasks.splice(tIdx, 1);
+                            tIdx = tIdx - 1;
+                        }
+                    }
+                });
+            }
+            return fillteredBoard;
         },
         getBoardId(state) {
             return state.board._id
@@ -39,6 +57,9 @@ export const boardStore = {
         }
     },
     mutations: {
+        setFilterBy(state, { filterBy }) {
+            state.filterBy = filterBy;
+        },
         addBoard(state, { newBoard }) {
             state.boards.push(newBoard)
             state.board = newBoard
@@ -76,28 +97,31 @@ export const boardStore = {
             state.archive.push(board)
             state.boards.splice(boardIdx, 1)
         },
-        addActivity(state, {activityToAdd}){
+        addActivity(state, { activityToAdd }) {
             state.board.activities.push(activityToAdd)
         }
     },
     actions: {
         async updateBoard({ state, commit }, { boardToUpdate }) {
+            if (state.filterBy !== ''){
+                return
+            }
             try {
-                // console.log(boardToUpdate);
                 var boardIdx = state.boards.findIndex(b => b._id === boardToUpdate._id)
                 await boardService.saveBoard(boardToUpdate, boardIdx)
                 commit({ type: 'updateBoard', boardIdx, board: boardToUpdate })
-                //TODO: check if infi loop - it is
-                // this.dispatch({ type: 'sendUpdatedBoard' });
+                this.dispatch({ type: 'sendUpdatedBoard' });
             }
             catch (err) {
                 console.log('boardStore: Error in updateBoard', err)
                 throw err
             }
         },
-        async sendUpdatedBoard({ state }) {
+        sendUpdatedBoard({ state }) {
             // console.log("Sending", state.board);
-            await socketService.emit("board change", state.board);
+            if (state.filterBy === '') {
+                socketService.emit("board change", state.board);
+            }
         },
         async addTask({ commit, state }, { task, group }) {
             try {
@@ -185,7 +209,7 @@ export const boardStore = {
         async loadBoard({ commit, state }, { boardId }) {
             try {
                 await this.dispatch({ type: "loadBoards" })
-                if(boardId){
+                if (boardId) {
                     var boardIdx = state.boards.findIndex(b => b._id === boardId)
                     commit({ type: 'setBoard', board: state.boards[boardIdx] })
                 }

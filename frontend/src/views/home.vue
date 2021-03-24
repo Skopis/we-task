@@ -6,11 +6,11 @@
       <!-- <p class="text-center sub-header">Organizing your work & life</p> -->
       <button @click="pushRoute">Try it now</button>
     </section>
-    <section>
+    <section class="article-container">
       <p class="text-center sub-header">THE POWER OF THE INTERNET IS HERE</p>
       <article>
         <img src="../assets/Pictures/yours.png" />
-        <div>
+        <div class="text-container">
           <h2>Make it yours.</h2>
           <p>
             Make it feel like home for you and your team. Customize the board's
@@ -19,7 +19,7 @@
         </div>
       </article>
       <article>
-        <div>
+        <div class="text-container">
           <h2>Drag n Drop!</h2>
           <p>
             Try our Drag n Drop technology to easily move & update your tasks
@@ -30,7 +30,7 @@
       </article>
       <article>
         <img src="../assets/Pictures/sockets.png" />
-        <div>
+        <div class="text-container">
           <h2>Web Sockets.</h2>
           <p>
             With the power of web sockets, you and your team can enjoy a

@@ -66,6 +66,14 @@
                     color: #42526ea1;
                     background-color:#eaecf0;
                     font-size: rem(20px);
+                 span{
+                    font-size: 13px;
+                    font-weight: 600;
+                    text-align: center;
+                    letter-spacing: .5px;
+                    color: rgb(242, 248, 248);
+                }
+
                 }
                 .add-label{
                     color: #42526ea1;
@@ -192,6 +200,13 @@
                 margin-top: -12px;
                 .avatar{
                     margin-top: 10px;
+                    span{
+                        font-size: 13px;
+                        font-weight: 600;
+                        text-align: center;
+                        letter-spacing: .5px;
+                        color: rgb(242, 248, 248);
+                    }
                 }
                 p{
                     margin: 0;
@@ -217,14 +232,11 @@
                 margin-top: -10px;
                 padding: 8px 12px;
                 min-width: 40px;
-                // width: 200px;
                 box-shadow: 0 1px 6px -1px rgba(9 ,30 ,66 ,0.25);
                 background-color: #fff;
                 border-radius: 4px;
             }
-            p{
-                // margin: 0;
-            }
+           
             .btn{
                 font-size: rem(13px);
                 height: unset;
@@ -256,14 +268,18 @@
         transform: rotate(45deg);
         position: absolute;
         right: 1px;
-    }
-
-    .close-btn:focus {
-        outline: none;
-    }
-
-    .close-btn:hover {
-        opacity: .7;
+        text-align: center;
+        margin-top: 2px;
+        margin-right: 2px;
+        height: 50px;
+            width: 50px;
+        &:focus{
+            outline: none;
+        }
+        &:hover{
+            background-color: rgba(218, 214, 214, 0.397);
+            border-radius: 50%;
+        }
     }
 
     .task-labels-wrapper {
@@ -295,6 +311,15 @@
         margin-right: 10px;
         margin-left: -7px;
         margin-top: 2px;
+        .avatar{
+            span{
+                font-size: 13px;
+                font-weight: 600;
+                text-align: center;
+                letter-spacing: .5px;
+                color: rgb(242, 248, 248);
+            }
+        }
     }
     .activity-info{
         p{
@@ -356,14 +381,15 @@
             font-size: 14px;
             text-align: left;
             color: #424c5c;
+            display: flex;
             
             &:hover{
                 background-color: rgba(9,30,66,.08);
                 color: #091e42;
             }
 
-            i {
-                margin-right: 3px;
+            p {
+                margin-left: 6px;
             }
 
             .delete {
@@ -375,11 +401,36 @@
 }
 
 .task-checklists {
-    // border: 1px solid black;
+    i{
+        font-weight: 600;
+    }
+    body {
+        background: #eef1f3;
+    }
+    .progress-bar {
+        border-radius: 60px;
+        overflow: hidden;
+        width: 75%;
+        height: 8px;
+        margin-bottom: 8px;
+        span {
+            display: block;
+        }
+    }
+    .bar {
+      background:  rgba(0,0,0,0.075);
+    }
+    
+    .progress {
+        transition: 1s;
+        color: #fff;
+        padding: 5px;
+    }
+    
 
     .checklist {
-        // border: 1px solid springgreen;
         position: relative;
+        
     }
     .new-todo-input{
         background-color: #fff;
@@ -401,18 +452,30 @@
         font-family: roboto;
         overflow-wrap: break-word;        
     }
-
-    .todo {
-        padding-left: 40px;
+    .todo{
+        padding: 0 8px;
+        border-radius: 4px;
+        width: 75%;
+        padding-top: 8px;
+        padding-bottom: 1px;
+        &:hover{
+            background-color: rgb(202, 202, 202);
+        }
     }
 
-
+    .todo-txt {
+        margin-left: 40px; 
+    }
+    
+    
     .checkbox {
         border-radius: 2px;
         height: 16px;
         width: 16px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         overflow: hidden;
-        white-space: nowrap;
         transition: all .2s ease-in-out;
         background-color: #fafbfc;
         color: transparent;
@@ -423,7 +486,7 @@
         text-align: center;
         cursor: pointer;
     }
-
+        
     .completed {
         p {
             text-decoration: line-through;
