@@ -75,13 +75,8 @@
       </button>
     </section>
     <router-view />
-    <!-- <button class="bfb" @click.stop="sendUpdatedBoard">
-      aaaaaaaaaaaaaaaaa
-    </button> -->
   </div>
 </template>
-
-// :v-if="setMenuPos" @archiveGroup="archiveGroup" @updateGroupCover="updateGroupCover"
 
 <script>
 import { socketService } from "@/services/socket.service";
@@ -128,12 +123,12 @@ export default {
   //socketService.emit('board change', this.msg) //on board change(will send)
   methods: {
     updateBoard(boardToUpdate) {
-      // console.log(boardToUpdate);
-      // console.log("getting the changes");
-      this.$store.emit({
+      console.log(boardToUpdate);
+      console.log("getting the changes");
+      this.$store.commit({
         type: "updateBoard",
         boardIdx: 0,
-        board: boardToUpdate,
+        board: boardToUpdate
       });
     },
     // sendUpdatedBoard() {
@@ -213,6 +208,7 @@ export default {
       board.groups = this.boardToShow.groups;
       // console.log(board.groups);
       this.updateBoard(board);
+      console.log("check if dragged");
     },
     updateBoard(board) {
       this.$store.dispatch({

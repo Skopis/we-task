@@ -44,6 +44,7 @@ export const taskStore = {
             state.board.groups.push(newGroup)
         },
         updateBoard(state, { boardIdx, board }) {
+            console.log("bbbbbbbbbbb");
             state.boards.splice(boardIdx, 1, board)
             state.board = board
         },
