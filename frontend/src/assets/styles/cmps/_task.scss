@@ -66,6 +66,14 @@
                     color: #42526ea1;
                     background-color:#eaecf0;
                     font-size: rem(20px);
+                 span{
+                    font-size: 13px;
+                    font-weight: 600;
+                    text-align: center;
+                    letter-spacing: .5px;
+                    color: rgb(242, 248, 248);
+                }
+
                 }
                 .add-label{
                     color: #42526ea1;
@@ -192,6 +200,13 @@
                 margin-top: -12px;
                 .avatar{
                     margin-top: 10px;
+                    span{
+                        font-size: 13px;
+                        font-weight: 600;
+                        text-align: center;
+                        letter-spacing: .5px;
+                        color: rgb(242, 248, 248);
+                    }
                 }
                 p{
                     margin: 0;
@@ -222,9 +237,7 @@
                 background-color: #fff;
                 border-radius: 4px;
             }
-            p{
-                // margin: 0;
-            }
+           
             .btn{
                 font-size: rem(13px);
                 height: unset;
@@ -256,14 +269,18 @@
         transform: rotate(45deg);
         position: absolute;
         right: 1px;
-    }
-
-    .close-btn:focus {
-        outline: none;
-    }
-
-    .close-btn:hover {
-        opacity: .7;
+        text-align: center;
+        margin-top: 2px;
+        margin-right: 2px;
+        height: 50px;
+            width: 50px;
+        &:focus{
+            outline: none;
+        }
+        &:hover{
+            background-color: rgba(218, 214, 214, 0.397);
+            border-radius: 50%;
+        }
     }
 
     .task-labels-wrapper {
@@ -295,6 +312,15 @@
         margin-right: 10px;
         margin-left: -7px;
         margin-top: 2px;
+        .avatar{
+            span{
+                font-size: 13px;
+                font-weight: 600;
+                text-align: center;
+                letter-spacing: .5px;
+                color: rgb(242, 248, 248);
+            }
+        }
     }
     .activity-info{
         p{
