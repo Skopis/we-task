@@ -51,7 +51,7 @@
       </ul>
     </div>
     <footer>
-      <button class="btn add-task" @click="openAddModal">
+      <button class="btn add-task" @click="openAddModal(-1)">
         <i class="el-icon-plus"></i>Add another card
       </button>
     </footer>
@@ -69,6 +69,7 @@ import memberPreview from "./member-preview.vue";
 import taskPreview from "./task-preview.vue";
 import TaskQuickEdit from "./task-quick-edit.vue";
 import draggable from "vuedraggable";
+import { eventBus } from "../services/event-bus.service.js";
 
 export default {
   name: "group-list",
@@ -82,6 +83,12 @@ export default {
       member: null,
       task: null,
     };
+  },
+  created() {
+    eventBus.$on("addCard", this.openAddModal);
+  },
+  destroyed() {
+    eventBus.$off("addCard", this.openAddModal);
   },
   methods: {
     toggleMemberPreview(member, status, task) {
@@ -114,8 +121,10 @@ export default {
     itemDragged(ev) {
       this.$emit("itemDragged", this.group);
     },
-    openAddModal() {
-      this.isAddModalOpen = true;
+    openAddModal(groupId = -1) {
+      if (groupId === this.group.id || groupId == -1) {
+        this.isAddModalOpen = true;
+      }
     },
     updateGroup() {
       this.$emit("updateGroup", this.group);

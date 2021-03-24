@@ -35,6 +35,7 @@
           v-if="isBoardMenuModalOpen"
           :board="boardToShow"
           @updateBoardCover="updateBoardCover"
+          @searchChanged="searchChanged"
         />
       </div>
     </header>
@@ -98,43 +99,48 @@ export default {
   },
   computed: {
     boardToShow() {
-      return JSON.parse(JSON.stringify(this.$store.getters.getBoard));
+      //return JSON.parse(JSON.stringify(this.$store.getters.getBoard));
+      const fillteredBoard = JSON.parse(
+        JSON.stringify(this.$store.getters.getBoard)
+      );
+
+      return fillteredBoard;
     },
   },
 
   async created() {
     const boardId = this.$route.params.boardId;
-    if(boardId != 'b') await this.$store.dispatch({ type: "loadBoard", boardId });
+    if (boardId != "b")
+      await this.$store.dispatch({ type: "loadBoard", boardId });
     else {
       await this.$store.dispatch({ type: "loadBoard" });
-      const boardId = this.$store.getters.getBoard._id
+      const boardId = this.$store.getters.getBoard._id;
       this.$router.push(`/board/${boardId}`);
     }
     socketService.setup();
     socketService.emit("board id", this.boardToShow._id);
-    socketService.on("updated board", this.updateBoard);
+    socketService.on("updated board", this.updatedBoard);
   },
   destroyed() {
     {
-      socketService.off("updated board", this.updateBoard);
+      socketService.off("updated board", this.updatedBoard);
       socketService.terminate();
     }
   },
   //socketService.emit('board change', this.msg) //on board change(will send)
   methods: {
-    updateBoard(boardToUpdate) {
+    searchChanged(txt) {
+      this.$store.commit({ type: "setFilterBy", filterBy: txt });
+    },
+    updatedBoard(boardToUpdate) {
       console.log(boardToUpdate);
       console.log("getting the changes");
       this.$store.commit({
         type: "updateBoard",
         boardIdx: 0,
-        board: boardToUpdate
+        board: boardToUpdate,
       });
     },
-    // sendUpdatedBoard() {
-    //   console.log("Sending", this.boardToShow);
-    //   socketService.emit("board change", this.boardToShow);
-    // },
     removeMemberFromTask(member, task, group) {
       var memberIdx = task.members.findIndex((m) => m._id === member._id);
       task.members.splice(memberIdx, 1);
@@ -208,7 +214,6 @@ export default {
       board.groups = this.boardToShow.groups;
       // console.log(board.groups);
       this.updateBoard(board);
-      console.log("check if dragged");
     },
     updateBoard(board) {
       this.$store.dispatch({
