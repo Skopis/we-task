@@ -52,7 +52,7 @@
     </div>
     <footer>
       <button class="btn add-task" @click="openAddModal">
-        <span class="">＋</span> Add another card
+        <i class="el-icon-plus"></i>Add another card
       </button>
     </footer>
     <member-preview
