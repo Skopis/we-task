@@ -2,11 +2,11 @@
   <div class="task-side-bar">
   <h3>ADD TO CARD</h3>
     <div class="dev-tools">
-      <button  class="btn" @click="openMembersMenu"><i class="el-icon-user"></i> Members</button>
-      <button class="btn" @click="openLabelModal"><i class="el-icon-collection-tag"></i> Labels</button>
-      <button class="btn" @click="openCheckListTitleModal"><i class="el-icon-finished"></i> Checklist</button>
+      <button  class="btn" @click="openMembersMenu"><i class="el-icon-user"></i><p> Members</p></button>
+      <button class="btn" @click="openLabelModal"><i class="el-icon-collection-tag"></i><p> Labels</p></button>
+      <button class="btn" @click="openCheckListTitleModal"><i class="el-icon-finished"></i><p> Checklist</p></button>
       <div class="checklist-title-modal" v-if="checklistTitleModal">
-      <div class="checklist-modal-header">Add checklist
+      <div class="checklist-modal-header"> <p></p>Add checklist
         <button class="btn close" @click="closeTitleModal"><i class="el-icon-close"></i></button>
       </div>
       <form @submit.prevent="startNewChecklist">
@@ -14,11 +14,11 @@
        <button class="btn">Save</button>
       </form>
       </div>
-      <button class="btn" @click="openDateModal"><i class="el-icon-date"></i> Due Date</button>
-      <button class="btn"><i class="el-icon-paperclip"></i> Attachment</button>
-      <button class="btn" @click="toggleColorPicker"><i class="el-icon-brush"></i> Cover</button>
+      <button class="btn" @click="openDateModal"><i class="el-icon-date"></i><p> Due Date</p></button>
+      <button class="btn"><i class="el-icon-paperclip"></i><p> Attachment</p></button>
+      <button class="btn" @click="toggleColorPicker"><i class="el-icon-brush"></i><p> Cover</p></button>
       <color-picker @changeTaskCover="updateTaskCover" v-if="isColorPickerOpen"/>
-      <button class="btn delete" @click="removeTask"><i class="el-icon-delete"></i> Delete</button>
+      <button class="btn delete" @click="removeTask"><i class="el-icon-delete"></i><p> Delete</p></button>
     </div>
   </div>
 </template>

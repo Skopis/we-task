@@ -29,8 +29,8 @@
       <div class="btn-container">
         <el-button class="btn badge eye" icon="el-icon-view" v-if="isloggedinUserMember"></el-button>
         <!-- v-if logged in member = member assigned to task-->
-        <button class="btn badge" v-if="task.comments">
-          <i class="el-icon-chat-square"></i> <span>{{ task.comments.length }}</span>
+        <button class="btn badge" v-if="task.comments && task.comments.length">
+          <i class="el-icon-chat-square" ></i> <span>{{ task.comments.length }}</span>
         </button>
       </div>
     </div>
