@@ -44,6 +44,7 @@ export const taskStore = {
             state.board.groups.push(newGroup)
         },
         updateBoard(state, { boardIdx, board }) {
+            console.log("bbbbbbbbbbb");
             state.boards.splice(boardIdx, 1, board)
             state.board = board
         },
@@ -80,7 +81,7 @@ export const taskStore = {
     actions: {
         async updateBoard({ state, commit }, { boardToUpdate }) {
             try {
-                console.log(boardToUpdate);
+                console.log("aaaaaaaaaaaaaa");
                 var boardIdx = state.boards.findIndex(b => b._id === boardToUpdate._id)
                 await taskService.saveBoard(boardToUpdate, boardIdx)
                 commit({ type: 'updateBoard', boardIdx, board: boardToUpdate })
