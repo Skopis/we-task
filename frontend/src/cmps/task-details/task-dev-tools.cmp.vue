@@ -4,18 +4,16 @@
     <div class="dev-tools">
       <button  class="btn" @click="openMembersMenu"><i class="el-icon-user"></i><p> Members</p></button>
       <button class="btn" @click="openLabelModal"><i class="el-icon-collection-tag"></i><p> Labels</p></button>
-      <button class="btn" @click="openCheckListTitleModal"><i class="el-icon-finished"></i><p> Checklist</p></button>
+      <button class="btn" @click="toggleCheckListTitleModal"><i class="el-icon-finished"></i><p> Checklist</p></button>
       <div class="checklist-title-modal" v-if="checklistTitleModal">
-      <div class="checklist-modal-header"> <p>Add checklist</p>
-        <button class="btn close" @click="closeTitleModal"><i class="el-icon-close"></i></button>
-      </div>
+      <div class="checklist-modal-header"> <p>Add checklist</p></div>
       <form @submit.prevent="startNewChecklist">
          <input class="new-todo-input new-checklist-title" type="text" placeholder="Title for CheckList" v-model="checklistTitle" />
        <button class="btn">Save</button>
       </form>
       </div>
       <button class="btn" @click="openDateModal"><i class="el-icon-date"></i><p> Due Date</p></button>
-      <button class="btn" @click="openAttachmentModal"><i class="el-icon-paperclip"></i><p> Attachment</p></button>
+      <button class="btn" @click="toggleAttachmentModal"><i class="el-icon-paperclip"></i><p> Attachment</p></button>
       <button class="btn" @click="toggleColorPicker"><i class="el-icon-brush"></i><p> Cover</p></button>
       <color-picker @changeTaskCover="updateTaskCover" v-if="isColorPickerOpen"/>
       <h3>Actions</h3>
@@ -38,8 +36,8 @@ export default {
         }
     },
     methods:{
-      openAttachmentModal(){
-        this.$emit('openAttachmentModal', true) 
+      toggleAttachmentModal(){
+        this.$emit('toggleAttachmentModal') 
       },
       openMembersMenu(){
         this.$emit('openMembersMenu', true)
@@ -53,11 +51,8 @@ export default {
         updateTaskCover(color){
             this.$emit('updateTaskCover', color)
         },
-        openCheckListTitleModal(){
-          this.checklistTitleModal = true;
-        },
-        closeTitleModal(){
-          this.checklistTitleModal = false;
+        toggleCheckListTitleModal(){
+          this.checklistTitleModal = !this.checklistTitleModal;
         },
         startNewChecklist(){
           if(!this.checklistTitle) this.checklistTitle = 'Checklist'

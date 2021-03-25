@@ -2,11 +2,14 @@
     background-color: #fff;
     position: absolute;
     z-index: 20;
-    right: 0;
+    right: 85px;
+    top: 145px;
     padding: 0 12px 12px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    border-radius: 4px;
+    box-shadow: 0 0px 5px -3px;
 
     p{
         margin: 0
@@ -22,15 +25,20 @@
     }
 
     header {
-        padding: 0 !important;
-        width: 280px;
-        line-height: 41px;
+        p{
+            margin: 10px 0;
+            font-size: 16px;
+        }
         display: flex;
-        justify-content: space-between;
-        border-bottom: 1px solid rgba(9, 30, 66, 0.13);
-        font-size: 14px;
-        font-weight: 400;
-        margin-bottom: 8px;
+        justify-content: center;
+        color: #5e6c84;
+        // line-height: 40px;
+        border-bottom: 1px solid rgba(9,30,66,.13);
+        overflow: hidden;
+        position: relative;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        z-index: 1;
     }
     .member-line {
         cursor: pointer;

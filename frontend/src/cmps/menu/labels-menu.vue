@@ -2,9 +2,6 @@
   <div class="task-lable-menu">
     <header>
       <p>Labels</p>
-      <button class="btn close" @click="closeModal">
-        <i class="el-icon-close"></i>
-      </button>
     </header>
     <div
       v-for="(label, index) in labels"
