@@ -4,11 +4,15 @@
       <header :style="task.style.imgUrl? { backgroundImage: 'url('+task.style.imgUrl+')', height:300+'px'} :{ backgroundColor: task.style.bgColor }">
         <div class="header-content" >
           <button class="btn close-modal" @click="closeDetailsModal"><i class="el-icon-close"></i></button>
-          <h1>{{ task.title }}</h1>
-          <p><span>in List</span></p>
+          <h1 v-if="!task.style.imgUrl">{{ task.title }}</h1>
+          <p v-if="!task.style.imgUrl"><span>in List</span></p>
         </div>
       </header>
       <main>
+      <div v-if="task.style.imgUrl">
+          <h1>{{ task.title }}</h1>
+          <p><span>in List</span></p>
+      </div>
         <div class="task-info">
           <members-menu
             v-if="membersMenu"
