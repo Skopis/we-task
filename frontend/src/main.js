@@ -8,15 +8,13 @@ import './registerServiceWorker'
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import locale from 'element-ui/lib/locale/lang/en';
+import moment from 'moment';
 
 // const Swal = require('sweetalert2')
 
-import moment from 'moment';
 moment().format();
 
 export const eventBus = new Vue()
-
-
 
 
 Vue.use(ElementUI, { locale });

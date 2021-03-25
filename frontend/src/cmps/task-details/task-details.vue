@@ -1,9 +1,9 @@
 <template>
   <div v-if="task" class="task-details-modal">
     <div class="task-details-content" @click.self="closeModals">
-      <header :style="{ backgroundColor: task.style.bgColor }">
+      <header :style="task.style.imgUrl? { backgroundImage: 'url('+task.style.imgUrl+')'} :{ backgroundColor: task.style.bgColor }">
         <div class="header-content">
-          <button class="btn close-btn" @click="closeDetailsModal">+</button>
+          <button class="btn close-modal" @click="closeDetailsModal"><i class="el-icon-close"></i></button>
           <h1>{{ task.title }}</h1>
           <p><span>in List</span></p>
         </div>
@@ -31,6 +31,7 @@
             v-if="labelsModal"
             @setLabel="setTaskLabel"
             @closeLabelMenu="manageLabelMenu"
+            @updateLabel="updateLabel"
           />
           <div class="labels-container container">
             <div v-if="task.labels" class="task-labels-wrapper">
@@ -54,16 +55,33 @@
               <p class="due-date">{{ task.dueDate }}</p>
             </div>
           </div>
-          <task-attachment v-if="isAttachmentModalOpen"/>
+          <task-attachment v-if="isAttachmentModalOpen" @saveImgAsAttachment="saveImgAsAttachment"/>
         </div>
         <div class="task-desc module">
           <h3 class="module-header">
             <i class="el-icon-s-unfold"></i>Description
           </h3>
-          <p v-if="task.description && !isDescEditOpen" @click="editTaskDescription">{{ task.description }}</p>
-          <p v-else-if="!isDescEditOpen" class="description-area" @click="editTaskDescription">Add a more detailed description</p>
+          <p
+            v-if="task.description && !isDescEditOpen"
+            @click="editTaskDescription"
+          >
+            {{ task.description }}
+          </p>
+          <p
+            v-else-if="!isDescEditOpen"
+            class="description-area"
+            @click="editTaskDescription"
+          >
+            Add a more detailed description
+          </p>
           <form @submit.prevent="saveTaskDescription" v-if="isDescEditOpen">
-            <textarea name="" id="" cols="20" rows="3" v-model="task.description"></textarea>
+            <textarea
+              name=""
+              id=""
+              cols="20"
+              rows="3"
+              v-model="task.description"
+            ></textarea>
             <button class="btn" type="submit">Save</button>
           </form>
         </div>
@@ -79,8 +97,16 @@
               <i class="el-icon-finished"></i>Check List
             </h3>
             <div v-for="checklist in task.checklists" :key="checklist.id">
-              <task-todo :checklist="checklist" />
+              <task-todo :checklist="checklist" @updateChecklist="updateChecklist" />
             </div>
+          </div>
+        </div>
+        <div v-if="task.attachments && task.attachments.length">
+          <h3 class="module-header">
+            <i class="el-icon-paperclip"></i>Attachments
+          </h3>
+          <div class="img-list" v-for="(attachment, idx) in task.attachments" :key="idx">
+            <task-attachment-display :imgUrl="attachment.imgUrl" @setImageAsTaskCover="setImageAsTaskCover" @removeAttachment="removeAttachment" @comment="commentOnAttachment"/>
           </div>
         </div>
         <div class="module">
@@ -137,6 +163,7 @@ import labelsMenu from "../menu/labels-menu";
 import membersMenu from "../menu/members-menu";
 import DatePicker from "./date-picker.vue";
 import taskAttachment from './task-attachment.vue'
+import taskAttachmentDisplay from './task-attachment-display.vue'
 
 export default {
   data() {
@@ -150,10 +177,56 @@ export default {
       dateMenu: false,
       loggedinUser: null,
       isDescEditOpen: false,
-      isAttachmentModalOpen: false
+      isAttachmentModalOpen: false,
+      checklistTitle:'',
     };
   },
   methods: {
+    closeAllModals(){
+      this.checkListModal = false;
+      this.labelsModal = false;
+      this.membersMenu = false;
+      this.dateMenu = false;
+    },
+    commentOnAttachment(imgUrl){
+      setTimeout(() => {
+        this.$refs.writeComment.focus();
+        this.comment.txt = imgUrl
+      }, 300);
+    },
+    async removeAttachment(imgUrl){
+      const attachmentIdx = this.task.attachments.findIndex(a=> a.imgUrl === imgUrl)
+      this.task.attachments.splice(attachmentIdx, 1)
+      await this.$store.dispatch({
+        type: "addTask",
+        task: JSON.parse(JSON.stringify(this.task)),
+      });
+      this.addActivity("Deleted Attachment");
+    },
+    async setImageAsTaskCover(imgUrl){
+      this.task.style.imgUrl = imgUrl
+      await this.$store.dispatch({
+        type: "addTask",
+        task: JSON.parse(JSON.stringify(this.task)),
+      });
+      if (!imgUrl) this.addActivity("Removed Attached Image from Cover");
+      else this.addActivity("Changed cover to Attached Image");
+    },
+    async saveImgAsAttachment(imgUrl){ 
+      this.isAttachmentModalOpen = false
+      const attachment = {byMember: this.loggedinUser, imgUrl}
+      if(!this.task.attachments) this.task.attachments=[]
+      this.task.attachments.push(attachment)
+      await this.$store.dispatch({
+        type: "addTask",
+        task: JSON.parse(JSON.stringify(this.task)),
+      });
+      this.addActivity("Added Attachment");
+    },
+    updateLabel(labelData) {
+      // console.log(labelData);
+      this.$store.dispatch({ type: "updateLabel", labelData });
+    },
     async loadTask() {
       const id = this.$route.params.taskId;
       try {
@@ -168,13 +241,16 @@ export default {
     toggleAttachmentModal(status){
       this.isAttachmentModalOpen = status
     },
-    async saveTaskDescription(){
-      this.isDescEditOpen = false
-      await this.$store.dispatch({ type: "addTask", task: JSON.parse(JSON.stringify(this.task)) });
+    async saveTaskDescription() {
+      this.isDescEditOpen = false;
+      await this.$store.dispatch({
+        type: "addTask",
+        task: JSON.parse(JSON.stringify(this.task)),
+      });
       this.addActivity("Changed Task Description");
     },
-    editTaskDescription(){
-      this.isDescEditOpen = true
+    editTaskDescription() {
+      this.isDescEditOpen = true;
     },
     reply(memberName) {
       setTimeout(() => {
@@ -193,14 +269,15 @@ export default {
       return date.toLocaleDateString(undefined, options);
     },
     manageDateMenu(status) {
-      this.dateMenu = status;
+      // this.dateMenu = status;
+      this.dateMenu = !this.dateMenu;
     },
     manageMembersMenu(status) {
-      ////////////////////
-      this.membersMenu = status;
+      // this.membersMenu = status;
+      this.membersMenu = !this.membersMenu;
     },
-    createCheckList() {
-      // console.log("checklist");
+    createCheckList(checklistTitle) {
+      this.checklistTitle = checklistTitle
       this.checkListModal = true;
     },
     closeCheckList() {
@@ -226,10 +303,7 @@ export default {
       });
       this.comment = { txt: "" };
     },
-    // saveComment(comment) {
-    //   console.log("edit comment", comment);
-    //   this.$store.dispatch({ type: "saveComment", task: this.task, comment });
-    // },
+    
     removeTask() {
       this.$store.dispatch("removeTask", { task: this.task });
     },
@@ -242,12 +316,13 @@ export default {
       this.$router.go(-1);
     },
     async setTaskLabel(label) {
-      await this.$store.dispatch({
+      const isAdded = await this.$store.dispatch({
         type: "setTaskLabel",
         task: this.task,
         label,
       });
-      this.addActivity("Added Label");
+      const txt = isAdded ? "Added Label" : "Removed Label";
+      this.addActivity(txt);
       this.loadTask();
     },
     async updateDueDate(date) {
@@ -276,33 +351,46 @@ export default {
       this.$store.dispatch({ type: "addTask", task: this.task });
     },
     updateTaskCover(color) {
+      this.task.style.imgUrl = ''
       // console.log("this.task", this.task);
       this.task.style.bgColor = color;
       this.$store.dispatch({ type: "addTask", task: this.task });
     },
     manageLabelMenu(status) {
       // console.log(status);
-      this.labelsModal = JSON.parse(status);
+      this.labelsModal = !this.labelsModal//JSON.parse(status);
     },
     closeModals() {
       this.labelsModal = false;
       this.checkListModal = false;
       // console.log(this.labelsModal, this.checkListModal);
     },
+    updateChecklist(checklistId, todoId, isDone){
+      const checklistIdx = this.task.checklists.findIndex(checklist => checklist.id === checklistId)
+      const todoIdx = this.task.checklists[checklistIdx].todos.findIndex(todo => todo.id ===todoId)
+      const todo = this.task.checklists[checklistIdx].todos[todoIdx]
+      todo.isDone = isDone
+      this.$store.dispatch({ type: "addTask", task: this.task });
+    }
   },
   computed: {
-    activitiesToShow(){
-      if (this.activities && this.activities.length &&
-      this.task.comments && this.task.comments.length)
-      var allArr = JSON.parse(JSON.stringify(this.activities.concat(this.task.comments)))
-      
+    activitiesToShow() {
+      if (
+        this.activities &&
+        this.activities.length &&
+        this.task.comments &&
+        this.task.comments.length
+      )
+        var allArr = JSON.parse(
+          JSON.stringify(this.activities.concat(this.task.comments))
+        );
       else if (this.activities && this.activities.length)
-        allArr = JSON.parse(JSON.stringify(this.activities))
-      else allArr = JSON.parse(JSON.stringify(this.task.comments))
-      var sortedArr = allArr.sort((a, b)=>{
-        return b.createdAt - a.createdAt
-      })
-      return sortedArr
+        allArr = JSON.parse(JSON.stringify(this.activities));
+      else allArr = JSON.parse(JSON.stringify(this.task.comments));
+      var sortedArr = allArr.sort((a, b) => {
+        return b.createdAt - a.createdAt;
+      });
+      return sortedArr;
     },
     boradId() {
       return this.$store.getters.getBoardId;
@@ -328,7 +416,8 @@ export default {
     labelsMenu,
     membersMenu,
     DatePicker,
-    taskAttachment
+    taskAttachment,
+    taskAttachmentDisplay
   },
 };
 </script>

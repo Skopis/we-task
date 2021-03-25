@@ -11,8 +11,8 @@ export const socketStore = {
         }
     },
     actions: {
-        // TODO: show on
         sendBoard(context, {board}) {
+            console.log('socket is sending');
             socketService.emit('sendBoard', board)
         },
         getChatHistory(context, {chatId}) {

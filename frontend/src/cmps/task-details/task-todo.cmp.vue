@@ -35,6 +35,7 @@ export default {
   methods: {
     toggleDoneStatus(todo) {
       todo.isDone = !todo.isDone;
+      this.$emit('updateChecklist', this.checklist.id, todo.id, todo.isDone)
     },
   },
   computed: {

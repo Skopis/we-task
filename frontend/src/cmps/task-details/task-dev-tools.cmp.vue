@@ -6,7 +6,7 @@
       <button class="btn" @click="openLabelModal"><i class="el-icon-collection-tag"></i><p> Labels</p></button>
       <button class="btn" @click="openCheckListTitleModal"><i class="el-icon-finished"></i><p> Checklist</p></button>
       <div class="checklist-title-modal" v-if="checklistTitleModal">
-      <div class="checklist-modal-header"> <p></p>Add checklist
+      <div class="checklist-modal-header"> <p>Add checklist</p>
         <button class="btn close" @click="closeTitleModal"><i class="el-icon-close"></i></button>
       </div>
       <form @submit.prevent="startNewChecklist">
@@ -18,6 +18,7 @@
       <button class="btn" @click="openAttachmentModal"><i class="el-icon-paperclip"></i><p> Attachment</p></button>
       <button class="btn" @click="toggleColorPicker"><i class="el-icon-brush"></i><p> Cover</p></button>
       <color-picker @changeTaskCover="updateTaskCover" v-if="isColorPickerOpen"/>
+      <h3>Actions</h3>
       <button class="btn delete" @click="removeTask"><i class="el-icon-delete"></i><p> Delete</p></button>
     </div>
   </div>
@@ -38,7 +39,7 @@ export default {
     },
     methods:{
       openAttachmentModal(){
-        // this.$emit('openAttachmentModal', true) 
+        this.$emit('openAttachmentModal', true) 
       },
       openMembersMenu(){
         this.$emit('openMembersMenu', true)

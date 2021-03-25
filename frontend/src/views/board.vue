@@ -135,7 +135,6 @@ export default {
       socketService.terminate();
     }
   },
-  //socketService.emit('board change', this.msg) //on board change(will send)
   methods: {
     addMemberToBoard(member){
       this.isAddMemberModalOpen = false
@@ -159,6 +158,7 @@ export default {
       this.$store.commit({ type: "setFilterBy", filterBy: txt });
     },
     updatedBoard(boardToUpdate) {
+      console.log('got board');
       this.$store.commit({
         type: "updateBoard",
         boardIdx: 0,
@@ -268,8 +268,8 @@ export default {
     boardMenu,
     groupMenu,
     memberAvatar2,
+    AddBoardMember,
     boardMemberModal,
-    AddBoardMember
   },
 };
 </script>
