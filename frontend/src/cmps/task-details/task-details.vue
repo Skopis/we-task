@@ -54,6 +54,7 @@
               <p class="due-date">{{ task.dueDate }}</p>
             </div>
           </div>
+          <task-attachment v-if="isAttachmentModalOpen"/>
         </div>
         <div class="task-desc module">
           <h3 class="module-header">
@@ -119,6 +120,7 @@
         @openLabelModal="manageLabelMenu"
         @openMembersMenu="manageMembersMenu"
         @openDateModal="manageDateMenu"
+        @openAttachmentModal="toggleAttachmentModal"
       />
     </div>
   </div>
@@ -134,6 +136,7 @@ import taskTodo from "./task-todo.cmp";
 import labelsMenu from "../menu/labels-menu";
 import membersMenu from "../menu/members-menu";
 import DatePicker from "./date-picker.vue";
+import taskAttachment from './task-attachment.vue'
 
 export default {
   data() {
@@ -146,7 +149,8 @@ export default {
       membersMenu: false,
       dateMenu: false,
       loggedinUser: null,
-      isDescEditOpen: false
+      isDescEditOpen: false,
+      isAttachmentModalOpen: false
     };
   },
   methods: {
@@ -160,6 +164,9 @@ export default {
       } catch (err) {
         console.log("Cannot find task", err);
       }
+    },
+    toggleAttachmentModal(status){
+      this.isAttachmentModalOpen = status
     },
     async saveTaskDescription(){
       this.isDescEditOpen = false
@@ -321,6 +328,7 @@ export default {
     labelsMenu,
     membersMenu,
     DatePicker,
+    taskAttachment
   },
 };
 </script>
