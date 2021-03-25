@@ -1,45 +1,52 @@
-.color-picker, .v-swatches{
+.color-picker,
+.v-swatches {
     position: absolute;
     background-color: rgb(48, 47, 47);
-    z-index:1
+    z-index: 1
 }
 
 
-.label{
+.label {
     cursor: pointer;
     padding: 4px 0 0 20px;
-    color:$light-clr;
+    color: $light-clr;
     font-weight: 700;
     // letter-spacing: .7px;
     height: 30px;
     width: 220px;
     border-radius: 4px;
-    margin-top:5px ;
+    margin-top: 5px;
 }
-.green{
+
+.green {
     background-color: $green;
 }
-.yellow{
+
+.yellow {
     background-color: $yellow;
 }
-.orange{
+
+.orange {
     background-color: $orange;
 }
-.red{
+
+.red {
     background-color: $red;
 }
-.purple{
+
+.purple {
     background-color: $purple;
 }
-.blue{
+
+.blue {
     background-color: $blue;
 }
 
-.task-lable-menu{
+.task-lable-menu {
     border-radius: 3px;
     z-index: 4;
     background-color: whitesmoke;
-    box-shadow:0 0px 3px -1px ;
+    box-shadow: 0 0px 3px -1px;
     padding: 10px 8px;
     display: flex;
     justify-content: center;
@@ -47,33 +54,47 @@
     position: absolute;
     top: 186px;
     right: 85px;
-    header{
-        p{
+
+    header {
+        p {
             font-size: 16px;
             font-weight: 400;
         }
+
         display: flex;
         justify-content: center;
         color: #5e6c84;
-        border-bottom: 1px solid rgba(9,30,66,.13);
+        border-bottom: 1px solid rgba(9, 30, 66, .13);
         overflow: hidden;
         position: relative;
         text-overflow: ellipsis;
         white-space: nowrap;
         z-index: 1;
     }
-    .label-container{
+
+    .label-container {
         display: flex;
-        .btn{
+
+        .btn {
             padding: 0;
             margin-right: -8px;
         }
     }
+
+    input {
+        position: absolute;
+        left: 10px;
+        padding-bottom: 20px;
+        background: transparent;
+        outline: none;
+        box-shadow: none;
+        color: white;
+    }
 }
 
-.checklist-title-modal{
+.checklist-title-modal {
     position: absolute;
-    box-shadow: 0 0px 4px 0px rgba(9 ,30, 66, 0.5 );
+    box-shadow: 0 0px 4px 0px rgba(9, 30, 66, 0.5);
     top: 124px;
     display: flex;
     flex-direction: column;
@@ -81,35 +102,38 @@
     z-index: 3;
     border-radius: 3px;
     right: 85px;
-    .btn{
-        padding-left: 19px!important;
-        &:hover{
-            color: #fff!important;
-            background-color:$green!important ;
+
+    .btn {
+        padding-left: 19px !important;
+
+        &:hover {
+            color: #fff !important;
+            background-color: $green !important;
         }
     }
 
 
-    .checklist-modal-header{
-        p{
+    .checklist-modal-header {
+        p {
             margin: 0;
             margin-bottom: 9px;
             font-size: 16px;
         }
+
         margin: 0 12px;
         margin-top: 10px;
 
         display: flex;
         justify-content: center;
         color: #5e6c84;
-        border-bottom: 1px solid rgba(9,30,66,.13);
+        border-bottom: 1px solid rgba(9, 30, 66, .13);
         overflow: hidden;
         position: relative;
         text-overflow: ellipsis;
         white-space: nowrap;
         z-index: 1;
-        
-        .btn{
+
+        .btn {
             color: #6b778c;
             background-color: unset;
             position: absolute;
@@ -117,21 +141,21 @@
             right: 0;
             z-index: 2;
             display: inline-flex;
-            flex-direction:column ;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             margin-left: 40px;
             width: 32px;
-            
-            
+
+
         }
-       
-        h4{
+
+        h4 {
             box-sizing: border-box;
             color: #5e6c84;
             display: block;
             line-height: 40px;
-            border-bottom: 1px solid rgba(9,30,66,.13);
+            border-bottom: 1px solid rgba(9, 30, 66, .13);
             margin: 0 12px;
             overflow: hidden;
             padding: 0 32px;
@@ -141,9 +165,11 @@
             z-index: 1;
         }
     }
-    form{
-        padding: 0 12px 0 12px;   
-        input{
+
+    form {
+        padding: 0 12px 0 12px;
+
+        input {
             padding: 8px 12px;
             border-radius: 4px;
             outline: none;
@@ -152,7 +178,8 @@
             background-color: #fafbfc;
 
         }
-        .btn{
+
+        .btn {
             height: 32px;
             width: 72px;
             text-align: center;
@@ -160,19 +187,21 @@
             color: white;
             margin-top: 10px;
             margin-left: 1px;
-            &:hover{
-                background-color:#82d172;
+
+            &:hover {
+                background-color: #82d172;
                 color: white;
             }
         }
     }
 }
 
-.date-picker{
+.date-picker {
     position: absolute;
     top: 265px;
     left: 500px;
-    input{
+
+    input {
         box-shadow: inset 0 0 0 2px #0079bf;
         border-radius: 4px;
 
@@ -180,43 +209,47 @@
     }
 }
 
-.board-menu.active{
-    width:350px;
+.board-menu.active {
+    width: 350px;
     transition: width ease-in-out 0.10s;
-    .board-menu-content{
-        width:inherit;
+
+    .board-menu-content {
+        width: inherit;
         background-color: #fff;
     }
-    
+
 }
 
-.board-menu{
+.board-menu {
     background-color: #fff;
     position: absolute;
     right: 0;
     top: 0;
     bottom: 0;
-    width:0px;
-   
-    .btn-menu-modal{
+    width: 0px;
+
+    .btn-menu-modal {
         color: white !important;
         z-index: 3;
         float: right;
         background-color: transparent;
         width: 150px;
-        
+
     }
-    .board-menu-content{
+
+    .board-menu-content {
         width: inherit;
         position: relative;
         padding: 8px 20px;
-        >*{
+
+        >* {
             width: 100%;
         }
-        .menu-modal-header{
+
+        .menu-modal-header {
             height: 50px;
             line-height: 40px;
-            border-bottom: 1px solid rgba(9,30,66,.13);
+            border-bottom: 1px solid rgba(9, 30, 66, .13);
             overflow: hidden;
             padding-left: 32px;
             position: relative;
@@ -226,18 +259,19 @@
             display: flex;
             justify-content: center;
             align-items: center;
-           
-            .btn{
+
+            .btn {
                 position: absolute;
                 right: 12px;
                 border-radius: 50px;
-             
 
-                &:hover{
+
+                &:hover {
                     background-color: rgba(218, 214, 214, 0.5);
                 }
             }
-            p{
+
+            p {
                 position: absolute;
                 left: 42%;
                 top: 3px;
@@ -245,17 +279,21 @@
                 color: #42526e;
             }
         }
-        .search-input{
+
+        .search-input {
             display: inline-flex;
             align-items: flex-start;
-            .btn{
+
+            .btn {
                 margin-left: 10px;
-                &:hover{
+
+                &:hover {
                     color: black;
                 }
             }
         }
-        input{
+
+        input {
             font-size: 16px;
             font-weight: 400;
             // -color: lawngreen;
@@ -263,25 +301,30 @@
         }
 
     }
-    .btn{
+
+    .btn {
         font-size: 16px;
         font-weight: 600;
         margin-top: 6px;
         color: #42526e;
-        &:hover{
-            background-color:rgba(218, 214, 214, 0.5);
+
+        &:hover {
+            background-color: rgba(218, 214, 214, 0.5);
         }
     }
-    .module-header{
-        margin-left: 5px; 
-        color:#172b4d;
+
+    .module-header {
+        margin-left: 5px;
+        color: #172b4d;
         margin: 18px 0;
-        i{
+
+        i {
             margin-right: 10px;
             font-size: 22px;
             color: #42526e;
         }
-        h3{
+
+        h3 {
             padding-bottom: 10px;
             // margin-left: -5px;
         }
@@ -291,15 +334,18 @@
     .task-activity {
         display: flex;
         margin-top: 5px;
-        p{
+
+        p {
             margin: 0;
         }
-        .activity-creator{
+
+        .activity-creator {
             align-items: center;
             margin-right: 10px;
             margin-top: 2px;
-            .avatar{
-                span{
+
+            .avatar {
+                span {
                     font-size: 13px;
                     font-weight: 600;
                     text-align: center;
@@ -308,22 +354,25 @@
                 }
             }
         }
-        .activity-info{
-            p{
+
+        .activity-info {
+            p {
                 font-weight: 700;
-                color:$task-txt;
+                color: $task-txt;
             }
-            span{
-                color:$task-txt;
+
+            span {
+                color: $task-txt;
                 font-weight: 400;
                 margin-left: 8px;
             }
-            .activity-date{
+
+            .activity-date {
                 font-weight: 400;
                 color: $clr4;
             }
-            
+
         }
     }
-    
+
 }

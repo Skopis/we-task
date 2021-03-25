@@ -13,10 +13,12 @@
         <input
           v-else
           type="text"
+          ref="labelTitle"
+          autofocus
           :value="label.title"
           @click.prevent.stop=""
           @focusout.prevent="closeEditLabel"
-          @keydown.enter.exact.prevent="updateLabel(label.id,$event)"
+          @keydown.enter.exact.prevent="updateLabel(label.id, $event)"
         />
       </div>
       <button class="btn" @click="editLabel(index)">
@@ -47,18 +49,21 @@ export default {
         this.editIdx = -1;
       } else {
         this.editIdx = idx;
+        setTimeout(() => {
+          this.$refs.labelTitle[0].focus();
+        }, 300);
       }
     },
     closeEditLabel() {
       this.editIdx = -1;
     },
-    updateLabel(labelId,ev){
+    updateLabel(labelId, ev) {
       const labelData = {
         labelId,
-        txt:ev.srcElement.value
-      }
+        txt: ev.srcElement.value,
+      };
       this.editIdx = -1;
-      this.$emit("updateLabel",labelData)
+      this.$emit("updateLabel", labelData);
     },
   },
   computed: {

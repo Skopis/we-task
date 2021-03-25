@@ -130,7 +130,6 @@ export const boardStore = {
             }
         },
         sendUpdatedBoard({ state }) {
-            console.log('sending board');
             if (state.filterBy === '') {
                 socketService.emit("board change", state.board);
             }
