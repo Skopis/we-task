@@ -210,6 +210,9 @@
 }
 
 .board-menu.active {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: calc(100vh - 40px);
     width: 350px;
     transition: width ease-in-out 0.10s;
 
@@ -264,7 +267,10 @@
                 position: absolute;
                 right: 12px;
                 border-radius: 50px;
-
+                margin-top: 0;
+                i{
+                    margin: 0 auto;
+                }
 
                 &:hover {
                     background-color: rgba(218, 214, 214, 0.5);

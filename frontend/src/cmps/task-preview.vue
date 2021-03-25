@@ -29,7 +29,7 @@
         @stopEdit="stopEdit"
       />
       <section v-else>
-        <p>{{ task.title }}</p>
+        <p @click.stop="openEditModal">{{ task.title }}</p>
         <button class="btn edit-task-title" @click.stop="openEditModal">
           <i class="el-icon-edit"></i>
         </button>

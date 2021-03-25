@@ -1,7 +1,7 @@
 <template>
   <section class="task-edit">
     <form>
-      <textarea
+      <input
         ref="taskTxt"
         placeholder=""
         v-model="taskToEdit.title"
@@ -10,7 +10,6 @@
         @keydown.enter.exact.prevent="updateTask"
         autofocus
       >
-      </textarea>
       <!-- <button >Save</button> -->
     </form>
   </section>
