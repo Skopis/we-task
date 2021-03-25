@@ -15,7 +15,7 @@
       </form>
       </div>
       <button class="btn" @click="openDateModal"><i class="el-icon-date"></i><p> Due Date</p></button>
-      <button class="btn"><i class="el-icon-paperclip"></i><p> Attachment</p></button>
+      <button class="btn" @click="openAttachmentModal"><i class="el-icon-paperclip"></i><p> Attachment</p></button>
       <button class="btn" @click="toggleColorPicker"><i class="el-icon-brush"></i><p> Cover</p></button>
       <color-picker @changeTaskCover="updateTaskCover" v-if="isColorPickerOpen"/>
       <h3>Actions</h3>
@@ -38,6 +38,9 @@ export default {
         }
     },
     methods:{
+      openAttachmentModal(){
+        this.$emit('openAttachmentModal', true) 
+      },
       openMembersMenu(){
         this.$emit('openMembersMenu', true)
       },
@@ -91,7 +94,7 @@ export default {
         }
     },
     components:{
-      colorPicker
+      colorPicker,
     }
 };
 </script>

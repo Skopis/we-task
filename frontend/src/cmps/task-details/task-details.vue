@@ -1,7 +1,7 @@
 <template>
   <div v-if="task" class="task-details-modal">
     <div class="task-details-content" @click.self="closeModals">
-      <header :style="{ backgroundColor: task.style.bgColor }">
+      <header :style="task.style.imgUrl? { backgroundImage: 'url('+task.style.imgUrl+')'} :{ backgroundColor: task.style.bgColor }">
         <div class="header-content">
           <button class="btn close-modal" @click="closeDetailsModal"><i class="el-icon-close"></i></button>
           <h1>{{ task.title }}</h1>
@@ -55,6 +55,7 @@
               <p class="due-date">{{ task.dueDate }}</p>
             </div>
           </div>
+          <task-attachment v-if="isAttachmentModalOpen" @saveImgAsAttachment="saveImgAsAttachment"/>
         </div>
         <div class="task-desc module">
           <h3 class="module-header">
@@ -100,6 +101,14 @@
             </div>
           </div>
         </div>
+        <div v-if="task.attachments && task.attachments.length">
+          <h3 class="module-header">
+            <i class="el-icon-paperclip"></i>Attachments
+          </h3>
+          <div class="img-list" v-for="(attachment, idx) in task.attachments" :key="idx">
+            <task-attachment-display :imgUrl="attachment.imgUrl" @setImageAsTaskCover="setImageAsTaskCover" @removeAttachment="removeAttachment" @comment="commentOnAttachment"/>
+          </div>
+        </div>
         <div class="module">
           <h3 class="module-header">
             <i class="el-icon-s-order"></i>Activities
@@ -137,6 +146,7 @@
         @openLabelModal="manageLabelMenu"
         @openMembersMenu="manageMembersMenu"
         @openDateModal="manageDateMenu"
+        @openAttachmentModal="toggleAttachmentModal"
       />
     </div>
   </div>
@@ -152,6 +162,8 @@ import taskTodo from "./task-todo.cmp";
 import labelsMenu from "../menu/labels-menu";
 import membersMenu from "../menu/members-menu";
 import DatePicker from "./date-picker.vue";
+import taskAttachment from './task-attachment.vue'
+import taskAttachmentDisplay from './task-attachment-display.vue'
 
 export default {
   data() {
@@ -164,8 +176,9 @@ export default {
       membersMenu: false,
       dateMenu: false,
       loggedinUser: null,
-      checklistTitle:'',
       isDescEditOpen: false,
+      isAttachmentModalOpen: false,
+      checklistTitle:'',
     };
   },
   methods: {
@@ -174,6 +187,41 @@ export default {
       this.labelsModal = false;
       this.membersMenu = false;
       this.dateMenu = false;
+    },
+    commentOnAttachment(imgUrl){
+      setTimeout(() => {
+        this.$refs.writeComment.focus();
+        this.comment.txt = imgUrl
+      }, 300);
+    },
+    async removeAttachment(imgUrl){
+      const attachmentIdx = this.task.attachments.findIndex(a=> a.imgUrl === imgUrl)
+      this.task.attachments.splice(attachmentIdx, 1)
+      await this.$store.dispatch({
+        type: "addTask",
+        task: JSON.parse(JSON.stringify(this.task)),
+      });
+      this.addActivity("Deleted Attachment");
+    },
+    async setImageAsTaskCover(imgUrl){
+      this.task.style.imgUrl = imgUrl
+      await this.$store.dispatch({
+        type: "addTask",
+        task: JSON.parse(JSON.stringify(this.task)),
+      });
+      if (!imgUrl) this.addActivity("Removed Attached Image from Cover");
+      else this.addActivity("Changed cover to Attached Image");
+    },
+    async saveImgAsAttachment(imgUrl){ 
+      this.isAttachmentModalOpen = false
+      const attachment = {byMember: this.loggedinUser, imgUrl}
+      if(!this.task.attachments) this.task.attachments=[]
+      this.task.attachments.push(attachment)
+      await this.$store.dispatch({
+        type: "addTask",
+        task: JSON.parse(JSON.stringify(this.task)),
+      });
+      this.addActivity("Added Attachment");
     },
     updateLabel(labelData) {
       // console.log(labelData);
@@ -189,6 +237,9 @@ export default {
       } catch (err) {
         console.log("Cannot find task", err);
       }
+    },
+    toggleAttachmentModal(status){
+      this.isAttachmentModalOpen = status
     },
     async saveTaskDescription() {
       this.isDescEditOpen = false;
@@ -300,6 +351,7 @@ export default {
       this.$store.dispatch({ type: "addTask", task: this.task });
     },
     updateTaskCover(color) {
+      this.task.style.imgUrl = ''
       // console.log("this.task", this.task);
       this.task.style.bgColor = color;
       this.$store.dispatch({ type: "addTask", task: this.task });
@@ -364,6 +416,8 @@ export default {
     labelsMenu,
     membersMenu,
     DatePicker,
+    taskAttachment,
+    taskAttachmentDisplay
   },
 };
 </script>
