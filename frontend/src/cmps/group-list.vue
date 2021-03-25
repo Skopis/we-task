@@ -133,16 +133,17 @@ export default {
     },
     updateTask({ taskToUpdate, isEdit }) {
       this.isAddModalOpen = false;
-      if (!isEdit) {
-        setTimeout(() => {
-          this.isAddModalOpen = true;
-        }, 300);
-      }
+      // if (!isEdit) { //TODO: remove to reAdd
+      //   setTimeout(() => {
+      //     this.isAddModalOpen = true;
+      //   }, 300);
+      // }
       if (taskToUpdate.title != "") {
         this.$emit("updateTask", taskToUpdate, this.group);
       }
     },
     stopEdit() {
+      console.log("whyy");
       this.isAddModalOpen = false;
     },
   },

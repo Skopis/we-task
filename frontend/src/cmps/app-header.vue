@@ -1,16 +1,13 @@
 <template>
   <header class="app-header">
     <nav>
-      <button class="btn" @click="routeBoards">Boards</button>
-      <button class="btn" @click="routeLogin" to="/login">Login / Signup</button>
       <router-link to="/">
           <img class="logo" src="../assets/logo3.svg"/>
       </router-link>
+      <button class="btn" @click="routeBoards">Boards</button>
+      <button class="btn" @click="routeLogin" to="/login">Login / Signup</button>
     <section className="loggedin-user" v-if="loggedInUser">
-      <!-- <h3>Welcome, {{loggedInUser.fullname}}</h3> -->
-      <!-- <router-link :to="`/user/${loggedInUser._id}`"> -->
     </section>
-    <!-- <button class="btn">weTaskbigger</button> -->
     </nav>
     <member-avatar2 :member="loggedInUser" :size="32"/>
   </header>
