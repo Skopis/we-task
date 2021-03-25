@@ -1,8 +1,8 @@
 <template>
   <div v-if="task" class="task-details-modal">
     <div class="task-details-content" @click.self="closeModals">
-      <header :style="task.style.imgUrl? { backgroundImage: 'url('+task.style.imgUrl+')'} :{ backgroundColor: task.style.bgColor }">
-        <div class="header-content">
+      <header :style="task.style.imgUrl? { backgroundImage: 'url('+task.style.imgUrl+')', height:300+'px'} :{ backgroundColor: task.style.bgColor }">
+        <div class="header-content" >
           <button class="btn close-modal" @click="closeDetailsModal"><i class="el-icon-close"></i></button>
           <h1>{{ task.title }}</h1>
           <p><span>in List</span></p>
@@ -101,12 +101,14 @@
             </div>
           </div>
         </div>
-        <div v-if="task.attachments && task.attachments.length">
-          <h3 class="module-header">
-            <i class="el-icon-paperclip"></i>Attachments
-          </h3>
-          <div class="img-list" v-for="(attachment, idx) in task.attachments" :key="idx">
-            <task-attachment-display :imgUrl="attachment.imgUrl" @setImageAsTaskCover="setImageAsTaskCover" @removeAttachment="removeAttachment" @comment="commentOnAttachment"/>
+        <div class="module">
+          <div v-if="task.attachments && task.attachments.length">
+            <h3 class="module-header">
+              <i class="el-icon-paperclip"></i>Attachments
+            </h3>
+            <div class="img-list" v-for="(attachment, idx) in task.attachments" :key="idx">
+              <task-attachment-display :imgUrl="attachment.imgUrl" @setImageAsTaskCover="setImageAsTaskCover" @removeAttachment="removeAttachment" @comment="commentOnAttachment"/>
+            </div>
           </div>
         </div>
         <div class="module">
@@ -139,14 +141,14 @@
           </div>
         </div>
       </main>
-      <task-dev-tools
+      <task-dev-tools :style="task.style.imgUrl ? {marginTop:250+'px'} : {}"
         @checkList="createCheckList"
         @removeTask="removeTask"
         @updateTaskCover="updateTaskCover"
         @openLabelModal="manageLabelMenu"
         @openMembersMenu="manageMembersMenu"
         @openDateModal="manageDateMenu"
-        @openAttachmentModal="toggleAttachmentModal"
+        @toggleAttachmentModal="toggleAttachmentModal"
       />
     </div>
   </div>
@@ -209,8 +211,14 @@ export default {
         type: "addTask",
         task: JSON.parse(JSON.stringify(this.task)),
       });
-      if (!imgUrl) this.addActivity("Removed Attached Image from Cover");
-      else this.addActivity("Changed cover to Attached Image");
+      if (!imgUrl){
+         this.addActivity("Removed Attached Image from Cover");
+         return 'cover'
+      }
+      else{
+         this.addActivity("Changed cover to Attached Image");
+         return ''
+        }
     },
     async saveImgAsAttachment(imgUrl){ 
       this.isAttachmentModalOpen = false
@@ -238,8 +246,8 @@ export default {
         console.log("Cannot find task", err);
       }
     },
-    toggleAttachmentModal(status){
-      this.isAttachmentModalOpen = status
+    toggleAttachmentModal(){
+      this.isAttachmentModalOpen = !this.isAttachmentModalOpen
     },
     async saveTaskDescription() {
       this.isDescEditOpen = false;

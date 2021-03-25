@@ -2,7 +2,6 @@
     <div class="members-menu">
         <header>
             <p>Members</p>
-            <button class="big-plus btn close-btn" @click="closeMenu">＋</button>
         </header>
         <input class="member-search" type="text" placeholder="Search members">
         <h4>Board Members</h4>

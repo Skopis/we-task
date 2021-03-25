@@ -1,4 +1,7 @@
 .task-preview {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     position: relative;
     background-color: rgb(256, 256, 256);
     box-shadow: $box-shadow;
@@ -8,7 +11,9 @@
     z-index: 2;
     overflow-x:hidden;
     word-break: break-word;
-
+    .task-edit{
+        min-height: 40px;
+    }
     &:hover {
         .edit-task-title {
             i {
@@ -29,6 +34,7 @@
     }
 
     .task-header {
+        min-height: 40px;
         color: $task-txt;
         background-color: transparent;
         

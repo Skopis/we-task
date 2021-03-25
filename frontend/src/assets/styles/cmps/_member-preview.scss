@@ -1,4 +1,5 @@
 .member-preview {
+    color:#1b354d;
     width: 304px;
     height: 116px;
     border-radius: 3px;
@@ -7,9 +8,12 @@
     z-index: 15;
     position: absolute;
     background-color: rgb(255, 255, 255);
-    top: 136px;
+    top: 52px;
     box-shadow: 0 0px 5px 2px rgba(9, 30, 66, 0.25);
-
+    .btn{
+        color:#1b354d;
+        font-size: 14px;
+    }
     .member-preview-main{
         margin: 8px 0;
         display: flex;
@@ -23,6 +27,7 @@
     
 }
 .add-member-preview{
+    color:#1b354d;
     width: 304px;
     height: auto;
     border-radius: 3px;
@@ -31,7 +36,8 @@
     z-index: 15;
     position: absolute;
     background-color: rgb(255, 255, 255);
-    top: 136px;
+    top: 52px;
+    box-shadow: 0 0px 5px 2px rgba(9, 30, 66, 0.25);
 
     .member-preview-main{
         margin: 8px 0;
