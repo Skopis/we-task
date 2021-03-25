@@ -8,9 +8,7 @@ var gSocketBySessionIdMap = {}
 
 function connectSockets(http, session) {
     gIo = require('socket.io')(http);
-
     const sharedSession = require('express-socket.io-session');
-
     gIo.use(sharedSession(session, {
         autoSave: true
     }));
@@ -34,7 +32,9 @@ function connectSockets(http, session) {
         socket.on('board change', board => {
             console.log(board);
             console.log("someone changed the board");
-            gIo.to(socket.myBoard).emit('updated board', board)
+            // gIo.to(socket.myBoard).emit('updated board', board)
+            socket.broadcast.to(socket.myBoard).emit('updated board', board);
+
         })
         socket.on('review-added', review => {
             // emits to all sockets:

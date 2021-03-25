@@ -42,7 +42,6 @@ async function remove(boardId) {
 }
 
 async function save(board) {
-    // console.log('board:', board)
     try {
         let savedBoard = null;
         const collection = await dbService.getCollection('board');
@@ -52,7 +51,7 @@ async function save(board) {
             await collection.updateOne({ _id: ObjectId(board._id) }, { $set: { ...boardToUpdate } });
             return board;
         } else {
-            const newBoard = _getEmptyBoard();
+            const newBoard = _getLongBoards();
             savedBoard = await collection.insert(newBoard);
             console.log('savedBoard', savedBoard)
             return newBoard
