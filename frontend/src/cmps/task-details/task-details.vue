@@ -3,7 +3,7 @@
     <div class="task-details-content" @click.self="closeModals">
       <header :style="{ backgroundColor: task.style.bgColor }">
         <div class="header-content">
-          <button class="btn close-btn" @click="closeDetailsModal">+</button>
+          <button class="btn close-modal" @click="closeDetailsModal"><i class="el-icon-close"></i></button>
           <h1>{{ task.title }}</h1>
           <p><span>in List</span></p>
         </div>
@@ -74,7 +74,7 @@
               <i class="el-icon-finished"></i>Check List
             </h3>
             <div v-for="checklist in task.checklists" :key="checklist.id">
-              <task-todo :checklist="checklist" />
+              <task-todo :checklist="checklist" @updateChecklist="updateChecklist" />
             </div>
           </div>
         </div>
@@ -142,6 +142,7 @@ export default {
       membersMenu: false,
       dateMenu: false,
       loggedinUser: null,
+      checklistTitle:'',
     };
   },
   methods: {
@@ -179,8 +180,8 @@ export default {
       ////////////////////
       this.membersMenu = status;
     },
-    createCheckList() {
-      // console.log("checklist");
+    createCheckList(checklistTitle) {
+      this.checklistTitle = checklistTitle
       this.checkListModal = true;
     },
     closeCheckList() {
@@ -206,10 +207,7 @@ export default {
       });
       this.comment = { txt: "" };
     },
-    // saveComment(comment) {
-    //   console.log("edit comment", comment);
-    //   this.$store.dispatch({ type: "saveComment", task: this.task, comment });
-    // },
+    
     removeTask() {
       this.$store.dispatch("removeTask", { task: this.task });
     },
@@ -269,6 +267,13 @@ export default {
       this.checkListModal = false;
       // console.log(this.labelsModal, this.checkListModal);
     },
+    updateChecklist(checklistId, todoId, isDone){
+      const checklistIdx = this.task.checklists.findIndex(checklist => checklist.id === checklistId)
+      const todoIdx = this.task.checklists[checklistIdx].todos.findIndex(todo => todo.id ===todoId)
+      const todo = this.task.checklists[checklistIdx].todos[todoIdx]
+      todo.isDone = isDone
+      this.$store.dispatch({ type: "addTask", task: this.task });
+    }
   },
   computed: {
     activitiesToShow(){

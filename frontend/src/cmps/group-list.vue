@@ -8,7 +8,7 @@
       <h4 @click="editGroupTitle" v-if="isTitleModalOpen === false">
         {{ group.title }}
       </h4>
-      <form @submit.prevent="saveGroupTitle" v-if="isTitleModalOpen">
+      <form @submit.prevent="saveGroupTitle"  @focusout.prevent="saveGroupTitle" v-if="isTitleModalOpen">
         <input
           type="text"
           ref="groupTitle"

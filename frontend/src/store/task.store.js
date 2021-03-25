@@ -81,12 +81,9 @@ export const taskStore = {
     actions: {
         async updateBoard({ state, commit }, { boardToUpdate }) {
             try {
-                // console.log(boardToUpdate);
                 var boardIdx = state.boards.findIndex(b => b._id === boardToUpdate._id)
                 await taskService.saveBoard(boardToUpdate, boardIdx)
                 commit({ type: 'updateBoard', boardIdx, board: boardToUpdate })
-                //TODO: check if infi loop - it is
-                // this.dispatch({ type: 'sendUpdatedBoard' });
             }
             catch (err) {
                 console.log('taskStore: Error in updateBoard', err)
@@ -94,7 +91,6 @@ export const taskStore = {
             }
         },
         async sendUpdatedBoard({ state }) {
-            // console.log("Sending", state.board);
             await socketService.emit("board change", state.board);
         },
         async addTask({ commit, state }, { task, group }) {
@@ -125,10 +121,8 @@ export const taskStore = {
         },
         async archiveGroup({ state, commit }, { group }) {
             try {
-                // var boardIdx = state.boards.findIndex(b => b._id === state.board._id)
                 var groupIdx = state.board.groups.findIndex(g => g.id === group.id)
                 const boardToUpdate = await taskService.archiveGroup(group, groupIdx, state.board)
-                // const boards = await taskService.query();
                 commit({ type: 'archiveGroup', group })
                 commit({ type: 'setBoard', board: boardToUpdate })
                 this.dispatch({ type: 'sendUpdatedBoard' });

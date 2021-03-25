@@ -30,11 +30,27 @@
                 margin-bottom: 3px;
                 font-size: 22px;
                 padding-top: 20px;
-                color: #00aecc;
+                color:#172b4d;
                 font-weight: 700;
             }
             .header-content{
                 margin: 12px 40px 8px 56px;
+            }
+            .close-modal{
+                background-color: rgba(245, 245, 245, 0);
+                font-size: 18px;
+                position: absolute;
+                right: 1px;
+                text-align: center;
+                margin-top: 2px;
+                margin-right: 2px;
+                &:focus{
+                    outline: none;
+                }
+                &:hover{
+                    background-color: rgba(218, 214, 214, 0.5);
+                    border-radius: 50%;
+                }
             }
         }
         .task-info{
@@ -101,7 +117,7 @@
                 margin: 0 0 4px 35px;
                 .module-header{
                     margin-left: -37px; 
-                    color: #00aecc;
+                    color:#172b4d;
                     i{
                         margin-right: 15px;
                         font-size: 22px;
@@ -136,7 +152,7 @@
             background-color: #e4f0f6;
             box-shadow: none;
             border: none;
-            color: #0079bf;
+            color: #172b4d;
             outline: 0;
         }
       
@@ -456,8 +472,7 @@
         padding: 0 8px;
         border-radius: 4px;
         width: 75%;
-        padding-top: 8px;
-        padding-bottom: 1px;
+        
         &:hover{
             background-color: rgb(202, 202, 202);
         }
@@ -503,6 +518,33 @@
             }
         }
 
+    }
+}
+.add-checklist{
+    // background-color: khaki;
+    .btn{
+        width: auto;
+        height: 32px;
+        background-color: #61bd4f;
+        font-size: 0.875rem;
+        color: white;
+        margin-right: 10px;
+        &:hover{
+            background-color: #82d172;
+        }
+    }
+    .done{
+        float: right;
+        margin-right: 160px;
+    }
+    .close{
+        background-color: $clr4;
+        float: right;
+        margin-right: 160px;
+        margin-bottom: 4px;
+        &:hover{
+            background-color:#c75040;
+        }
     }
 }
 }

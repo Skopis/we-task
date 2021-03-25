@@ -2,12 +2,25 @@
   <section class="task-preview" @click="openTaskDetails(task.id)">
     <header class="task-header">
       <div class="task-label-container">
-      <div v-if="labelDataShown"  class="task-label-container">
-        <span v-for="label in task.labels" :key="label.id" :class="label.color" class="label-info small-label" @click.stop="classChange(label, false)">{{label.title}}</span>
-      </div>
-      <div v-else  class="task-label-container">
-        <span v-for="label in task.labels" :key="label.id" :class="label.color" class="small-label" @click.stop="classChange(label, true)"></span>
-      </div>
+        <div v-if="labelDataShown" class="task-label-container">
+          <span
+            v-for="label in task.labels"
+            :key="label.id"
+            :class="label.color"
+            class="label-info small-label"
+            @click.stop="classChange(label, false)"
+            >{{ label.title }}</span
+          >
+        </div>
+        <div v-else class="task-label-container">
+          <span
+            v-for="label in task.labels"
+            :key="label.id"
+            :class="label.color"
+            class="small-label"
+            @click.stop="classChange(label, true)"
+          ></span>
+        </div>
       </div>
       <task-quick-edit
         v-if="isEditModalOpen"
@@ -16,21 +29,38 @@
       />
       <section v-else>
         <p>{{ task.title }}</p>
-        <button class="btn edit-task-title" @click.stop="openEditModal"><i class="el-icon-edit"></i>
+        <button class="btn edit-task-title" @click.stop="openEditModal">
+          <i class="el-icon-edit"></i>
         </button>
       </section>
     </header>
     <div class="task-body">
       <div class="members-container">
-        <div :v-if="task.members" v-for="member in task.members" :key="member._id">
-          <member-avatar2 :member="member" :size="30" @click.native.stop="toggleMemberModal(member)"/>
+        <div
+          :v-if="task.members"
+          v-for="member in task.members"
+          :key="member._id"
+        >
+          <member-avatar2
+            :member="member"
+            :size="30"
+            @click.native.stop="toggleMemberModal(member)"
+          />
         </div>
       </div>
       <div class="btn-container">
-        <el-button class="btn badge eye" icon="el-icon-view" v-if="isloggedinUserMember"></el-button>
-        <!-- v-if logged in member = member assigned to task-->
+        <el-button
+          class="btn badge eye"
+          icon="el-icon-view"
+          v-if="isloggedinUserMember"
+        ></el-button>
         <button class="btn badge" v-if="task.comments && task.comments.length">
-          <i class="el-icon-chat-square" ></i> <span>{{ task.comments.length }}</span>
+          <i class="el-icon-chat-square"></i>
+          <span>{{ task.comments.length }}</span>
+        </button>
+        <button class="btn badge checklist" v-if="task.checklists">
+          <i class="el-icon-finished"></i>
+          <span>{{ checklistInfo }}</span>
         </button>
       </div>
     </div>
@@ -95,8 +125,20 @@ export default {
       for (let i = 0; i < this.task.members.length; i++) {
         if (this.task.members[i]._id === loggedinUser._id) return true;
       }
-      // return false
     },
+    checklistInfo(){
+      var todosCount = 0;
+      var doneTodosCount = 0;
+      for (var i=0; i<this.task.checklists.length; i++){
+        var currChecklist = this.task.checklists[i]
+        for (var j=0; j<currChecklist.todos.length; j++){
+          todosCount++
+          console.log(currChecklist.todos[j])
+          if(currChecklist.todos[j].isDone) doneTodosCount++
+        }
+      }
+      return doneTodosCount + '/' +todosCount
+    }
   },
   cerated() {},
   components: {

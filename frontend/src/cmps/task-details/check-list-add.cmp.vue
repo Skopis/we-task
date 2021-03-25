@@ -1,16 +1,19 @@
 <template>
-  <section class="add-note">
-  <button @click="closeCheckList">X</button>
+  <section class="add-checklist">
+  <button class="btn close" @click="closeCheckList">Delete</button>
     <form @submit.prevent="saveTodo()">
     <h3>{{checklistTitle}}</h3>   
-      <textarea class="new-todo-input" type="text" placeholder="Write your To Do here" v-model="todo"></textarea>
+      <input class="new-todo-input" type="text" placeholder="Write your To Do here" v-model="todo"/>
       <ul class="todo" v-if="checkList.todos">
         <li v-for="(todo, idx) in checkList.todos" :key="idx">
-          <p>{{ todo.text }}</p>
+        <div class="checkbox">
+        <i class="el-icon-check"></i>
+          </div>
+          <p class="todo-txt">{{ todo.text }}</p>
         </li>
       </ul>
-      <button class="btn">Add to list</button>
     </form>
+      <button class="btn" @click="saveTodo()">Add to list</button>
     <button class="btn done" @click="saveCheckList">Done</button>
   </section>
 </template>

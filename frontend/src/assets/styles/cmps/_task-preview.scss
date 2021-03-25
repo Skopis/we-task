@@ -28,7 +28,7 @@
     .task-header {
         color: $task-txt;
         background-color: inherit;
-
+        
         .task-label-container {
             display: flex;
             flex-wrap: wrap;
@@ -46,13 +46,11 @@
                 padding: 0;
                 text-shadow: none;
                 width: auto;
-                // transition: all 1s ease-in-out;
                 transition: all 0.5s linear;
             }
 
             .label-info {
                 min-height: 22px;
-                // height: auto;
                 text-align: center;
                 font-size: rem(13px);
                 color: white;
@@ -128,11 +126,9 @@
             height: 30px;
             width: 30px;
             align-self: center;
-            // margin-top: 8px;
         }
 
         .badge {
-            // margin: 0 4px 0 0;
             max-width: 100%;
             min-height: 20px;
             display: inline-block;
@@ -142,6 +138,12 @@
             text-overflow: ellipsis;
             vertical-align: top;
             border: none;
+            // margin-right: 4px;
+            .checklist{
+                span{
+                    margin-left: 0;
+                }
+            }
 
             >* {
                 color: #5e6c84;
@@ -149,7 +151,7 @@
             }
 
             span {
-                margin-left: 2px;
+                // margin-left: 2px;
             }
 
             &:hover {
@@ -157,6 +159,7 @@
                 border: none;
                 color: unset;
             }
+            
         }
     }
 
