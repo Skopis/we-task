@@ -1,6 +1,8 @@
 <template>
   <div class="task-attachment">
+  <header>
     <h3>Upload an image</h3>
+  </header>
     <img-upload @save="saveImg" />
   </div>
 </template>

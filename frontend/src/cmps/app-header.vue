@@ -6,10 +6,7 @@
       </router-link>
       <h2 class="btn" @click="routeBoards">Boards</h2>
     <section className="loggedin-user" v-if="loggedInUser">
-      <!-- <h3>Welcome, {{loggedInUser.fullname}}</h3> -->
-      <!-- <router-link :to="`/user/${loggedInUser._id}`"> -->
     </section>
-    <!-- <button class="btn">weTaskbigger</button> -->
     </nav>
     <div class="user-container flex">
       <h2 class="btn login" @click="routeLogin" to="/login">Login</h2>

@@ -26,6 +26,7 @@
         v-if="isEditModalOpen"
         @updateTask="updateTask"
         :task="task"
+        @stopEdit="stopEdit"
       />
       <section v-else>
         <p>{{ task.title }}</p>
@@ -78,15 +79,19 @@ export default {
     return {
       isEditModalOpen: false,
       isMemberModalOpen: false,
-      labelDataShown:false,
+      labelDataShown: false,
     };
   },
   //TODO: when click on window anywhere but the modal - modal closes
   methods: {
-    classChange(label, status){
+    stopEdit() {
+      // this.$emit("stopEdit");
+      this.isEditModalOpen = false;
+    },
+    classChange(label, status) {
       // console.log(label)
       // console.log(status)
-      this.labelDataShown = status
+      this.labelDataShown = status;
       // console.log(this.labelDataShown)
     },
     openMemberModal() {
@@ -94,7 +99,12 @@ export default {
     },
     toggleMemberModal(member) {
       this.isMemberModalOpen = !this.isMemberModalOpen;
-      this.$emit('toggleMemberModal', member, this.isMemberModalOpen, this.task)
+      this.$emit(
+        "toggleMemberModal",
+        member,
+        this.isMemberModalOpen,
+        this.task
+      );
     },
     openEditModal() {
       this.isEditModalOpen = true;
@@ -126,19 +136,19 @@ export default {
         if (this.task.members[i]._id === loggedinUser._id) return true;
       }
     },
-    checklistInfo(){
+    checklistInfo() {
       var todosCount = 0;
       var doneTodosCount = 0;
-      for (var i=0; i<this.task.checklists.length; i++){
-        var currChecklist = this.task.checklists[i]
-        for (var j=0; j<currChecklist.todos.length; j++){
-          todosCount++
-          console.log(currChecklist.todos[j])
-          if(currChecklist.todos[j].isDone) doneTodosCount++
+      for (var i = 0; i < this.task.checklists.length; i++) {
+        var currChecklist = this.task.checklists[i];
+        for (var j = 0; j < currChecklist.todos.length; j++) {
+          todosCount++;
+          console.log(currChecklist.todos[j]);
+          if (currChecklist.todos[j].isDone) doneTodosCount++;
         }
       }
-      return doneTodosCount + '/' +todosCount
-    }
+      return doneTodosCount + "/" + todosCount;
+    },
   },
   cerated() {},
   components: {

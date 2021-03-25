@@ -23,10 +23,10 @@ export default {
         toggleSetAsTaskCover(){
             if (this.title === 'Remove as Cover'){
                 this.title = 'Set as Cover'
-                this.$emit('setImageAsTaskCover', '')
+                this.$emit('setImageAsTaskCover', '', {class:''})
             }
             else{
-                this.$emit('setImageAsTaskCover', this.imgUrl)
+                this.$emit('setImageAsTaskCover', this.imgUrl, {class:'cover'})
                 this.title = 'Remove as Cover'
             }
         },
