@@ -99,7 +99,8 @@ export default {
       background: 'url('+task.style.imgUrl+')',
       backgroundRepeat: 'no-repeat',
       backgroundSize: 'cover',
-      'min-height': '120px'
+      'min-height': '120px',
+      'background-position': 'center'
       }
       else return  { backgroundColor: task.style.bgColor }
     },

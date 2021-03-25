@@ -1,18 +1,29 @@
 <template>
   <div v-if="task" class="task-details-modal">
     <div class="task-details-content" @click.self="closeModals">
-      <header :style="task.style.imgUrl? { backgroundImage: 'url('+task.style.imgUrl+')', height:300+'px'} :{ backgroundColor: task.style.bgColor }">
-        <div class="header-content" >
-          <button class="btn close-modal" @click="closeDetailsModal"><i class="el-icon-close"></i></button>
+      <header
+        :style="
+          task.style.imgUrl
+            ? {
+                backgroundImage: 'url(' + task.style.imgUrl + ')',
+                height: 300 + 'px',
+              }
+            : { backgroundColor: task.style.bgColor }
+        "
+      >
+        <div class="header-content">
+          <button class="btn close-modal" @click="closeDetailsModal">
+            <i class="el-icon-close"></i>
+          </button>
           <h1 v-if="!task.style.imgUrl">{{ task.title }}</h1>
           <p v-if="!task.style.imgUrl"><span>in List</span></p>
         </div>
       </header>
       <main>
-      <div v-if="task.style.imgUrl">
+        <div v-if="task.style.imgUrl">
           <h1>{{ task.title }}</h1>
           <p><span>in List</span></p>
-      </div>
+        </div>
         <div class="task-info">
           <members-menu
             v-if="membersMenu"
@@ -59,7 +70,10 @@
               <p class="due-date">{{ task.dueDate }}</p>
             </div>
           </div>
-          <task-attachment v-if="isAttachmentModalOpen" @saveImgAsAttachment="saveImgAsAttachment"/>
+          <task-attachment
+            v-if="isAttachmentModalOpen"
+            @saveImgAsAttachment="saveImgAsAttachment"
+          />
         </div>
         <div class="task-desc module">
           <h3 class="module-header">
@@ -78,8 +92,17 @@
           >
             Add a more detailed description
           </p>
-          <form @submit.prevent="saveTaskDescription" v-if="isDescEditOpen">
+          <form
+            class="comment-section"
+            @submit.prevent="saveTaskDescription"
+            v-if="isDescEditOpen"
+          >
             <textarea
+              autofocus
+              ref="descTxt"
+              @focusout.prevent="closeTaskDescription"
+              class="comment-box"
+              placeholder="Add a more detailed description"
               name=""
               id=""
               cols="20"
@@ -101,7 +124,10 @@
               <i class="el-icon-finished"></i>Check List
             </h3>
             <div v-for="checklist in task.checklists" :key="checklist.id">
-              <task-todo :checklist="checklist" @updateChecklist="updateChecklist" />
+              <task-todo
+                :checklist="checklist"
+                @updateChecklist="updateChecklist"
+              />
             </div>
           </div>
         </div>
@@ -110,8 +136,17 @@
             <h3 class="module-header">
               <i class="el-icon-paperclip"></i>Attachments
             </h3>
-            <div class="img-list" v-for="(attachment, idx) in task.attachments" :key="idx">
-              <task-attachment-display :imgUrl="attachment.imgUrl" @setImageAsTaskCover="setImageAsTaskCover" @removeAttachment="removeAttachment" @comment="commentOnAttachment"/>
+            <div
+              class="img-list"
+              v-for="(attachment, idx) in task.attachments"
+              :key="idx"
+            >
+              <task-attachment-display
+                :imgUrl="attachment.imgUrl"
+                @setImageAsTaskCover="setImageAsTaskCover"
+                @removeAttachment="removeAttachment"
+                @comment="commentOnAttachment"
+              />
             </div>
           </div>
         </div>
@@ -122,7 +157,7 @@
           <div class="comment-section">
             <textarea
               ref="writeComment"
-              placeholder="write a comment"
+              placeholder="Write a comment"
               v-model="comment.txt"
               class="comment-box"
             ></textarea>
@@ -145,7 +180,8 @@
           </div>
         </div>
       </main>
-      <task-dev-tools :style="task.style.imgUrl ? {marginTop:250+'px'} : {}"
+      <task-dev-tools
+        :style="task.style.imgUrl ? { marginTop: 250 + 'px' } : {}"
         @checkList="createCheckList"
         @removeTask="removeTask"
         @updateTaskCover="updateTaskCover"
@@ -168,8 +204,8 @@ import taskTodo from "./task-todo.cmp";
 import labelsMenu from "../menu/labels-menu";
 import membersMenu from "../menu/members-menu";
 import DatePicker from "./date-picker.vue";
-import taskAttachment from './task-attachment.vue'
-import taskAttachmentDisplay from './task-attachment-display.vue'
+import taskAttachment from "./task-attachment.vue";
+import taskAttachmentDisplay from "./task-attachment-display.vue";
 
 export default {
   data() {
@@ -184,51 +220,52 @@ export default {
       loggedinUser: null,
       isDescEditOpen: false,
       isAttachmentModalOpen: false,
-      checklistTitle:'',
+      checklistTitle: "",
     };
   },
   methods: {
-    closeAllModals(){
+    closeAllModals() {
       this.checkListModal = false;
       this.labelsModal = false;
       this.membersMenu = false;
       this.dateMenu = false;
     },
-    commentOnAttachment(imgUrl){
+    commentOnAttachment(imgUrl) {
       setTimeout(() => {
         this.$refs.writeComment.focus();
-        this.comment.txt = imgUrl
+        this.comment.txt = imgUrl;
       }, 300);
     },
-    async removeAttachment(imgUrl){
-      const attachmentIdx = this.task.attachments.findIndex(a=> a.imgUrl === imgUrl)
-      this.task.attachments.splice(attachmentIdx, 1)
+    async removeAttachment(imgUrl) {
+      const attachmentIdx = this.task.attachments.findIndex(
+        (a) => a.imgUrl === imgUrl
+      );
+      this.task.attachments.splice(attachmentIdx, 1);
       await this.$store.dispatch({
         type: "addTask",
         task: JSON.parse(JSON.stringify(this.task)),
       });
       this.addActivity("Deleted Attachment");
     },
-    async setImageAsTaskCover(imgUrl){
-      this.task.style.imgUrl = imgUrl
+    async setImageAsTaskCover(imgUrl) {
+      this.task.style.imgUrl = imgUrl;
       await this.$store.dispatch({
         type: "addTask",
         task: JSON.parse(JSON.stringify(this.task)),
       });
-      if (!imgUrl){
-         this.addActivity("Removed Attached Image from Cover");
-         return 'cover'
+      if (!imgUrl) {
+        this.addActivity("Removed Attached Image from Cover");
+        return "cover";
+      } else {
+        this.addActivity("Changed cover to Attached Image");
+        return "";
       }
-      else{
-         this.addActivity("Changed cover to Attached Image");
-         return ''
-        }
     },
-    async saveImgAsAttachment(imgUrl){ 
-      this.isAttachmentModalOpen = false
-      const attachment = {byMember: this.loggedinUser, imgUrl}
-      if(!this.task.attachments) this.task.attachments=[]
-      this.task.attachments.push(attachment)
+    async saveImgAsAttachment(imgUrl) {
+      this.isAttachmentModalOpen = false;
+      const attachment = { byMember: this.loggedinUser, imgUrl };
+      if (!this.task.attachments) this.task.attachments = [];
+      this.task.attachments.push(attachment);
       await this.$store.dispatch({
         type: "addTask",
         task: JSON.parse(JSON.stringify(this.task)),
@@ -250,8 +287,8 @@ export default {
         console.log("Cannot find task", err);
       }
     },
-    toggleAttachmentModal(){
-      this.isAttachmentModalOpen = !this.isAttachmentModalOpen
+    toggleAttachmentModal() {
+      this.isAttachmentModalOpen = !this.isAttachmentModalOpen;
     },
     async saveTaskDescription() {
       this.isDescEditOpen = false;
@@ -261,8 +298,14 @@ export default {
       });
       this.addActivity("Changed Task Description");
     },
+    closeTaskDescription() {
+      this.isDescEditOpen = false;
+    },
     editTaskDescription() {
       this.isDescEditOpen = true;
+      setTimeout(() => {
+        this.$refs.descTxt.focus();
+      }, 300);
     },
     reply(memberName) {
       setTimeout(() => {
@@ -289,7 +332,7 @@ export default {
       this.membersMenu = !this.membersMenu;
     },
     createCheckList(checklistTitle) {
-      this.checklistTitle = checklistTitle
+      this.checklistTitle = checklistTitle;
       this.checkListModal = true;
     },
     closeCheckList() {
@@ -315,7 +358,7 @@ export default {
       });
       this.comment = { txt: "" };
     },
-    
+
     removeTask() {
       this.$store.dispatch("removeTask", { task: this.task });
     },
@@ -363,27 +406,31 @@ export default {
       this.$store.dispatch({ type: "addTask", task: this.task });
     },
     updateTaskCover(color) {
-      this.task.style.imgUrl = ''
+      this.task.style.imgUrl = "";
       // console.log("this.task", this.task);
       this.task.style.bgColor = color;
       this.$store.dispatch({ type: "addTask", task: this.task });
     },
     manageLabelMenu(status) {
       // console.log(status);
-      this.labelsModal = !this.labelsModal//JSON.parse(status);
+      this.labelsModal = !this.labelsModal; //JSON.parse(status);
     },
     closeModals() {
       this.labelsModal = false;
       this.checkListModal = false;
       // console.log(this.labelsModal, this.checkListModal);
     },
-    updateChecklist(checklistId, todoId, isDone){
-      const checklistIdx = this.task.checklists.findIndex(checklist => checklist.id === checklistId)
-      const todoIdx = this.task.checklists[checklistIdx].todos.findIndex(todo => todo.id ===todoId)
-      const todo = this.task.checklists[checklistIdx].todos[todoIdx]
-      todo.isDone = isDone
+    updateChecklist(checklistId, todoId, isDone) {
+      const checklistIdx = this.task.checklists.findIndex(
+        (checklist) => checklist.id === checklistId
+      );
+      const todoIdx = this.task.checklists[checklistIdx].todos.findIndex(
+        (todo) => todo.id === todoId
+      );
+      const todo = this.task.checklists[checklistIdx].todos[todoIdx];
+      todo.isDone = isDone;
       this.$store.dispatch({ type: "addTask", task: this.task });
-    }
+    },
   },
   computed: {
     activitiesToShow() {
@@ -429,7 +476,7 @@ export default {
     membersMenu,
     DatePicker,
     taskAttachment,
-    taskAttachmentDisplay
+    taskAttachmentDisplay,
   },
 };
 </script>
