@@ -32,9 +32,9 @@
         <draggable
           @end="itemDragged"
           animation="500"
-          group="task"
           ghostClass="ghost"
           dragClass="chosen-drag"
+          group="task"
           v-model="group.tasks"
           handle="li"
         >

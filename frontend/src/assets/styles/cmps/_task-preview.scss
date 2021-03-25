@@ -6,6 +6,8 @@
     border-radius: 3px;
     padding: 0 10px;
     z-index: 2;
+    overflow-x:hidden;
+    word-break: break-word;
 
     &:hover {
         .edit-task-title {
@@ -73,6 +75,7 @@
 
         p {
             margin: 4px 0;
+            
         }
 
         textarea {
