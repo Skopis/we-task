@@ -44,7 +44,8 @@
               @updateTask="updateTask"
               @toggleMemberModal="toggleMemberPreview"
               :groupId="group.id"
-              :style="task.style.imgUrl? { backgroundImage: 'url('+task.style.imgUrl+')'} :{ backgroundColor: task.style.bgColor }"
+              :style="task.style.imgUrl? { backgroundImage: 'url('+task.style.imgUrl+')',  backgroundRepeat: 'no-repeat',backgroundSize: 'cover' } 
+              :{ backgroundColor: task.style.bgColor }"
             />
           </li>
         </draggable>
