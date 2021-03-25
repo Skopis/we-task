@@ -2,14 +2,21 @@
     // overflow-y:initial !important;
     padding: 0px;
     margin-top: 32px;
+    overflow-x: hidden;
 
     .main-header {
         font-size: 6rem;
     }
 
     .sub-header {
-        font-size: 3rem;
-        margin-bottom: 2rem;
+        max-width: 100%;
+        font-size: 2rem;
+        margin-top: 2.5rem;
+        margin-bottom: 2.5rem;
+    }
+
+    .text-container {
+        text-align: left;
     }
 
     .home-txt {
@@ -27,38 +34,57 @@
         color: white;
 
         img {
-            width: 50%; // I wish it could be 70%
+            width: 40%; // I wish it could be 70%
         }
 
         button {
             margin: 1rem;
-            animation: jittery 6s infinite;
             border-radius: 15px;
             padding: 20px 55px;
             font-weight: bold;
-            background-color:rgb(138, 183, 37);
+            background-color: #0094ae;
             border: 1px solid gray;
-            color: black;
+            color: white;
             outline: none;
             font-size: large;
             cursor: pointer;
         }
-        button:hover{
-            background-color:rgb(150, 212, 4);
+
+        button:hover {
+            animation: jittery 3s infinite;
+        }
+    }
+
+    .article-container {
+        > :not(:last-child){
+            margin-bottom: 100px;
+        }
+        > :last-child {
+            margin-bottom: 50px;
+        }
+        > :first-child{
+            margin-bottom: 2.5rem;
         }
     }
 
     article {
         display: flex;
-        justify-content: space-between;
+        justify-content: space-evenly;
+        // justify-content: space-between;
         align-items: center;
-        margin-bottom: 100px;
+
 
         img {
             width: 600px;
             height: 300px;
             border-radius: 3px;
             object-fit: cover;
+            margin-right: 10px;
+        }
+
+        > :nth-child(2n){
+            margin-right: 0px;
+            margin-left: 10px;
         }
 
         h2 {
@@ -67,17 +93,25 @@
         }
 
         p {
-            font-size: large;
+            font-size: 20px;
         }
 
-        
+
     }
-    @include for-wide-layout23 {
-        article{
+
+    @include for-wide-layout {
+        article {
             display: flex;
             flex-direction: column;
+            margin-right: 0px;
+            margin-left: 0px;
+            .text-container{
+                text-align: center;
+            }
+            margin-bottom: 50px !important;
         }
-        article:nth-child(2n){
+
+        article:nth-child(2n) {
             flex-direction: column-reverse;
         }
     }

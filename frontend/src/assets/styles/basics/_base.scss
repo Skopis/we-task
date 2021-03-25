@@ -27,7 +27,7 @@ body {
 
 #app {
     // overflow-y: hidden;
-    height: 100%;
+    height: 100vh;
 }
 
 h1,
@@ -72,7 +72,8 @@ a:hover {
 
 /* Track */
 ::-webkit-scrollbar-track {
-    background: #ebecf0;
+    // background: #ebecf0;
+    background: transparent;
     border-radius: 0px;
 }
 

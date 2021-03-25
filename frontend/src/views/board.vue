@@ -25,7 +25,12 @@
             v-model="boardToShow.title"
           />
         </form>
-        <member-avatar :members="boardToShow.members" :size="28" />
+        <div v-for="member in boardToShow.members" :key="member._id">
+          <member-avatar2 :member="member" :size="28" @click.native="toggleMemberModal(member)"/>
+        </div>
+        <board-member-modal v-if="isMemberModalOpen" :member="member" @removeMemberFromBoard="removeMemberFromBoard"/>
+        <button class="btn" @click="toggleAddMemberModal">Invite</button>
+        <add-board-member @addMemberToBoard="addMemberToBoard" v-if="isAddMemberModalOpen"/>
       </div>
       <div class="flex row-reverse align-center">
         <button class="btn" @click="toggleBoardMenuModal">
@@ -35,6 +40,7 @@
           v-if="isBoardMenuModalOpen"
           :board="boardToShow"
           @updateBoardCover="updateBoardCover"
+          @searchChanged="searchChanged"
         />
       </div>
     </header>
@@ -84,7 +90,9 @@ import groupList from "../cmps/group-list.vue";
 import draggable from "vuedraggable";
 import boardMenu from "../cmps/menu/board-menu.vue";
 import groupMenu from "../cmps/menu/group-menu";
-import memberAvatar from "../cmps/task-details/member-avatar.cmp.vue";
+import memberAvatar2 from "../cmps/task-details/member-avatar2.vue";
+import boardMemberModal from '../cmps/board-member-modal.vue'
+import AddBoardMember from '../cmps/add-board-member.vue';
 
 export default {
   name: "board",
@@ -94,47 +102,69 @@ export default {
       isBoardMenuModalOpen: false,
       menuPos: null,
       menuGroupId: null,
+      isMemberModalOpen: false,
+      isAddMemberModalOpen: false
     };
   },
   computed: {
     boardToShow() {
-      return JSON.parse(JSON.stringify(this.$store.getters.getBoard));
+      //return JSON.parse(JSON.stringify(this.$store.getters.getBoard));
+      const fillteredBoard = JSON.parse(
+        JSON.stringify(this.$store.getters.getBoard)
+      );
+
+      return fillteredBoard;
     },
   },
-
   async created() {
     const boardId = this.$route.params.boardId;
-    if(boardId != 'b') await this.$store.dispatch({ type: "loadBoard", boardId });
+    if (boardId != "b")
+      await this.$store.dispatch({ type: "loadBoard", boardId });
     else {
       await this.$store.dispatch({ type: "loadBoard" });
-      const boardId = this.$store.getters.getBoard._id
+      const boardId = this.$store.getters.getBoard._id;
       this.$router.push(`/board/${boardId}`);
     }
     socketService.setup();
     socketService.emit("board id", this.boardToShow._id);
-    socketService.on("updated board", this.updateBoard);
+    socketService.on("updated board", this.updatedBoard);
   },
   destroyed() {
     {
-      socketService.off("updated board", this.updateBoard);
+      socketService.off("updated board", this.updatedBoard);
       socketService.terminate();
     }
   },
-  //socketService.emit('board change', this.msg) //on board change(will send)
   methods: {
-    updateBoard(boardToUpdate) {
-      console.log(boardToUpdate);
-      console.log("getting the changes");
+    addMemberToBoard(member){
+      this.isAddMemberModalOpen = false
+      this.boardToShow.members.push(member)
+      this.updateBoard(this.boardToShow)
+    },
+    toggleAddMemberModal(){
+      this.isAddMemberModalOpen = !this.isAddMemberModalOpen
+    },
+    removeMemberFromBoard(member){
+      const memberIdx = this.boardToShow.members.findIndex(m => m._id === member._id)
+      this.boardToShow.members.splice(memberIdx, 1)
+      this.updateBoard(this.boardToShow)
+      this.isMemberModalOpen = false
+    },
+    toggleMemberModal(member){
+      this.member = member
+      this.isMemberModalOpen = !this.isMemberModalOpen
+    },
+    searchChanged(txt) {
+      this.$store.commit({ type: "setFilterBy", filterBy: txt });
+    },
+    updatedBoard(boardToUpdate) {
+      console.log('got board');
       this.$store.commit({
         type: "updateBoard",
         boardIdx: 0,
-        board: boardToUpdate
+        board: boardToUpdate,
       });
     },
-    // sendUpdatedBoard() {
-    //   console.log("Sending", this.boardToShow);
-    //   socketService.emit("board change", this.boardToShow);
-    // },
     removeMemberFromTask(member, task, group) {
       var memberIdx = task.members.findIndex((m) => m._id === member._id);
       task.members.splice(memberIdx, 1);
@@ -208,7 +238,6 @@ export default {
       board.groups = this.boardToShow.groups;
       // console.log(board.groups);
       this.updateBoard(board);
-      console.log("check if dragged");
     },
     updateBoard(board) {
       this.$store.dispatch({
@@ -238,7 +267,9 @@ export default {
     draggable,
     boardMenu,
     groupMenu,
-    memberAvatar,
+    memberAvatar2,
+    AddBoardMember,
+    boardMemberModal,
   },
 };
 </script>

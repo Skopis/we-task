@@ -10,7 +10,8 @@
     &:hover {
         .edit-task-title {
             i {
-                color: $task-txt;
+                // color: $task-txt;
+                color: grey;
             }
         }
     }
@@ -41,21 +42,19 @@
                 font-weight: 700;
                 height: 8px;
                 margin: 4px 4px 4px 0;
-                max-width: 40px;
-                min-width: 40px;
                 padding: 0;
                 text-shadow: none;
-                width: auto;
-                transition: all 0.5s linear;
+                width: 40px;
+                transition: height 0.25s ease-in-out , width 0.25s ease-in-out 0.25s;
             }
 
             .label-info {
-                min-height: 22px;
+                width: 56px;
+                height: 22px;
                 text-align: center;
                 font-size: rem(13px);
                 color: white;
                 padding-bottom: 2px;
-                transform: scale(1.1, 2.5);
             }
         }
 

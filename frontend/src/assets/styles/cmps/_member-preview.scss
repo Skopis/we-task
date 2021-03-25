@@ -21,7 +21,28 @@
     }
     
 }
+.add-member-preview{
+    width: 304px;
+    height: auto;
+    border-radius: 3px;
+    padding: 0 12px 12px;
+    margin: 8px 0;
+    z-index: 15;
+    position: absolute;
+    background-color: rgb(255, 255, 255);
+    top: 136px;
 
+    .member-preview-main{
+        margin: 8px 0;
+        display: flex;
+        p{
+            margin: 0;
+        }
+    }
+    :last-child{
+        padding: 6px 12px;
+    }
+}
 .avatar {
     height: 40px;
     width: 40px;

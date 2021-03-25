@@ -26,7 +26,7 @@
 
 <script>
 import colorPicker from '../menu/color-picker.vue'
-import swal from 'sweetalert';
+import Swal from 'sweetalert2'
 
 export default {
   props:[],
@@ -62,22 +62,29 @@ export default {
           this.checklistTitleModal = false;
         },
         removeTask(){
-           swal({
-                title: "Are you sure?",
-                text: "Once deleted, you won\'t be able to recover this task",
-                icon: "warning",
-                buttons: ['Cancel','I\'m Sure'],
-                dangerMode: true,
-            })
-                .then((willDelete) => {
-                    if (willDelete) {
-                      this.$router.go(-1)
-                      this.$emit('removeTask')
-                    } else {
-                        // swal("No worries, We won\'t touch ");
-                        return
-                    }
-                });
+          Swal.fire({
+            title: 'Are you sure?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Yes, delete it!',
+            cancelButtonText: 'No, keep it'
+          }).then((result) => {
+            if (result.value) {
+              this.$emit('removeTask')
+              Swal.fire(
+                'Deleted!',
+                'Task has been deleted.',
+                'success'
+              )
+              this.$router.go(-1)
+            } else if (result.dismiss === Swal.DismissReason.cancel) {
+              Swal.fire(
+                'Cancelled',
+              )
+              return
+            }
+          })
+          
         },
         openLabelModal(){
           this.$emit('openLabelModal', 'true')
