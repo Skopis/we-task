@@ -44,8 +44,7 @@
               @updateTask="updateTask"
               @toggleMemberModal="toggleMemberPreview"
               :groupId="group.id"
-              :style="task.style.imgUrl? { backgroundImage: 'url('+task.style.imgUrl+')',  backgroundRepeat: 'no-repeat',backgroundSize: 'cover' } 
-              :{ backgroundColor: task.style.bgColor }"
+              :style="computedStyle(task)"
             />
           </li>
         </draggable>
@@ -85,6 +84,9 @@ export default {
       task: null,
     };
   },
+  computed:{
+    
+  },
   created() {
     eventBus.$on("addCard", this.openAddModal);
   },
@@ -92,6 +94,15 @@ export default {
     eventBus.$off("addCard", this.openAddModal);
   },
   methods: {
+    computedStyle(task){
+      if (task.style.imgUrl) return { 
+      background: 'url('+task.style.imgUrl+')',
+      backgroundRepeat: 'no-repeat',
+      backgroundSize: 'cover',
+      'min-height': '120px'
+      }
+      else return  { backgroundColor: task.style.bgColor }
+    },
     toggleMemberPreview(member, status, task) {
       this.isMemberModalOpen = status;
       this.member = member;

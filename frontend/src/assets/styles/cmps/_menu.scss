@@ -199,9 +199,12 @@
     width:0px;
    
     .btn-menu-modal{
+        color: white !important;
         z-index: 3;
         float: right;
         background-color: transparent;
+        width: 150px;
+        
     }
     .board-menu-content{
         width: inherit;

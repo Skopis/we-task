@@ -9,12 +9,12 @@
       :style="{ backgroundColor: boardToShow.style.bgColor }"
     >
       <div class="flex">
-        <h2 @click="editBoardTitle" v-show="isTitleModalOpen === false">
+        <h2 class="btn" @click="editBoardTitle" v-if="isTitleModalOpen === false">
           {{ boardToShow.title }}
         </h2>
         <form
           @focusout.prevent="saveBoardTitle"
-          v-show="isTitleModalOpen"
+          v-if="isTitleModalOpen"
           @submit.prevent.stop="saveBoardTitle"
         >
           <input
@@ -25,6 +25,7 @@
             v-model="boardToShow.title"
           />
         </form>
+        <div class="avatar-container">
         <div v-for="member in boardToShow.members" :key="member._id">
           <member-avatar2
             :member="member"
@@ -32,21 +33,19 @@
             @click.native="toggleMemberModal(member)"
           />
         </div>
+        </div>
         <board-member-modal
           v-if="isMemberModalOpen"
           :member="member"
           @removeMemberFromBoard="removeMemberFromBoard"
         />
-        <button class="btn" @click="toggleAddMemberModal">Invite</button>
         <add-board-member
           @addMemberToBoard="addMemberToBoard"
           v-if="isAddMemberModalOpen"
         />
+        <h2 class="btn" @click="toggleAddMemberModal">Invite</h2>
       </div>
       <div class="board-menu" :class="{ active: isBoardMenuModalOpen}">
-        <button class="btn  btn-menu-modal" @click="toggleBoardMenuModal" v-if="!isBoardMenuModalOpen">
-          <img src="../assets/icons/3dots.png" alt="" />
-        </button>
         <board-menu
           v-if="isBoardMenuModalOpen"
           :classSetting="isBoardMenuModalOpen"
@@ -56,6 +55,9 @@
           @searchChanged="searchChanged"
         />
       </div>
+        <h2 class="btn" @click="toggleBoardMenuModal" v-if="!isBoardMenuModalOpen">
+          <i class="el-icon-more"></i> Show menu
+        </h2>
     </header>
     <!-- <section class="task-list-container"> -->
     <section class="main-board-container">

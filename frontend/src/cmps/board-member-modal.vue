@@ -10,7 +10,7 @@
                 <p>@{{member.fullname.toLowerCase().replace(/\s/g, '')}}</p>
             </div>
         </div>
-        <button class="btn" @click="removeMemberFromBoard">Remove from Board</button>
+        <button class="btn add-task" @click="removeMemberFromBoard">Remove from Board</button>
     </section>
 </template>
 
