@@ -43,13 +43,15 @@
           v-if="isAddMemberModalOpen"
         />
       </div>
-      <div class="flex row-reverse align-center">
-        <button class="btn" @click="toggleBoardMenuModal">
+      <div class="board-menu" :class="{ active: isBoardMenuModalOpen}">
+        <button class="btn  btn-menu-modal" @click="toggleBoardMenuModal" v-if="!isBoardMenuModalOpen">
           <img src="../assets/icons/3dots.png" alt="" />
         </button>
         <board-menu
           v-if="isBoardMenuModalOpen"
+          :classSetting="isBoardMenuModalOpen"
           :board="boardToShow"
+          @closeModal="closeBoardMenuModal"
           @updateBoardCover="updateBoardCover"
           @searchChanged="searchChanged"
         />
@@ -209,6 +211,9 @@ export default {
       //TODO:
       this.isBoardMenuModalOpen = !this.isBoardMenuModalOpen;
     },
+    closeBoardMenuModal(){
+      this.isBoardMenuModalOpen=false
+    },
     archiveGroup(groupToArchive) {
       this.$store.dispatch({
         type: "archiveGroup",
@@ -267,12 +272,13 @@ export default {
       const groupIdx = this.boardToShow.groups.findIndex(
         (group) => group.id === groupId
       );
-      // console.log('groupIdx', groupIdx)
-      var amount = 276 * (groupIdx + 1) - 12;
-      if (groupIdx < 1) {
-        amount -= 12;
+      console.log('groupIdx', groupIdx)
+      var amount = 285 * (groupIdx + 1);
+      if (!groupIdx) {
+        amount -= 10;
       }
-      this.menuPos = { left: amount + "px" };
+      console.log('amount',amount)
+      this.menuPos = { left:amount + "px" };
       // console.log(this.menuPos);
     },
   },
