@@ -31,6 +31,7 @@
             v-if="labelsModal"
             @setLabel="setTaskLabel"
             @closeLabelMenu="manageLabelMenu"
+            @updateLabel="updateLabel"
           />
           <div class="labels-container container">
             <div v-if="task.labels" class="task-labels-wrapper">
@@ -59,10 +60,27 @@
           <h3 class="module-header">
             <i class="el-icon-s-unfold"></i>Description
           </h3>
-          <p v-if="task.description && !isDescEditOpen" @click="editTaskDescription">{{ task.description }}</p>
-          <p v-else-if="!isDescEditOpen" class="description-area" @click="editTaskDescription">Add a more detailed description</p>
+          <p
+            v-if="task.description && !isDescEditOpen"
+            @click="editTaskDescription"
+          >
+            {{ task.description }}
+          </p>
+          <p
+            v-else-if="!isDescEditOpen"
+            class="description-area"
+            @click="editTaskDescription"
+          >
+            Add a more detailed description
+          </p>
           <form @submit.prevent="saveTaskDescription" v-if="isDescEditOpen">
-            <textarea name="" id="" cols="20" rows="3" v-model="task.description"></textarea>
+            <textarea
+              name=""
+              id=""
+              cols="20"
+              rows="3"
+              v-model="task.description"
+            ></textarea>
             <button class="btn" type="submit">Save</button>
           </form>
         </div>
@@ -146,10 +164,20 @@ export default {
       membersMenu: false,
       dateMenu: false,
       loggedinUser: null,
-      isDescEditOpen: false
+      isDescEditOpen: false,
     };
   },
   methods: {
+    closeAllModals(){
+      this.checkListModal = false;
+      this.labelsModal = false;
+      this.membersMenu = false;
+      this.dateMenu = false;
+    },
+    updateLabel(labelData) {
+      // console.log(labelData);
+      this.$store.dispatch({ type: "updateLabel", labelData });
+    },
     async loadTask() {
       const id = this.$route.params.taskId;
       try {
@@ -161,13 +189,16 @@ export default {
         console.log("Cannot find task", err);
       }
     },
-    async saveTaskDescription(){
-      this.isDescEditOpen = false
-      await this.$store.dispatch({ type: "addTask", task: JSON.parse(JSON.stringify(this.task)) });
+    async saveTaskDescription() {
+      this.isDescEditOpen = false;
+      await this.$store.dispatch({
+        type: "addTask",
+        task: JSON.parse(JSON.stringify(this.task)),
+      });
       this.addActivity("Changed Task Description");
     },
-    editTaskDescription(){
-      this.isDescEditOpen = true
+    editTaskDescription() {
+      this.isDescEditOpen = true;
     },
     reply(memberName) {
       setTimeout(() => {
@@ -186,11 +217,12 @@ export default {
       return date.toLocaleDateString(undefined, options);
     },
     manageDateMenu(status) {
-      this.dateMenu = status;
+      // this.dateMenu = status;
+      this.dateMenu = !this.dateMenu;
     },
     manageMembersMenu(status) {
-      ////////////////////
-      this.membersMenu = status;
+      // this.membersMenu = status;
+      this.membersMenu = !this.membersMenu;
     },
     createCheckList() {
       // console.log("checklist");
@@ -235,12 +267,13 @@ export default {
       this.$router.go(-1);
     },
     async setTaskLabel(label) {
-      await this.$store.dispatch({
+      const isAdded = await this.$store.dispatch({
         type: "setTaskLabel",
         task: this.task,
         label,
       });
-      this.addActivity("Added Label");
+      const txt = isAdded ? "Added Label" : "Removed Label";
+      this.addActivity(txt);
       this.loadTask();
     },
     async updateDueDate(date) {
@@ -275,7 +308,7 @@ export default {
     },
     manageLabelMenu(status) {
       // console.log(status);
-      this.labelsModal = JSON.parse(status);
+      this.labelsModal = !this.labelsModal//JSON.parse(status);
     },
     closeModals() {
       this.labelsModal = false;
@@ -284,18 +317,23 @@ export default {
     },
   },
   computed: {
-    activitiesToShow(){
-      if (this.activities && this.activities.length &&
-      this.task.comments && this.task.comments.length)
-      var allArr = JSON.parse(JSON.stringify(this.activities.concat(this.task.comments)))
-      
+    activitiesToShow() {
+      if (
+        this.activities &&
+        this.activities.length &&
+        this.task.comments &&
+        this.task.comments.length
+      )
+        var allArr = JSON.parse(
+          JSON.stringify(this.activities.concat(this.task.comments))
+        );
       else if (this.activities && this.activities.length)
-        allArr = JSON.parse(JSON.stringify(this.activities))
-      else allArr = JSON.parse(JSON.stringify(this.task.comments))
-      var sortedArr = allArr.sort((a, b)=>{
-        return b.createdAt - a.createdAt
-      })
-      return sortedArr
+        allArr = JSON.parse(JSON.stringify(this.activities));
+      else allArr = JSON.parse(JSON.stringify(this.task.comments));
+      var sortedArr = allArr.sort((a, b) => {
+        return b.createdAt - a.createdAt;
+      });
+      return sortedArr;
     },
     boradId() {
       return this.$store.getters.getBoardId;

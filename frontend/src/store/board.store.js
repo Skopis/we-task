@@ -14,7 +14,7 @@ export const boardStore = {
         filterBy: '',
     },
     getters: {
-        boardMembers(state){
+        boardMembers(state) {
             return state.board.members
         },
         tasks(state) {
@@ -99,11 +99,23 @@ export const boardStore = {
         },
         addActivity(state, { activityToAdd }) {
             state.board.activities.push(activityToAdd)
-        }
+        },
+        setLabelText(state, { labelIdx, newTxt }) {
+            state.board.labels[labelIdx].title = newTxt;
+        },
     },
     actions: {
+        updateLabel({ state, commit }, { labelData }) {
+            const newTxt = labelData.txt;
+            const labelIdx = state.board.labels.findIndex(label => label.id === labelData.labelId)
+            console.log(labelIdx);
+            commit({ type: 'setLabelText',labelIdx,newTxt })
+            const boardToUpdate = state.board//JSON.parse(JSON.stringify(state.board));
+            this.dispatch({ type: 'updateBoard',boardToUpdate})
+            this.dispatch({ type: 'sendUpdatedBoard' });
+        },
         async updateBoard({ state, commit }, { boardToUpdate }) {
-            if (state.filterBy !== ''){
+            if (state.filterBy !== '') {
                 return
             }
             try {
@@ -118,12 +130,15 @@ export const boardStore = {
             }
         },
         sendUpdatedBoard({ state }) {
-            // console.log("Sending", state.board);
+            console.log('sending board');
             if (state.filterBy === '') {
                 socketService.emit("board change", state.board);
             }
         },
         async addTask({ commit, state }, { task, group }) {
+            if (state.filterBy !== '') {
+                return
+            }
             try {
                 if (!group) {
                     const currGroupId = await boardService.getGroupId()
@@ -150,6 +165,9 @@ export const boardStore = {
             }
         },
         async archiveGroup({ state, commit }, { group }) {
+            if (state.filterBy !== '') {
+                return
+            }
             try {
                 // var boardIdx = state.boards.findIndex(b => b._id === state.board._id)
                 var groupIdx = state.board.groups.findIndex(g => g.id === group.id)
@@ -164,6 +182,9 @@ export const boardStore = {
             }
         },
         async addGroup({ state, commit }) {
+            if (state.filterBy !== '') {
+                return
+            }
             try {
                 const newGroup = boardService.getEmptyGroup()
                 await boardService.addGroup(newGroup, state.board)
@@ -184,11 +205,12 @@ export const boardStore = {
             }
         },
         async updateGroup({ state, commit }, { group, boardId }) {
+            if (state.filterBy !== '') {
+                return
+            }
             try {
-                // var boardIdx = state.boards.findIndex(b => b._id === boardId)
                 var groupIdx = state.board.groups.findIndex(g => g.id === group.id)
                 const boardForUpdate = await boardService.updateGroup(group, state.board, groupIdx)
-                // commit({ type: 'updateBoard', boardIdx, board: boardForUpdate })
                 await this.dispatch({ type: 'updateBoard', boardToUpdate: boardForUpdate })
                 this.dispatch({ type: 'sendUpdatedBoard' });
             }
@@ -229,6 +251,9 @@ export const boardStore = {
             }
         },
         async removeTask({ commit, state }, { task }) {
+            if (state.filterBy !== '') {
+                return
+            }
             var boardIdx = state.boards.findIndex(b => b._id === state.board._id)
             var groupIdx = state.board.groups.findIndex(g => g.id === state.currGroupId)
             var taskIdx = state.board.groups[groupIdx].tasks.findIndex(t => t.id === task.id)
@@ -248,6 +273,9 @@ export const boardStore = {
             return task
         },
         async addCheckList({ commit, state }, { checkList, task }) {
+            if (state.filterBy !== '') {
+                return
+            }
             checkList.id = utilService.makeId()
             checkList.todos.forEach(todo => {
                 todo.id = utilService.makeId()
@@ -256,7 +284,6 @@ export const boardStore = {
             else task.checklists.push(checkList)
             const currGroupId = await boardService.getGroupId()
             var groupIdx = state.board.groups.findIndex(g => g.id === JSON.parse(currGroupId))
-
             try {
                 const updatedBoard = await boardService.add(task, groupIdx, state.board)
                 this.dispatch({ type: 'updateBoard', boardToUpdate: updatedBoard })
@@ -266,6 +293,9 @@ export const boardStore = {
             }
         },
         async saveComment({ commit, state }, { task, comment }) {
+            if (state.filterBy !== '') {
+                return
+            }
             if (!comment.id) {
                 comment.id = utilService.makeId();
                 comment.createdAt = Date.now()
@@ -294,11 +324,20 @@ export const boardStore = {
             commit({ type: 'saveCurrGroupId', groupId: currGroupId })
         },
         async setTaskLabel({ commit, state }, { task, label }) {
+            if (state.filterBy !== '') {
+                return
+            }
             if (!task.labels || !task.labels.length) {
                 task.labels = [label]
             } else {
-                if (task.labels.find(l => l.id === label.id)) return
-                else task.labels.push(label)
+                // if (task.labels.find(l => l.id === label.id)) return
+                // else task.labels.push(label)
+                var labelIdx = task.labels.findIndex(l => l.id === label.id)
+                if (labelIdx === -1) {
+                    task.labels.push(label);
+                } else {
+                    task.labels.splice(labelIdx, 1);
+                }
             }
             const groupId = await boardService.getGroupId()
             var groupIdx = state.board.groups.findIndex(g => g.id === JSON.parse(groupId))
@@ -306,13 +345,16 @@ export const boardStore = {
                 const updatedBoard = await boardService.add(task, groupIdx, state.board)
                 commit({ type: 'setBoard', board: updatedBoard })
                 this.dispatch({ type: 'sendUpdatedBoard' });
+                return (labelIdx === -1);
             } catch (err) {
                 console.log('Cannot save comment', err)
             }
         },
         async addActivity({ state, commit }, { activity }) {
+            if (state.filterBy !== '') {
+                return
+            }
             try {
-                // console.log('state.board.activities', state.board.activities)
                 const { activityToAdd, boardToUpdate } = await boardService.addActivity(activity, state.board)
                 commit({ type: 'addActivity', activityToAdd })
                 this.dispatch({ type: 'updateBoard', boardToUpdate })

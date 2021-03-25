@@ -99,7 +99,7 @@
 
     }
 
-    @include for-narrow-layout {
+    @include for-wide-layout {
         article {
             display: flex;
             flex-direction: column;
