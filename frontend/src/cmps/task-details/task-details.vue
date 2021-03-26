@@ -5,13 +5,13 @@
         <div class="header-content" >
           <button class="btn close-modal" @click="closeDetailsModal"><i class="el-icon-close"></i></button>
           <h1 v-if="!task.style.imgUrl">{{ task.title }}</h1>
-          <p v-if="!task.style.imgUrl"><span>in List</span></p>
+          <p v-if="!task.style.imgUrl"><span>in List {{listTitle}}</span></p>
         </div>
       </header>
       <main>
       <div v-if="task.style.imgUrl">
           <h1>{{ task.title }}</h1>
-          <p><span>in List</span></p>
+          <p><span>in List {{listTitle}}</span></p>
       </div>
         <div class="task-info">
           <members-menu
@@ -111,7 +111,7 @@
               <i class="el-icon-paperclip"></i>Attachments
             </h3>
             <div class="img-list" v-for="(attachment, idx) in task.attachments" :key="idx">
-              <task-attachment-display :imgUrl="attachment.imgUrl" @setImageAsTaskCover="setImageAsTaskCover" @removeAttachment="removeAttachment" @comment="commentOnAttachment"/>
+              <task-attachment-display :imgUrl="attachment.imgUrl" :task="task" @setImageAsTaskCover="setImageAsTaskCover" @removeAttachment="removeAttachment" @comment="commentOnAttachment"/>
             </div>
           </div>
         </div>
@@ -122,7 +122,7 @@
           <div class="comment-section">
             <textarea
               ref="writeComment"
-              placeholder="write a comment"
+              placeholder="Write a comment"
               v-model="comment.txt"
               class="comment-box"
             ></textarea>
@@ -216,13 +216,13 @@ export default {
         task: JSON.parse(JSON.stringify(this.task)),
       });
       if (!imgUrl){
-         this.addActivity("Removed Attached Image from Cover");
-         return 'cover'
+        this.addActivity("Removed Attached Image from Cover");
+        return 'cover'
       }
       else{
-         this.addActivity("Changed cover to Attached Image");
-         return ''
-        }
+        this.addActivity("Changed cover to Attached Image");
+        return ''
+      }
     },
     async saveImgAsAttachment(imgUrl){ 
       this.isAttachmentModalOpen = false
@@ -247,7 +247,7 @@ export default {
         let taskActivities = this.$store.getters.taskActivities;
         this.activities = taskActivities;
       } catch (err) {
-        console.log("Cannot find task", err);
+          console.log("Cannot find task", err);
       }
     },
     toggleAttachmentModal(){
@@ -314,6 +314,7 @@ export default {
         comment: this.comment,
       });
       this.comment = { txt: "" };
+      // this.loadTask();
     },
     
     removeTask() {
@@ -383,9 +384,13 @@ export default {
       const todo = this.task.checklists[checklistIdx].todos[todoIdx]
       todo.isDone = isDone
       this.$store.dispatch({ type: "addTask", task: this.task });
-    }
+    },
   },
   computed: {
+    listTitle(){
+      this.$store.commit('getGroupByTaskId', this.task.id)
+      return this.$store.getters.groupTitle
+    },
     activitiesToShow() {
       if (
         this.activities &&

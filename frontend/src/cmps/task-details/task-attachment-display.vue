@@ -13,22 +13,26 @@
 
 export default {
     name: 'task-attachment-display',
-    props: ['imgUrl'],
+    props: ['imgUrl', 'task'],
     data(){
         return{
-            title: 'Set as Cover'
+            isCoverOn: false
+        }
+    },
+    computed:{
+        title(){
+            return this.isCoverOn ? 'Remove as Cover' : 'Set as Cover'
         }
     },
     methods:{
         toggleSetAsTaskCover(){
-            if (this.title === 'Remove as Cover'){
-                this.title = 'Set as Cover'
+            if (this.isCoverOn){
                 this.$emit('setImageAsTaskCover', '', {class:''})
             }
             else{
                 this.$emit('setImageAsTaskCover', this.imgUrl, {class:'cover'})
-                this.title = 'Remove as Cover'
             }
+            this.isCoverOn = !this.isCoverOn
         },
         removeAttachment(){
             this.$emit('removeAttachment', this.imgUrl)
@@ -37,5 +41,8 @@ export default {
             this.$emit('comment', this.imgUrl)
         }
     },
+    created(){
+        if (this.task.style.imgUrl) this.isCoverOn = true
+    }
 }
 </script>
