@@ -206,6 +206,7 @@ import membersMenu from "../menu/members-menu";
 import DatePicker from "./date-picker.vue";
 import taskAttachment from "./task-attachment.vue";
 import taskAttachmentDisplay from "./task-attachment-display.vue";
+import { socketService } from "@/services/socket.service";
 
 export default {
   data() {
@@ -431,6 +432,28 @@ export default {
       todo.isDone = isDone;
       this.$store.dispatch({ type: "addTask", task: this.task });
     },
+    updatedBoard(boardToUpdate) {
+      console.log("got board");
+      this.$store.commit({
+        type: "updateBoard",
+        boardIdx: 0,
+        board: boardToUpdate,
+      });
+      this.loadTask();
+    },
+  },
+  created() {
+    this.loggedinUser = this.$store.getters.loggedinUser;
+    this.loadTask();
+    socketService.setup();
+    socketService.emit("board id", this.boradId);
+    socketService.on("updated board", this.updatedBoard);
+  },
+  destroyed() {
+    {
+      socketService.off("updated board", this.updatedBoard);
+      socketService.terminate();
+    }
   },
   computed: {
     activitiesToShow() {
@@ -454,10 +477,6 @@ export default {
     boradId() {
       return this.$store.getters.getBoardId;
     },
-  },
-  created() {
-    this.loggedinUser = this.$store.getters.loggedinUser;
-    this.loadTask();
   },
   watch: {
     "$route.params.taskId"(id) {
