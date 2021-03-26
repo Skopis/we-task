@@ -9,7 +9,7 @@
         @focusout.prevent="stopEdit"
         @keydown.enter.exact.prevent="updateTask"
         autofocus
-      >
+      />
       <!-- <button >Save</button> -->
     </form>
   </section>

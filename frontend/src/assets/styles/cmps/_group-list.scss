@@ -65,6 +65,7 @@
             width: 100%;
         }
         .btn.add-task{
+            font-size: 14px;
             height: unset;
             margin-bottom: 4px;
             margin-top: 8px;
@@ -80,7 +81,7 @@
             }
             i{
                 // color: green;
-                font-size: rem(16px);
+                font-size: rem(14px);
                 font-weight: 700;
             }
         }
