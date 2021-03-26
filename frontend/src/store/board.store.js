@@ -339,16 +339,20 @@ export const boardStore = {
             commit({ type: 'saveCurrGroupId', groupId: currGroupId })
         },
         async setTaskLabel({ commit, state }, { task, label }) {
+            var isAdded = false
+            console.log('isAdded before', isAdded)
             if (state.filterBy !== '') {
                 return
             }
             if (!task.labels || !task.labels.length) {
                 task.labels = [label]
+                isAdded = true
             } else {
-                // if (task.labels.find(l => l.id === label.id)) return
-                // else task.labels.push(label)
                 var labelIdx = task.labels.findIndex(l => l.id === label.id)
+                console.log('labelIdx', labelIdx)
                 if (labelIdx === -1) {
+                    isAdded = true
+                    console.log('isAdded b', isAdded)
                     task.labels.push(label);
                 } else {
                     task.labels.splice(labelIdx, 1);
@@ -360,7 +364,8 @@ export const boardStore = {
                 const updatedBoard = await boardService.add(task, groupIdx, state.board)
                 commit({ type: 'setBoard', board: updatedBoard })
                 this.dispatch({ type: 'sendUpdatedBoard' });
-                return (labelIdx === -1);
+                console.log('isAdded', isAdded)
+                return isAdded
             } catch (err) {
                 console.log('Cannot save comment', err)
             }

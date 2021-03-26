@@ -1,7 +1,6 @@
 <template>
     <div class="form__field">
         <div class="form__label">
-            <strong>Choose a color:</strong>
         </div>
         <div class="form__input" >
             <v-swatches :swatches="swatches" v-model="color" popover-x="left" @input="saveNewCover"></v-swatches>
@@ -19,7 +18,7 @@
         data () {
             return {
                 color: '#1CA085',
-                swatches: ['#7bc86c', '#f5dd29', '#ffaf3f', '#ef7564', '#cd8de5', '#5ba4cf', '#29cce5', '#6deca9', '#ff8ed4', '#172b4d']
+                swatches: ['#7bc86c', '#f5dd29', '#ffaf3f', '#ef7564', '#cd8de5', '#5ba4cf', '#29cce5', '#6deca9', '#ff8ed4', '#172b4d', '#f4f5f7', '#ffff']
             }
         },
         async created(){

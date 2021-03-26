@@ -15,14 +15,14 @@
           <button class="btn close-modal" @click="closeDetailsModal">
             <i class="el-icon-close"></i>
           </button>
-          <h1 v-if="!task.style.imgUrl">{{ task.title }}</h1>
-          <p v-if="!task.style.imgUrl"><span>in List {{listTitle}}</span></p>
+          <h1 class="task-title" v-if="!task.style.imgUrl"><img src="../../assets/icons/card.png" alt="">{{ task.title }}</h1>
+          <p v-if="!task.style.imgUrl">in List <span class="list-title"> {{listTitle}}</span></p>
         </div>
       </header>
       <main>
         <div v-if="task.style.imgUrl">
-          <h1>{{ task.title }}</h1>
-          <p><span>in List {{listTitle}}</span></p>
+          <h1 class="task-title"><img src="../../assets/icons/card.png" alt="">{{ task.title }}</h1>
+          <p>in List <span class="list-title"> {{listTitle}}</span></p>
       </div>
         <div class="task-info">
           <members-menu
@@ -53,7 +53,7 @@
               <h3>Labels</h3>
               <div v-for="label in task.labels" :key="label.id">
                 <div :class="label.color" class="task-label">
-                  {{ label.title }}
+                  {{accurateTitle(label.id)}}
                 </div>
               </div>
               <div class="task-label add-label">+</div>
@@ -66,8 +66,11 @@
           />
           <div class="due-date-continer container">
             <div v-if="task.dueDate" class="due-date-wrapper">
-              <h3>Due Date</h3>
-              <p class="due-date">{{ task.dueDate }}</p>
+              <h3>Due Date </h3>
+              <div class="flex due-date-content">
+                <el-checkbox v-model="task.dueDate.isComplete"></el-checkbox>
+                <p class="due-date" @click="toggleTaskComplete">{{ task.dueDate.date }} <span class="complete" v-if="task.dueDate.isComplete"> COMPLETE</span></p>
+              </div>
             </div>
           </div>
           <task-attachment
@@ -137,7 +140,7 @@
               <i class="el-icon-paperclip"></i>Attachments
             </h3>
             <div class="img-list" v-for="(attachment, idx) in task.attachments" :key="idx">
-              <task-attachment-display :imgUrl="attachment.imgUrl" :task="task" @setImageAsTaskCover="setImageAsTaskCover" @removeAttachment="removeAttachment" @comment="commentOnAttachment"/>
+              <task-attachment-display :attachment="attachment" :task="task" @setImageAsTaskCover="setImageAsTaskCover" @removeAttachment="removeAttachment" @comment="commentOnAttachment"/>
             </div>
           </div>
         </div>
@@ -216,6 +219,23 @@ export default {
     };
   },
   methods: {
+    accurateTitle(labelId){
+      var title;
+      const board = this.$store.getters.getBoard
+      board.labels.forEach(label=>{
+        if(label.id === labelId) title = label.title
+      })
+      return title
+    },
+    async toggleTaskComplete(){
+      this.task.dueDate.isComplete = !this.task.dueDate.isComplete
+      await this.$store.dispatch({
+        type: "addTask",
+        task: JSON.parse(JSON.stringify(this.task)),
+      });
+      if(this.task.dueDate.isComplete) this.addActivity("Marked Task as Complete");
+      else this.addActivity("Marked Task as Incomplete");
+    },
     closeAllModals() {
       this.checkListModal = false;
       this.labelsModal = false;
@@ -254,9 +274,9 @@ export default {
         return ''
       }
     },
-    async saveImgAsAttachment(imgUrl){ 
+    async saveImgAsAttachment(imgUrl, originalFilename, format){ 
       this.isAttachmentModalOpen = false
-      const attachment = {byMember: this.loggedinUser, imgUrl}
+      const attachment = {byMember: this.loggedinUser, imgUrl, originalFilename, format, createdAt: Date.now()}
       if(!this.task.attachments) this.task.attachments=[]
       this.task.attachments.push(attachment)
       await this.$store.dispatch({
@@ -309,10 +329,10 @@ export default {
     },
     formattedDate(date) {
       const options = {
-        weekday: "long",
-        year: "numeric",
-        month: "long",
+        month: "short",
         day: "numeric",
+        // weekday: "long",
+        year: "numeric",
       };
       return date.toLocaleDateString(undefined, options);
     },
@@ -342,9 +362,9 @@ export default {
       this.addActivity("Added CheckList");
       this.loadTask();
     },
-    addComment() {
+    async addComment() {
       if (!this.comment.txt) return;
-      this.$store.dispatch({
+      await this.$store.dispatch({
         type: "saveComment",
         task: this.task,
         comment: this.comment,
@@ -370,13 +390,15 @@ export default {
         task: this.task,
         label,
       });
-      const txt = isAdded ? "Added Label" : "Removed Label";
+      const txt = isAdded ? "Added a Label" : "Removed a Label";
       this.addActivity(txt);
       this.loadTask();
     },
     async updateDueDate(date) {
       var taskToEdit = JSON.parse(JSON.stringify(this.task));
-      taskToEdit.dueDate = this.formattedDate(date);
+      if(!taskToEdit.dueDate) taskToEdit.dueDate = {date:'', isComplete: false}
+      taskToEdit.dueDate.date = this.formattedDate(date);
+      taskToEdit.dueDate.isComplete = false
       await this.$store.dispatch({ type: "addTask", task: taskToEdit });
       this.addActivity("Added Due Date");
     },

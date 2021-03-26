@@ -1,10 +1,14 @@
 <template>
     <section class="task-attachment-display">
-        <img :src="imgUrl" alt="images" />
-        <button class="btn" @click="removeAttachment">Delete</button>
-        <button class="btn">Edit</button>
-        <button class="btn" @click="comment">Comment</button>
-        <button class="btn" @click="toggleSetAsTaskCover">{{title}}</button>
+        <img :src="attachment.imgUrl" alt="images" />
+        <div>
+            <p>{{attachment.originalFilename}}.{{attachment.format}}</p>
+            <p>Added {{formattedDate(attachment.createdAt)}}</p>
+            <button class="btn" @click="removeAttachment">Delete</button>
+            <button class="btn">Edit</button>
+            <button class="btn" @click="comment">Comment</button>
+            <button class="btn" @click="toggleSetAsTaskCover">{{title}}</button>
+        </div>
     </section>
 </template>
 
@@ -13,7 +17,7 @@
 
 export default {
     name: 'task-attachment-display',
-    props: ['imgUrl', 'task'],
+    props: ['attachment', 'task'],
     data(){
         return{
             isCoverOn: false
@@ -21,24 +25,27 @@ export default {
     },
     computed:{
         title(){
-            return this.isCoverOn ? 'Remove as Cover' : 'Set as Cover'
-        }
+            return this.isCoverOn ? 'Remove cover' : 'Make cover'
+        },
     },
     methods:{
+        formattedDate(date) {
+            return moment(date).fromNow();
+        },
         toggleSetAsTaskCover(){
             if (this.isCoverOn){
                 this.$emit('setImageAsTaskCover', '', {class:''})
             }
             else{
-                this.$emit('setImageAsTaskCover', this.imgUrl, {class:'cover'})
+                this.$emit('setImageAsTaskCover', this.attachment.imgUrl, {class:'cover'})
             }
             this.isCoverOn = !this.isCoverOn
         },
         removeAttachment(){
-            this.$emit('removeAttachment', this.imgUrl)
+            this.$emit('removeAttachment', this.attachment.imgUrl)
         },
         comment(){
-            this.$emit('comment', this.imgUrl)
+            this.$emit('comment', this.attachment.imgUrl)
         }
     },
     created(){

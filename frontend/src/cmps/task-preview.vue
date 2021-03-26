@@ -9,7 +9,7 @@
             :class="label.color"
             class="label-info small-label"
             @click.stop="classChange(label, false)"
-            >{{ label.title }}</span
+            > {{accurateTitle(label.id)}}</span
           >
         </div>
         <div v-else class="task-label-container">
@@ -55,6 +55,14 @@
           icon="el-icon-view"
           v-if="isloggedinUserMember"
         ></el-button>
+        <button class="btn clock" @click.stop="toggleComplete" v-if="task.dueDate && !task.dueDate.isComplete">
+          <img src="../assets/icons/clock.png" alt="">
+          <p>{{formattedDueDate}}</p>
+        </button>
+        <button v-else-if="task.dueDate" class="btn clock complete" @click.stop="toggleComplete">
+          <img src="../assets/icons/checkbox.png" alt="">
+          <p>{{formattedDueDate}}</p>
+        </button>
         <button class="btn badge" v-if="task.comments && task.comments.length">
           <i class="el-icon-chat-square"></i>
           <span>{{ task.comments.length }}</span>
@@ -84,6 +92,20 @@ export default {
   },
   //TODO: when click on window anywhere but the modal - modal closes
   methods: {
+    accurateTitle(labelId){
+      var title;
+      const board = this.$store.getters.getBoard
+      board.labels.forEach(label=>{
+        if(label.id === labelId) title = label.title
+      })
+      return title
+    },
+    toggleComplete(){
+      var task = JSON.parse(JSON.stringify(this.task))
+      console.log('task at 97 preview', task)
+      task.dueDate.isComplete = !task.dueDate.isComplete
+      this.$emit("updateTask", {taskToUpdate: task});
+    },
     stopEdit() {
       // this.$emit("stopEdit");
       this.isEditModalOpen = false;
@@ -111,6 +133,7 @@ export default {
     },
     updateTask(taskToUpdate) {
       this.isEditModalOpen = false;
+      console.log('taskToUpdate', taskToUpdate)
       this.$emit("updateTask", taskToUpdate);
     },
     openTaskDetails(taskId) {
@@ -126,6 +149,9 @@ export default {
     },
   },
   computed: {
+    formattedDueDate(){
+      return this.task.dueDate.date.substring(0, this.task.dueDate.date.length-4);
+    },
     boradId() {
       return this.$store.getters.getBoardId;
     },
