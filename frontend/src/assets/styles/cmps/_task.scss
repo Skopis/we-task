@@ -200,7 +200,7 @@
             flex-direction: column;
             // box-shadow:0 2px 12px -2px rgba(9, 30, 66, 0.25);
             box-shadow: 0 1px 2px -1px rgba(9, 30, 66, 0.25), 0 0 0 1px rgba(9, 30, 66, 0.08);
-            width: 508px;
+            width: 510px;
             padding: 8px 10px;
             position: relative;
             transition-duration: 85ms;
@@ -282,7 +282,8 @@
                 margin-bottom: 0;
                 margin-top: -10px;
                 padding: 8px 12px;
-                min-width: 40px;
+                // min-width: 40px;
+                width: fit-content;
                 box-shadow: 0 1px 6px -1px rgba(9, 30, 66, 0.25);
                 background-color: #fff;
                 border-radius: 4px;
@@ -504,7 +505,7 @@
             box-shadow: inset 0 0 0 2px #0079bf;
             color: #172b4d;
             cursor: text;
-            width: 74%;
+            width: 488px !important;
             min-height: 32px;
             margin: 4px 0 0;
             font-size: rem(15px);
@@ -574,7 +575,7 @@
     }
 
     .add-checklist {
-
+        width: 512px;
         // background-color: khaki;
         .btn {
             width: auto;
@@ -591,15 +592,14 @@
 
         .done {
             float: right;
-            margin-right: 160px;
+            margin-right:0px;
         }
 
         .close {
             background-color: $clr4;
             float: right;
-            margin-right: 160px;
+            margin-right: 0px;
             margin-bottom: 4px;
-
             &:hover {
                 background-color: #c75040;
             }
