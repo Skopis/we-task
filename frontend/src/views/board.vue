@@ -254,10 +254,12 @@ export default {
         boardId: this.boardToShow._id,
       });
     },
-    itemDragged() {
+    itemDragged(group="",taskTxt="",toGroup="") {
+      const actTxt = (group !== "" && taskTxt !=="")? `Task: ${taskTxt} moved from the group: ${group.title} to: ${toGroup}` : "group moved"
+      console.log(actTxt);
+      //TODO: connect to activity log
       const board = this.boardToShow;
       board.groups = this.boardToShow.groups;
-      // console.log(board.groups);
       this.updateBoard(board);
     },
     updateBoard(board) {
