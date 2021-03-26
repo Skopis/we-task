@@ -122,813 +122,855 @@ function _getEmptyBoard() {
 }
 
 function _getLongBoards() {
-    return [{
-        "title": "Project Management",
-        "createdAt": 1589983468418,
-        "createdBy": {
-            "_id": "u102",
-            "nickname": "Nofar",
-            "fullname": "Nofar Gabso",
-            "imgUrl": ""
-        },
-        "style": {
-            "bgColor": "#d8c9ff"
-        },
-        "labels": [
-            {
-                "id": "l101",
-                "title": "Done",
-                "color": "green"
-            },
-            {
-                "id": "l102",
-                "title": "",
-                "color": "yellow"
-            },
-            {
-                "id": "l103",
-                "title": "",
-                "color": "orange"
-            },
-            {
-                "id": "l104",
-                "title": "",
-                "color": "red"
-            },
-            {
-                "id": "l105",
-                "title": "",
-                "color": "purple"
-            },
-            {
-                "id": "l106",
-                "title": "",
-                "color": "blue"
-            },
-        ],
-        "members": [
-            {
-                "_id": "u101",
-                "fullname": "Shachar Dorfzaun",
-                "imgUrl": ""
-            },
-            {
+    return [
+        {
+            "title": "Project Management",
+            "createdAt": 1589983468418,
+            "createdBy": {
                 "_id": "u102",
-                "nickname": "Nofar",
+                "username": "nofargabso",
                 "fullname": "Nofar Gabso",
                 "imgUrl": ""
             },
-            {
-                "_id": "u103",
-                "fullname": "Guest",
-                'username': 'guest',
-                "imgUrl": "",
+            "style": {
+                "bgColor": "#29cce5"
             },
-            {
-                "_id": "u177",
-                "fullname": "Lian Skopis",
-                'username': 'Lian',
-                "imgUrl": "",
-            }
-        ],
-        "groups": [
-            {
-                "id": "g101",
-                "title": "Project Resources",
-                "tasks": [
-                    {
-                        "id": "c101",
-                        "title": `Project "Teamwork Dream Work" Launch Timeline`,
-                        "style": {
-                            "bgColor": "#ffff"
-                        },
-                        "members": [
-                            {
-                                "_id": "u103",
-                                "fullname": "Guest",
-                                'username': 'guest',
-                                "imgUrl": "",
-                            },
-                            {
-                                "_id": "u177",
-                                "fullname": "Lian Skopis",
-                                'username': 'Lian',
-                                "imgUrl": "",
-                            }
-                        ],
-                        "labels": []
-                    },
-                    {
-                        "id": "c1012",
-                        "title": "Weekly Updates",
-                        "style": {
-                            "bgColor": "#ebecf0"
-                        },
-                        "labels": []
-                    },
-                    {
-                        "id": "c1014",
-                        "title": "Stakeholders",
-                        "style": {
-                            "bgColor": "#b1c294"
-                        },
-                        "labels": []
-                    }
-                ],
-                "style": {
-                    "bgColor": "#eecab6"
+            "labels": [
+                {
+                    "id": "l101",
+                    "title": "Done",
+                    "color": "green"
+                },
+                {
+                    "id": "l102",
+                    "title": "",
+                    "color": "yellow"
+                },
+                {
+                    "id": "l103",
+                    "title": "",
+                    "color": "orange"
+                },
+                {
+                    "id": "l104",
+                    "title": "",
+                    "color": "red"
+                },
+                {
+                    "id": "l105",
+                    "title": "",
+                    "color": "purple"
+                },
+                {
+                    "id": "l106",
+                    "title": "",
+                    "color": "blue"
                 }
-            },
-            {
-                "id": "g102",
-                "title": "Questions for Next Meeting",
-                "tasks": [
-                    {
-                        "id": "c103",
-                        "title": "Who's the best person to fix my HTML snag?",
-                        "style": {
-                            "bgColor": "#cc859a"
-                        },
-                        "labels": [],
-                        "members": [
-                            {
-                                "_id": "u103",
-                                "fullname": "Guest",
-                                'username': 'guest',
-                                "imgUrl": "",
-                            }
-                        ]
-                    },
-                    {
-                        "id": "c104",
-                        "title": "How can I get access to the super secret document?",
-                        "style": {
-                            "bgColor": "#ffff"
-                        },
-                        "labels": [],
-                        "description": "Please find a way to open this file",
-                        "comments": [
-                            {
-                                "id": "ZdPnm",
-                                "txt": "also @yaronb please CR this",
-                                "createdAt": 1590999817436.0,
-                                "byMember": {
-                                    "_id": "u101",
-                                    "fullname": "Shachar Dorfzaun",
+            ],
+            "members": [
+                {
+                    "_id": "u101",
+                    "username": "shachardorfzaun",
+                    "fullname": "Shachar Dorfzaun",
+                    "imgUrl": ""
+                },
+                {
+                    "_id": "u102",
+                    "username": "nofargabso",
+                    "fullname": "Nofar Gabso",
+                    "imgUrl": ""
+                },
+                {
+                    "_id": "u103",
+                    "fullname": "Guest",
+                    "username": "guest",
+                    "imgUrl": ""
+                },
+                {
+                    "_id": "u177",
+                    "fullname": "Lian Skopis",
+                    "username": "lianskopis",
+                    "imgUrl": ""
+                },
+                {
+                    "_id": "u777",
+                    "fullname": "Itay Azulay",
+                    "username": "itayazulay",
+                    "imgUrl": ""
+                }
+            ],
+            "groups": [
+                {
+                    "id": "g101",
+                    "title": "Project Resources",
+                    "tasks": [
+                        {
+                            "id": "c101",
+                            "title": "Project \"Teamwork Dream Work\" Launch Timeline",
+                            "style": {
+                                "bgColor": "#ffffff"
+                            },
+                            "members": [
+                                {
+                                    "_id": "u103",
+                                    "fullname": "Guest",
+                                    "username": "guest",
                                     "imgUrl": ""
-                                }
-                            }
-                        ],
-                        "checkgroups": [
-                            {
-                                "id": "YEhmFtt",
-                                "title": "Checkgroup",
-                                "todos": [
-                                    {
-                                        "id": "212jXz",
-                                        "title": "Edit Email drafts",
-                                        "isDone": false
-                                    }
-                                ]
-                            }
-                        ],
-                        "members": [
-                            {
-                                "_id": "u103",
-                                "fullname": "Guest",
-                                'username': 'guest',
-                                "imgUrl": "",
-                            },
-                            {
-                                "_id": "u177",
-                                "fullname": "Lian Skopis",
-                                'username': 'Lian',
-                                "imgUrl": "",
-                            },
-                            {
-                                "_id": "u102",
-                                "username": "Nofar",
-                                "fullname": "Nofar Gabso",
-                                "imgUrl": ""
-                            },
-                            {
-                                "_id": "u107",
-                                "username": "Kobi",
-                                "fullname": "Kobi Tohar",
-                                "imgUrl": ""
-                            }
-                        ],
-                        "labelIds": ["101"],
-                        "createdAt": 1590999730348,
-                        "dueDate": 16156215211,
-                        "byMember": {
-                            "_id": "u177",
-                            "fullname": "Lian Skopis",
-                            "imgUrl": "",
-                        },
-                    }
-                ],
-                "style": {
-                    "bgColor": "#ebecf0"
-                }
-            },
-            {
-                "id": "g103",
-                "title": "To Do",
-                "tasks": [
-                    {
-                        "id": "c1013",
-                        "title": "Sketch site banner",
-                        "style": {
-                            "bgColor": "#ffff"
-                        },
-                        "labels": [],
-                        "members": [
-                            {
-                                "_id": "u103",
-                                "fullname": "Guest",
-                                'username': 'guest',
-                                "imgUrl": "",
-                            }
-                        ]
-                    },
-                    {
-                        "id": "c1057",
-                        "title": "Please add permissions for new members",
-                        "style": {
-                            "bgColor": "#fbffd4"
-                        },
-                        "labels": [],
-                        "description": "description",
-                        "comments": [
-                            {
-                                "id": "ZdPnmk",
-                                "txt": "@dudug please CR this",
-                                "createdAt": 1590999817436.0,
-                                "byMember": {
+                                },
+                                {
                                     "_id": "u177",
                                     "fullname": "Lian Skopis",
-                                    "imgUrl": "",
+                                    "username": "lianskopis",
+                                    "imgUrl": ""
                                 }
-                            }
-                        ],
-                        "checkgroups": [
-                            {
-                                "id": "YEhmF",
-                                "title": "Checkgroup",
-                                "todos": [
-                                    {
-                                        "id": "212jX",
-                                        "title": "Find the password",
-                                        "isDone": false
-                                    }
-                                ]
-                            }
-                        ],
-                        "members": [
-                            {
-                                "_id": "u103",
-                                "fullname": "Guest",
-                                'username': 'guest',
-                                "imgUrl": "",
-                            },
-                            {
-                                "_id": "u101",
-                                "username": "Shachar",
-                                "fullname": "Shachar Dorfzaun",
-                                "imgUrl": ""
-                            }, {
-                                "_id": "u107",
-                                "username": "Kobi",
-                                "fullname": "Kobi Tohar",
-                                "imgUrl": ""
-                            }
-                        ],
-                        "labelIds": ["101"],
-                        "createdAt": 1590899770748,
-                        "dueDate": 16156215211,
-                        "byMember": {
-                            "_id": "u103",
-                            "fullname": "Guest",
-                            "imgUrl": "",
+                            ],
+                            "labels": []
                         },
+                        {
+                            "id": "c1012",
+                            "title": "Weekly Updates",
+                            "style": {
+                                "bgColor": "#ffffff"
+                            },
+                            "labels": [],
+                            "members": []
+                        },
+                        {
+                            "id": "c1014",
+                            "title": "Stakeholders",
+                            "style": {
+                                "bgColor": "#ffffff"
+                            },
+                            "labels": [],
+                            "members": []
+                        }
+                    ],
+                    "style": {
+                        "bgColor": "#ebecf0"
                     }
-                ],
-                "style": {
-                    "bgColor": "#b1c294"
-                }
-            },
-            {
-                "id": "g111",
-                "title": "Pending",
-                "tasks": [
-                    {
-                        "id": "c1017",
-                        "title": "Legal review",
-                        "style": {
-                            "bgColor": "#ebecf0"
-                        },
-                        "labels": [],
-                        "members": [
-                            {
-                                "_id": "u103",
-                                "fullname": "Guest",
-                                'username': 'guest',
-                                "imgUrl": "",
+                },
+                {
+                    "id": "g102",
+                    "title": "Questions for Next Meeting",
+                    "tasks": [
+                        {
+                            "id": "c103",
+                            "title": "Whos the best person to fix my HTML snag?",
+                            "style": {
+                                "bgColor": "#ffffff"
                             },
-                            {
-                                "_id": "u177",
-                                "fullname": "Lian Skopis",
-                                "imgUrl": "",
-                            }
-                        ]
-                    },
-                    {
-                        "id": "c101474",
-                        "title": "Await final approval",
-                        "style": {
-                            "bgColor": "#eecab6"
+                            "labels": [],
+                            "members": [
+                                {
+                                    "_id": "u103",
+                                    "fullname": "Guest",
+                                    "username": "guest",
+                                    "imgUrl": ""
+                                }
+                            ]
                         },
-                        "labels": [],
-                    },
-                    {
-                        "id": "c102374",
-                        "title": "Fix Margin issue",
-                        "style": {
-                            "bgColor": "#eecab6"
-                        },
-                        "labels": []
-                    },
-                    {
-                        "id": "c1015",
-                        "title": "WorkFlow changed!!",
-                        "style": {
-                            "bgColor": "#ebecf0"
-                        },
-                        "labels": [],
-                        "description": "description",
-                        "comments": [
-                            {
-                                "id": "ZdPntm",
-                                "txt": "also @mikel please CR this",
-                                "createdAt": 1590999817436.0,
-                                "byMember": {
+                        {
+                            "id": "c104",
+                            "title": "How can I get access to the super secret document?",
+                            "style": {
+                                "bgColor": "#ffffff"
+                            },
+                            "labels": [],
+                            "description": "Please find a way to open this file",
+                            "comments": [
+                                {
+                                    "id": "ZdPnm",
+                                    "txt": "also @yaronb please CR this",
+                                    "createdAt": 159099981,
+                                    "byMember": {
+                                        "_id": "u101",
+                                        "fullname": "Shachar Dorfzaun",
+                                        "imgUrl": ""
+                                    }
+                                }
+                            ],
+                            "checkgroups": [
+                                {
+                                    "id": "YEhmFtt",
+                                    "title": "Checkgroup",
+                                    "todos": [
+                                        {
+                                            "id": "212jXz",
+                                            "title": "Edit Email drafts",
+                                            "isDone": false
+                                        }
+                                    ]
+                                }
+                            ],
+                            "members": [
+                                {
+                                    "_id": "u103",
+                                    "fullname": "Guest",
+                                    "username": "guest",
+                                    "imgUrl": ""
+                                },
+                                {
+                                    "_id": "u177",
+                                    "fullname": "Lian Skopis",
+                                    "username": "lianskopis",
+                                    "imgUrl": ""
+                                },
+                                {
+                                    "_id": "u102",
+                                    "username": "nofargabso",
+                                    "fullname": "Nofar Gabso",
+                                    "imgUrl": ""
+                                },
+                                {
                                     "_id": "u107",
+                                    "username": "Kobi",
                                     "fullname": "Kobi Tohar",
                                     "imgUrl": ""
                                 }
-                            }
-                        ],
-                        "checkgroups": [
-                            {
-                                "id": "YEhmFl",
-                                "title": "Checkgroup",
-                                "todos": [
-                                    {
-                                        "id": "212jXx",
-                                        "title": "Find the document",
-                                        "isDone": false
-                                    }
-                                ]
-                            }
-                        ],
-                        "members": [
-                            {
-                                "_id": "u103",
-                                "fullname": "Guest",
-                                'username': 'guest',
-                                "imgUrl": "",
-                            },
-                            {
-                                "_id": "u101",
-                                "username": "Shachar",
-                                "fullname": "Shachar Dorfzaun",
-                                "imgUrl": ""
-                            },
-                            {
-                                "_id": "u107",
-                                "username": "Kobi",
-                                "fullname": "Kobi Tohar",
+                            ],
+                            "labelIds": [
+                                "101"
+                            ],
+                            "createdAt": 1590999730348,
+                            "byMember": {
+                                "_id": "u177",
+                                "fullname": "Lian Skopis",
                                 "imgUrl": ""
                             }
-                        ],
-                        "labelIds": ["101"],
-                        "createdAt": 1590899770748,
-                        "dueDate": 16156215211,
-                        "byMember": {
-                            "_id": "u103",
-                            "fullname": "Guest",
-                            "imgUrl": "",
-                        },
+                        }
+                    ],
+                    "style": {
+                        "bgColor": "#ebecf0"
                     }
-                ],
-                "style": {
-                    "bgColor": "#ffff"
-                }
-            },
-            {
-                "id": "g118",
-                "title": "Blocked",
-                "tasks": [
-                    {
-                        "id": "c10177",
-                        "title": "Freelancer contracts",
-                        "style": {
-                            "bgColor": "#d1f5f5"
-                        },
-                        "members": [
-                        ],
-                        "labels": []
-                    },
-                    {
-                        "id": "c10157",
-                        "title": "Social media assets",
-                        "style": {
-                            "bgColor": "#b1c294"
-                        },
-                        "labels": [],
-                        "description": "The twitter banner looks great, can we get another version in red",
-                        "comments": [
-                            {
-                                "id": "ZdPntmk",
-                                "txt": "Sure thing, just attached!",
-                                "createdAt": 1590956817436.0,
-                                "byMember": {
-                                    "_id": "u101",
-                                    "fullname": "Shachar Dorfzaun",
+                },
+                {
+                    "id": "g103",
+                    "title": "To Do",
+                    "tasks": [
+                        {
+                            "id": "c1013",
+                            "title": "Sketch site banner",
+                            "style": {
+                                "bgColor": "#ffffff"
+                            },
+                            "labels": [],
+                            "members": [
+                                {
+                                    "_id": "u103",
+                                    "fullname": "Guest",
+                                    "username": "guest",
                                     "imgUrl": ""
                                 }
-                            }
-                        ],
-                        "checkgroups": [
-                            {
-                                "id": "YEhmFlk",
-                                "title": "Main Checkgroup",
-                                "todos": [
-                                    {
-                                        "id": "212jXxe",
-                                        "title": "Check the DB error",
-                                        "isDone": false
+                            ],
+                            "comments": [
+                                {
+                                    "txt": "Hey you",
+                                    "id": "cW5MN",
+                                    "createdAt": 1616420836,
+                                    "byMember": {
+                                        "fullname": "Guest",
+                                        "_id": "u103",
+                                        "imgUrl": ""
                                     }
-                                ]
-                            }
-                        ],
-                        "members": [
-                            {
+                                },
+                                {
+                                    "txt": "@guest no, you",
+                                    "id": "jTqPd",
+                                    "createdAt": 1616423149235,
+                                    "byMember": {
+                                        "fullname": "Guest",
+                                        "_id": "u103",
+                                        "imgUrl": ""
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "id": "c1057",
+                            "title": "Please add permissions for new members",
+                            "style": {
+                                "bgColor": "#ffffff"
+                            },
+                            "labels": [],
+                            "description": "description",
+                            "comments": [
+                                {
+                                    "id": "ZdPnmk",
+                                    "txt": "@dudug please CR this",
+                                    "createdAt": 159099981,
+                                    "byMember": {
+                                        "_id": "u177",
+                                        "fullname": "Lian Skopis",
+                                        "imgUrl": ""
+                                    }
+                                }
+                            ],
+                            "checkgroups": [
+                                {
+                                    "id": "YEhmF",
+                                    "title": "Checkgroup",
+                                    "todos": [
+                                        {
+                                            "id": "212jX",
+                                            "title": "Find the password",
+                                            "isDone": false
+                                        }
+                                    ]
+                                }
+                            ],
+                            "members": [
+                                {
+                                    "_id": "u103",
+                                    "fullname": "Guest",
+                                    "username": "guest",
+                                    "imgUrl": ""
+                                },
+                                {
+                                    "_id": "u101",
+                                    "username": "shachardorfzaun",
+                                    "fullname": "Shachar Dorfzaun",
+                                    "imgUrl": ""
+                                },
+                                {
+                                    "_id": "u107",
+                                    "username": "Kobi",
+                                    "fullname": "Kobi Tohar",
+                                    "imgUrl": ""
+                                }
+                            ],
+                            "labelIds": [
+                                "101"
+                            ],
+                            "createdAt": 1590899770748,
+                            "byMember": {
                                 "_id": "u103",
                                 "fullname": "Guest",
-                                'username': 'guest',
-                                "imgUrl": "",
-                            },
-                            {
-                                "_id": "u101",
-                                "username": "Shachar",
-                                "fullname": "Shachar Dorfzaun",
-                                "imgUrl": ""
-                            }, {
-                                "_id": "u107",
-                                "username": "Kobi",
-                                "fullname": "Kobi Tohar",
                                 "imgUrl": ""
                             }
-                        ],
-                        "labelIds": ["101"],
-                        "createdAt": 1590899770748,
-                        "dueDate": 16156215211,
-                        "byMember": {
-                            "_id": "u102",
-                            "fullname": "Nofar Gabso",
-                            "imgUrl": ""
-                        },
+                        }
+                    ],
+                    "style": {
+                        "bgColor": "#ebecf0"
                     }
-                ],
-                "style": {
-                    "bgColor": "#cc859a"
+                },
+                {
+                    "id": "g111",
+                    "title": "Pending",
+                    "tasks": [
+                        {
+                            "id": "c1017",
+                            "title": "Legal review",
+                            "style": {
+                                "bgColor": "#ffffff"
+                            },
+                            "labels": [],
+                            "members": [
+                                {
+                                    "_id": "u103",
+                                    "fullname": "Guest",
+                                    "username": "guest",
+                                    "imgUrl": ""
+                                },
+                                {
+                                    "_id": "u177",
+                                    "fullname": "Lian Skopis",
+                                    "imgUrl": ""
+                                }
+                            ]
+                        },
+                        {
+                            "id": "c101474",
+                            "title": "Await final approval",
+                            "style": {
+                                "bgColor": "#ffffff"
+                            },
+                            "labels": []
+                        },
+                        {
+                            "id": "c102374",
+                            "title": "Fix Margin issue",
+                            "style": {
+                                "bgColor": "#ffffff"
+                            },
+                            "labels": []
+                        },
+                        {
+                            "id": "c1015",
+                            "title": "WorkFlow changed!!",
+                            "style": {
+                                "bgColor": "#ffffff"
+                            },
+                            "labels": [],
+                            "description": "description",
+                            "comments": [
+                                {
+                                    "id": "ZdPntm",
+                                    "txt": "also @mikel please CR this",
+                                    "createdAt": 15909998176,
+                                    "byMember": {
+                                        "_id": "u107",
+                                        "fullname": "Kobi Tohar",
+                                        "imgUrl": ""
+                                    }
+                                }
+                            ],
+                            "checkgroups": [
+                                {
+                                    "id": "YEhmFl",
+                                    "title": "Checkgroup",
+                                    "todos": [
+                                        {
+                                            "id": "212jXx",
+                                            "title": "Find the document",
+                                            "isDone": false
+                                        }
+                                    ]
+                                }
+                            ],
+                            "members": [
+                                {
+                                    "_id": "u103",
+                                    "fullname": "Guest",
+                                    "username": "guest",
+                                    "imgUrl": ""
+                                },
+                                {
+                                    "_id": "u101",
+                                    "username": "shachardorfzaun",
+                                    "fullname": "Shachar Dorfzaun",
+                                    "imgUrl": ""
+                                },
+                                {
+                                    "_id": "u107",
+                                    "username": "Kobi",
+                                    "fullname": "Kobi Tohar",
+                                    "imgUrl": ""
+                                }
+                            ],
+                            "labelIds": [
+                                "101"
+                            ],
+                            "createdAt": 1590899770748,
+                            "byMember": {
+                                "_id": "u103",
+                                "fullname": "Guest",
+                                "imgUrl": ""
+                            }
+                        }
+                    ],
+                    "style": {
+                        "bgColor": "#ebecf0"
+                    }
+                },
+                {
+                    "id": "g118",
+                    "title": "Blocked",
+                    "tasks": [
+                        {
+                            "id": "c10177",
+                            "title": "Freelancer contracts",
+                            "style": {
+                                "bgColor": "#ffffff"
+                            },
+                            "members": [],
+                            "labels": []
+                        },
+                        {
+                            "id": "c10157",
+                            "title": "Social media assets",
+                            "style": {
+                                "bgColor": "#ffffff"
+                            },
+                            "labels": [],
+                            "description": "The twitter banner looks great, can we get another version in red",
+                            "comments": [
+                                {
+                                    "id": "ZdPntmk",
+                                    "txt": "Sure thing, just attached!",
+                                    "createdAt": 15909568174,
+                                    "byMember": {
+                                        "_id": "u101",
+                                        "fullname": "Shachar Dorfzaun",
+                                        "imgUrl": ""
+                                    }
+                                }
+                            ],
+                            "checkgroups": [
+                                {
+                                    "id": "YEhmFlk",
+                                    "title": "Main Checkgroup",
+                                    "todos": [
+                                        {
+                                            "id": "212jXxe",
+                                            "title": "Check the DB error",
+                                            "isDone": false
+                                        }
+                                    ]
+                                }
+                            ],
+                            "members": [
+                                {
+                                    "_id": "u103",
+                                    "fullname": "Guest",
+                                    "username": "guest",
+                                    "imgUrl": ""
+                                },
+                                {
+                                    "_id": "u101",
+                                    "username": "shachardorfzaun",
+                                    "fullname": "Shachar Dorfzaun",
+                                    "imgUrl": ""
+                                },
+                                {
+                                    "_id": "u107",
+                                    "username": "Kobi",
+                                    "fullname": "Kobi Tohar",
+                                    "imgUrl": ""
+                                }
+                            ],
+                            "labelIds": [
+                                "101"
+                            ],
+                            "createdAt": 1590899770748,
+                            "byMember": {
+                                "_id": "u102",
+                                "fullname": "Nofar Gabso",
+                                "imgUrl": ""
+                            }
+                        }
+                    ],
+                    "style": {
+                        "bgColor": "#ebecf0"
+                    }
+                },
+                {
+                    "id": "g10134",
+                    "title": "Done",
+                    "tasks": [
+                        {
+                            "id": "c10134",
+                            "title": "Finalize Campaign Name: WeTaskBigger",
+                            "style": {
+                                "bgColor": "#ffffff"
+                            },
+                            "labels": [],
+                            "members": [
+                                {
+                                    "_id": "u103",
+                                    "fullname": "Guest",
+                                    "username": "guest",
+                                    "imgUrl": ""
+                                },
+                                {
+                                    "_id": "u177",
+                                    "username": "lianskopis",
+                                    "fullname": "Lian Skopis",
+                                    "imgUrl": ""
+                                }
+                            ]
+                        },
+                        {
+                            "id": "c101234",
+                            "title": "Submit Q1 report",
+                            "style": {
+                                "bgColor": "#ffffff"
+                            },
+                            "labels": []
+                        },
+                        {
+                            "id": "c101239",
+                            "title": "Get Manager approval",
+                            "style": {
+                                "bgColor": "#ffffff"
+                            },
+                            "labels": []
+                        },
+                        {
+                            "id": "c101434",
+                            "title": "Campaign Proposal",
+                            "style": {
+                                "bgColor": "#ffffff"
+                            },
+                            "labels": []
+                        }
+                    ],
+                    "style": {
+                        "bgColor": "#ebecf0"
+                    }
                 }
-            },
-            {
-                "id": "g10134",
-                "title": "Done",
-                "tasks": [
-                    {
+            ],
+            "activities": [
+                {
+                    "id": "a1015",
+                    "txt": "Added a comment",
+                    "createdAt": 15451456789,
+                    "byMember": {
+                        "_id": "u102",
+                        "fullname": "Nofar Gabso",
+                        "imgUrl": ""
+                    },
+                    "task": {
                         "id": "c10134",
-                        "title": `Finalize Campaign Name: WeTaskBigger`,
-                        "style": {
-                            "bgColor": "#a4a9a7"
-                        },
-                        "labels": [],
-                        "members": [
-                            {
-                                "_id": "u103",
-                                "fullname": "Guest",
-                                'username': 'guest',
-                                "imgUrl": "",
-                            },
-                            {
-                                "_id": "u177",
-                                'username': 'Lian',
-                                "fullname": "Lian Skopis",
-                                "imgUrl": "",
-                            }
-                        ]
-                    },
-                    {
-                        "id": "c101234",
-                        "title": "Submit Q1 report",
-                        "style": {
-                            "bgColor": "#eecab6"
-                        },
-                        "labels": []
-                    },
-                    {
-                        "id": "c101239",
-                        "title": "Get Manager approval",
-                        "style": {
-                            "bgColor": "#d1f5f5"
-                        },
-                        "labels": []
-                    },
-                    {
-                        "id": "c101434",
-                        "title": "Campaign Proposal",
-                        "style": {
-                            "bgColor": "#ffff"
-                        },
-                        "labels": []
+                        "title": "Finalize Campaign Name: WeTaskBigger"
                     }
-                ],
-                "style": {
-                    "bgColor": "#fbffd4"
-                }
-            }
-        ],
-        "activities": [
-            {
-                "id": "a1015",
-                "txt": "Added Footer",
-                "createdAt": 15451456789,
-                "byMember": {
-                    "_id": "u102",
-                    "fullname": "Nofar Gabso",
-                    "imgUrl": ""
                 },
-                "task": {
-                    "id": "c1019",
-                    "title": `Project "WeTask" Timeline`,
-                }
-            },
-            {
-                "id": "a102",
-                "txt": "Removed bug in Backend",
-                "createdAt": 154514,
-                "byMember": {
-                    "_id": "u177",
-                    "fullname": "Lian Skopis",
-                    "imgUrl": "",
+                {
+                    "id": "a102",
+                    "txt": "Changed DueDate",
+                    "createdAt": 154514,
+                    "byMember": {
+                        "_id": "u177",
+                        "fullname": "Lian Skopis",
+                        "imgUrl": ""
+                    },
+                    "task": {
+                        "id": "c101234",
+                        "title": "Submit Q1 report"
+                    }
                 },
-                "task": {
-                    "id": "c10299",
-                    "title": "Use color-picker component"
+                {
+                    "id": "a103",
+                    "txt": "Added Label",
+                    "createdAt": 154514,
+                    "byMember": {
+                        "_id": "u102",
+                        "fullname": "Nofar Gabso",
+                        "imgUrl": ""
+                    },
+                    "task": {
+                        "id": "c10177",
+                        "title": "Freelancer contracts"
+                    }
                 }
-            },
-            {
-                "id": "a103",
-                "txt": "Changed due date",
-                "createdAt": 154514,
-                "byMember": {
-                    "_id": "u102",
-                    "fullname": "Nofar Gabso",
-                    "imgUrl": ""
-                },
-                "task": {
-                    "id": "c1044",
-                    "title": "Changed font for all h1 tags"
-                }
-            }
-        ]
-    },
-    {
-        "title": "Second Board",
-        "createdAt": 1589983468418,
-        "createdBy": {
-            "_id": "u102",
-            "nickname": "Nofar",
-            "fullname": "Nofar Gabso",
-            "imgUrl": ""
+            ]
         },
-        "style": {
-            "bgColor": "#ffff"
-        },
-        "labels": [
-            {
-                "id": "l101",
-                "title": "",
-                "color": "green"
-            },
-            {
-                "id": "l102",
-                "title": "",
-                "color": "yellow"
-            },
-            {
-                "id": "l103",
-                "title": "Done",
-                "color": "orange"
-            },
-            {
-                "id": "l104",
-                "title": "",
-                "color": "red"
-            },
-            {
-                "id": "l105",
-                "title": "",
-                "color": "purple"
-            },
-            {
-                "id": "l106",
-                "title": "",
-                "color": "blue"
-            },
-        ],
-        "members": [
-            {
-                "_id": "u101",
-                "fullname": "Shachar Dorfzaun",
+        {
+            "title": "Second Board",
+            "createdAt": 1589983468418,
+            "createdBy": {
+                "_id": "u102",
+                "username": "nofargabso",
+                "fullname": "Nofar Gabso",
                 "imgUrl": ""
             },
-            {
-                "_id": "u177",
-                "fullname": "Lian Skopis",
-                'username': 'Lian',
-                "imgUrl": "",
+            "style": {
+                "bgColor": "#7bc86c"
             },
-            {
-                "_id": "u103",
-                "fullname": "Guest",
-                'username': 'guest',
-                "imgUrl": "",
-            }
-        ],
-        "groups": [
-            {
-                "id": "g101a",
-                "title": "List 1",
-                "tasks": [
-                    {
-                        "id": "c101a",
-                        "title": "Update logo",
-                        "style": {
-                            "bgColor": "#ffff"
-                        },
-                        "labels": [],
-                        "members": [
-                            {
-                                "_id": "u103",
-                                "fullname": "Guest",
-                                'username': 'guest',
-                                "imgUrl": "",
-                            },
-                            {
-                                "_id": "u177",
-                                "fullname": "Lian Skopis",
-                                'username': 'Lian',
-                                "imgUrl": "",
-                            }
-                        ]
-                    },
-                    {
-                        "id": "c102a",
-                        "title": "Update Samples",
-                        "style": {
-                            "bgColor": "#ffff"
-                        },
-                        "labels": []
-                    }
-                ],
-                "style": {
-                    "bgColor": "#ebecf0"
+            "labels": [
+                {
+                    "id": "l101",
+                    "title": "",
+                    "color": "green"
+                },
+                {
+                    "id": "l102",
+                    "title": "",
+                    "color": "yellow"
+                },
+                {
+                    "id": "l103",
+                    "title": "Done",
+                    "color": "orange"
+                },
+                {
+                    "id": "l104",
+                    "title": "",
+                    "color": "red"
+                },
+                {
+                    "id": "l105",
+                    "title": "",
+                    "color": "purple"
+                },
+                {
+                    "id": "l106",
+                    "title": "",
+                    "color": "blue"
                 }
-            },
-            {
-                "id": "g102a",
-                "title": "List 2",
-                "tasks": [
-                    {
-                        "id": "c103a",
-                        "title": "Do that",
-                        "style": {
-                            "bgColor": "#ffff"
+            ],
+            "members": [
+                {
+                    "_id": "u101",
+                    "fullname": "Shachar Dorfzaun",
+                    "imgUrl": ""
+                },
+                {
+                    "_id": "u177",
+                    "fullname": "Lian Skopis",
+                    "username": "lianskopis",
+                    "imgUrl": ""
+                },
+                {
+                    "_id": "u103",
+                    "fullname": "Guest",
+                    "username": "guest",
+                    "imgUrl": ""
+                }
+            ],
+            "groups": [
+                {
+                    "id": "g101a",
+                    "title": "List 1",
+                    "tasks": [
+                        {
+                            "id": "c101a",
+                            "title": "Update logo",
+                            "style": {
+                                "bgColor": "#ffffff"
+                            },
+                            "labels": [],
+                            "members": [
+                                {
+                                    "_id": "u103",
+                                    "fullname": "Guest",
+                                    "username": "guest",
+                                    "imgUrl": ""
+                                },
+                                {
+                                    "_id": "u177",
+                                    "fullname": "Lian Skopis",
+                                    "username": "lianskopis",
+                                    "imgUrl": ""
+                                }
+                            ]
                         },
-                        "labels": [],
-                        "members": [{
-                            "_id": "u103",
-                            "fullname": "Guest",
-                            'username': 'guest',
-                            "imgUrl": "",
-                        }]
-                    },
-                    {
-                        "id": "c104a",
-                        "title": "Assist me",
-                        "style": {
-                            "bgColor": "#ffff"
+                        {
+                            "id": "c102a",
+                            "title": "Update Samples",
+                            "style": {
+                                "bgColor": "#ffffff"
+                            },
+                            "labels": [],
+                            "members": []
+                        }
+                    ],
+                    "style": {
+                        "bgColor": "#ebecf0"
+                    }
+                },
+                {
+                    "id": "g102a",
+                    "title": "List 2",
+                    "tasks": [
+                        {
+                            "id": "c103a",
+                            "title": "Do that",
+                            "style": {
+                                "bgColor": "#ffffff"
+                            },
+                            "labels": [],
+                            "members": [
+                                {
+                                    "_id": "u103",
+                                    "fullname": "Guest",
+                                    "username": "guest",
+                                    "imgUrl": ""
+                                }
+                            ]
                         },
-                        "labels": [],
-                        "description": "description",
-                        "comments": [
-                            {
-                                "id": "ZdPnma",
-                                "txt": "also @marks please CR this",
-                                "createdAt": 1590999817436.0,
-                                "byMember": {
+                        {
+                            "id": "c104a",
+                            "title": "Assist me",
+                            "style": {
+                                "bgColor": "#ffffff"
+                            },
+                            "labels": [],
+                            "description": "description",
+                            "comments": [
+                                {
+                                    "id": "ZdPnma",
+                                    "txt": "also @marks please CR this",
+                                    "createdAt": 1590999817436,
+                                    "byMember": {
+                                        "_id": "u101",
+                                        "fullname": "Shachar Dorfzaun",
+                                        "imgUrl": ""
+                                    }
+                                }
+                            ],
+                            "checkgroups": [
+                                {
+                                    "id": "YEhmFa",
+                                    "title": "Updategroup",
+                                    "todos": [
+                                        {
+                                            "id": "212jXa",
+                                            "title": "Curate customer list",
+                                            "isDone": true
+                                        }
+                                    ]
+                                }
+                            ],
+                            "members": [
+                                {
                                     "_id": "u101",
+                                    "username": "shachardorfzaun",
                                     "fullname": "Shachar Dorfzaun",
                                     "imgUrl": ""
                                 }
-                            }
-                        ],
-                        "checkgroups": [
-                            {
-                                "id": "YEhmFa",
-                                "title": "Updategroup",
-                                "todos": [
-                                    {
-                                        "id": "212jXa",
-                                        "title": "Curate customer list",
-                                        "isDone": true
-                                    }
-                                ]
-                            }
-                        ],
-                        "members": [
-                            {
+                            ],
+                            "labelIds": [
+                                "101"
+                            ],
+                            "createdAt": 1590999730348,
+                            "byMember": {
                                 "_id": "u101",
-                                "username": "Shachar",
                                 "fullname": "Shachar Dorfzaun",
                                 "imgUrl": ""
                             }
-                        ],
-                        "labelIds": ["101"],
-                        "createdAt": 1590999730348,
-                        "dueDate": 16156215211,
-                        "byMember": {
-                            "_id": "u101",
-                            "fullname": "Shachar Dorfzaun",
-                            "imgUrl": ""
-                        },
+                        }
+                    ],
+                    "style": {
+                        "bgColor": "#ebecf0"
                     }
-                ],
-                "style": {
-                    "bgColor": "#ebecf0"
                 }
-            }
-        ],
-        "activities": [
-            {
-                "id": "a101a",
-                "txt": "Updated Color",
-                "createdAt": 154514,
-                "byMember": {
-                    "_id": "u102",
-                    "fullname": "Nofar Gabso",
-                    "imgUrl": ""
+            ],
+            "activities": [
+                {
+                    "id": "a101a",
+                    "txt": "Updated Color",
+                    "createdAt": 154514,
+                    "byMember": {
+                        "_id": "u102",
+                        "fullname": "Nofar Gabso",
+                        "imgUrl": ""
+                    },
+                    "task": {
+                        "id": "c101a",
+                        "title": "Update Logo"
+                    }
                 },
-                "task": {
-                    "id": "c101a",
-                    "title": "Update Logo"
-                }
-            },
-            {
-                "id": "a102a",
-                "txt": "Updated due date",
-                "createdAt": 154514,
-                "byMember": {
-                    "_id": "u102",
-                    "fullname": "Nofar Gabso",
-                    "imgUrl": ""
+                {
+                    "id": "a102a",
+                    "txt": "Updated due date",
+                    "createdAt": 154514,
+                    "byMember": {
+                        "_id": "u102",
+                        "fullname": "Nofar Gabso",
+                        "imgUrl": ""
+                    },
+                    "task": {
+                        "id": "c102a",
+                        "title": "Update Samples"
+                    }
                 },
-                "task": {
-                    "id": "c102a",
-                    "title": "Update Samples"
+                {
+                    "id": "a103a",
+                    "txt": "Added due date",
+                    "createdAt": 154514,
+                    "byMember": {
+                        "_id": "u102",
+                        "fullname": "Nofar Gabso",
+                        "imgUrl": ""
+                    },
+                    "task": {
+                        "id": "c104a",
+                        "title": "Assist me"
+                    }
                 }
-            },
-            {
-                "id": "a103a",
-                "txt": "Added due date",
-                "createdAt": 154514,
-                "byMember": {
-                    "_id": "u102",
-                    "fullname": "Nofar Gabso",
-                    "imgUrl": ""
-                },
-                "task": {
-                    "id": "c104a",
-                    "title": "Assist me"
-                }
-            }
-        ]
-    }]
+            ]
+        }
+    ]
 }
 
 function _createRandomId() {
