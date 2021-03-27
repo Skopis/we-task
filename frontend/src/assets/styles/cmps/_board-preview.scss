@@ -1,15 +1,116 @@
+.boards {
+    padding: 8px 12px;
+    padding-top: 40px;
+    .page-header{
+        padding: 8px 12px 8px 4px;
+    }
+}
+
 .board-preview{
-    background-color: rgb(196, 216, 201);
-    width: 150px;
+    background-color: rgba(119, 223, 255, 0.787);
+    width: 235px;
+    height:96px;
     cursor: pointer;
     margin-right: 1rem;
     border-radius: 6px;
-    img {
-        width: 25px;
-        opacity: 0.7;
+    position: relative;
+    padding: 8px 12px;
+    margin-bottom: 12px;
+    
+    color: #5e6c84;
+        .menu{
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            opacity: 0.7;
+            img{
+                width: 20px;  
+                &:hover {
+                opacity: 1;
+            }
+        }
+    }
+    h3, h4{
+        color:rgba(255, 255, 255, 0.884);
+        margin-bottom: 10px;
+        margin-top: 10px;
+    }
 
-        &:hover {
-            opacity: 1;
+}
+
+.new{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    font-size: 1rem;
+    letter-spacing: .2px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #fff;
+    i{
+        color: #fff;
+        font-weight: 600;
+    }
+    &:hover{
+        border-radius: 5px;
+        background-color: rgba(255, 255, 255, 0.829);
+        border: 3px solid black;
+        color: rgb(29, 29, 29);
+        i{
+            color:rgb(29, 29, 29);
+        }
+    }
+}
+
+.board-preview-menu{
+    height: 161px;
+    min-width: 116px;
+    z-index: 3;
+    background-color: white;
+    position: absolute;
+    top: 5px;
+    left: 237px;
+    box-shadow:0 0px 3px 0px rgba(0, 0, 0, 0.25);
+
+    header{
+    height: 40px;
+    position: relative;
+    margin-bottom: 8px;
+    text-align: center;
+            p{
+            font-weight: normal;
+            box-sizing: border-box;
+            color: #5e6c84;
+            display: block;
+            line-height: 40px;
+            border-bottom: 1px solid rgba(9,30,66,.13);
+            margin: 0 12px;
+            overflow: hidden;
+            padding: 0 32px;
+            position: relative;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            z-index: 1;
+        }
+    }
+    .btn{
+        color: #6b778c;
+        padding: 10px 12px 10px 8px;
+        margin: 0 33px;
+        height: unset;
+    }
+    .menu-content{
+        margin: 0 12px;
+        &:hover{
+            border-radius: 4px;
+           background-color: #dadbe2;
+           .btn{
+               color: rgb(58, 53, 53);
+               background-color: unset;
+
+           }
+           
         }
     }
 }
@@ -18,4 +119,5 @@
 .board-preview-container{
     display:flex;
     flex-direction: row;
+    flex-wrap: wrap;
 }
