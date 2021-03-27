@@ -16,6 +16,7 @@
     .login {
         font-weight: unset;
         margin-right: 10px;
+        font-size: 14px;
     }
 
     h2 {
@@ -95,11 +96,15 @@
     align-items: center;
     color: white;
 
-    &>*:last-child {
-        font-size: 14px !important;
-        font-weight: unset;
+    .header-right{
+        img{
+            margin-right: 5px;
+        }
+        >*{
+            font-size: 14px !important;
+            font-weight: unset;
+        }
     }
-
     i {
         margin-right: 8px;
     }

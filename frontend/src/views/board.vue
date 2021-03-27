@@ -9,7 +9,11 @@
       :style="{ backgroundColor: boardToShow.style.bgColor }"
     >
       <div class="flex">
-        <h2 class="btn" @click="editBoardTitle" v-if="isTitleModalOpen === false">
+        <h2
+          class="btn"
+          @click="editBoardTitle"
+          v-if="isTitleModalOpen === false"
+        >
           {{ boardToShow.title }}
         </h2>
         <form
@@ -26,13 +30,13 @@
           />
         </form>
         <div class="avatar-container">
-        <div v-for="member in boardToShow.members" :key="member._id">
-          <member-avatar2
-            :member="member"
-            :size="28"
-            @click.native="toggleMemberModal(member)"
-          />
-        </div>
+          <div v-for="member in boardToShow.members" :key="member._id">
+            <member-avatar2
+              :member="member"
+              :size="28"
+              @click.native="toggleMemberModal(member)"
+            />
+          </div>
         </div>
         <board-member-modal
           v-if="isMemberModalOpen"
@@ -45,7 +49,7 @@
         />
         <h2 class="btn" @click="toggleAddMemberModal">Invite</h2>
       </div>
-      <div class="board-menu" :class="{ active: isBoardMenuModalOpen}">
+      <div class="board-menu" :class="{ active: isBoardMenuModalOpen }">
         <board-menu
           v-if="isBoardMenuModalOpen"
           :classSetting="isBoardMenuModalOpen"
@@ -55,9 +59,18 @@
           @searchChanged="searchChanged"
         />
       </div>
-        <h2 class="btn" @click="toggleBoardMenuModal" v-if="!isBoardMenuModalOpen">
+      <div class="flex header-right">
+        <h2 class="btn" @click="goToDashboard" v-if="!isBoardMenuModalOpen">
+          <img src="../assets/icons/dashboard.png" alt="" /> Dashboard
+        </h2>
+        <h2
+          class="btn"
+          @click="toggleBoardMenuModal"
+          v-if="!isBoardMenuModalOpen"
+        >
           <i class="el-icon-more"></i> Show menu
         </h2>
+      </div>
     </header>
     <!-- <section class="task-list-container"> -->
     <section class="main-board-container">
@@ -152,6 +165,9 @@ export default {
     }
   },
   methods: {
+    goToDashboard() {
+      this.$router.push(`/board/${this.boardToShow._id}/dashboard`);
+    },
     addMemberToBoard(member) {
       this.isAddMemberModalOpen = false;
       this.boardToShow.members.push(member);
@@ -213,8 +229,8 @@ export default {
       //TODO:
       this.isBoardMenuModalOpen = !this.isBoardMenuModalOpen;
     },
-    closeBoardMenuModal(){
-      this.isBoardMenuModalOpen=false
+    closeBoardMenuModal() {
+      this.isBoardMenuModalOpen = false;
     },
     archiveGroup(groupToArchive) {
       this.$store.dispatch({
@@ -254,14 +270,28 @@ export default {
         boardId: this.boardToShow._id,
       });
     },
-    itemDragged(group="",taskTxt="",toGroup="") {
-      const actTxt = (group !== "" && taskTxt !=="")? `Task: ${taskTxt} moved from the group: ${group.title} to: ${toGroup}` : "group moved"
+    itemDragged(group = "", taskTxt = "", toGroup = "") {
+      const actTxt =
+        group !== "" && taskTxt !== ""
+          ? `Task: ${taskTxt} moved from the group: ${group.title} to: ${toGroup}`
+          : "group moved";
       console.log(actTxt);
       //TODO: connect to activity log
+      // this.addActivity(actTxt);
       const board = this.boardToShow;
       board.groups = this.boardToShow.groups;
       this.updateBoard(board);
     },
+    // addActivity(activityType) {
+    //   // const { id, title } = this.task;
+    //   var activity = {
+    //     txt: activityType,
+    //     createdAt: Date.now(),
+    //     byMember: this.loggedinUser,
+    //     // task: { id, title },
+    //   };
+    //   this.$store.dispatch({ type: "addActivity", activity });
+    // },
     updateBoard(board) {
       this.$store.dispatch({
         type: "updateBoard",
@@ -276,13 +306,13 @@ export default {
       const groupIdx = this.boardToShow.groups.findIndex(
         (group) => group.id === groupId
       );
-      console.log('groupIdx', groupIdx)
+      console.log("groupIdx", groupIdx);
       var amount = 285 * (groupIdx + 1);
       if (!groupIdx) {
         amount -= 10;
       }
-      console.log('amount',amount)
-      this.menuPos = { left:amount + "px" };
+      console.log("amount", amount);
+      this.menuPos = { left: amount + "px" };
       // console.log(this.menuPos);
     },
   },

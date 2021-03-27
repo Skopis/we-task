@@ -9,7 +9,7 @@
     </section>
     </nav>
     <div class="user-container flex">
-      <h2 class="btn login" @click="routeLogin" to="/login">Login</h2>
+      <h2 class="btn login" @click="routeLogin" to="/login">{{title}}</h2>
       <member-avatar2 :member="loggedInUser" :size="32"/>
     </div>
   </header>
@@ -20,6 +20,9 @@ import memberAvatar2 from './task-details/member-avatar2.vue'
 
 export default {
   computed: {
+    title(){
+      return this.loggedInUser? 'Logout' : 'Login'
+    },
     loggedInUser() {
       return this.$store.getters.loggedinUser
     }

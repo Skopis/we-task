@@ -1,8 +1,8 @@
 <template>
-  <div class="task-lable-menu">
-    <header>
+  <div class="task-label-menu">
+    <div class="label-header">
       <p>Labels</p>
-    </header>
+    </div>
     <div
       v-for="(label, index) in labels"
       :key="label.id"

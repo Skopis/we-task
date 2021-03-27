@@ -116,7 +116,7 @@ async function add(task, groupIdx, board) { // add task
   }
   else {
     taskForUpdate.id = utilService.makeId()
-    boardToUpdate.groups[groupIdx].tasks.unshift(taskForUpdate);
+    boardToUpdate.groups[groupIdx].tasks.push(taskForUpdate);
   }
   await httpService.put(`board/${boardToUpdate._id}`, boardToUpdate);
   return boardToUpdate;

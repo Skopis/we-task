@@ -1,8 +1,8 @@
 <template>
   <div class="task-attachment">
-  <header>
+  <div class="attachment-header">
     <h3>Upload an image</h3>
-  </header>
+  </div>
     <img-upload @save="saveImg" />
   </div>
 </template>
@@ -14,9 +14,9 @@ import imgUpload from "../img-upload.cmp.vue";
 export default {
   name: 'task-attachment',
   methods: {
-    saveImg(imgUrl) {
+    saveImg(imgUrl, originalFilename, format) {
       console.log('imgUrl', imgUrl)
-      this.$emit('saveImgAsAttachment', imgUrl)
+      this.$emit('saveImgAsAttachment', imgUrl, originalFilename, format)
     },
   },
   components: {
