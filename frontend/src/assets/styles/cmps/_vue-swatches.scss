@@ -1,4 +1,16 @@
 .vue-swatches__trigger{
-    border: 1px solid grey
+    border: 1px solid grey;
 }
-
+.board-menu-content{
+    .vue-swatches{
+        width: 310px;
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        align-self: center;
+        align-content: center;
+    }
+    .form__field{
+        padding-left: 0 !important;
+    }
+}

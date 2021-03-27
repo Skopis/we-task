@@ -3,8 +3,10 @@
     <label v-if="!isLoading" for="imgUploader" >
       <img class="upload" src="https://lh3.googleusercontent.com/proxy/Tm_MhA6O8xY2czjMuetUxXxIkPOBF6IjHQBUIDk0edLeioeELiEsIOfMMmlR1Kk1x4Y9g6fwCIzTYE1dNNN7M_teTSSBHwaJHVMprD6jS8fpP69GRAaBqJivtFU" alt="">
     </label>
-
-    <img class="loading" v-else src="https://i.pinimg.com/originals/f6/65/6a/f6656aa6fdb6b8f905dea0bcc2d71dd8.gif" alt="">
+    <div v-else class="loading-icon">
+      <i class="el-icon-loading" ></i>
+    </div>
+    <!-- <img class="loading" v-else src="https://i.pinimg.com/originals/f6/65/6a/f6656aa6fdb6b8f905dea0bcc2d71dd8.gif" alt=""> -->
     <input type="file" id="imgUploader" @change="onUploadImg" />
   </section>
 </template>

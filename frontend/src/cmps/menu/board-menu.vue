@@ -4,16 +4,18 @@
         <p>Menu</p>
         <button class="btn" @click="closeModal"><i class="el-icon-close"></i></button>
     </header>
-    <button class="btn" @click="toggleColorPicker">Cover</button>
-    
-    <color-picker :board="board" @changeBoardCover="updateBoardCover"  v-if="isColorPickerOpen"/>
+    <button class="btn" ><img src="../../assets/icons/bg.png" alt=""> Cover</button>
+    <button @click="toggleColorPicker">Color</button>
+    <button @click="toggleBgImagePicker">Image</button>
+    <bg-image v-if="isBgImagepickerOpen"/>
+    <color-picker :board="board" @changeBoardCover="updateBoardCover" v-if="isColorPickerOpen"/>
     <div class="search-input" v-if="isSearchOpen">
         <input  type="text"  class="member-search"  placeholder="What are you looking for?"  v-model="filterBy"  @change="searchTextChanged" />
         <button class="btn" @click="toggleSearch"><i class="el-icon-close"></i></button>
     </div>
-    <button v-else class="btn" @click="toggleSearch">Search</button>
-     <h3 class="module-header">
-        <i class="el-icon-s-order"></i>Activity
+    <button v-else class="btn" @click="toggleSearch"><i class="el-icon-search"></i>Search</button>
+    <h3 class="module-header">
+      <i class="el-icon-s-order"></i>Activity
     </h3>
     <div v-if="(this.board.activities && this.board.activities.length)">
         <div v-for="activity in activities" :key="activity.id">
@@ -25,6 +27,7 @@
   
 <script >
 import colorPicker from "./color-picker.vue";import taskActivities from '../task-details/task-activities.cmp';
+import bgImage from './bg-image.vue'
 
 export default {
   name: "board-menu",
@@ -34,12 +37,16 @@ export default {
       isColorPickerOpen: false,
       isSearchOpen: false,
       filterBy:'',
+      isBgImagepickerOpen: false
     };
   },
   created(){
       this.filterBy = this.$store.state.filterBy;
   },
   methods: {
+    toggleBgImagePicker(){
+      this.isBgImagepickerOpen = !this.isBgImagepickerOpen
+    },
     toggleColorPicker() {
       this.isColorPickerOpen = !this.isColorPickerOpen;
       this.isSearchOpen = false;
@@ -60,14 +67,15 @@ export default {
   },
     computed:{
         activities(){
-           return this.board.activities.sort(function(a, b){
-                return b.createdAt-a.createdAt
-            })
+          return this.board.activities.sort(function(a, b){
+            return b.createdAt-a.createdAt
+          })
         }
     },
     components:{
         colorPicker,
-        taskActivities
+        taskActivities,
+        bgImage
     }
 }
 </script>
