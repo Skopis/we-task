@@ -32,7 +32,7 @@ export default {
     }
     },
     created(){
-        console.log(this.member)
+        // console.log(this.member)
     },
     components: {
         Avatar,

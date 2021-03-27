@@ -37,8 +37,6 @@ export default {
   },
   methods: {
     addLabel(label) {
-      console.log(label.id);
-      console.log(label);
       this.$emit("setLabel", label);
     },
     closeModal() {

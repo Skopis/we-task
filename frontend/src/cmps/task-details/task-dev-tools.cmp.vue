@@ -46,11 +46,9 @@ export default {
         this.$emit('openDateModal', true)
       },
         toggleColorPicker(){
-          console.log('closing')
           if(!this.isColorPickerOpen){
             this.checklistTitleModal = false
             this.$emit('claseAllModals')
-            console.log('closing inside')
             this.isColorPickerOpen =true
           }else   this.isColorPickerOpen = false
         },
@@ -58,9 +56,7 @@ export default {
             this.$emit('updateTaskCover', color)
         },
         toggleCheckListTitleModal(){
-          console.log('closing')
           if(!this.checklistTitleModal){
-            console.log('closing inside')
             this.isColorPickerOpen= false;
             this.$emit('closeAllModals')
             this.checklistTitleModal = true

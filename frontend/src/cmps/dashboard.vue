@@ -10,7 +10,6 @@ export default {
     name: 'dashboard',
     created(){
         const boardId = this.$route.params.boardId;
-        console.log('boardId at dashboard', boardId)
     }
 }
 </script>

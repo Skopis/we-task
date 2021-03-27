@@ -148,7 +148,6 @@ export default {
       this.$emit("updateGroup", this.group);
     },
     updateTask({ taskToUpdate }) {
-      console.log("taskToUpdate at group list", taskToUpdate);
       this.isAddModalOpen = false;
       // if (!isEdit) { //TODO: remove to reAdd
       //   setTimeout(() => {
@@ -160,7 +159,6 @@ export default {
       }
     },
     stopEdit() {
-      console.log("whyy");
       this.isAddModalOpen = false;
     },
   },
