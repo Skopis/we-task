@@ -94,6 +94,7 @@
             @archiveGroup="archiveGroup"
             @updateGroupCover="updateGroupCover"
             @closeMenu="closeMenu"
+
           />
         </div>
         <!-- </section> -->
@@ -278,20 +279,32 @@ export default {
     saveBoard() {
       this.$store.dispatch({ type: "setBoard", board: this.boardToShow });
     },
-    setMenuPos(groupId) {
+    setMenuPos(groupId, ev) {
+      var left = this.getEvPos(ev)
+      console.log('new',ev.view.innerWidth - left)
       // console.log('groupId', groupId)
       const groupIdx = this.boardToShow.groups.findIndex(
         (group) => group.id === groupId
       );
       console.log('groupIdx', groupIdx)
-      var amount = 285 * (groupIdx + 1);
-      if (!groupIdx) {
-        amount -= 10;
-      }
-      console.log('amount',amount)
-      this.menuPos = { left:amount + "px" };
-      // console.log(this.menuPos);
+
+      this.menuPos = { right:ev.view.innerWidth - left +'px'};
     },
+    getEvPos(ev) {
+      // var pos = {
+      //   x: ev.offsetX,
+      //   y: ev.offsetY,
+      // }
+      ev.preventDefault();
+      // pos = {
+      //    x: ev.pageX - ev.target.offsetLeft - ev.target.clientLeft,
+      //   y: ev.pageY - ev.target.offsetTop - ev.target.clientTop,
+      // }
+      // console.log('client',ev.target.clientRight )
+      // console.log('page', ev.pageX)
+      return ev.pageX
+    },
+     
   },
   components: {
     groupList,

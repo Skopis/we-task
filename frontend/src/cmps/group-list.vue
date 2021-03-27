@@ -8,7 +8,11 @@
       <h4 @click="editGroupTitle" v-if="isTitleModalOpen === false">
         {{ group.title }}
       </h4>
-      <form @submit.prevent="saveGroupTitle"  @focusout.prevent="saveGroupTitle" v-if="isTitleModalOpen">
+      <form
+        @submit.prevent="saveGroupTitle"
+        @focusout.prevent="saveGroupTitle"
+        v-if="isTitleModalOpen"
+      >
         <input
           type="text"
           ref="groupTitle"
@@ -84,9 +88,7 @@ export default {
       task: null,
     };
   },
-  computed:{
-    
-  },
+  computed: {},
   created() {
     eventBus.$on("addCard", this.openAddModal);
   },
@@ -94,15 +96,16 @@ export default {
     eventBus.$off("addCard", this.openAddModal);
   },
   methods: {
-    computedStyle(task){
-      if (task.style.imgUrl) return { 
-      background: 'url('+task.style.imgUrl+')',
-      backgroundRepeat: 'no-repeat',
-      backgroundSize: 'cover',
-      'min-height': '120px',
-      'background-position': 'center'
-      }
-      else return  { backgroundColor: task.style.bgColor }
+    computedStyle(task) {
+      if (task.style.imgUrl)
+        return {
+          background: "url(" + task.style.imgUrl + ")",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+          "min-height": "120px",
+          "background-position": "center",
+        };
+      else return { backgroundColor: task.style.bgColor };
     },
     toggleMemberPreview(member, status, task) {
       this.isMemberModalOpen = status;
@@ -111,16 +114,17 @@ export default {
     },
     removeMemberFromTask(member) {
       this.$emit("removeMemberFromTask", member, this.task, this.group);
-      this.isMemberModalOpen = false
+      this.isMemberModalOpen = false;
     },
     archiveGroup(groupToArchive) {
       this.isGroupMenuModalOpen = false;
       this.$emit("archiveGroup", groupToArchive);
     },
     toggleGroupMenuModal(ev) {
+      // this.getEvPos(ev);
       this.isGroupMenuModalOpen = !this.isGroupMenuModalOpen;
       this.$emit("toggleGroupMenuModal", this.group.id);
-      this.$emit("openModal", this.group.id);
+      this.$emit("openModal", this.group.id, ev);
     },
     saveGroupTitle() {
       this.isTitleModalOpen = false;
@@ -143,8 +147,8 @@ export default {
     updateGroup() {
       this.$emit("updateGroup", this.group);
     },
-    updateTask({taskToUpdate}) {
-      console.log('taskToUpdate at group list', taskToUpdate)
+    updateTask({ taskToUpdate }) {
+      console.log("taskToUpdate at group list", taskToUpdate);
       this.isAddModalOpen = false;
       // if (!isEdit) { //TODO: remove to reAdd
       //   setTimeout(() => {

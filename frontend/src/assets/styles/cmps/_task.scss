@@ -72,7 +72,7 @@
         header {
             background-color: #f4f5f7 !important;
             padding: 0 16px 16px 20px;
-            // height: 300px;
+            width: 100%;
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
@@ -83,6 +83,10 @@
             justify-self: center;
             align-self: center;
             align-content: center;
+            // img{
+            //     height: 160px;
+            //     width: 160px;
+            // }
 
             h1 {
                 margin-bottom: 3px;
@@ -154,7 +158,7 @@
                     font-size: rem(20px);
 
                     span {
-                        font-size: 13px;
+                        font-size: 12px;
                         font-weight: 600;
                         text-align: center;
                         letter-spacing: 0.5px;
@@ -423,7 +427,7 @@
 
             .avatar {
                 span {
-                    font-size: 13px;
+                    font-size: 12px;
                     font-weight: 600;
                     text-align: center;
                     letter-spacing: 0.5px;

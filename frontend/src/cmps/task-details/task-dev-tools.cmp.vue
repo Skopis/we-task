@@ -27,12 +27,12 @@ import colorPicker from '../menu/color-picker.vue'
 import Swal from 'sweetalert2'
 
 export default {
-  props:[],
+  props:['colorPicker', 'checklistModal'],
     data(){
         return{
-            isColorPickerOpen: false,
-            checklistTitleModal:false,
-            checklistTitle :'',
+          isColorPickerOpen: this.colorPicker,
+          checklistTitleModal:this.checklistModal,
+          checklistTitle :'',
         }
     },
     methods:{
@@ -46,13 +46,25 @@ export default {
         this.$emit('openDateModal', true)
       },
         toggleColorPicker(){
-            this.isColorPickerOpen = !this.isColorPickerOpen
+          console.log('closing')
+          if(!this.isColorPickerOpen){
+            this.checklistTitleModal = false
+            this.$emit('claseAllModals')
+            console.log('closing inside')
+            this.isColorPickerOpen =true
+          }else   this.isColorPickerOpen = false
         },
         updateTaskCover(color){
             this.$emit('updateTaskCover', color)
         },
         toggleCheckListTitleModal(){
-          this.checklistTitleModal = !this.checklistTitleModal;
+          console.log('closing')
+          if(!this.checklistTitleModal){
+            console.log('closing inside')
+            this.isColorPickerOpen= false;
+            this.$emit('closeAllModals')
+            this.checklistTitleModal = true
+          }else this.checklistTitleModal = false
         },
         startNewChecklist(){
           if(!this.checklistTitle) this.checklistTitle = 'Checklist'
