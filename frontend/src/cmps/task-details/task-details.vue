@@ -97,10 +97,10 @@
             @submit.prevent="saveTaskDescription"
             v-if="isDescEditOpen"
           >
+              <!-- @focusout.prevent="closeTaskDescription" -->
             <textarea
               autofocus
               ref="descTxt"
-              @focusout.prevent="closeTaskDescription"
               class="comment-box"
               placeholder="Add a more detailed description"
               name=""
