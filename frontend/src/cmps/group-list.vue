@@ -23,11 +23,6 @@
       </button>
     </div>
     <div class="preview-content">
-      <task-quick-edit
-        v-if="isAddModalOpen"
-        @updateTask="updateTask"
-        @stopEdit="stopEdit"
-      />
       <ul>
         <draggable
           @end="itemDragged"
@@ -49,6 +44,11 @@
           </li>
         </draggable>
       </ul>
+      <task-quick-edit
+        v-if="isAddModalOpen"
+        @updateTask="updateTask"
+        @stopEdit="stopEdit"
+      />
     </div>
     <footer>
       <button class="btn add-task" @click="openAddModal(-1)">
@@ -99,7 +99,8 @@ export default {
       background: 'url('+task.style.imgUrl+')',
       backgroundRepeat: 'no-repeat',
       backgroundSize: 'cover',
-      'min-height': '120px'
+      'min-height': '120px',
+      'background-position': 'center'
       }
       else return  { backgroundColor: task.style.bgColor }
     },
@@ -142,7 +143,8 @@ export default {
     updateGroup() {
       this.$emit("updateGroup", this.group);
     },
-    updateTask({ taskToUpdate, isEdit }) {
+    updateTask({taskToUpdate}) {
+      console.log('taskToUpdate at group list', taskToUpdate)
       this.isAddModalOpen = false;
       // if (!isEdit) { //TODO: remove to reAdd
       //   setTimeout(() => {

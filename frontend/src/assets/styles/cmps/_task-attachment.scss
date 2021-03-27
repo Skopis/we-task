@@ -1,7 +1,7 @@
 .task-attachment{
     position: absolute;
     background-color: #fff;
-    padding: 8px 12px;
+    padding: 10px 12px 12px 12px;
     right: 85px;
     z-index: 40;
     top: 307px;
@@ -10,29 +10,46 @@
     input{
         height: unset; 
     }
-    header{
+    .attachment-header{
         h3{
             font-size: 16px;
             font-weight: 400;
+            margin: 0;
+            margin-bottom: 10px;
         }
+        margin-bottom: -10px;
         display: flex;
         justify-content: center;
         color: #5e6c84;
         line-height: 40px;
         border-bottom: 1px solid rgba(9,30,66,.13);
-        margin: 0 12px;
         overflow: hidden;
         position: relative;
         text-overflow: ellipsis;
         white-space: nowrap;
         z-index: 1;
     }
+    #imgUploader{
+        margin-bottom: 0;
+    }
 }
 
 .task-attachment-display{
+    display: flex;
+    margin-bottom: 10px;
     img{
         width: 112px;
         height: 80px;
         object-fit: cover;
+        margin-right: 12px;
+    }
+    button{
+        font-size: 14px;
+        text-decoration: underline;
+        padding: 0 5px 0 0;
+    }
+    p{
+        margin-bottom: 0;
+        font-weight: 700;
     }
 }

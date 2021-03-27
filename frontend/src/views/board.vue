@@ -55,9 +55,15 @@
           @searchChanged="searchChanged"
         />
       </div>
+      <div class="flex header-right">
+        <h2 class="btn" @click="goToDashboard" v-if="!isBoardMenuModalOpen">
+          <img src="../assets/icons/dashboard.png" alt=""> Dashboard
+        </h2>
         <h2 class="btn" @click="toggleBoardMenuModal" v-if="!isBoardMenuModalOpen">
           <i class="el-icon-more"></i> Show menu
         </h2>
+      </div>
+      
     </header>
     <!-- <section class="task-list-container"> -->
     <section class="main-board-container">
@@ -152,6 +158,9 @@ export default {
     }
   },
   methods: {
+    goToDashboard(){
+      this.$router.push(`/board/${this.boardToShow._id}/dashboard`)
+    },
     addMemberToBoard(member) {
       this.isAddMemberModalOpen = false;
       this.boardToShow.members.push(member);

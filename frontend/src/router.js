@@ -7,6 +7,7 @@ import archive from './cmps/menu/archive.vue'
 import loginSignup from './views/login-signup.vue'
 import userDetails from './views/user-details.vue'
 import taskDetails from './cmps/task-details/task-details.vue'
+import dashboard from './cmps/dashboard.vue'
 
 Vue.use(Router)
 
@@ -24,6 +25,10 @@ export const router = new Router({
       name: 'board',
       component: boards,
 
+    },
+    {
+      path: '/board/:boardId/dashboard',
+      component: dashboard
     },
     {
       path: '/board/:boardId',

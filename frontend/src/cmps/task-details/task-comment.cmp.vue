@@ -9,7 +9,6 @@
     </div>
     <p class="comment-txt">{{ editComment.txt }}</p>
     <button class="btn" @click="reply">Reply</button>
-    <!-- <button class="btn" @click="saveComment">Save</button> -->
   </div>
 </template>
 <button class="btn" @click="openEditModal">edit</button>

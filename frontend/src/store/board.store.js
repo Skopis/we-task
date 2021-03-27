@@ -12,8 +12,12 @@ export const boardStore = {
         currGroupId: null,
         currTask: null,
         filterBy: '',
+        groupTitle: ''
     },
     getters: {
+        groupTitle(state){
+            return state.groupTitle
+        },
         boardMembers(state) {
             return state.board.members
         },
@@ -103,15 +107,26 @@ export const boardStore = {
         setLabelText(state, { labelIdx, newTxt }) {
             state.board.labels[labelIdx].title = newTxt;
         },
+        getGroupByTaskId(state, taskId) {
+            var groupTitle
+            for (let i = 0; i < state.board.groups.length; i++) {
+                state.board.groups[i].tasks.forEach(task => {
+                    if (task.id === taskId) {
+                        groupTitle = state.board.groups[i].title
+                    }
+                })
+            }
+            state.groupTitle = groupTitle
+        }
     },
     actions: {
         updateLabel({ state, commit }, { labelData }) {
             const newTxt = labelData.txt;
             const labelIdx = state.board.labels.findIndex(label => label.id === labelData.labelId)
             console.log(labelIdx);
-            commit({ type: 'setLabelText',labelIdx,newTxt })
+            commit({ type: 'setLabelText', labelIdx, newTxt })
             const boardToUpdate = state.board//JSON.parse(JSON.stringify(state.board));
-            this.dispatch({ type: 'updateBoard',boardToUpdate})
+            this.dispatch({ type: 'updateBoard', boardToUpdate })
             this.dispatch({ type: 'sendUpdatedBoard' });
         },
         async updateBoard({ state, commit }, { boardToUpdate }) {
@@ -134,7 +149,7 @@ export const boardStore = {
                 socketService.emit("board change", state.board);
             }
         },
-        async addTask({ commit, state }, { task, group }) {
+        async addTask({ state, commit }, { task, group }) {
             if (state.filterBy !== '') {
                 return
             }
@@ -145,6 +160,7 @@ export const boardStore = {
                 }
                 else groupIdx = state.board.groups.findIndex(g => g.id === group.id)
                 const boardForUpdate = await boardService.add(task, groupIdx, state.board)
+                // this.dispatch({ type: 'updateBoard', boardToUpdate: boardForUpdate })
                 commit({ type: 'setBoard', board: boardForUpdate })
                 this.dispatch({ type: 'sendUpdatedBoard' });
             } catch (err) {
@@ -172,7 +188,7 @@ export const boardStore = {
                 const boardToUpdate = await boardService.archiveGroup(group, groupIdx, state.board)
                 // const boards = await boardService.query();
                 commit({ type: 'archiveGroup', group })
-                commit({ type: 'setBoard', board: boardToUpdate })
+                this.dispatch({ type: 'updateBoard', boardToUpdate })
                 this.dispatch({ type: 'sendUpdatedBoard' });
             } catch (err) {
                 console.log('boardStore: Error in archiveGroup', err)
@@ -202,7 +218,7 @@ export const boardStore = {
                 throw err
             }
         },
-        async updateGroup({ state, commit }, { group, boardId }) {
+        async updateGroup({ state}, { group }) {
             if (state.filterBy !== '') {
                 return
             }
@@ -253,7 +269,8 @@ export const boardStore = {
                 return
             }
             var boardIdx = state.boards.findIndex(b => b._id === state.board._id)
-            var groupIdx = state.board.groups.findIndex(g => g.id === state.currGroupId)
+            const currGroupId = await boardService.getGroupId()
+            var groupIdx = state.board.groups.findIndex(g => g.id === JSON.parse(currGroupId))
             var taskIdx = state.board.groups[groupIdx].tasks.findIndex(t => t.id === task.id)
             try {
                 const boards = await boardService.remove(state.board, groupIdx, taskIdx);
@@ -270,7 +287,7 @@ export const boardStore = {
             commit({ type: "getTaskActivities", taskId: task.id })
             return task
         },
-        async addCheckList({ commit, state }, { checkList, task }) {
+        async addCheckList({ state }, { checkList, task }) {
             if (state.filterBy !== '') {
                 return
             }
@@ -311,7 +328,7 @@ export const boardStore = {
             var groupIdx = state.board.groups.findIndex(g => g.id === JSON.parse(groupId))
             try {
                 const updatedBoard = await boardService.add(task, groupIdx, state.board)
-                commit({ type: 'setBoard', board: updatedBoard })
+                this.dispatch({ type: 'updateBoard', boardToUpdate: updatedBoard })
                 this.dispatch({ type: 'sendUpdatedBoard' });
             } catch (err) {
                 console.log('Cannot save comment', err)
@@ -322,16 +339,20 @@ export const boardStore = {
             commit({ type: 'saveCurrGroupId', groupId: currGroupId })
         },
         async setTaskLabel({ commit, state }, { task, label }) {
+            var isAdded = false
+            console.log('isAdded before', isAdded)
             if (state.filterBy !== '') {
                 return
             }
             if (!task.labels || !task.labels.length) {
                 task.labels = [label]
+                isAdded = true
             } else {
-                // if (task.labels.find(l => l.id === label.id)) return
-                // else task.labels.push(label)
                 var labelIdx = task.labels.findIndex(l => l.id === label.id)
+                console.log('labelIdx', labelIdx)
                 if (labelIdx === -1) {
+                    isAdded = true
+                    console.log('isAdded b', isAdded)
                     task.labels.push(label);
                 } else {
                     task.labels.splice(labelIdx, 1);
@@ -343,7 +364,8 @@ export const boardStore = {
                 const updatedBoard = await boardService.add(task, groupIdx, state.board)
                 commit({ type: 'setBoard', board: updatedBoard })
                 this.dispatch({ type: 'sendUpdatedBoard' });
-                return (labelIdx === -1);
+                console.log('isAdded', isAdded)
+                return isAdded
             } catch (err) {
                 console.log('Cannot save comment', err)
             }

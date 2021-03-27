@@ -1,8 +1,8 @@
 <template>
     <div class="members-menu">
-        <header>
+        <div class="members-header">
             <p>Members</p>
-        </header>
+        </div>
         <input class="member-search" type="text" placeholder="Search members">
         <h4>Board Members</h4>
         <div class="member-line" v-for="member in board.members" :key="member._id" @click="addMemberToTask(member)">

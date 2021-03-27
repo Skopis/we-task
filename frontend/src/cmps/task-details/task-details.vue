@@ -1,17 +1,28 @@
 <template>
   <div v-if="task" class="task-details-modal">
     <div class="task-details-content" @click.self="closeModals">
-      <header :style="task.style.imgUrl? { backgroundImage: 'url('+task.style.imgUrl+')', height:300+'px'} :{ backgroundColor: task.style.bgColor }">
-        <div class="header-content" >
-          <button class="btn close-modal" @click="closeDetailsModal"><i class="el-icon-close"></i></button>
-          <h1 v-if="!task.style.imgUrl">{{ task.title }}</h1>
-          <p v-if="!task.style.imgUrl"><span>in List</span></p>
+      <header
+        :style="
+          task.style.imgUrl
+            ? {
+                backgroundImage: 'url(' + task.style.imgUrl + ')',
+                height: 300 + 'px',
+              }
+            : { backgroundColor: task.style.bgColor }
+        "
+      >
+        <div class="header-content">
+          <button class="btn close-modal" @click="closeDetailsModal">
+            <i class="el-icon-close"></i>
+          </button>
+          <h1 class="task-title" v-if="!task.style.imgUrl"><img src="../../assets/icons/card.png" alt="">{{ task.title }}</h1>
+          <p v-if="!task.style.imgUrl">in List <span class="list-title"> {{listTitle}}</span></p>
         </div>
       </header>
       <main>
-      <div v-if="task.style.imgUrl">
-          <h1>{{ task.title }}</h1>
-          <p><span>in List</span></p>
+        <div v-if="task.style.imgUrl">
+          <h1 class="task-title"><img src="../../assets/icons/card.png" alt="">{{ task.title }}</h1>
+          <p>in List <span class="list-title"> {{listTitle}}</span></p>
       </div>
         <div class="task-info">
           <members-menu
@@ -42,7 +53,7 @@
               <h3>Labels</h3>
               <div v-for="label in task.labels" :key="label.id">
                 <div :class="label.color" class="task-label">
-                  {{ label.title }}
+                  {{accurateTitle(label.id)}}
                 </div>
               </div>
               <div class="task-label add-label">+</div>
@@ -55,11 +66,17 @@
           />
           <div class="due-date-continer container">
             <div v-if="task.dueDate" class="due-date-wrapper">
-              <h3>Due Date</h3>
-              <p class="due-date">{{ task.dueDate }}</p>
+              <h3>Due Date </h3>
+              <div class="flex due-date-content">
+                <el-checkbox v-model="task.dueDate.isComplete"></el-checkbox>
+                <p class="due-date" @click="toggleTaskComplete">{{ task.dueDate.date }} <span class="complete" v-if="task.dueDate.isComplete"> COMPLETE</span></p>
+              </div>
             </div>
           </div>
-          <task-attachment v-if="isAttachmentModalOpen" @saveImgAsAttachment="saveImgAsAttachment"/>
+          <task-attachment
+            v-if="isAttachmentModalOpen"
+            @saveImgAsAttachment="saveImgAsAttachment"
+          />
         </div>
         <div class="task-desc module">
           <h3 class="module-header">
@@ -78,8 +95,17 @@
           >
             Add a more detailed description
           </p>
-          <form @submit.prevent="saveTaskDescription" v-if="isDescEditOpen">
+          <form
+            class="comment-section"
+            @submit.prevent="saveTaskDescription"
+            v-if="isDescEditOpen"
+          >
             <textarea
+              autofocus
+              ref="descTxt"
+              @focusout.prevent="closeTaskDescription"
+              class="comment-box"
+              placeholder="Add a more detailed description"
               name=""
               id=""
               cols="20"
@@ -101,7 +127,10 @@
               <i class="el-icon-finished"></i>Check List
             </h3>
             <div v-for="checklist in task.checklists" :key="checklist.id">
-              <task-todo :checklist="checklist" @updateChecklist="updateChecklist" />
+              <task-todo
+                :checklist="checklist"
+                @updateChecklist="updateChecklist"
+              />
             </div>
           </div>
         </div>
@@ -111,7 +140,7 @@
               <i class="el-icon-paperclip"></i>Attachments
             </h3>
             <div class="img-list" v-for="(attachment, idx) in task.attachments" :key="idx">
-              <task-attachment-display :imgUrl="attachment.imgUrl" @setImageAsTaskCover="setImageAsTaskCover" @removeAttachment="removeAttachment" @comment="commentOnAttachment"/>
+              <task-attachment-display :attachment="attachment" :task="task" @setImageAsTaskCover="setImageAsTaskCover" @removeAttachment="removeAttachment" @comment="commentOnAttachment"/>
             </div>
           </div>
         </div>
@@ -122,7 +151,7 @@
           <div class="comment-section">
             <textarea
               ref="writeComment"
-              placeholder="write a comment"
+              placeholder="Write a comment"
               v-model="comment.txt"
               class="comment-box"
             ></textarea>
@@ -145,7 +174,8 @@
           </div>
         </div>
       </main>
-      <task-dev-tools :style="task.style.imgUrl ? {marginTop:250+'px'} : {}"
+      <task-dev-tools
+        :style="task.style.imgUrl ? { marginTop: 250 + 'px' } : {}"
         @checkList="createCheckList"
         @removeTask="removeTask"
         @updateTaskCover="updateTaskCover"
@@ -168,8 +198,9 @@ import taskTodo from "./task-todo.cmp";
 import labelsMenu from "../menu/labels-menu";
 import membersMenu from "../menu/members-menu";
 import DatePicker from "./date-picker.vue";
-import taskAttachment from './task-attachment.vue'
-import taskAttachmentDisplay from './task-attachment-display.vue'
+import taskAttachment from "./task-attachment.vue";
+import taskAttachmentDisplay from "./task-attachment-display.vue";
+import { socketService } from "@/services/socket.service";
 
 export default {
   data() {
@@ -184,49 +215,68 @@ export default {
       loggedinUser: null,
       isDescEditOpen: false,
       isAttachmentModalOpen: false,
-      checklistTitle:'',
+      checklistTitle: "",
     };
   },
   methods: {
-    closeAllModals(){
+    accurateTitle(labelId){
+      var title;
+      const board = this.$store.getters.getBoard
+      board.labels.forEach(label=>{
+        if(label.id === labelId) title = label.title
+      })
+      return title
+    },
+    async toggleTaskComplete(){
+      this.task.dueDate.isComplete = !this.task.dueDate.isComplete
+      await this.$store.dispatch({
+        type: "addTask",
+        task: JSON.parse(JSON.stringify(this.task)),
+      });
+      if(this.task.dueDate.isComplete) this.addActivity("Marked Task as Complete");
+      else this.addActivity("Marked Task as Incomplete");
+    },
+    closeAllModals() {
       this.checkListModal = false;
       this.labelsModal = false;
       this.membersMenu = false;
       this.dateMenu = false;
     },
-    commentOnAttachment(imgUrl){
+    commentOnAttachment(imgUrl) {
       setTimeout(() => {
         this.$refs.writeComment.focus();
-        this.comment.txt = imgUrl
+        this.comment.txt = imgUrl;
       }, 300);
     },
-    async removeAttachment(imgUrl){
-      const attachmentIdx = this.task.attachments.findIndex(a=> a.imgUrl === imgUrl)
-      this.task.attachments.splice(attachmentIdx, 1)
+    async removeAttachment(imgUrl) {
+      const attachmentIdx = this.task.attachments.findIndex(
+        (a) => a.imgUrl === imgUrl
+      );
+      this.task.attachments.splice(attachmentIdx, 1);
       await this.$store.dispatch({
         type: "addTask",
         task: JSON.parse(JSON.stringify(this.task)),
       });
       this.addActivity("Deleted Attachment");
     },
-    async setImageAsTaskCover(imgUrl){
-      this.task.style.imgUrl = imgUrl
+    async setImageAsTaskCover(imgUrl) {
+      this.task.style.imgUrl = imgUrl;
       await this.$store.dispatch({
         type: "addTask",
         task: JSON.parse(JSON.stringify(this.task)),
       });
       if (!imgUrl){
-         this.addActivity("Removed Attached Image from Cover");
-         return 'cover'
+        this.addActivity("Removed Attached Image from Cover");
+        return 'cover'
       }
       else{
-         this.addActivity("Changed cover to Attached Image");
-         return ''
-        }
+        this.addActivity("Changed cover to Attached Image");
+        return ''
+      }
     },
-    async saveImgAsAttachment(imgUrl){ 
+    async saveImgAsAttachment(imgUrl, originalFilename, format){ 
       this.isAttachmentModalOpen = false
-      const attachment = {byMember: this.loggedinUser, imgUrl}
+      const attachment = {byMember: this.loggedinUser, imgUrl, originalFilename, format, createdAt: Date.now()}
       if(!this.task.attachments) this.task.attachments=[]
       this.task.attachments.push(attachment)
       await this.$store.dispatch({
@@ -247,11 +297,11 @@ export default {
         let taskActivities = this.$store.getters.taskActivities;
         this.activities = taskActivities;
       } catch (err) {
-        console.log("Cannot find task", err);
+          console.log("Cannot find task", err);
       }
     },
-    toggleAttachmentModal(){
-      this.isAttachmentModalOpen = !this.isAttachmentModalOpen
+    toggleAttachmentModal() {
+      this.isAttachmentModalOpen = !this.isAttachmentModalOpen;
     },
     async saveTaskDescription() {
       this.isDescEditOpen = false;
@@ -261,8 +311,14 @@ export default {
       });
       this.addActivity("Changed Task Description");
     },
+    closeTaskDescription() {
+      this.isDescEditOpen = false;
+    },
     editTaskDescription() {
       this.isDescEditOpen = true;
+      setTimeout(() => {
+        this.$refs.descTxt.focus();
+      }, 300);
     },
     reply(memberName) {
       setTimeout(() => {
@@ -273,10 +329,10 @@ export default {
     },
     formattedDate(date) {
       const options = {
-        weekday: "long",
-        year: "numeric",
-        month: "long",
+        month: "short",
         day: "numeric",
+        // weekday: "long",
+        year: "numeric",
       };
       return date.toLocaleDateString(undefined, options);
     },
@@ -289,7 +345,7 @@ export default {
       this.membersMenu = !this.membersMenu;
     },
     createCheckList(checklistTitle) {
-      this.checklistTitle = checklistTitle
+      this.checklistTitle = checklistTitle;
       this.checkListModal = true;
     },
     closeCheckList() {
@@ -306,16 +362,17 @@ export default {
       this.addActivity("Added CheckList");
       this.loadTask();
     },
-    addComment() {
+    async addComment() {
       if (!this.comment.txt) return;
-      this.$store.dispatch({
+      await this.$store.dispatch({
         type: "saveComment",
         task: this.task,
         comment: this.comment,
       });
       this.comment = { txt: "" };
+      // this.loadTask();
     },
-    
+
     removeTask() {
       this.$store.dispatch("removeTask", { task: this.task });
     },
@@ -333,13 +390,15 @@ export default {
         task: this.task,
         label,
       });
-      const txt = isAdded ? "Added Label" : "Removed Label";
+      const txt = isAdded ? "Added a Label" : "Removed a Label";
       this.addActivity(txt);
       this.loadTask();
     },
     async updateDueDate(date) {
       var taskToEdit = JSON.parse(JSON.stringify(this.task));
-      taskToEdit.dueDate = this.formattedDate(date);
+      if(!taskToEdit.dueDate) taskToEdit.dueDate = {date:'', isComplete: false}
+      taskToEdit.dueDate.date = this.formattedDate(date);
+      taskToEdit.dueDate.isComplete = false
       await this.$store.dispatch({ type: "addTask", task: taskToEdit });
       this.addActivity("Added Due Date");
     },
@@ -363,29 +422,59 @@ export default {
       this.$store.dispatch({ type: "addTask", task: this.task });
     },
     updateTaskCover(color) {
-      this.task.style.imgUrl = ''
+      this.task.style.imgUrl = "";
       // console.log("this.task", this.task);
       this.task.style.bgColor = color;
       this.$store.dispatch({ type: "addTask", task: this.task });
     },
     manageLabelMenu(status) {
       // console.log(status);
-      this.labelsModal = !this.labelsModal//JSON.parse(status);
+      this.labelsModal = !this.labelsModal; //JSON.parse(status);
     },
     closeModals() {
       this.labelsModal = false;
       this.checkListModal = false;
       // console.log(this.labelsModal, this.checkListModal);
     },
-    updateChecklist(checklistId, todoId, isDone){
-      const checklistIdx = this.task.checklists.findIndex(checklist => checklist.id === checklistId)
-      const todoIdx = this.task.checklists[checklistIdx].todos.findIndex(todo => todo.id ===todoId)
-      const todo = this.task.checklists[checklistIdx].todos[todoIdx]
-      todo.isDone = isDone
+    updateChecklist(checklistId, todoId, isDone) {
+      const checklistIdx = this.task.checklists.findIndex(
+        (checklist) => checklist.id === checklistId
+      );
+      const todoIdx = this.task.checklists[checklistIdx].todos.findIndex(
+        (todo) => todo.id === todoId
+      );
+      const todo = this.task.checklists[checklistIdx].todos[todoIdx];
+      todo.isDone = isDone;
       this.$store.dispatch({ type: "addTask", task: this.task });
+    },
+    updatedBoard(boardToUpdate) {
+      console.log("got board");
+      this.$store.commit({
+        type: "updateBoard",
+        boardIdx: 0,
+        board: boardToUpdate,
+      });
+      this.loadTask();
+    },
+  },
+  created() {
+    this.loggedinUser = this.$store.getters.loggedinUser;
+    this.loadTask();
+    socketService.setup();
+    socketService.emit("board id", this.boradId);
+    socketService.on("updated board", this.updatedBoard);
+  },
+  destroyed() {
+    {
+      socketService.off("updated board", this.updatedBoard);
+      socketService.terminate();
     }
   },
   computed: {
+    listTitle(){
+      this.$store.commit('getGroupByTaskId', this.task.id)
+      return this.$store.getters.groupTitle
+    },
     activitiesToShow() {
       if (
         this.activities &&
@@ -408,10 +497,6 @@ export default {
       return this.$store.getters.getBoardId;
     },
   },
-  created() {
-    this.loggedinUser = this.$store.getters.loggedinUser;
-    this.loadTask();
-  },
   watch: {
     "$route.params.taskId"(id) {
       // console.log("Changed to", id);
@@ -429,7 +514,7 @@ export default {
     membersMenu,
     DatePicker,
     taskAttachment,
-    taskAttachmentDisplay
+    taskAttachmentDisplay,
   },
 };
 </script>
