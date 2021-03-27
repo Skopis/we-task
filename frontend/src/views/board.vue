@@ -30,13 +30,14 @@
           <member-avatar2
             :member="member"
             :size="28"
-            @click.native="toggleMemberModal(member)"
+            @click.native="toggleMemberModal(member, $event)"
           />
         </div>
         </div>
         <board-member-modal
           v-if="isMemberModalOpen"
           :member="member"
+          :memberModalPos="memberModalPos"
           @removeMemberFromBoard="removeMemberFromBoard"
         />
         <add-board-member
@@ -127,6 +128,7 @@ export default {
       menuGroupId: null,
       isMemberModalOpen: false,
       isAddMemberModalOpen: false,
+      memberModalPos:null,
     };
   },
   computed: {
@@ -178,9 +180,14 @@ export default {
       this.updateBoard(this.boardToShow);
       this.isMemberModalOpen = false;
     },
-    toggleMemberModal(member) {
+    toggleMemberModal(member, ev) {
+      const memberIdx = this.boardToShow.members.findIndex(m=>m._id === member._id )
+      var distance = 80 +(memberIdx *30)
+      if(this.isMemberModalOpen && this.member !== member || !this.isMemberModalOpen){
+        this.isMemberModalOpen = true
+        this.memberModalPos = {left : distance + 'px'}
+      }else this.isMemberModalOpen = !this.isMemberModalOpen
       this.member = member;
-      this.isMemberModalOpen = !this.isMemberModalOpen;
     },
     searchChanged(txt) {
       this.$store.commit({ type: "setFilterBy", filterBy: txt });

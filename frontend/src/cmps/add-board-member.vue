@@ -1,6 +1,6 @@
 <template>
     <section class="add-member-preview">
-        <p>Invite a member to Board</p>
+        <h4>Invite a member to Board</h4>
         <div class="member-preview-main" v-for="member in membersToShow" :key="member._id">
             <img v-if="member.imgUrl" :src="member.imgUrl" alt="member-img">
             <member-avatar2 :v-if="member" :member="member" :size="40" @click.native="addMemberToBoard(member)"/>

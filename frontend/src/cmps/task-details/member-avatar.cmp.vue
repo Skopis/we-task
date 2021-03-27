@@ -7,7 +7,7 @@
         v-else
         :username="member.fullname"
         :size="size"
-        :background-color='userColor'
+        :background-color='userColor(member)'
       ></avatar>
     </div>
   </div>
@@ -18,16 +18,18 @@ import Avatar from "vue-avatar";
 
 export default {
   props: ['members', 'size'],
+  methods:{
+    userColor(member){
+      if(member.fullname === 'Nofar Gabso') return '#009688'
+      else if(member.fullname === 'Lian Skopis') return '#5243aa'
+      else if(member.fullname === 'Shachar Dorfzaun') return '#607d8b'
+      else if(member.fullname === 'Itay Azulay') return '#ff9800'
+    }
+  },
   computed: {
     fullname() {
       return this.member.fullname;
     },
-    userColor(){
-      if(this.member.fullname === 'Nofar Gabso') return '#009688'
-      else if(this.member.fullname === 'Lian Skopis') return '#5243aa'
-      else if(this.member.fullname === 'Shachar Dorfzaun') return '#607d8b'
-      else if(this.member.fullname === 'Itay Azulay') return '#ff9800'
-    }
   },
   created(){
     // console.log(this.members)
