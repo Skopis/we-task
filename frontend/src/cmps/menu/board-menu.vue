@@ -7,7 +7,7 @@
     <button class="btn" ><img src="../../assets/icons/bg.png" alt=""> Cover</button>
     <button @click="toggleColorPicker">Color</button>
     <button @click="toggleBgImagePicker">Image</button>
-    <bg-image v-if="isBgImagepickerOpen"/>
+    <bg-image v-if="isBgImagepickerOpen" @setImageAsBg="setImageAsBg"/>
     <color-picker :board="board" @changeBoardCover="updateBoardCover" v-if="isColorPickerOpen"/>
     <div class="search-input" v-if="isSearchOpen">
         <input  type="text"  class="member-search"  placeholder="What are you looking for?"  v-model="filterBy"  @change="searchTextChanged" />
@@ -44,6 +44,9 @@ export default {
       this.filterBy = this.$store.state.filterBy;
   },
   methods: {
+    setImageAsBg(path){
+      this.$emit('setImageAsBg', path)
+    },
     toggleBgImagePicker(){
       this.isBgImagepickerOpen = !this.isBgImagepickerOpen
     },

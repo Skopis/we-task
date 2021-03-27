@@ -27,8 +27,6 @@ export default{
     created(){
         this.allMembers = this.$store.getters.members
         this.boardMembers = this.$store.getters.boardMembers
-        console.log('this.allMembers', this.allMembers)
-        console.log('this.boardMembers', this.boardMembers)
     },
     computed:{
         membersToShow(){

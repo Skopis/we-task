@@ -2,11 +2,10 @@
   <div
     class="board"
     v-if="boardToShow"
-    :style="{ backgroundColor: boardToShow.style.bgColor }"
+    :style="boardToShow.style.bgImg? { backgroundImage: 'url(/img/'+boardToShow.style.bgImg+')', backgroundPosition: 'center center', backgroundOrigin: 'content-box', backgroundRepeat: 'no-repeat', 'background-size': 'cover'} : {backgroundColor: boardToShow.style.bgColor }"
   >
     <header
       class="board-header flex space-between"
-      :style="{ backgroundColor: boardToShow.style.bgColor }"
     >
       <div class="flex">
         <h2
@@ -58,6 +57,7 @@
           @closeModal="closeBoardMenuModal"
           @updateBoardCover="updateBoardCover"
           @searchChanged="searchChanged"
+          @setImageAsBg="setImageAsBg"
         />
       </div>
       <div class="flex header-right">
@@ -139,11 +139,9 @@ export default {
   },
   computed: {
     boardToShow() {
-      //return JSON.parse(JSON.stringify(this.$store.getters.getBoard));
       const fillteredBoard = JSON.parse(
         JSON.stringify(this.$store.getters.getBoard)
       );
-
       return fillteredBoard;
     },
   },
@@ -167,8 +165,13 @@ export default {
     }
   },
   methods: {
-    goToDashboard() {
-      this.$router.push(`/board/${this.boardToShow._id}/dashboard`);
+    setImageAsBg(path){
+      this.boardToShow.style.bgImg = path
+      console.log('this.boardToShow.style.bgImg ', this.boardToShow.style.bgImg )
+      this.$store.dispatch({type: 'updateBoard', boardToUpdate: this.boardToShow})
+    },
+    goToDashboard(){
+      this.$router.push(`/board/${this.boardToShow._id}/dashboard`)
     },
     addMemberToBoard(member) {
       this.isAddMemberModalOpen = false;
@@ -204,7 +207,6 @@ export default {
       this.$store.commit({ type: "setFilterBy", filterBy: txt });
     },
     updatedBoard(boardToUpdate) {
-      console.log("got board");
       this.$store.commit({
         type: "updateBoard",
         boardIdx: 0,
@@ -231,6 +233,7 @@ export default {
       this.updateGroup(group);
     },
     updateBoardCover(color) {
+      this.boardToShow.style.bgImg = ''
       this.boardToShow.style.bgColor = color;
       this.$store.dispatch({
         type: "updateBoard",
@@ -314,15 +317,13 @@ export default {
       this.$store.dispatch({ type: "setBoard", board: this.boardToShow });
     },
     setMenuPos(groupId, ev) {
-      var left = this.getEvPos(ev);
-      console.log("new", ev.view.innerWidth - left);
+      var left = this.getEvPos(ev)
+      // console.log('new',ev.view.innerWidth - left)
       // console.log('groupId', groupId)
       const groupIdx = this.boardToShow.groups.findIndex(
         (group) => group.id === groupId
       );
-      console.log("groupIdx", groupIdx);
-
-      this.menuPos = { right: ev.view.innerWidth - left + "px" };
+      this.menuPos = { right:ev.view.innerWidth - left +'px'};
     },
     getEvPos(ev) {
       // var pos = {

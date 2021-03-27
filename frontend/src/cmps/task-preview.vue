@@ -102,7 +102,6 @@ export default {
     },
     toggleComplete(){
       var task = JSON.parse(JSON.stringify(this.task))
-      console.log('task at 97 preview', task)
       task.dueDate.isComplete = !task.dueDate.isComplete
       this.$emit("updateTask", {taskToUpdate: task});
     },
@@ -133,7 +132,6 @@ export default {
     },
     updateTask(taskToUpdate) {
       this.isEditModalOpen = false;
-      console.log('taskToUpdate', taskToUpdate)
       this.$emit("updateTask", taskToUpdate);
     },
     openTaskDetails(taskId) {
