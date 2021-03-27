@@ -23,6 +23,22 @@
         margin-top: 0;
         text-transform: uppercase;
     }
+    .avatar {
+        height: 32px;
+        width: 32px;
+        color: #42526ea1;
+        background-color: #eaecf0;
+        font-size: rem(20px);
+
+        span {
+            font-size: 12px;
+            font-weight: 600;
+            text-align: center;
+            letter-spacing: 0.5px;
+            color: rgb(242, 248, 248);
+        }
+    }
+
 
     .members-header {
         p{

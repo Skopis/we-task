@@ -1,0 +1,9 @@
+.img-container{ 
+    width: 148px;
+    height: 98px;
+    border-radius: 8px;
+    img{
+        width: 100% !important;
+        object-fit:cover ;
+    }
+}

@@ -10,6 +10,18 @@
     input{
         height: unset; 
     }
+    .loading-icon{
+        width: 100%;
+        height: 40px;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 10px;
+        i{
+            vertical-align: middle;
+        }
+    }
     .attachment-header{
         h3{
             font-size: 16px;
@@ -34,9 +46,18 @@
     }
 }
 
+.img-list{
+    &:hover{
+        background-color: #e2e4e9;;
+        width: 511px;
+        border-radius: 3px;
+    }
+}
 .task-attachment-display{
     display: flex;
     margin-bottom: 10px;
+    align-content: center;
+    align-items: center;
     img{
         width: 112px;
         height: 80px;
@@ -44,12 +65,19 @@
         margin-right: 12px;
     }
     button{
+        color: #5e6c84;
         font-size: 14px;
         text-decoration: underline;
         padding: 0 5px 0 0;
+        &:hover{
+            background-color: transparent;
+            color: #172b4d;
+        }
     }
     p{
         margin-bottom: 0;
+    }
+    p:first-child{
         font-weight: 700;
     }
 }

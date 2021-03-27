@@ -1,9 +1,13 @@
 <template>
   <section class="dashboard">
-    <h3>Tasks per list</h3>
-    <pie-chart class="chart" v-if="pieData" :pieData="pieData"/>
-    <h3>Tasks per person </h3>
-    <bar-chart class="chart"  v-if="barData" :barData="barData" />
+    <div class=chart-conainer>
+      <h3>Tasks per list</h3>
+      <pie-chart class="chart" v-if="pieData" :pieData="pieData" />
+    </div>
+    <div class=chart-conainer>
+      <h3>Tasks per person</h3>
+      <bar-chart class="chart" v-if="barData" :barData="barData" />
+    </div>
   </section>
 </template>
 

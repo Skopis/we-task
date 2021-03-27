@@ -63,9 +63,11 @@
         align-items: center;
 
         a {
+            display: flex;
+            align-items: center;
             .logo {
                 display: inline;
-                height: 28px;
+                height: 16px;
                 vertical-align: middle;
                 margin-right: 10px;
             }
@@ -96,21 +98,23 @@
     align-items: center;
     color: white;
 
-    .header-right{
-        img{
+    .header-right {
+        img {
             margin-right: 5px;
         }
-        >*{
+
+        >* {
             font-size: 14px !important;
             font-weight: unset;
         }
     }
+
     i {
         margin-right: 8px;
     }
 
     .flex {
-        &>* {
+        &>*:not(:last-child) {
             margin-right: 10px;
         }
 

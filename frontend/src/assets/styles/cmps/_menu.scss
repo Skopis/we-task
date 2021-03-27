@@ -231,7 +231,14 @@
     top: 0;
     bottom: 0;
     width: 0px;
-
+    img{
+        width: 16px !important;
+        margin-right: 10px;
+        margin-left: 4px;
+    }
+    .el-icon-search{
+        width: 22px;
+    }
     .btn-menu-modal {
         color: white !important;
         z-index: 3;
@@ -244,12 +251,16 @@
     .board-menu-content {
         width: inherit;
         position: relative;
-        padding: 8px 20px;
+        padding: 0 20px 8px 20px;
 
         >* {
             width: 100%;
         }
-
+        h3{
+            border-top: 1px solid rgba(9, 30, 66, .13);
+            padding-top: 10px;
+            margin-top: 6px;
+        }
         .menu-modal-header {
             height: 50px;
             line-height: 40px;
@@ -266,9 +277,10 @@
 
             .btn {
                 position: absolute;
-                right: 12px;
+                right: 0;
                 border-radius: 50px;
                 margin-top: 0;
+                padding-right: 0;
                 i{
                     margin: 0 auto;
                 }
@@ -282,21 +294,33 @@
                 position: absolute;
                 left: 42%;
                 top: 3px;
-                font-size: rem(18px);
+                font-size: rem(16px);
                 color: #42526e;
             }
         }
 
         .search-input {
             display: inline-flex;
-            align-items: flex-start;
-
+            justify-content: space-between;
+            align-items: center;
+            .member-search{
+                margin-bottom: 4px;
+            }
             .btn {
-                margin-left: 10px;
-
+                margin: 0;
+                padding: 0;
+                text-align: center;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                // min-width: unset;
+                // width: 32px !important;
                 &:hover {
                     color: black;
                 }
+            }
+            i{
+                margin-right: 0;
             }
         }
 
@@ -310,10 +334,11 @@
     }
 
     .btn {
-        font-size: 16px;
+        font-size: 14px;
         font-weight: 600;
         margin-top: 6px;
         color: #42526e;
+        padding-left: 0 !important;
 
         &:hover {
             background-color: rgba(218, 214, 214, 0.5);
@@ -324,10 +349,10 @@
         margin-left: 5px;
         color: #172b4d;
         margin: 18px 0;
-        
+        font-size: 14px;
         i {
             margin-right: 10px;
-            font-size: 22px;
+            font-size: 20px;
             color: #42526e;
         }
         
@@ -353,7 +378,7 @@
 
             .avatar {
                 span {
-                    font-size: 13px;
+                    font-size: 12px;
                     font-weight: 600;
                     text-align: center;
                     letter-spacing: .5px;

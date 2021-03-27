@@ -34,13 +34,14 @@
             <member-avatar2
               :member="member"
               :size="28"
-              @click.native="toggleMemberModal(member)"
+              @click.native="toggleMemberModal(member, $event)"
             />
           </div>
         </div>
         <board-member-modal
           v-if="isMemberModalOpen"
           :member="member"
+          :memberModalPos="memberModalPos"
           @removeMemberFromBoard="removeMemberFromBoard"
         />
         <add-board-member
@@ -133,6 +134,7 @@ export default {
       menuGroupId: null,
       isMemberModalOpen: false,
       isAddMemberModalOpen: false,
+      memberModalPos: null,
     };
   },
   computed: {
@@ -184,9 +186,19 @@ export default {
       this.updateBoard(this.boardToShow);
       this.isMemberModalOpen = false;
     },
-    toggleMemberModal(member) {
+    toggleMemberModal(member, ev) {
+      const memberIdx = this.boardToShow.members.findIndex(
+        (m) => m._id === member._id
+      );
+      var distance = 80 + memberIdx * 30;
+      if (
+        (this.isMemberModalOpen && this.member !== member) ||
+        !this.isMemberModalOpen
+      ) {
+        this.isMemberModalOpen = true;
+        this.memberModalPos = { left: distance + "px" };
+      } else this.isMemberModalOpen = !this.isMemberModalOpen;
       this.member = member;
-      this.isMemberModalOpen = !this.isMemberModalOpen;
     },
     searchChanged(txt) {
       this.$store.commit({ type: "setFilterBy", filterBy: txt });
@@ -277,21 +289,21 @@ export default {
           : "group moved";
       console.log(actTxt);
       //TODO: connect to activity log
-      // this.addActivity(actTxt);
+      this.addActivity(actTxt);
       const board = this.boardToShow;
       board.groups = this.boardToShow.groups;
       this.updateBoard(board);
     },
-    // addActivity(activityType) {
-    //   // const { id, title } = this.task;
-    //   var activity = {
-    //     txt: activityType,
-    //     createdAt: Date.now(),
-    //     byMember: this.loggedinUser,
-    //     // task: { id, title },
-    //   };
-    //   this.$store.dispatch({ type: "addActivity", activity });
-    // },
+    addActivity(activityType) {
+      // const { id, title } = this.task;
+      var activity = {
+        txt: activityType,
+        createdAt: Date.now(),
+        byMember: this.$store.getters.loggedinUser,
+        task: { id: 0, title: "" },
+      };
+      this.$store.dispatch({ type: "addActivity", activity });
+    },
     updateBoard(board) {
       this.$store.dispatch({
         type: "updateBoard",
@@ -301,19 +313,30 @@ export default {
     saveBoard() {
       this.$store.dispatch({ type: "setBoard", board: this.boardToShow });
     },
-    setMenuPos(groupId) {
+    setMenuPos(groupId, ev) {
+      var left = this.getEvPos(ev);
+      console.log("new", ev.view.innerWidth - left);
       // console.log('groupId', groupId)
       const groupIdx = this.boardToShow.groups.findIndex(
         (group) => group.id === groupId
       );
       console.log("groupIdx", groupIdx);
-      var amount = 285 * (groupIdx + 1);
-      if (!groupIdx) {
-        amount -= 10;
-      }
-      console.log("amount", amount);
-      this.menuPos = { left: amount + "px" };
-      // console.log(this.menuPos);
+
+      this.menuPos = { right: ev.view.innerWidth - left + "px" };
+    },
+    getEvPos(ev) {
+      // var pos = {
+      //   x: ev.offsetX,
+      //   y: ev.offsetY,
+      // }
+      ev.preventDefault();
+      // pos = {
+      //    x: ev.pageX - ev.target.offsetLeft - ev.target.clientLeft,
+      //   y: ev.pageY - ev.target.offsetTop - ev.target.clientTop,
+      // }
+      // console.log('client',ev.target.clientRight )
+      // console.log('page', ev.pageX)
+      return ev.pageX;
     },
   },
   components: {
