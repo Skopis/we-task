@@ -97,11 +97,11 @@
     box-shadow: 0 0px 4px 0px rgba(9 ,30, 66, 0.5 );
     top: 138px;
     left: 276px;
-
     display: flex;
     flex-direction: column;
     background-color: #fff;
     z-index: 3;
+    width: 160px;
 
     .group-menu-header{
         height: 40px;
@@ -109,6 +109,7 @@
         margin-bottom: 8px;
         text-align: center;
         h4{
+            font-weight: normal;
             box-sizing: border-box;
             color: #5e6c84;
             display: block;
@@ -152,6 +153,9 @@
     }
     .vue-swatches{
         margin: 0 12px;
+    }
+    .btn{
+        font-size: 14px !important;
     }
  
 }

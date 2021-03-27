@@ -4,7 +4,7 @@
     <section class="member-preview">
         <div class="member-preview-main">
             <img v-if="member.imgUrl" :src="member.imgUrl" alt="member-img">
-            <member-avatar2 :v-if="member" :member="member" :size="40" />
+            <member-avatar2 :v-if="member" :member="member" :size="50" />
             <div>
                 <p>{{member.fullname}}</p>
                 <p>@{{member.fullname.toLowerCase().replace(/\s/g, '')}}</p>

@@ -5,15 +5,15 @@
       <button @click="closeMenu" class="btn close-menu"><i class="el-icon-close"></i></button>
     </div>
     <ul>
-    <li class="btn" @click="archiveGroup">Delete</li>
-    <li class="btn" @click="toggleColorPicker">Cover</li>
-    <li class="btn" @click="addCard">Add card</li>
+    <li class="btn" @click="archiveGroup">Delete...</li>
+    <li class="btn" @click="toggleColorPicker">Cover...</li>
     <color-picker
       :group="group"
       @changeGroupCover="updateGroupCover"
       v-if="isColorPickerOpen"
     />
     </ul>
+    <li class="btn" @click="addCard">Add card...</li>
   </section>
 </template>
 

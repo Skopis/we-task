@@ -110,7 +110,7 @@
     }
 
     .flex {
-        &>* {
+        &>*:not(:last-child) {
             margin-right: 10px;
         }
 
