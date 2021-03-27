@@ -7,8 +7,7 @@
         v-else
         :username="member.fullname"
         :size="size"
-        :color="userColor"
-        
+        :background-color='userColor'
       ></avatar>
     </div>
   </div>
@@ -24,7 +23,10 @@ export default {
       return this.member.fullname;
     },
     userColor(){
-      if(this.member.fullname === 'Nofar Gabso') return 'rgb(0, 150, 136)'
+      if(this.member.fullname === 'Nofar Gabso') return '#009688'
+      else if(this.member.fullname === 'Lian Skopis') return '#5243aa'
+      else if(this.member.fullname === 'Shachar Dorfzaun') return '#607d8b'
+      else if(this.member.fullname === 'Itay Azulay') return '#ff9800'
     }
   },
   created(){
