@@ -7,10 +7,12 @@
     box-shadow: $box-shadow;
     margin-bottom: 8px;
     border-radius: 3px;
-    padding: 0 10px;
+    padding-left: 10px;
+    padding-right:5px;
     z-index: 2;
     overflow-x: hidden;
     word-break: break-word;
+    cursor: pointer;
     .task-edit {
         min-height: 40px;
     }
@@ -24,8 +26,12 @@
     }
 
     .edit-task-title {
+        position: absolute;
+        top:-4px;
+        right: 0;
         i {
             color: transparent;
+            font-weight: 500;
         }
     }
 
@@ -79,7 +85,7 @@
         }
 
         p {
-            margin: 4px 0;
+            margin: 9px 0;
         }
 
         textarea {
@@ -119,14 +125,20 @@
     }
 
     .task-body {
-        display: flex;
-        flex-direction: row-reverse;
-        justify-content: space-between;
-        vertical-align: middle;
-        align-items: center;
-        padding-bottom: 4px;
-
+        // display: flex;
+        // flex-direction: row-reverse;
+        // justify-content: space-between;
+        // vertical-align: middle;
+        // align-items: center;
+        // padding-bottom: 4px;
+        .members-container{
+            float:right;
+            padding-top: 8px;
+            padding-bottom: 5px;
+            padding-right: -10px;
+        }
         .btn-container {
+            float: left;
             display: flex;
             align-items: center;
             line-height: 40px;
