@@ -107,6 +107,9 @@
         color: $task-txt;
         padding: 0 5px;
         min-width: 0;
+        span{
+            font-size: 12px !important;
+        }
     }
 
     .eye {
@@ -131,6 +134,7 @@
             .complete{
                 background-color: #61bd4f !important;
                 color: white;
+                height: 24px;
                 &:hover{
                     background-color: #519839 !important;
                 }
@@ -140,7 +144,10 @@
                 align-items: center;
                 height: 24px;
                 p{
+                    line-height: 12px;
                     font-size: 12px;
+                    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell,
+                    "Helvetica Neue", sans-serif !important;
                 }
                 &:hover{
                     border-radius: 3px;
@@ -148,6 +155,7 @@
                 }
             }
             img {
+                opacity: 1;
                 width: 14.2px;
                 margin-right: 4px;
             }
@@ -179,7 +187,13 @@
                 span {
                     margin-left: 0;
                 }
+                
             }
+            
+                .white-font{
+                    color: white !important;
+                }
+            
 
             > * {
                 color: #5e6c84;
