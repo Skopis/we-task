@@ -2,11 +2,19 @@
   <div
     class="board"
     v-if="boardToShow"
-    :style="boardToShow.style.bgImg? { backgroundImage: 'url(/img/'+boardToShow.style.bgImg+')', backgroundPosition: 'center center', backgroundOrigin: 'content-box', backgroundRepeat: 'no-repeat', 'background-size': 'cover'} : {backgroundColor: boardToShow.style.bgColor }"
+    :style="
+      boardToShow.style.bgImg
+        ? {
+            backgroundImage: 'url(/img/' + boardToShow.style.bgImg + ')',
+            backgroundPosition: 'center center',
+            backgroundOrigin: 'content-box',
+            backgroundRepeat: 'no-repeat',
+            'background-size': 'cover',
+          }
+        : { backgroundColor: boardToShow.style.bgColor }
+    "
   >
-    <header
-      class="board-header flex space-between"
-    >
+    <header class="board-header flex space-between">
       <div class="flex">
         <h2
           class="btn"
@@ -165,13 +173,19 @@ export default {
     }
   },
   methods: {
-    setImageAsBg(path){
-      this.boardToShow.style.bgImg = path
-      console.log('this.boardToShow.style.bgImg ', this.boardToShow.style.bgImg )
-      this.$store.dispatch({type: 'updateBoard', boardToUpdate: this.boardToShow})
+    setImageAsBg(path) {
+      this.boardToShow.style.bgImg = path;
+      console.log(
+        "this.boardToShow.style.bgImg ",
+        this.boardToShow.style.bgImg
+      );
+      this.$store.dispatch({
+        type: "updateBoard",
+        boardToUpdate: this.boardToShow,
+      });
     },
-    goToDashboard(){
-      this.$router.push(`/board/${this.boardToShow._id}/dashboard`)
+    goToDashboard() {
+      this.$router.push(`/board/${this.boardToShow._id}/dashboard`);
     },
     addMemberToBoard(member) {
       this.isAddMemberModalOpen = false;
@@ -233,7 +247,7 @@ export default {
       this.updateGroup(group);
     },
     updateBoardCover(color) {
-      this.boardToShow.style.bgImg = ''
+      this.boardToShow.style.bgImg = "";
       this.boardToShow.style.bgColor = color;
       this.$store.dispatch({
         type: "updateBoard",
@@ -290,12 +304,13 @@ export default {
         group !== "" && taskTxt !== ""
           ? `Task: ${taskTxt} moved from the group: ${group.title} to: ${toGroup}`
           : "group moved";
-      console.log(actTxt);
+      // console.log(actTxt);
       //TODO: connect to activity log
-      this.addActivity(actTxt);
       const board = this.boardToShow;
       board.groups = this.boardToShow.groups;
       this.updateBoard(board);
+      setTimeout(this.addActivity, 150, actTxt);
+      // this.addActivity(actTxt);
     },
     addActivity(activityType) {
       // const { id, title } = this.task;
@@ -317,13 +332,13 @@ export default {
       this.$store.dispatch({ type: "setBoard", board: this.boardToShow });
     },
     setMenuPos(groupId, ev) {
-      var left = this.getEvPos(ev)
+      var left = this.getEvPos(ev);
       // console.log('new',ev.view.innerWidth - left)
       // console.log('groupId', groupId)
       const groupIdx = this.boardToShow.groups.findIndex(
         (group) => group.id === groupId
       );
-      this.menuPos = { right:ev.view.innerWidth - left +'px'};
+      this.menuPos = { right: ev.view.innerWidth - left + "px" };
     },
     getEvPos(ev) {
       // var pos = {
