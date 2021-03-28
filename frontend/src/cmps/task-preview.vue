@@ -167,7 +167,7 @@ export default {
         var currChecklist = this.task.checklists[i];
         for (var j = 0; j < currChecklist.todos.length; j++) {
           todosCount++;
-          console.log(currChecklist.todos[j]);
+          // console.log(currChecklist.todos[j]);
           if (currChecklist.todos[j].isDone) doneTodosCount++;
         }
       }
