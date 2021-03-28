@@ -1,7 +1,7 @@
 <template>
   <section class="task-preview" @click="openTaskDetails(task.id)">
     <header class="task-header">
-      <div class="task-label-container">
+      <div >
         <div v-if="labelDataShown" class="task-label-container">
           <span
             v-for="label in task.labels"
@@ -22,6 +22,9 @@
           ></span>
         </div>
       </div>
+      <button class="btn edit-task-title" @click.stop="openEditModal">
+          <i class="el-icon-edit"></i>
+        </button>
       <task-quick-edit
         v-if="isEditModalOpen"
         @updateTask="updateTask"
@@ -30,25 +33,11 @@
       />
       <section v-else>
         <p @click.stop="openEditModal">{{ task.title }}</p>
-        <button class="btn edit-task-title" @click.stop="openEditModal">
-          <i class="el-icon-edit"></i>
-        </button>
+
       </section>
     </header>
-    <div class="task-body">
-      <div class="members-container">
-        <div
-          :v-if="task.members"
-          v-for="member in task.members"
-          :key="member._id"
-        >
-          <member-avatar2
-            :member="member"
-            :size="30"
-            @click.native.stop="toggleMemberModal(member)"
-          />
-        </div>
-      </div>
+    <div class="task-body" :style="{height:bodyHeight}">
+      
       <div class="btn-container">
         <el-button
           class="btn badge eye"
@@ -67,10 +56,27 @@
           <i class="el-icon-chat-square"></i>
           <span>{{ task.comments.length }}</span>
         </button>
-        <button class="btn badge checklist" v-if="task.checklists">
+        <button class="btn badge checklist" v-if="task.checklists && task.checklists.length && !isChecklistComplete">
           <i class="el-icon-finished"></i>
           <span>{{ checklistInfo }}</span>
         </button>
+        <button class="btn badge checklist complete" v-if="task.checklists && task.checklists.length && isChecklistComplete">
+          <i class="el-icon-finished white-font"></i>
+          <span class="white-font">{{ checklistInfo }}</span>
+        </button>
+      </div>
+      <div class="members-container">
+        <div
+          :v-if="task.members"
+          v-for="member in task.members"
+          :key="member._id"
+        >
+          <member-avatar2
+            :member="member"
+            :size="30"
+            @click.native.stop="toggleMemberModal(member)"
+          />
+        </div>
       </div>
     </div>
   </section>
@@ -88,6 +94,7 @@ export default {
       isEditModalOpen: false,
       isMemberModalOpen: false,
       labelDataShown: false,
+      isChecklistComplete: false
     };
   },
   //TODO: when click on window anywhere but the modal - modal closes
@@ -147,6 +154,15 @@ export default {
     },
   },
   computed: {
+    bodyHeight(){
+      if(!this.task.dueDate &&
+      (!this.task.comments || !this.task.comments.length ) &&
+      (!this.task.checklists)&&
+      (!this.task.members || !this.task.members.length)){
+        return 0
+
+      }else return 'fit-content'
+    },
     formattedDueDate(){
       return this.task.dueDate.date.substring(0, this.task.dueDate.date.length-4);
     },
@@ -167,10 +183,11 @@ export default {
         var currChecklist = this.task.checklists[i];
         for (var j = 0; j < currChecklist.todos.length; j++) {
           todosCount++;
-          console.log(currChecklist.todos[j]);
+          // console.log(currChecklist.todos[j]);
           if (currChecklist.todos[j].isDone) doneTodosCount++;
         }
       }
+      if(doneTodosCount===todosCount) this.isChecklistComplete = true
       return doneTodosCount + "/" + todosCount;
     },
   },

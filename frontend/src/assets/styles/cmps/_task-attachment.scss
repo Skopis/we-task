@@ -41,8 +41,11 @@
         white-space: nowrap;
         z-index: 1;
     }
-    #imgUploader{
-        margin-bottom: 0;
+    .img-upload-container{
+        #imgUploader{
+            margin-bottom: 0;
+            margin-top: 20px;
+        }
     }
 }
 

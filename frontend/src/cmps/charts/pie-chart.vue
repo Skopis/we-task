@@ -8,14 +8,14 @@ export default {
       const labelName = this.pieData.map((group) => {
         return group.groupName;
       });
-      console.log(labelName);
+      // console.log(labelName);
       return labelName;
     },
     amount() {
       const amount = this.pieData.map((group) => {
         return group.amount;
       });
-      console.log(amount);
+      // console.log(amount);
       return amount;
     },
   },

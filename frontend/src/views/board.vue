@@ -2,17 +2,7 @@
   <div
     class="board"
     v-if="boardToShow"
-    :style="
-      boardToShow.style.bgImg
-        ? {
-            backgroundImage: 'url(/img/' + boardToShow.style.bgImg + ')',
-            backgroundPosition: 'center center',
-            backgroundOrigin: 'content-box',
-            backgroundRepeat: 'no-repeat',
-            'background-size': 'cover',
-          }
-        : { backgroundColor: boardToShow.style.bgColor }
-    "
+    :style="boardToShow.style.bgImg? { backgroundImage: 'url(/img/'+boardToShow.style.bgImg+')', backgroundPosition: 'center center', backgroundOrigin: 'content-box', backgroundRepeat: 'no-repeat', 'background-attachment': 'fixed', 'background-size': 'cover'} : {backgroundColor: boardToShow.style.bgColor }"
   >
     <header class="board-header flex space-between">
       <div class="flex">
@@ -173,16 +163,9 @@ export default {
     }
   },
   methods: {
-    setImageAsBg(path) {
-      this.boardToShow.style.bgImg = path;
-      console.log(
-        "this.boardToShow.style.bgImg ",
-        this.boardToShow.style.bgImg
-      );
-      this.$store.dispatch({
-        type: "updateBoard",
-        boardToUpdate: this.boardToShow,
-      });
+    setImageAsBg(path){
+      this.boardToShow.style.bgImg = path
+      this.$store.dispatch({type: 'updateBoard', boardToUpdate: this.boardToShow})
     },
     goToDashboard() {
       this.$router.push(`/board/${this.boardToShow._id}/dashboard`);
@@ -284,13 +267,15 @@ export default {
         boardToUpdate: this.boardToShow,
       });
     },
-    async updateTask(taskToUpdate, group) {
-      await this.$store.dispatch({
+    async updateTask(taskToUpdate, group, isEdit) {
+      const taskForUpdate = await this.$store.dispatch({
         type: "addTask",
         task: taskToUpdate,
         group,
         boardId: this.boardToShow._id,
       });
+      if (isEdit) this.addActivity(`Edited task: ${taskToUpdate.title} on group: ${group.title}`, taskForUpdate)
+      else this.addActivity(`Added task: ${taskToUpdate.title} to group: ${group.title}`, taskForUpdate)
     },
     async updateGroup(group) {
       await this.$store.dispatch({
@@ -312,13 +297,14 @@ export default {
       setTimeout(this.addActivity, 150, actTxt);
       // this.addActivity(actTxt);
     },
-    addActivity(activityType) {
+    addActivity(activityType, task) {
+      // console.log('task', task)
       // const { id, title } = this.task;
       var activity = {
         txt: activityType,
         createdAt: Date.now(),
         byMember: this.$store.getters.loggedinUser,
-        task: { id: 0, title: "" },
+        task: task || { id: 0, title: "" },
       };
       this.$store.dispatch({ type: "addActivity", activity });
     },

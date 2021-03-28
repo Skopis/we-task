@@ -38,7 +38,7 @@ export default {
       this.todo = null;
     },
     saveCheckList(){
-        // console.log(this.checkList)
+        console.log(this.checkList)
         this.$emit('saveCheckList', this.checkList)
     },
     closeCheckList(){

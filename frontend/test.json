@@ -100,7 +100,9 @@
                                 "imgUrl": ""
                             }
                         ],
-                        "labels": []
+                        "labels": [],
+                        "comments": [],
+                        "checklists": []
                     },
                     {
                         "id": "c1012",
@@ -109,7 +111,9 @@
                             "bgColor": "#ffffff"
                         },
                         "labels": [],
-                        "members": []
+                        "members": [],
+                        "comments": [],
+                        "checklists": []
                     },
                     {
                         "id": "c1014",
@@ -118,7 +122,9 @@
                             "bgColor": "#ffffff"
                         },
                         "labels": [],
-                        "members": []
+                        "members": [],
+                        "comments": [],
+                        "checklists": []
                     }
                 ],
                 "style": {
@@ -143,7 +149,9 @@
                                 "username": "guest",
                                 "imgUrl": ""
                             }
-                        ]
+                        ],
+                        "comments": [],
+                        "checklists": []
                     },
                     {
                         "id": "c104",
@@ -165,14 +173,14 @@
                                 }
                             }
                         ],
-                        "checkgroups": [
+                        "checklists": [
                             {
                                 "id": "YEhmFtt",
-                                "title": "Checkgroup",
+                                "title": "checklist",
                                 "todos": [
                                     {
                                         "id": "212jXz",
-                                        "title": "Edit Email drafts",
+                                        "text": "Edit Email drafts",
                                         "isDone": false
                                     }
                                 ]
@@ -195,12 +203,6 @@
                                 "_id": "u102",
                                 "username": "nofargabso",
                                 "fullname": "Nofar Gabso",
-                                "imgUrl": ""
-                            },
-                            {
-                                "_id": "u107",
-                                "username": "Kobi",
-                                "fullname": "Kobi Tohar",
                                 "imgUrl": ""
                             }
                         ],
@@ -259,7 +261,8 @@
                                     "imgUrl": ""
                                 }
                             }
-                        ]
+                        ],
+                        "checklists": []
                     },
                     {
                         "id": "c1057",
@@ -281,14 +284,14 @@
                                 }
                             }
                         ],
-                        "checkgroups": [
+                        "checklists": [
                             {
                                 "id": "YEhmF",
-                                "title": "Checkgroup",
+                                "title": "checklist",
                                 "todos": [
                                     {
                                         "id": "212jX",
-                                        "title": "Find the password",
+                                        "text": "Find the password",
                                         "isDone": false
                                     }
                                 ]
@@ -305,12 +308,6 @@
                                 "_id": "u101",
                                 "username": "shachardorfzaun",
                                 "fullname": "Shachar Dorfzaun",
-                                "imgUrl": ""
-                            },
-                            {
-                                "_id": "u107",
-                                "username": "Kobi",
-                                "fullname": "Kobi Tohar",
                                 "imgUrl": ""
                             }
                         ],
@@ -349,10 +346,13 @@
                             },
                             {
                                 "_id": "u177",
+                                "username": "lianskopis",
                                 "fullname": "Lian Skopis",
                                 "imgUrl": ""
                             }
-                        ]
+                        ],
+                        "comments": [],
+                        "checklists": []
                     },
                     {
                         "id": "c101474",
@@ -360,7 +360,10 @@
                         "style": {
                             "bgColor": "#ffffff"
                         },
-                        "labels": []
+                        "labels": [],
+                        "comments": [],
+                        "members": [],
+                        "checklists": []
                     },
                     {
                         "id": "c102374",
@@ -368,7 +371,10 @@
                         "style": {
                             "bgColor": "#ffffff"
                         },
-                        "labels": []
+                        "labels": [],
+                        "comments": [],
+                        "members": [],
+                        "checklists": []
                     },
                     {
                         "id": "c1015",
@@ -384,20 +390,20 @@
                                 "txt": "also @mikel please CR this",
                                 "createdAt": 15909998176,
                                 "byMember": {
-                                    "_id": "u107",
-                                    "fullname": "Kobi Tohar",
+                                    "_id": "u177",
+                                    "fullname": "Lian Skopis",
                                     "imgUrl": ""
                                 }
                             }
                         ],
-                        "checkgroups": [
+                        "checklists": [
                             {
                                 "id": "YEhmFl",
-                                "title": "Checkgroup",
+                                "title": "checklist",
                                 "todos": [
                                     {
                                         "id": "212jXx",
-                                        "title": "Find the document",
+                                        "text": "Find the document",
                                         "isDone": false
                                     }
                                 ]
@@ -414,12 +420,6 @@
                                 "_id": "u101",
                                 "username": "shachardorfzaun",
                                 "fullname": "Shachar Dorfzaun",
-                                "imgUrl": ""
-                            },
-                            {
-                                "_id": "u107",
-                                "username": "Kobi",
-                                "fullname": "Kobi Tohar",
                                 "imgUrl": ""
                             }
                         ],
@@ -449,7 +449,9 @@
                             "bgColor": "#ffffff"
                         },
                         "members": [],
-                        "labels": []
+                        "labels": [],
+                        "comments": [],
+                        "checklists": []
                     },
                     {
                         "id": "c10157",
@@ -471,14 +473,14 @@
                                 }
                             }
                         ],
-                        "checkgroups": [
+                        "checklists": [
                             {
                                 "id": "YEhmFlk",
-                                "title": "Main Checkgroup",
+                                "title": "Main checklist",
                                 "todos": [
                                     {
                                         "id": "212jXxe",
-                                        "title": "Check the DB error",
+                                        "text": "Check the DB error",
                                         "isDone": false
                                     }
                                 ]
@@ -495,12 +497,6 @@
                                 "_id": "u101",
                                 "username": "shachardorfzaun",
                                 "fullname": "Shachar Dorfzaun",
-                                "imgUrl": ""
-                            },
-                            {
-                                "_id": "u107",
-                                "username": "Kobi",
-                                "fullname": "Kobi Tohar",
                                 "imgUrl": ""
                             }
                         ],
@@ -543,7 +539,9 @@
                                 "fullname": "Lian Skopis",
                                 "imgUrl": ""
                             }
-                        ]
+                        ],
+                        "comments": [],
+                        "checklists": []
                     },
                     {
                         "id": "c101234",
@@ -551,7 +549,10 @@
                         "style": {
                             "bgColor": "#ffffff"
                         },
-                        "labels": []
+                        "labels": [],
+                        "comments": [],
+                        "members": [],
+                        "checklists": []
                     },
                     {
                         "id": "c101239",
@@ -559,7 +560,10 @@
                         "style": {
                             "bgColor": "#ffffff"
                         },
-                        "labels": []
+                        "labels": [],
+                        "comments": [],
+                        "members": [],
+                        "checklists": []
                     },
                     {
                         "id": "c101434",
@@ -567,7 +571,10 @@
                         "style": {
                             "bgColor": "#ffffff"
                         },
-                        "labels": []
+                        "labels": [],
+                        "comments": [],
+                        "members": [],
+                        "checklists": []
                     }
                 ],
                 "style": {
@@ -764,14 +771,14 @@
                                 }
                             }
                         ],
-                        "checkgroups": [
+                        "checklists": [
                             {
                                 "id": "YEhmFa",
                                 "title": "Updategroup",
                                 "todos": [
                                     {
                                         "id": "212jXa",
-                                        "title": "Curate customer list",
+                                        "text": "Curate customer list",
                                         "isDone": true
                                     }
                                 ]

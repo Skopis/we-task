@@ -40,7 +40,7 @@ export default {
   },
   computed: {
     progress() {
-      console.log("progress", this.checklist);
+      // console.log("progress", this.checklist);
       var countDoneTodos = 0;
       const todosAmount = this.checklist.todos.length
       for (var i = 0; i < todosAmount; i++) {

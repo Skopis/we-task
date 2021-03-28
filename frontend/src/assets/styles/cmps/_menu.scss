@@ -231,6 +231,9 @@
     top: 0;
     bottom: 0;
     width: 0px;
+    .form__field{
+        display: block;
+    }
     img{
         width: 16px !important;
         margin-right: 10px;
@@ -304,7 +307,8 @@
             justify-content: space-between;
             align-items: center;
             .member-search{
-                margin-bottom: 4px;
+                margin-bottom: 1px;
+                margin-top: 2px;
             }
             .btn {
                 margin: 0;
@@ -313,8 +317,6 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                // min-width: unset;
-                // width: 32px !important;
                 &:hover {
                     color: black;
                 }
@@ -327,7 +329,6 @@
         input {
             font-size: 16px;
             font-weight: 400;
-            // -color: lawngreen;
             width: 80%;
         }
 
@@ -357,7 +358,6 @@
         }
         
         h3 {
-            // margin-left: -5px;
             padding-bottom: 10px;
         }
     }

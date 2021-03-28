@@ -1,7 +1,7 @@
 .home {
     // overflow-y:initial !important;
     padding: 0px;
-    margin-top: 40px;
+    // padding-top: 40px;
     overflow-x: hidden;
 
     .main-header {
@@ -20,7 +20,7 @@
     }
 
     .home-txt {
-        height: calc(100vh - 40px);
+        height: calc(100vh);
         background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("~@/assets/Pictures/hero1.png");
         background-position: center;
         background-repeat: no-repeat;

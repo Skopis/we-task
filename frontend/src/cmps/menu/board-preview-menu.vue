@@ -1,6 +1,11 @@
 <template>
     <section class="board-preview-menu">
+    <header>
+        <p>Actions</p>
+    </header>
+    <div class="menu-content"  @click.stop="archiveBoard">
         <button class="btn" @click.stop="archiveBoard">Delete</button>
+    </div>
     </section>
 </template>
 
@@ -23,11 +28,11 @@ export default {
                 this.$emit("archiveBoard", this.board);
                 Swal.fire(
                 "Deleted!",
-                "Your Board has been deleted.",
+                "Your Board has been deleted",
                 "success"
             );
             } else if (result.dismiss === Swal.DismissReason.cancel) {
-                Swal.fire("Cancelled");
+                Swal.fire("Your Board is Safe!");
                 return
             }
             });

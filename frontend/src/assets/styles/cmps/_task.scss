@@ -41,11 +41,12 @@
 
     .due-date-continer {
         padding-left: 0px;
-
         .due-date-content {
             display: flex;
             justify-content: center;
-
+            span {
+                padding: 0 3px;
+            }
             .el-checkbox {
                 display: flex;
                 align-self: center;
@@ -304,7 +305,6 @@
         }
 
         .task-comment {
-
             // padding: 5px;
             // margin-top: 20px;
             .comment-creator {
@@ -670,7 +670,7 @@
     }
 
     .form__input {
-        display:flex;
+        display: flex;
         justify-content: center;
         align-items: center;
         align-self: center;

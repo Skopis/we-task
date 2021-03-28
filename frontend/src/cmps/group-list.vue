@@ -43,7 +43,7 @@
               @updateTask="updateTask"
               @toggleMemberModal="toggleMemberPreview"
               :groupId="group.id"
-              :style="computedStyle(task)"
+              :style="computedStyle"
             />
           </li>
         </draggable>
@@ -150,7 +150,7 @@ export default {
     updateGroup() {
       this.$emit("updateGroup", this.group);
     },
-    updateTask({ taskToUpdate }) {
+    updateTask({ taskToUpdate, isEdit }) {
       this.isAddModalOpen = false;
       // if (!isEdit) { //TODO: remove to reAdd
       //   setTimeout(() => {
@@ -158,7 +158,7 @@ export default {
       //   }, 300);
       // }
       if (taskToUpdate.title != "") {
-        this.$emit("updateTask", taskToUpdate, this.group);
+        this.$emit("updateTask", taskToUpdate, this.group, isEdit);
       }
     },
     stopEdit() {

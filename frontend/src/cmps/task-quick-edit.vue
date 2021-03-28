@@ -10,7 +10,7 @@
         @keydown.enter.exact.prevent="updateTask"
         autofocus
       />
-      <!-- <button >Save</button> -->
+      <!-- <button class="btn save" >Save</button> -->
     </form>
   </section>
 </template>
@@ -35,7 +35,9 @@ export default {
           bgColor: "#ffff",
         },
         members: [],
-        comments: []
+        comments: [],
+        labels: [],
+        checklists: []
       };
       this.isEdit = false;
     } else {

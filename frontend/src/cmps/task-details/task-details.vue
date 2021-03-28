@@ -45,7 +45,7 @@
             @addMemberToTask="addMemberToTask"
             @closeMembersMenu="manageMembersMenu"
           />
-          <div class="members-container container">
+          <div class="members-container container" v-if="task.members && task.members.length">
             <h3>MEMBERS</h3>
             <div v-if="task.members">
               <member-avatar :members="task.members" :size="32" />
@@ -142,7 +142,7 @@
             v-if="checkListModal"
             @closeCheckList="closeCheckList"
           />
-          <div v-if="task.checklists">
+          <div v-if="task.checklists && task.checklists.length">
             <h3 class="module-header">
               <i class="el-icon-finished"></i>Check List
             </h3>
@@ -402,8 +402,8 @@ export default {
         checkList,
         task: this.task,
       });
-      this.addActivity("Added CheckList");
-      this.loadTask();
+      this.addActivity(`Added CheckList: ${checkList.title}`);
+      // this.loadTask();
     },
     async addComment() {
       if (!this.comment.txt) return;
@@ -457,13 +457,14 @@ export default {
       await this.$store.dispatch({ type: "addActivity", activity });
       this.loadTask();
     },
-    addMemberToTask(member) {
+    async addMemberToTask(member) {
       if (!this.task.members) this.task.members = [];
       for (let i = 0; i < this.task.members.length; i++) {
         if (this.task.members[i]._id === member._id) return;
       }
       this.task.members.push(member);
-      this.$store.dispatch({ type: "addTask", task: this.task });
+      await this.$store.dispatch({ type: "addTask", task: this.task });
+      this.addActivity(`Added ${member.fullname} to task ${this.task.title}`)
     },
     updateTaskCover(color) {
       this.task.style.imgUrl = "";
@@ -495,7 +496,7 @@ export default {
       this.$store.dispatch({ type: "addTask", task: this.task });
     },
     updatedBoard(boardToUpdate) {
-      console.log("got board");
+      // console.log("got board");
       this.$store.commit({
         type: "updateBoard",
         boardIdx: 0,

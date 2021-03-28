@@ -109,9 +109,14 @@ async function remove(board, groupIdx, taskIdx) { // remove task
 
 async function add(task, groupIdx, board) { // add task
   var taskForUpdate = JSON.parse(JSON.stringify(task))
+  console.log('service', task)
   const boardToUpdate = JSON.parse(JSON.stringify(board))
+  console.log('service checklist add board:', boardToUpdate)
   if (task.id) {
+    
     var taskIdx = boardToUpdate.groups[groupIdx].tasks.findIndex(t => t.id === task.id)
+    console.log('taskIdx',taskIdx)
+    console.log('groupIdx',groupIdx)
     boardToUpdate.groups[groupIdx].tasks.splice(taskIdx, 1, taskForUpdate)
   }
   else {
@@ -119,7 +124,7 @@ async function add(task, groupIdx, board) { // add task
     boardToUpdate.groups[groupIdx].tasks.push(taskForUpdate);
   }
   await httpService.put(`board/${boardToUpdate._id}`, boardToUpdate);
-  return boardToUpdate;
+  return {boardToUpdate, taskForUpdate};
 }
 
 function getEmptyGroup() { // create a new group
