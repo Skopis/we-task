@@ -100,7 +100,8 @@
                                 "imgUrl": ""
                             }
                         ],
-                        "labels": []
+                        "labels": [],
+                        "comments": []
                     },
                     {
                         "id": "c1012",
@@ -109,7 +110,8 @@
                             "bgColor": "#ffffff"
                         },
                         "labels": [],
-                        "members": []
+                        "members": [],
+                        "comments": []
                     },
                     {
                         "id": "c1014",
@@ -118,7 +120,8 @@
                             "bgColor": "#ffffff"
                         },
                         "labels": [],
-                        "members": []
+                        "members": [],
+                        "comments": []
                     }
                 ],
                 "style": {
@@ -143,7 +146,8 @@
                                 "username": "guest",
                                 "imgUrl": ""
                             }
-                        ]
+                        ],
+                        "comments": []
                     },
                     {
                         "id": "c104",
@@ -195,12 +199,6 @@
                                 "_id": "u102",
                                 "username": "nofargabso",
                                 "fullname": "Nofar Gabso",
-                                "imgUrl": ""
-                            },
-                            {
-                                "_id": "u107",
-                                "username": "Kobi",
-                                "fullname": "Kobi Tohar",
                                 "imgUrl": ""
                             }
                         ],
@@ -306,12 +304,6 @@
                                 "username": "shachardorfzaun",
                                 "fullname": "Shachar Dorfzaun",
                                 "imgUrl": ""
-                            },
-                            {
-                                "_id": "u107",
-                                "username": "Kobi",
-                                "fullname": "Kobi Tohar",
-                                "imgUrl": ""
                             }
                         ],
                         "labelIds": [
@@ -349,10 +341,12 @@
                             },
                             {
                                 "_id": "u177",
+                                "username": "lianskopis",
                                 "fullname": "Lian Skopis",
                                 "imgUrl": ""
                             }
-                        ]
+                        ],
+                        "comments": []
                     },
                     {
                         "id": "c101474",
@@ -360,7 +354,9 @@
                         "style": {
                             "bgColor": "#ffffff"
                         },
-                        "labels": []
+                        "labels": [],
+                        "comments": [],
+                        "members": []
                     },
                     {
                         "id": "c102374",
@@ -368,7 +364,9 @@
                         "style": {
                             "bgColor": "#ffffff"
                         },
-                        "labels": []
+                        "labels": [],
+                        "comments": [],
+                        "members": []
                     },
                     {
                         "id": "c1015",
@@ -384,8 +382,8 @@
                                 "txt": "also @mikel please CR this",
                                 "createdAt": 15909998176,
                                 "byMember": {
-                                    "_id": "u107",
-                                    "fullname": "Kobi Tohar",
+                                    "_id": "u177",
+                                    "fullname": "Lian Skopis",
                                     "imgUrl": ""
                                 }
                             }
@@ -415,12 +413,6 @@
                                 "username": "shachardorfzaun",
                                 "fullname": "Shachar Dorfzaun",
                                 "imgUrl": ""
-                            },
-                            {
-                                "_id": "u107",
-                                "username": "Kobi",
-                                "fullname": "Kobi Tohar",
-                                "imgUrl": ""
                             }
                         ],
                         "labelIds": [
@@ -449,7 +441,8 @@
                             "bgColor": "#ffffff"
                         },
                         "members": [],
-                        "labels": []
+                        "labels": [],
+                        "comments": []
                     },
                     {
                         "id": "c10157",
@@ -496,12 +489,6 @@
                                 "username": "shachardorfzaun",
                                 "fullname": "Shachar Dorfzaun",
                                 "imgUrl": ""
-                            },
-                            {
-                                "_id": "u107",
-                                "username": "Kobi",
-                                "fullname": "Kobi Tohar",
-                                "imgUrl": ""
                             }
                         ],
                         "labelIds": [
@@ -543,7 +530,8 @@
                                 "fullname": "Lian Skopis",
                                 "imgUrl": ""
                             }
-                        ]
+                        ],
+                        "comments": []
                     },
                     {
                         "id": "c101234",
@@ -551,7 +539,9 @@
                         "style": {
                             "bgColor": "#ffffff"
                         },
-                        "labels": []
+                        "labels": [],
+                        "comments": [],
+                        "members": []
                     },
                     {
                         "id": "c101239",
@@ -559,7 +549,9 @@
                         "style": {
                             "bgColor": "#ffffff"
                         },
-                        "labels": []
+                        "labels": [],
+                        "comments": [],
+                        "members": []
                     },
                     {
                         "id": "c101434",
@@ -567,7 +559,9 @@
                         "style": {
                             "bgColor": "#ffffff"
                         },
-                        "labels": []
+                        "labels": [],
+                        "comments": [],
+                        "members": []
                     }
                 ],
                 "style": {

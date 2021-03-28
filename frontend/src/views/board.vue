@@ -2,7 +2,7 @@
   <div
     class="board"
     v-if="boardToShow"
-    :style="boardToShow.style.bgImg? { backgroundImage: 'url(/img/'+boardToShow.style.bgImg+')', backgroundPosition: 'center center', backgroundOrigin: 'content-box', backgroundRepeat: 'no-repeat', 'background-size': 'cover'} : {backgroundColor: boardToShow.style.bgColor }"
+    :style="boardToShow.style.bgImg? { backgroundImage: 'url(/img/'+boardToShow.style.bgImg+')', backgroundPosition: 'center center', backgroundOrigin: 'content-box', backgroundRepeat: 'no-repeat', 'background-attachment': 'fixed', 'background-size': 'cover'} : {backgroundColor: boardToShow.style.bgColor }"
   >
     <header
       class="board-header flex space-between"
@@ -259,13 +259,14 @@ export default {
         boardToUpdate: this.boardToShow,
       });
     },
-    async updateTask(taskToUpdate, group) {
+    async updateTask(taskToUpdate, group, isEdit) {
       await this.$store.dispatch({
         type: "addTask",
         task: taskToUpdate,
         group,
         boardId: this.boardToShow._id,
       });
+      
     },
     async updateGroup(group) {
       await this.$store.dispatch({

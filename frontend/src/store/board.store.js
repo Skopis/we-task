@@ -327,7 +327,7 @@ export const boardStore = {
             var groupIdx = state.board.groups.findIndex(g => g.id === JSON.parse(groupId))
             try {
                 const updatedBoard = await boardService.add(task, groupIdx, state.board)
-                this.dispatch({ type: 'updateBoard', boardToUpdate: updatedBoard })
+                await this.dispatch({ type: 'updateBoard', boardToUpdate: updatedBoard })
                 this.dispatch({ type: 'sendUpdatedBoard' });
             } catch (err) {
                 console.log('Cannot save comment', err)

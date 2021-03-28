@@ -41,6 +41,9 @@
         .due-date-content{
             display: flex;
             justify-content: center;
+            span{
+                padding: 0 3px;
+            }
             .el-checkbox{
                 display: flex;
                 align-self: center;

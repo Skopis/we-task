@@ -45,7 +45,7 @@
             @addMemberToTask="addMemberToTask"
             @closeMembersMenu="manageMembersMenu"
           />
-          <div class="members-container container">
+          <div class="members-container container" v-if="task.members && task.members.length">
             <h3>MEMBERS</h3>
             <div v-if="task.members">
               <member-avatar :members="task.members" :size="32" />
