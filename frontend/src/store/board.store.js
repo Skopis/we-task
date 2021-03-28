@@ -15,7 +15,34 @@ export const boardStore = {
         groupTitle: ''
     },
     getters: {
-        groupTitle(state){
+        groupsNameNAmount(state) {
+            const nameAmount = [];
+            state.board.groups.forEach(group => {
+                nameAmount.push({ groupName: group.title, amount: group.tasks.length })
+            })
+            return nameAmount;
+        },
+        tasksPerPerson(state) {
+            var allTasks = 0;
+            const persons = state.board.members.map(member => {
+                return ({ fullname: member.fullname, tasks: 0 });
+            })
+            state.board.groups.forEach(group => {
+                group.tasks.forEach(task => {
+                    allTasks++;
+                    if (task.members) {
+                        task.members.forEach(member => {
+                            const idx = persons.findIndex((person) => {
+                                return member.fullname == person.fullname;
+                            })
+                            if (idx !== -1) persons[idx].tasks++;
+                        })
+                    }
+                })
+            })
+            return { allTasks, persons }
+        },
+        groupTitle(state) {
             return state.groupTitle
         },
         boardMembers(state) {
@@ -217,7 +244,7 @@ export const boardStore = {
                 throw err
             }
         },
-        async updateGroup({ state}, { group }) {
+        async updateGroup({ state }, { group }) {
             if (state.filterBy !== '') {
                 return
             }

@@ -1,3 +1,16 @@
 .dashboard{
-    margin-top: 40px;
+    margin-top: 100px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.chart{
+    width: 600px;
+    height: 600px;
+}
+
+.chart-conainer{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
 }
