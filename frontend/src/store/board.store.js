@@ -403,6 +403,7 @@ export const boardStore = {
             }
             try {
                 const { activityToAdd, boardToUpdate } = await boardService.addActivity(activity, state.board)
+                // commit({ type: 'setBoard', board: boardToUpdate })
                 commit({ type: 'addActivity', activityToAdd })
                 this.dispatch({ type: 'updateBoard', boardToUpdate })
                 this.dispatch({ type: 'sendUpdatedBoard' });

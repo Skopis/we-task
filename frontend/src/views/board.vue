@@ -293,10 +293,10 @@ export default {
           : "group moved";
       // console.log(actTxt);
       //TODO: connect to activity log
+      this.updateBoard(this.boardToShow);
       this.addActivity(actTxt);
-      const board = this.boardToShow;
-      board.groups = this.boardToShow.groups;
-      this.updateBoard(board);
+      // const board = this.boardToShow;
+      // board.groups = this.boardToShow.groups;
     },
     addActivity(activityType, task) {
       // console.log('task', task)
