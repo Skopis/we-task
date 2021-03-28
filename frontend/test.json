@@ -180,7 +180,7 @@
                                 "todos": [
                                     {
                                         "id": "212jXz",
-                                        "title": "Edit Email drafts",
+                                        "text": "Edit Email drafts",
                                         "isDone": false
                                     }
                                 ]
@@ -291,7 +291,7 @@
                                 "todos": [
                                     {
                                         "id": "212jX",
-                                        "title": "Find the password",
+                                        "text": "Find the password",
                                         "isDone": false
                                     }
                                 ]
@@ -403,7 +403,7 @@
                                 "todos": [
                                     {
                                         "id": "212jXx",
-                                        "title": "Find the document",
+                                        "text": "Find the document",
                                         "isDone": false
                                     }
                                 ]
@@ -480,7 +480,7 @@
                                 "todos": [
                                     {
                                         "id": "212jXxe",
-                                        "title": "Check the DB error",
+                                        "text": "Check the DB error",
                                         "isDone": false
                                     }
                                 ]
@@ -778,7 +778,7 @@
                                 "todos": [
                                     {
                                         "id": "212jXa",
-                                        "title": "Curate customer list",
+                                        "text": "Curate customer list",
                                         "isDone": true
                                     }
                                 ]

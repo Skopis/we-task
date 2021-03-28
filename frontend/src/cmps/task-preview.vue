@@ -56,9 +56,13 @@
           <i class="el-icon-chat-square"></i>
           <span>{{ task.comments.length }}</span>
         </button>
-        <button class="btn badge checklist" v-if="task.checklists && task.checklists.length">
+        <button class="btn badge checklist" v-if="task.checklists && task.checklists.length && !isChecklistComplete">
           <i class="el-icon-finished"></i>
           <span>{{ checklistInfo }}</span>
+        </button>
+        <button class="btn badge checklist complete" v-if="task.checklists && task.checklists.length && isChecklistComplete">
+          <i class="el-icon-finished white-font"></i>
+          <span class="white-font">{{ checklistInfo }}</span>
         </button>
       </div>
       <div class="members-container">
@@ -90,6 +94,7 @@ export default {
       isEditModalOpen: false,
       isMemberModalOpen: false,
       labelDataShown: false,
+      isChecklistComplete: false
     };
   },
   //TODO: when click on window anywhere but the modal - modal closes
@@ -182,6 +187,7 @@ export default {
           if (currChecklist.todos[j].isDone) doneTodosCount++;
         }
       }
+      if(doneTodosCount===todosCount) this.isChecklistComplete = true
       return doneTodosCount + "/" + todosCount;
     },
   },
