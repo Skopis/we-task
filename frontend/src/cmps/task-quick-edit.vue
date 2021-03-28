@@ -36,7 +36,8 @@ export default {
         },
         members: [],
         comments: [],
-        labels: []
+        labels: [],
+        checklists: []
       };
       this.isEdit = false;
     } else {

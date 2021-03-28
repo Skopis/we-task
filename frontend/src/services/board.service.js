@@ -119,7 +119,7 @@ async function add(task, groupIdx, board) { // add task
     boardToUpdate.groups[groupIdx].tasks.push(taskForUpdate);
   }
   await httpService.put(`board/${boardToUpdate._id}`, boardToUpdate);
-  return boardToUpdate;
+  return {boardToUpdate, taskForUpdate};
 }
 
 function getEmptyGroup() { // create a new group

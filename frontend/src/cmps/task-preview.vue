@@ -67,7 +67,7 @@
           <i class="el-icon-chat-square"></i>
           <span>{{ task.comments.length }}</span>
         </button>
-        <button class="btn badge checklist" v-if="task.checklists">
+        <button class="btn badge checklist" v-if="task.checklists && task.checklists.length">
           <i class="el-icon-finished"></i>
           <span>{{ checklistInfo }}</span>
         </button>
