@@ -101,7 +101,8 @@
                             }
                         ],
                         "labels": [],
-                        "comments": []
+                        "comments": [],
+                        "checklists": []
                     },
                     {
                         "id": "c1012",
@@ -111,7 +112,8 @@
                         },
                         "labels": [],
                         "members": [],
-                        "comments": []
+                        "comments": [],
+                        "checklists": []
                     },
                     {
                         "id": "c1014",
@@ -121,7 +123,8 @@
                         },
                         "labels": [],
                         "members": [],
-                        "comments": []
+                        "comments": [],
+                        "checklists": []
                     }
                 ],
                 "style": {
@@ -147,7 +150,8 @@
                                 "imgUrl": ""
                             }
                         ],
-                        "comments": []
+                        "comments": [],
+                        "checklists": []
                     },
                     {
                         "id": "c104",
@@ -169,10 +173,10 @@
                                 }
                             }
                         ],
-                        "checkgroups": [
+                        "checklists": [
                             {
                                 "id": "YEhmFtt",
-                                "title": "Checkgroup",
+                                "title": "checklist",
                                 "todos": [
                                     {
                                         "id": "212jXz",
@@ -257,7 +261,8 @@
                                     "imgUrl": ""
                                 }
                             }
-                        ]
+                        ],
+                        "checklists": []
                     },
                     {
                         "id": "c1057",
@@ -279,10 +284,10 @@
                                 }
                             }
                         ],
-                        "checkgroups": [
+                        "checklists": [
                             {
                                 "id": "YEhmF",
-                                "title": "Checkgroup",
+                                "title": "checklist",
                                 "todos": [
                                     {
                                         "id": "212jX",
@@ -346,7 +351,8 @@
                                 "imgUrl": ""
                             }
                         ],
-                        "comments": []
+                        "comments": [],
+                        "checklists": []
                     },
                     {
                         "id": "c101474",
@@ -356,7 +362,8 @@
                         },
                         "labels": [],
                         "comments": [],
-                        "members": []
+                        "members": [],
+                        "checklists": []
                     },
                     {
                         "id": "c102374",
@@ -366,7 +373,8 @@
                         },
                         "labels": [],
                         "comments": [],
-                        "members": []
+                        "members": [],
+                        "checklists": []
                     },
                     {
                         "id": "c1015",
@@ -388,10 +396,10 @@
                                 }
                             }
                         ],
-                        "checkgroups": [
+                        "checklists": [
                             {
                                 "id": "YEhmFl",
-                                "title": "Checkgroup",
+                                "title": "checklist",
                                 "todos": [
                                     {
                                         "id": "212jXx",
@@ -442,7 +450,8 @@
                         },
                         "members": [],
                         "labels": [],
-                        "comments": []
+                        "comments": [],
+                        "checklists": []
                     },
                     {
                         "id": "c10157",
@@ -464,10 +473,10 @@
                                 }
                             }
                         ],
-                        "checkgroups": [
+                        "checklists": [
                             {
                                 "id": "YEhmFlk",
-                                "title": "Main Checkgroup",
+                                "title": "Main checklist",
                                 "todos": [
                                     {
                                         "id": "212jXxe",
@@ -531,7 +540,8 @@
                                 "imgUrl": ""
                             }
                         ],
-                        "comments": []
+                        "comments": [],
+                        "checklists": []
                     },
                     {
                         "id": "c101234",
@@ -541,7 +551,8 @@
                         },
                         "labels": [],
                         "comments": [],
-                        "members": []
+                        "members": [],
+                        "checklists": []
                     },
                     {
                         "id": "c101239",
@@ -551,7 +562,8 @@
                         },
                         "labels": [],
                         "comments": [],
-                        "members": []
+                        "members": [],
+                        "checklists": []
                     },
                     {
                         "id": "c101434",
@@ -561,7 +573,8 @@
                         },
                         "labels": [],
                         "comments": [],
-                        "members": []
+                        "members": [],
+                        "checklists": []
                     }
                 ],
                 "style": {
@@ -758,7 +771,7 @@
                                 }
                             }
                         ],
-                        "checkgroups": [
+                        "checklists": [
                             {
                                 "id": "YEhmFa",
                                 "title": "Updategroup",

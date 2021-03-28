@@ -167,7 +167,6 @@ export default {
   methods: {
     setImageAsBg(path){
       this.boardToShow.style.bgImg = path
-      console.log('this.boardToShow.style.bgImg ', this.boardToShow.style.bgImg )
       this.$store.dispatch({type: 'updateBoard', boardToUpdate: this.boardToShow})
     },
     goToDashboard(){
@@ -271,13 +270,14 @@ export default {
       });
     },
     async updateTask(taskToUpdate, group, isEdit) {
-      await this.$store.dispatch({
+      const taskForUpdate = await this.$store.dispatch({
         type: "addTask",
         task: taskToUpdate,
         group,
         boardId: this.boardToShow._id,
       });
-      
+      if (isEdit) this.addActivity(`Edited task: ${taskToUpdate.title} on group: ${group.title}`, taskForUpdate)
+      else this.addActivity(`Added task: ${taskToUpdate.title} to group: ${group.title}`, taskForUpdate)
     },
     async updateGroup(group) {
       await this.$store.dispatch({
@@ -291,20 +291,21 @@ export default {
         group !== "" && taskTxt !== ""
           ? `Task: ${taskTxt} moved from the group: ${group.title} to: ${toGroup}`
           : "group moved";
-      console.log(actTxt);
+      // console.log(actTxt);
       //TODO: connect to activity log
       this.addActivity(actTxt);
       const board = this.boardToShow;
       board.groups = this.boardToShow.groups;
       this.updateBoard(board);
     },
-    addActivity(activityType) {
+    addActivity(activityType, task) {
+      // console.log('task', task)
       // const { id, title } = this.task;
       var activity = {
         txt: activityType,
         createdAt: Date.now(),
         byMember: this.$store.getters.loggedinUser,
-        task: { id: 0, title: "" },
+        task: task || { id: 0, title: "" },
       };
       this.$store.dispatch({ type: "addActivity", activity });
     },

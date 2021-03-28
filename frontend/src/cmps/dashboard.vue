@@ -25,7 +25,7 @@ export default {
   },
   created() {
     const boardId = this.$route.params.boardId;
-    console.log("boardId at dashboard", boardId);
+    // console.log("boardId at dashboard", boardId);
   },
   components: {
     pieChart,

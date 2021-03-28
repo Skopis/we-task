@@ -1,9 +1,21 @@
 .img-container{ 
     width: 148px;
     height: 98px;
-    border-radius: 8px;
+    margin: 0;
+    margin-bottom: 5px;
     img{
-        width: 100% !important;
+        border-radius: 8px;
+        width: 148px !important;
+        height: 98px !important;
         object-fit:cover ;
+        margin: 0;
+    }
+}
+
+.bg-btn-container{
+    .btn{
+        margin: 0;
+        padding: 0 5px !important;
+        font-weight: normal !important;
     }
 }
