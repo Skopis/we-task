@@ -2,14 +2,17 @@
   <div
     class="board"
     v-if="boardToShow"
-    :style="{ backgroundColor: boardToShow.style.bgColor }"
+    :style="boardToShow.style.bgImg? { backgroundImage: 'url(/img/'+boardToShow.style.bgImg+')', backgroundPosition: 'center center', backgroundOrigin: 'content-box', backgroundRepeat: 'no-repeat', 'background-size': 'cover'} : {backgroundColor: boardToShow.style.bgColor }"
   >
     <header
       class="board-header flex space-between"
-      :style="{ backgroundColor: boardToShow.style.bgColor }"
     >
       <div class="flex">
-        <h2 class="btn" @click="editBoardTitle" v-if="isTitleModalOpen === false">
+        <h2
+          class="btn"
+          @click="editBoardTitle"
+          v-if="isTitleModalOpen === false"
+        >
           {{ boardToShow.title }}
         </h2>
         <form
@@ -26,13 +29,13 @@
           />
         </form>
         <div class="avatar-container">
-        <div v-for="member in boardToShow.members" :key="member._id">
-          <member-avatar2
-            :member="member"
-            :size="28"
-            @click.native="toggleMemberModal(member, $event)"
-          />
-        </div>
+          <div v-for="member in boardToShow.members" :key="member._id">
+            <member-avatar2
+              :member="member"
+              :size="28"
+              @click.native="toggleMemberModal(member, $event)"
+            />
+          </div>
         </div>
         <board-member-modal
           v-if="isMemberModalOpen"
@@ -46,7 +49,7 @@
         />
         <h2 class="btn" @click="toggleAddMemberModal">Invite</h2>
       </div>
-      <div class="board-menu" :class="{ active: isBoardMenuModalOpen}">
+      <div class="board-menu" :class="{ active: isBoardMenuModalOpen }">
         <board-menu
           v-if="isBoardMenuModalOpen"
           :classSetting="isBoardMenuModalOpen"
@@ -54,17 +57,21 @@
           @closeModal="closeBoardMenuModal"
           @updateBoardCover="updateBoardCover"
           @searchChanged="searchChanged"
+          @setImageAsBg="setImageAsBg"
         />
       </div>
       <div class="flex header-right">
         <h2 class="btn" @click="goToDashboard" v-if="!isBoardMenuModalOpen">
-          <img src="../assets/icons/dashboard.png" alt=""> Dashboard
+          <img src="../assets/icons/dashboard.png" alt="" /> Dashboard
         </h2>
-        <h2 class="btn" @click="toggleBoardMenuModal" v-if="!isBoardMenuModalOpen">
+        <h2
+          class="btn"
+          @click="toggleBoardMenuModal"
+          v-if="!isBoardMenuModalOpen"
+        >
           <i class="el-icon-more"></i> Show menu
         </h2>
       </div>
-      
     </header>
     <!-- <section class="task-list-container"> -->
     <section class="main-board-container">
@@ -95,7 +102,6 @@
             @archiveGroup="archiveGroup"
             @updateGroupCover="updateGroupCover"
             @closeMenu="closeMenu"
-
           />
         </div>
         <!-- </section> -->
@@ -128,16 +134,14 @@ export default {
       menuGroupId: null,
       isMemberModalOpen: false,
       isAddMemberModalOpen: false,
-      memberModalPos:null,
+      memberModalPos: null,
     };
   },
   computed: {
     boardToShow() {
-      //return JSON.parse(JSON.stringify(this.$store.getters.getBoard));
       const fillteredBoard = JSON.parse(
         JSON.stringify(this.$store.getters.getBoard)
       );
-
       return fillteredBoard;
     },
   },
@@ -161,6 +165,11 @@ export default {
     }
   },
   methods: {
+    setImageAsBg(path){
+      this.boardToShow.style.bgImg = path
+      console.log('this.boardToShow.style.bgImg ', this.boardToShow.style.bgImg )
+      this.$store.dispatch({type: 'updateBoard', boardToUpdate: this.boardToShow})
+    },
     goToDashboard(){
       this.$router.push(`/board/${this.boardToShow._id}/dashboard`)
     },
@@ -181,19 +190,23 @@ export default {
       this.isMemberModalOpen = false;
     },
     toggleMemberModal(member, ev) {
-      const memberIdx = this.boardToShow.members.findIndex(m=>m._id === member._id )
-      var distance = 80 +(memberIdx *30)
-      if(this.isMemberModalOpen && this.member !== member || !this.isMemberModalOpen){
-        this.isMemberModalOpen = true
-        this.memberModalPos = {left : distance + 'px'}
-      }else this.isMemberModalOpen = !this.isMemberModalOpen
+      const memberIdx = this.boardToShow.members.findIndex(
+        (m) => m._id === member._id
+      );
+      var distance = 80 + memberIdx * 30;
+      if (
+        (this.isMemberModalOpen && this.member !== member) ||
+        !this.isMemberModalOpen
+      ) {
+        this.isMemberModalOpen = true;
+        this.memberModalPos = { left: distance + "px" };
+      } else this.isMemberModalOpen = !this.isMemberModalOpen;
       this.member = member;
     },
     searchChanged(txt) {
       this.$store.commit({ type: "setFilterBy", filterBy: txt });
     },
     updatedBoard(boardToUpdate) {
-      console.log("got board");
       this.$store.commit({
         type: "updateBoard",
         boardIdx: 0,
@@ -220,6 +233,7 @@ export default {
       this.updateGroup(group);
     },
     updateBoardCover(color) {
+      this.boardToShow.style.bgImg = ''
       this.boardToShow.style.bgColor = color;
       this.$store.dispatch({
         type: "updateBoard",
@@ -230,8 +244,8 @@ export default {
       //TODO:
       this.isBoardMenuModalOpen = !this.isBoardMenuModalOpen;
     },
-    closeBoardMenuModal(){
-      this.isBoardMenuModalOpen=false
+    closeBoardMenuModal() {
+      this.isBoardMenuModalOpen = false;
     },
     archiveGroup(groupToArchive) {
       this.$store.dispatch({
@@ -271,11 +285,27 @@ export default {
         boardId: this.boardToShow._id,
       });
     },
-    itemDragged() {
+    itemDragged(group = "", taskTxt = "", toGroup = "") {
+      const actTxt =
+        group !== "" && taskTxt !== ""
+          ? `Task: ${taskTxt} moved from the group: ${group.title} to: ${toGroup}`
+          : "group moved";
+      console.log(actTxt);
+      //TODO: connect to activity log
+      this.addActivity(actTxt);
       const board = this.boardToShow;
       board.groups = this.boardToShow.groups;
-      // console.log(board.groups);
       this.updateBoard(board);
+    },
+    addActivity(activityType) {
+      // const { id, title } = this.task;
+      var activity = {
+        txt: activityType,
+        createdAt: Date.now(),
+        byMember: this.$store.getters.loggedinUser,
+        task: { id: 0, title: "" },
+      };
+      this.$store.dispatch({ type: "addActivity", activity });
     },
     updateBoard(board) {
       this.$store.dispatch({
@@ -288,13 +318,11 @@ export default {
     },
     setMenuPos(groupId, ev) {
       var left = this.getEvPos(ev)
-      console.log('new',ev.view.innerWidth - left)
+      // console.log('new',ev.view.innerWidth - left)
       // console.log('groupId', groupId)
       const groupIdx = this.boardToShow.groups.findIndex(
         (group) => group.id === groupId
       );
-      console.log('groupIdx', groupIdx)
-
       this.menuPos = { right:ev.view.innerWidth - left +'px'};
     },
     getEvPos(ev) {
@@ -309,9 +337,8 @@ export default {
       // }
       // console.log('client',ev.target.clientRight )
       // console.log('page', ev.pageX)
-      return ev.pageX
+      return ev.pageX;
     },
-     
   },
   components: {
     groupList,

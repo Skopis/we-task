@@ -102,7 +102,6 @@ export default {
     },
     toggleComplete(){
       var task = JSON.parse(JSON.stringify(this.task))
-      console.log('task at 97 preview', task)
       task.dueDate.isComplete = !task.dueDate.isComplete
       this.$emit("updateTask", {taskToUpdate: task});
     },
@@ -133,7 +132,6 @@ export default {
     },
     updateTask(taskToUpdate) {
       this.isEditModalOpen = false;
-      console.log('taskToUpdate', taskToUpdate)
       this.$emit("updateTask", taskToUpdate);
     },
     openTaskDetails(taskId) {
@@ -169,7 +167,7 @@ export default {
         var currChecklist = this.task.checklists[i];
         for (var j = 0; j < currChecklist.todos.length; j++) {
           todosCount++;
-          console.log(currChecklist.todos[j]);
+          // console.log(currChecklist.todos[j]);
           if (currChecklist.todos[j].isDone) doneTodosCount++;
         }
       }

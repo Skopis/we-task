@@ -13,6 +13,7 @@
         margin: 0 !important;
         display: flex;
         padding-top: 22px;
+
         img {
             width: 22px;
             height: 22px;
@@ -25,6 +26,7 @@
     h3 {
         font-weight: 500 !important;
     }
+
     h5,
     h4,
     h3,
@@ -36,24 +38,30 @@
         text-decoration: underline;
         color: #172b4d !important;
     }
+
     .due-date-continer {
         padding-left: 0px;
-        .due-date-content{
+
+        .due-date-content {
             display: flex;
             justify-content: center;
-            .el-checkbox{
+
+            .el-checkbox {
                 display: flex;
                 align-self: center;
                 margin-right: 5px;
             }
+
             .due-date {
                 cursor: pointer;
                 margin: 0 !important;
                 line-height: 32px !important;
+
                 .complete {
                     background-color: #61bd4f !important;
                     color: white;
                     font-size: 12px;
+
                     &:hover {
                         background-color: #519839 !important;
                     }
@@ -61,6 +69,7 @@
             }
         }
     }
+
     .task-details-content {
         // background-color: rgb(242, 248, 248);
         background-color: #f4f5f7;
@@ -95,6 +104,7 @@
                 color: #172b4d;
                 font-weight: 600;
             }
+
             p {
                 margin: 0;
             }
@@ -269,10 +279,12 @@
 
             .btn {
                 width: 56px;
-                height: 32px;
                 background-color: $green;
                 font-size: rem(14px);
                 color: white;
+                margin: 0px;
+                min-height: 32px;
+                max-height: 32px;
 
                 &:hover {
                     background-color: #82d172;
@@ -292,6 +304,7 @@
         }
 
         .task-comment {
+
             // padding: 5px;
             // margin-top: 20px;
             .comment-creator {
@@ -624,6 +637,7 @@
 
     .add-checklist {
         width: 512px;
+
         // background-color: khaki;
         .btn {
             width: auto;
@@ -648,11 +662,13 @@
             float: right;
             margin-right: 0px;
             margin-bottom: 8px;
+
             &:hover {
                 background-color: #c75040;
             }
         }
     }
+
     .form__input {
         display:flex;
         justify-content: center;
@@ -661,6 +677,7 @@
         align-content: center;
         text-align: center;
         margin-top: 8px;
+
         .vue-swatches__swatch {
             border: 1px grey solid;
         }

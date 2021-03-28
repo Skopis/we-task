@@ -15,7 +15,6 @@ export default {
   name: 'task-attachment',
   methods: {
     saveImg(imgUrl, originalFilename, format) {
-      console.log('imgUrl', imgUrl)
       this.$emit('saveImgAsAttachment', imgUrl, originalFilename, format)
     },
   },

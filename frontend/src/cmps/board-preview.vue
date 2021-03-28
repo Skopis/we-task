@@ -2,7 +2,7 @@
     <section class="board-preview" :style="{ backgroundColor: board.style.bgColor }">
         <div >
             <h3>{{board.title}}</h3>
-            <h4>{{board.groups.length || 0}} Groups</h4>
+            <p>{{board.groups.length || 0}} Groups</p>
         </div>
         <button class="btn menu" @click.stop.prevent="toggleBoardMenuModal">
             <img src="../assets/icons/3dots.png" alt="" />

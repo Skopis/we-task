@@ -63,6 +63,10 @@
 }
 
 .board {
+    // background-image: url('../Pictures/bg/fog.jpg');
+    background-size: contain;
+    background-position: center center;
+    background-origin: content-box;
     padding-top: 92px;
     height: 100vh;
     // min-width: 100%;
@@ -92,7 +96,6 @@
         padding: 0 10px;
 
     }
-
 }
 
 

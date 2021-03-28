@@ -15,7 +15,34 @@ export const boardStore = {
         groupTitle: ''
     },
     getters: {
-        groupTitle(state){
+        groupsNameNAmount(state) {
+            const nameAmount = [];
+            state.board.groups.forEach(group => {
+                nameAmount.push({ groupName: group.title, amount: group.tasks.length })
+            })
+            return nameAmount;
+        },
+        tasksPerPerson(state) {
+            var allTasks = 0;
+            const persons = state.board.members.map(member => {
+                return ({ fullname: member.fullname, tasks: 0 });
+            })
+            state.board.groups.forEach(group => {
+                group.tasks.forEach(task => {
+                    allTasks++;
+                    if (task.members) {
+                        task.members.forEach(member => {
+                            const idx = persons.findIndex((person) => {
+                                return member.fullname == person.fullname;
+                            })
+                            if (idx !== -1) persons[idx].tasks++;
+                        })
+                    }
+                })
+            })
+            return { allTasks, persons }
+        },
+        groupTitle(state) {
             return state.groupTitle
         },
         boardMembers(state) {
@@ -123,7 +150,6 @@ export const boardStore = {
         updateLabel({ state, commit }, { labelData }) {
             const newTxt = labelData.txt;
             const labelIdx = state.board.labels.findIndex(label => label.id === labelData.labelId)
-            console.log(labelIdx);
             commit({ type: 'setLabelText', labelIdx, newTxt })
             const boardToUpdate = state.board//JSON.parse(JSON.stringify(state.board));
             this.dispatch({ type: 'updateBoard', boardToUpdate })
@@ -218,7 +244,7 @@ export const boardStore = {
                 throw err
             }
         },
-        async updateGroup({ state}, { group }) {
+        async updateGroup({ state }, { group }) {
             if (state.filterBy !== '') {
                 return
             }
@@ -349,10 +375,8 @@ export const boardStore = {
                 isAdded = true
             } else {
                 var labelIdx = task.labels.findIndex(l => l.id === label.id)
-                console.log('labelIdx', labelIdx)
                 if (labelIdx === -1) {
                     isAdded = true
-                    console.log('isAdded b', isAdded)
                     task.labels.push(label);
                 } else {
                     task.labels.splice(labelIdx, 1);
@@ -364,7 +388,6 @@ export const boardStore = {
                 const updatedBoard = await boardService.add(task, groupIdx, state.board)
                 commit({ type: 'setBoard', board: updatedBoard })
                 this.dispatch({ type: 'sendUpdatedBoard' });
-                console.log('isAdded', isAdded)
                 return isAdded
             } catch (err) {
                 console.log('Cannot save comment', err)
