@@ -39,9 +39,9 @@ function connectSockets(http, session) {
             socket.broadcast.to(socket.myBoard).emit('updated board', board);
 
         })
-        socket.on('task-added', userId => {
+        socket.on('task-added', fullname => {
             const userIdx = gUsers.findIndex(user =>{
-                return user.userId === userId
+                return user.fullname === fullname
             })
             if (userIdx !== -1){
                 console.log('user found');
