@@ -20,11 +20,16 @@
             i {
                 // color: $task-txt;
                 color: grey;
+                
             }
         }
     }
 
     .edit-task-title {
+        padding: 0px 8px !important;
+        margin: 6px 2px 0 0;
+        height: 35px;
+        box-sizing: content-box;
         position: absolute;
         top:-4px;
         right: 0;
@@ -171,6 +176,9 @@
                 &:hover{
                     border-radius: 3px;
                     background-color: #ebecf0;
+                }
+                img{
+                    opacity: 0.5 !important;
                 }
             }
             img {
