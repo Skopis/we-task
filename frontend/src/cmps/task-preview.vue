@@ -32,8 +32,8 @@
         @stopEdit="stopEdit"
       />
       <section v-else>
-        <p @click.stop="openEditModal">{{ task.title }}</p>
-
+        <p >{{ task.title }}</p>
+<!-- @click.stop="openEditModal" -->
       </section>
     </header>
     <div class="task-body" :style="{height:bodyHeight}">

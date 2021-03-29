@@ -152,7 +152,7 @@ function getById(board, id) { // get task by Id
 }
 
 async function saveBoard(boardToUpdate, boardIdx) { // update board
-  console.log(JSON.stringify(boardToUpdate));
+  // console.log(JSON.stringify(boardToUpdate));
   return httpService.put(`board/${boardToUpdate._id}`, boardToUpdate);
 }
 

@@ -500,7 +500,7 @@ export default {
       await this.$store.dispatch({ type: "addTask", task: this.task });
       this.addActivity(`Added ${member.fullname} to task ${this.task.title}`)
 
-      socketService.emit("task-added", member._id);
+      socketService.emit("task-added", member.fullname);
     },
     updateTaskCover(color) {
       this.task.style.imgUrl = "";
