@@ -2,7 +2,18 @@
   <div
     class="board"
     v-if="boardToShow"
-    :style="boardToShow.style.bgImg? { backgroundImage: 'url(/img/'+boardToShow.style.bgImg+')', backgroundPosition: 'center center', backgroundOrigin: 'content-box', backgroundRepeat: 'no-repeat', 'background-attachment': 'fixed', 'background-size': 'cover'} : {backgroundColor: boardToShow.style.bgColor }"
+    :style="
+      boardToShow.style.bgImg
+        ? {
+            backgroundImage: 'url(/img/' + boardToShow.style.bgImg + ')',
+            backgroundPosition: 'center center',
+            backgroundOrigin: 'content-box',
+            backgroundRepeat: 'no-repeat',
+            'background-attachment': 'fixed',
+            'background-size': 'cover',
+          }
+        : { backgroundColor: boardToShow.style.bgColor }
+    "
   >
     <header class="board-header flex space-between">
       <div class="flex">
@@ -109,6 +120,7 @@
       </button>
     </section>
     <router-view />
+    <div id="snackbar" class="show">{{ snackText }}</div>
   </div>
 </template>
 
@@ -133,6 +145,7 @@ export default {
       isMemberModalOpen: false,
       isAddMemberModalOpen: false,
       memberModalPos: null,
+      snackText: "Shachar assign you a new card",
     };
   },
   computed: {
@@ -153,9 +166,12 @@ export default {
       this.$router.push(`/board/${boardId}`);
     }
     socketService.setup();
-    socketService.emit("board id", {board: this.boardToShow._id,user: this.$store.getters.loggedinUser});
+    socketService.emit("board id", {
+      board: this.boardToShow._id,
+      user: this.$store.getters.loggedinUser,
+    });
     socketService.on("updated board", this.updatedBoard);
-    socketService.on("task-added-2u" , this.taskAddOnUser);
+    socketService.on("task-added-2u", this.taskAddOnUser);
   },
   destroyed() {
     {
@@ -164,12 +180,22 @@ export default {
     }
   },
   methods: {
-    taskAddOnUser(suprise){
-      console.log(suprise);
+    taskAddOnUser(senderName) {
+      console.log(senderName);
+      this.snackText = `${senderName} assign you a new card`;
+      console.log(this.snackText);
+      var x = document.getElementById("snackbar");
+      x.className = "show";
+      setTimeout(function () {
+        x.className = x.className.replace("show", "");
+      }, 5000);
     },
-    setImageAsBg(path){
-      this.boardToShow.style.bgImg = path
-      this.$store.dispatch({type: 'updateBoard', boardToUpdate: this.boardToShow})
+    setImageAsBg(path) {
+      this.boardToShow.style.bgImg = path;
+      this.$store.dispatch({
+        type: "updateBoard",
+        boardToUpdate: this.boardToShow,
+      });
     },
     goToDashboard() {
       this.$router.push(`/board/${this.boardToShow._id}/dashboard`);
@@ -180,7 +206,7 @@ export default {
       this.updateBoard(this.boardToShow);
     },
     toggleAddMemberModal() {
-      this.isMemberModalOpen = false
+      this.isMemberModalOpen = false;
       this.isAddMemberModalOpen = !this.isAddMemberModalOpen;
     },
     removeMemberFromBoard(member) {
@@ -192,7 +218,7 @@ export default {
       this.isMemberModalOpen = false;
     },
     toggleMemberModal(member, ev) {
-       this.isAddMemberModalOpen = false
+      this.isAddMemberModalOpen = false;
       const memberIdx = this.boardToShow.members.findIndex(
         (m) => m._id === member._id
       );
@@ -280,8 +306,16 @@ export default {
         group,
         boardId: this.boardToShow._id,
       });
-      if (isEdit) this.addActivity(`Edited task: ${taskToUpdate.title} on group: ${group.title}`, taskForUpdate)
-      else this.addActivity(`Added task: ${taskToUpdate.title} to group: ${group.title}`, taskForUpdate)
+      if (isEdit)
+        this.addActivity(
+          `Edited task: ${taskToUpdate.title} on group: ${group.title}`,
+          taskForUpdate
+        );
+      else
+        this.addActivity(
+          `Added task: ${taskToUpdate.title} to group: ${group.title}`,
+          taskForUpdate
+        );
     },
     async updateGroup(group) {
       await this.$store.dispatch({

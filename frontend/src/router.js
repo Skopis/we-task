@@ -27,17 +27,17 @@ export const router = new Router({
 
     },
     {
-      path: '/board/:boardId/dashboard',
-      component: dashboard
-    },
-    {
       path: '/board/:boardId',
       component: board,
       children: [
         {
           path: 'task/:taskId',
           component: taskDetails
-        }
+        },
+        {
+          path: 'dashboard',
+          component: dashboard
+        },
       ]
     },
     {

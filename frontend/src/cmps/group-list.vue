@@ -97,7 +97,6 @@ export default {
   },
   methods: {
     computedStyle(task) {
-      console.log('task.style', task.style)
       if (task.style.imgUrl)
         return {
           background: "url(" + task.style.imgUrl + ")",
@@ -138,10 +137,11 @@ export default {
       }, 300);
     },
     itemDragged(ev) {
-      const toGroup = ev.to.parentElement.parentElement.parentElement.firstChild.innerText;
+      const toGroup =
+        ev.to.parentElement.parentElement.parentElement.firstChild.innerText;
       const taskTxt = ev.item.children[0].children[0].innerText;
       // console.log(taskTxt);
-      this.$emit("itemDragged", this.group,taskTxt,toGroup);
+      this.$emit("itemDragged", this.group, taskTxt, toGroup);
     },
     openAddModal(groupId = -1) {
       if (groupId === this.group.id || groupId == -1) {

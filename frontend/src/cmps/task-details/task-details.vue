@@ -1,7 +1,6 @@
 <template>
-<!-- TODO: on click closes -->
-  <div v-if="task" class="task-details-modal">
-    <div class="task-details-content" @click.self="closeAllModals">
+  <div v-if="task" class="task-details-modal" @click.self="closeDetailsModal">
+    <div class="task-details-content" @click.self.stop="closeAllModals">
       <header
         :style="
           task.style.imgUrl
@@ -500,7 +499,7 @@ export default {
       await this.$store.dispatch({ type: "addTask", task: this.task });
       this.addActivity(`Added ${member.fullname} to task ${this.task.title}`)
 
-      socketService.emit("task-added", member.fullname);
+      socketService.emit("task-added", {fullname:member.fullname, senderName:this.$store.getters.loggedinUser.fullname});
     },
     updateTaskCover(color) {
       this.task.style.imgUrl = "";
