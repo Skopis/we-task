@@ -39,13 +39,15 @@ function connectSockets(http, session) {
             socket.broadcast.to(socket.myBoard).emit('updated board', board);
 
         })
-        socket.on('task-added', fullname => {
+        socket.on('task-added', ({fullname , senderName}) => {
+            // console.log(senderName);
             const userIdx = gUsers.findIndex(user =>{
                 return user.fullname === fullname
             })
             if (userIdx !== -1){
-                console.log('user found');
-                socket.to(gUsers[userIdx].socketId).emit("task-added-2u", 'suprise')
+                // console.log('user found');
+                // console.log(gUsers[userIdx].socketId);
+                socket.to(gUsers[userIdx].socketId).emit("task-added-2u", senderName)
             }else{
                 console.log('user not found');
             }
