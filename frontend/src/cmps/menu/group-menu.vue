@@ -43,14 +43,13 @@ export default {
     archiveGroup() {
       Swal.fire({
         title: "Are you sure?",
-        icon: "warning",
         showCancelButton: true,
         confirmButtonText: "Yes, delete it!",
         cancelButtonText: "No, keep it",
       }).then((result) => {
         if (result.value) {
           this.$emit("archiveGroup", this.group);
-          Swal.fire("Deleted!", "Group has been deleted.", "success");
+          Swal.fire("Deleted!", "List has been deleted.", "success");
         } else if (result.dismiss === Swal.DismissReason.cancel) {
           Swal.fire("Cancelled");
           return;

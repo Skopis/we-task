@@ -70,7 +70,6 @@ export default {
         removeTask(){
           Swal.fire({
             title: 'Are you sure?',
-            icon: 'warning',
             showCancelButton: true,
             confirmButtonText: 'Yes, delete it!',
             cancelButtonText: 'No, keep it'
@@ -80,7 +79,6 @@ export default {
               Swal.fire(
                 'Deleted!',
                 'Task has been deleted.',
-                'success'
               )
               this.$router.go(-1)
             } else if (result.dismiss === Swal.DismissReason.cancel) {

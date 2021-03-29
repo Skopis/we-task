@@ -18,8 +18,6 @@ export default {
         archiveBoard() {
             Swal.fire({
                 title: "Are you sure?",
-                text: "",
-                icon: "warning",
                 showCancelButton: true,
                 confirmButtonText: "Yes, delete it!",
                 cancelButtonText: "No, keep it",
@@ -29,7 +27,6 @@ export default {
                 Swal.fire(
                 "Deleted!",
                 "Your Board has been deleted",
-                "success"
             );
             } else if (result.dismiss === Swal.DismissReason.cancel) {
                 Swal.fire("Your Board is Safe!");
