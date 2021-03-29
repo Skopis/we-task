@@ -43,7 +43,6 @@ export default {
     archiveGroup() {
       Swal.fire({
         title: "Are you sure?",
-        // icon: "warning",
         showCancelButton: true,
         confirmButtonText: "Yes, delete it!",
         cancelButtonText: "No, keep it",

@@ -73,12 +73,7 @@
               <div class="task-label add-label">+</div>
             </div>
           </div>
-          <date-picker
-            v-if="dateMenu"
-            :style="task.style.imgUrl ? { marginTop: 140 + 'px' } : {}"
-            @closeDateModal="manageDateMenu"
-            @updateDueDate="updateDueDate"
-          />
+
           <div class="due-date-continer container">
             <div v-if="task.dueDate" class="due-date-wrapper">
               <h3>Due Date</h3>
@@ -218,9 +213,9 @@
         @updateTaskCover="updateTaskCover"
         @openLabelModal="manageLabelMenu"
         @openMembersMenu="manageMembersMenu"
-        @openDateModal="manageDateMenu"
         @toggleAttachmentModal="toggleAttachmentModal"
         @closeAllModals="closeAllModals"
+        @updateDueDate="updateDueDate"
       />
     </div>
   </div>
@@ -235,10 +230,10 @@ import checkListAdd from "./check-list-add.cmp";
 import taskTodo from "./task-todo.cmp";
 import labelsMenu from "../menu/labels-menu";
 import membersMenu from "../menu/members-menu";
-import DatePicker from "./date-picker.vue";
 import taskAttachment from "./task-attachment.vue";
 import taskAttachmentDisplay from "./task-attachment-display.vue";
 import { socketService } from "@/services/socket.service";
+
 
 export default {
   data() {
@@ -249,7 +244,6 @@ export default {
       comment: { txt: "" },
       labelsModal: false,
       membersMenu: false,
-      dateMenu: false,
       loggedinUser: null,
       isDescEditOpen: false,
       isAttachmentModalOpen: false,
@@ -406,12 +400,6 @@ export default {
         year: "numeric",
       };
       return date.toLocaleDateString(undefined, options);
-    },
-    manageDateMenu(status) {
-      if (!this.dateMenu) {
-        this.closeAllModals();
-        this.dateMenu = true;
-      } else this.dateMenu = false;
     },
     manageMembersMenu(status) {
       if (!this.membersMenu) {
@@ -605,7 +593,6 @@ export default {
     taskTodo,
     labelsMenu,
     membersMenu,
-    DatePicker,
     taskAttachment,
     taskAttachmentDisplay,
   },

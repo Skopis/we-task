@@ -179,7 +179,7 @@ export default {
       } else return -6
     },
     formattedDueDate(){
-      return this.task.dueDate.date.substring(0, this.task.dueDate.date.length-4);
+      return this.task.dueDate.date.substring(0, this.task.dueDate.date.length-6);
     },
     boradId() {
       return this.$store.getters.getBoardId;
