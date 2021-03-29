@@ -153,8 +153,9 @@ export default {
       this.$router.push(`/board/${boardId}`);
     }
     socketService.setup();
-    socketService.emit("board id", this.boardToShow._id);
+    socketService.emit("board id", {board: this.boardToShow._id,user: this.$store.getters.loggedinUser});
     socketService.on("updated board", this.updatedBoard);
+    socketService.on("task-added-2u" , this.taskAddOnUser);
   },
   destroyed() {
     {
@@ -163,6 +164,9 @@ export default {
     }
   },
   methods: {
+    taskAddOnUser(suprise){
+      console.log(suprise);
+    },
     setImageAsBg(path){
       this.boardToShow.style.bgImg = path
       this.$store.dispatch({type: 'updateBoard', boardToUpdate: this.boardToShow})

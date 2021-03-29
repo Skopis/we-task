@@ -1,4 +1,5 @@
 <template>
+<!-- TODO: on click closes -->
   <div v-if="task" class="task-details-modal">
     <div class="task-details-content" @click.self="closeAllModals">
       <header
@@ -465,6 +466,8 @@ export default {
       this.task.members.push(member);
       await this.$store.dispatch({ type: "addTask", task: this.task });
       this.addActivity(`Added ${member.fullname} to task ${this.task.title}`)
+
+      socketService.emit("task-added", member._id);
     },
     updateTaskCover(color) {
       this.task.style.imgUrl = "";
@@ -518,16 +521,15 @@ export default {
   created() {
     this.loggedinUser = this.$store.getters.loggedinUser;
     this.loadTask();
-    socketService.setup();
     socketService.emit("board id", this.boradId);
     socketService.on("updated board", this.updatedBoard);
   },
-  destroyed() {
-    {
-      socketService.off("updated board", this.updatedBoard);
-      socketService.terminate();
-    }
-  },
+  // destroyed() {
+  //   {
+  //     socketService.off("updated board", this.updatedBoard);
+  //     socketService.terminate();
+  //   }
+  // },
   computed: {
     listTitle() {
       this.$store.commit("getGroupByTaskId", this.task.id);

@@ -35,7 +35,11 @@ export const boardStore = {
                             const idx = persons.findIndex((person) => {
                                 return member.fullname == person.fullname;
                             })
-                            if (idx !== -1) persons[idx].tasks++;
+                            if (idx !== -1) {
+                                persons[idx].tasks++;
+                            }else{
+                                persons.push({ fullname: member.fullname, tasks: 0 })
+                            }
                         })
                     }
                 })
@@ -173,6 +177,7 @@ export const boardStore = {
         },
         sendUpdatedBoard({ state }) {
             if (state.filterBy === '') {
+                console.log(state.board);
                 socketService.emit("board change", state.board);
             }
         },
@@ -186,7 +191,7 @@ export const boardStore = {
                     var groupIdx = state.board.groups.findIndex(g => g.id === JSON.parse(currGroupId))
                 }
                 else groupIdx = state.board.groups.findIndex(g => g.id === group.id)
-                const {boardToUpdate, taskForUpdate} = await boardService.add(task, groupIdx, state.board)
+                const { boardToUpdate, taskForUpdate } = await boardService.add(task, groupIdx, state.board)
                 // this.dispatch({ type: 'updateBoard', boardToUpdate: boardForUpdate })
                 commit({ type: 'setBoard', board: boardToUpdate })
                 this.dispatch({ type: 'sendUpdatedBoard' });
@@ -329,7 +334,7 @@ export const boardStore = {
             const currGroupId = await boardService.getGroupId()
             var groupIdx = state.board.groups.findIndex(g => g.id === JSON.parse(currGroupId))
             try {
-                const {boardToUpdate} = await boardService.add(task, groupIdx, state.board)
+                const { boardToUpdate } = await boardService.add(task, groupIdx, state.board)
                 // this.dispatch({ type: 'updateBoard', boardToUpdate })
                 commit({ type: 'setBoard', board: boardToUpdate })
                 this.dispatch({ type: 'sendUpdatedBoard' });
@@ -357,7 +362,7 @@ export const boardStore = {
             const groupId = await boardService.getGroupId()
             var groupIdx = state.board.groups.findIndex(g => g.id === JSON.parse(groupId))
             try {
-                const {boardToUpdate} = await boardService.add(task, groupIdx, state.board)
+                const { boardToUpdate } = await boardService.add(task, groupIdx, state.board)
                 await this.dispatch({ type: 'updateBoard', boardToUpdate })
                 this.dispatch({ type: 'sendUpdatedBoard' });
             } catch (err) {
@@ -389,7 +394,7 @@ export const boardStore = {
             const groupId = await boardService.getGroupId()
             var groupIdx = state.board.groups.findIndex(g => g.id === JSON.parse(groupId))
             try {
-                const {boardToUpdate} = await boardService.add(task, groupIdx, state.board)
+                const { boardToUpdate } = await boardService.add(task, groupIdx, state.board)
                 commit({ type: 'setBoard', board: boardToUpdate })
                 this.dispatch({ type: 'sendUpdatedBoard' });
                 return isAdded
