@@ -8,7 +8,6 @@
 <script>
 import appHeader from "./cmps/app-header";
 
-
 export default {
   created() {
   },
