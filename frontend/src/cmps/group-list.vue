@@ -43,7 +43,7 @@
               @updateTask="updateTask"
               @toggleMemberModal="toggleMemberPreview"
               :groupId="group.id"
-              :style="computedStyle"
+              :style="computedStyle(task)"
             />
           </li>
         </draggable>
@@ -97,6 +97,7 @@ export default {
   },
   methods: {
     computedStyle(task) {
+      console.log('task.style', task.style)
       if (task.style.imgUrl)
         return {
           background: "url(" + task.style.imgUrl + ")",

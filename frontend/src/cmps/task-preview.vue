@@ -157,8 +157,8 @@ export default {
     bodyHeight(){
       if(!this.task.dueDate &&
       (!this.task.comments || !this.task.comments.length ) &&
+      (!this.task.checklists)&&
       (!this.task.members || !this.task.members.length)){
-        console.log('we are here')
         return 0
 
       }else return 'fit-content'

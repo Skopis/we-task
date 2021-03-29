@@ -55,7 +55,7 @@ export const boardStore = {
             const fillteredBoard = JSON.parse(
                 JSON.stringify(state.board)
             );
-            console.log('fillteredBoard at store', fillteredBoard)
+            // console.log('fillteredBoard at store', fillteredBoard)
             if (fillteredBoard) {
                 fillteredBoard.groups.forEach((group, gIdx) => {
                     for (let tIdx = 0; tIdx < group.tasks.length; tIdx++) {

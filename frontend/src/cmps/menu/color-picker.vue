@@ -45,6 +45,7 @@
                     this.$emit('changeBoardCover', this.color)
                 }
                 else{
+                    // console.log('this.color', this.color)
                     this.$emit('changeTaskCover', this.color)
                 }
             }
