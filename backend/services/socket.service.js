@@ -3,8 +3,9 @@
 const asyncLocalStorage = require('./als.service');
 const logger = require('./logger.service');
 
-var gIo = null
-var gSocketBySessionIdMap = {}
+var gIo = null;
+var gSocketBySessionIdMap = {};
+var gUsers = [];
 
 function connectSockets(http, session) {
     gIo = require('socket.io')(http);
@@ -13,15 +14,19 @@ function connectSockets(http, session) {
         autoSave: true
     }));
     gIo.on('connection', socket => {
-        console.log("some1 joing the socket");
+        console.log("Someone join the socket");
+        // console.log(socket);
         gSocketBySessionIdMap[socket.handshake.sessionID] = socket
+        console.log(socket.handshake.sessionID);
         socket.on('disconnect', socket => {
             console.log('Someone disconnected')
             if (socket.handshake) {
                 gSocketBySessionIdMap[socket.handshake.sessionID] = null
+                removeIdFromList(socket.id)
             }
         })
-        socket.on('board id', board => {
+        socket.on('board id', ({ board, user }) => {
+            if (user) gUsers.push({ socketId: socket.id, fullname: user.fullname, userId: user._id })
             if (socket.myBoard === board) return;
             if (socket.myBoard) {
                 socket.leave(socket.myBoard)
@@ -30,16 +35,20 @@ function connectSockets(http, session) {
             socket.myBoard = board
         })
         socket.on('board change', board => {
-            console.log(board);
             console.log("someone changed the board");
-            // gIo.to(socket.myBoard).emit('updated board', board)
             socket.broadcast.to(socket.myBoard).emit('updated board', board);
 
         })
-        socket.on('review-added', review => {
-            // emits to all sockets:
-            // emits only to sockets in the same room
-            socket.broadcast.emit('review-added', review)
+        socket.on('task-added', userId => {
+            const userIdx = gUsers.findIndex(user =>{
+                return user.userId === userId
+            })
+            if (userIdx !== -1){
+                console.log('user found');
+                socket.to(gUsers[userIdx].socketId).emit("task-added-2u", 'suprise')
+            }else{
+                console.log('user not found');
+            }
         })
 
     })
@@ -63,6 +72,10 @@ function broadcast({ type, data }) {
     const excludedSocket = gSocketBySessionIdMap[sessionId]
     if (!excludedSocket) return logger.debug('Shouldnt happen, No socket in map', gSocketBySessionIdMap)
     excludedSocket.broadcast.emit(type, data)
+}
+
+function removeIdFromList(socketId) {
+
 }
 
 

@@ -4,9 +4,7 @@
     v-if="boardToShow"
     :style="boardToShow.style.bgImg? { backgroundImage: 'url(/img/'+boardToShow.style.bgImg+')', backgroundPosition: 'center center', backgroundOrigin: 'content-box', backgroundRepeat: 'no-repeat', 'background-attachment': 'fixed', 'background-size': 'cover'} : {backgroundColor: boardToShow.style.bgColor }"
   >
-    <header
-      class="board-header flex space-between"
-    >
+    <header class="board-header flex space-between">
       <div class="flex">
         <h2
           class="btn"
@@ -155,8 +153,9 @@ export default {
       this.$router.push(`/board/${boardId}`);
     }
     socketService.setup();
-    socketService.emit("board id", this.boardToShow._id);
+    socketService.emit("board id", {board: this.boardToShow._id,user: this.$store.getters.loggedinUser});
     socketService.on("updated board", this.updatedBoard);
+    socketService.on("task-added-2u" , this.taskAddOnUser);
   },
   destroyed() {
     {
@@ -165,12 +164,15 @@ export default {
     }
   },
   methods: {
+    taskAddOnUser(suprise){
+      console.log(suprise);
+    },
     setImageAsBg(path){
       this.boardToShow.style.bgImg = path
       this.$store.dispatch({type: 'updateBoard', boardToUpdate: this.boardToShow})
     },
-    goToDashboard(){
-      this.$router.push(`/board/${this.boardToShow._id}/dashboard`)
+    goToDashboard() {
+      this.$router.push(`/board/${this.boardToShow._id}/dashboard`);
     },
     addMemberToBoard(member) {
       this.isAddMemberModalOpen = false;
@@ -234,7 +236,7 @@ export default {
       this.updateGroup(group);
     },
     updateBoardCover(color) {
-      this.boardToShow.style.bgImg = ''
+      this.boardToShow.style.bgImg = "";
       this.boardToShow.style.bgColor = color;
       this.$store.dispatch({
         type: "updateBoard",
@@ -295,10 +297,11 @@ export default {
           : "group moved";
       // console.log(actTxt);
       //TODO: connect to activity log
-      this.addActivity(actTxt);
       const board = this.boardToShow;
       board.groups = this.boardToShow.groups;
       this.updateBoard(board);
+      setTimeout(this.addActivity, 150, actTxt);
+      // this.addActivity(actTxt);
     },
     addActivity(activityType, task) {
       // console.log('task', task)
@@ -321,13 +324,13 @@ export default {
       this.$store.dispatch({ type: "setBoard", board: this.boardToShow });
     },
     setMenuPos(groupId, ev) {
-      var left = this.getEvPos(ev)
+      var left = this.getEvPos(ev);
       // console.log('new',ev.view.innerWidth - left)
       // console.log('groupId', groupId)
       const groupIdx = this.boardToShow.groups.findIndex(
         (group) => group.id === groupId
       );
-      this.menuPos = { right:ev.view.innerWidth - left +'px'};
+      this.menuPos = { right: ev.view.innerWidth - left + "px" };
     },
     getEvPos(ev) {
       // var pos = {
