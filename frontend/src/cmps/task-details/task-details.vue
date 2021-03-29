@@ -16,7 +16,7 @@
               margin:'auto',
               backgroundPosition: 'center center',
             }
-            : { backgroundColor: task.style.bgColor }
+            : { backgroundColor: (!task.style.bgColor)?  'rgb(244, 245, 247)' : task.style.bgColor  }
         "
       >
         <div class="header-content">
