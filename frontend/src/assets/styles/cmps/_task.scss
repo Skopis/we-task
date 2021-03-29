@@ -250,13 +250,9 @@
 
         .comment-box {
             font-size: rem(15px);
-            box-sizing: content-box;
             border-radius: 3px;
-            margin: 4px 4px 12px 0;
-            line-height: 20px;
-            overflow: hidden;
+            // line-height: 20px;
             position: relative;
-            min-height: 20px;
             transition: box-shadow 85ms ease;
             font-family: roboto;
             overflow-wrap: break-word;
@@ -266,17 +262,21 @@
         .comment-section {
             display: flex;
             flex-direction: column;
-            // box-shadow:0 2px 12px -2px rgba(9, 30, 66, 0.25);
             box-shadow: 0 1px 2px -1px rgba(9, 30, 66, 0.25), 0 0 0 1px rgba(9, 30, 66, 0.08);
             width: 510px;
-            padding: 10px;
+            padding: 10px;  
             position: relative;
             transition-duration: 85ms;
             transition-timing-function: ease;
             transition-property: padding-bottom;
             background-color: #fff !important;
             margin-bottom: 18px;
-            height: 108px;
+            textarea{
+                // height: 25px;
+                overflow: hidden; 
+                overflow-wrap: break-word;
+                height: 20px;
+            }
 
             .btn {
                 width: 56px;
@@ -284,6 +284,7 @@
                 font-size: rem(14px);
                 color: white;
                 margin: 0px;
+                margin-top: 8px;
                 min-height: 32px;
                 max-height: 32px;
 
@@ -305,8 +306,7 @@
         }
 
         .task-comment {
-            // padding: 5px;
-            // margin-top: 20px;
+            
             .comment-creator {
                 display: flex;
                 align-items: center;

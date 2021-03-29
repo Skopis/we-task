@@ -178,6 +178,7 @@ export default {
       this.updateBoard(this.boardToShow);
     },
     toggleAddMemberModal() {
+      this.isMemberModalOpen = false
       this.isAddMemberModalOpen = !this.isAddMemberModalOpen;
     },
     removeMemberFromBoard(member) {
@@ -189,6 +190,7 @@ export default {
       this.isMemberModalOpen = false;
     },
     toggleMemberModal(member, ev) {
+       this.isAddMemberModalOpen = false
       const memberIdx = this.boardToShow.members.findIndex(
         (m) => m._id === member._id
       );
