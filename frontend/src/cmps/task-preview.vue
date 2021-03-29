@@ -32,8 +32,8 @@
         @stopEdit="stopEdit"
       />
       <section v-else>
-        <p @click.stop="openEditModal">{{ task.title }}</p>
-
+        <p >{{ task.title }}</p>
+<!-- @click.stop="openEditModal" -->
       </section>
     </header>
     <div class="task-body" :style="{height:bodyHeight}">
@@ -179,7 +179,7 @@ export default {
       } else return -6
     },
     formattedDueDate(){
-      return this.task.dueDate.date.substring(0, this.task.dueDate.date.length-4);
+      return this.task.dueDate.date.substring(0, this.task.dueDate.date.length-6);
     },
     boradId() {
       return this.$store.getters.getBoardId;

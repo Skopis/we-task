@@ -7,8 +7,7 @@
     box-shadow: $box-shadow;
     margin-bottom: 8px;
     border-radius: 3px;
-    padding-left: 10px;
-    padding-right:5px;
+    padding: 8px;
     z-index: 2;
     overflow-x: hidden;
     word-break: break-word;
@@ -21,11 +20,16 @@
             i {
                 // color: $task-txt;
                 color: grey;
+                
             }
         }
     }
 
     .edit-task-title {
+        padding: 0px 8px !important;
+        margin: 6px 2px 0 0;
+        height: 35px;
+        box-sizing: content-box;
         position: absolute;
         top:-4px;
         right: 0;
@@ -63,7 +67,7 @@
             }
 
             .label-info {
-                width: 56px;
+                width: 65px;
                 height: 22px;
                 text-align: center;
                 font-size: rem(13px);
@@ -162,6 +166,7 @@
                 height: 24px;
                 background-color: transparent;
                 border: none;
+                margin-bottom: 0px;
                 p{
                     line-height: 12px;
                     font-size: 12px;
@@ -171,6 +176,9 @@
                 &:hover{
                     border-radius: 3px;
                     background-color: #ebecf0;
+                }
+                img{
+                    opacity: 0.5 !important;
                 }
             }
             img {
@@ -204,7 +212,7 @@
             background-color: transparent;
             letter-spacing: .2px;
             padding: 2px;
-            margin: 0 10px 4px 0;
+            margin: 0 10px 0 0;
             span{
                 padding-right: 4px;
             }

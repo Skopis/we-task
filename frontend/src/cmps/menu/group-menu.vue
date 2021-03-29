@@ -49,7 +49,7 @@ export default {
       }).then((result) => {
         if (result.value) {
           this.$emit("archiveGroup", this.group);
-          Swal.fire("Deleted!", "List has been deleted.", "success");
+          Swal.fire("Deleted!", "List has been deleted.");//,"success"
         } else if (result.dismiss === Swal.DismissReason.cancel) {
           Swal.fire("Cancelled");
           return;

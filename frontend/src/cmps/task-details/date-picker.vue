@@ -1,11 +1,11 @@
 <template>
   <div class=" date-picker">
-    <span class="demonstration"></span>
+    <!-- <span class="demonstration"></span> -->
     <el-date-picker
       @change="changeDate"
       v-model="value"
       type="date"
-      placeholder="Pick a day">
+      placeholder="Due Date">
     </el-date-picker>
   </div>
 </template>
@@ -26,7 +26,7 @@
     methods:{
       changeDate(){
         // console.log('value', this.value)
-        this.$emit('closeDateModal', false)
+        this.$emit('toggleDateModal', false)
         this.$emit('updateDueDate', this.value)
       }
     },

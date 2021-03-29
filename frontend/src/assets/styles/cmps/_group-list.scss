@@ -11,7 +11,7 @@
     .group-list{
         background-color: #ebecf0;
         width: 277px;
-        margin-left: 10px;
+        margin-left: 8px;
         border-radius: 4px;
         height: auto;
         padding-bottom: 4px;
@@ -46,7 +46,7 @@
 
     }
     .preview-content{
-        padding: 0 2px 0 8px;
+        padding: 0 0 0 8px;
         overflow-y:scroll !important;
         max-height: 70vh;
     }
@@ -67,7 +67,7 @@
         .btn.add-task{
             font-size: 14px;
             height: unset;
-            margin-bottom: 4px;
+            margin-bottom: 8px;
             margin-top: 8px;
             border-radius:4px;
             padding-bottom: 6px;
