@@ -27,7 +27,7 @@ import colorPicker from '../menu/color-picker.vue'
 import Swal from 'sweetalert2'
 
 export default {
-  props:['colorPicker', 'checklistModal'],
+  props:['colorPicker', 'checklistModal', 'task'],
     data(){
         return{
           isColorPickerOpen: this.colorPicker,

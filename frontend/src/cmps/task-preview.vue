@@ -40,29 +40,33 @@
       
       <div class="btn-container">
         <el-button
-          class="btn badge eye"
+          class="badge eye"
           icon="el-icon-view"
           v-if="isloggedinUserMember"
         ></el-button>
-        <button class="btn clock" @click.stop="toggleComplete" v-if="task.dueDate && !task.dueDate.isComplete">
+        <button class="badge clock" @click.stop="toggleComplete" v-if="task.dueDate && !task.dueDate.isComplete">
           <img src="../assets/icons/clock.png" alt="">
           <p>{{formattedDueDate}}</p>
         </button>
-        <button v-else-if="task.dueDate" class="btn clock complete" @click.stop="toggleComplete">
+        <button v-else-if="task.dueDate" class="badge clock complete" @click.stop="toggleComplete">
           <img src="../assets/icons/checkbox.png" alt="">
           <p>{{formattedDueDate}}</p>
         </button>
-        <button class="btn badge" v-if="task.comments && task.comments.length">
+        <button class="badge" v-if="task.comments && task.comments.length">
           <i class="el-icon-chat-square"></i>
           <span>{{ task.comments.length }}</span>
         </button>
-        <button class="btn badge checklist" v-if="task.checklists && task.checklists.length && !isChecklistComplete">
+        <button class="badge checklist" :style="{marginLeft:checklistBadgeMargin +'px'}" v-if="task.checklists && task.checklists.length && !isChecklistComplete">
           <i class="el-icon-finished"></i>
           <span>{{ checklistInfo }}</span>
         </button>
-        <button class="btn badge checklist complete" v-if="task.checklists && task.checklists.length && isChecklistComplete">
+        <button class="badge checklist complete" v-if="task.checklists && task.checklists.length && isChecklistComplete">
           <i class="el-icon-finished white-font"></i>
           <span class="white-font">{{ checklistInfo }}</span>
+        </button>
+        <button class="badge attachment" v-if="task.attachments && task.attachments.length">
+        <i class="el-icon-paperclip"></i>
+          <span>{{ task.attachments.length }}</span>
         </button>
       </div>
       <div class="members-container">
@@ -158,10 +162,21 @@ export default {
       if(!this.task.dueDate &&
       (!this.task.comments || !this.task.comments.length ) &&
       (!this.task.checklists)&&
-      (!this.task.members || !this.task.members.length)){
+      (!this.task.members || !this.task.members.length)&&
+      (!this.task.attachments || !this.task.attachments.length)){
         return 0
 
       }else return 'fit-content'
+    },
+    checklistBadgeMargin(){
+       if(!this.task.dueDate &&
+      (!this.task.comments || !this.task.comments.length ) &&
+      (!this.task.members || !this.task.members.length)&&
+      (!this.task.attachments || !this.task.attachments.length)&&
+      (this.task.checklists)){
+        console.log('only checklist')
+        return 0
+      } else return -6
     },
     formattedDueDate(){
       return this.task.dueDate.date.substring(0, this.task.dueDate.date.length-4);

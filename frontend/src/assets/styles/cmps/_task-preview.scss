@@ -133,7 +133,7 @@
         // padding-bottom: 4px;
         .members-container{
             float:right;
-            padding-top: 8px;
+            // padding-top: 8px;
             padding-bottom: 5px;
             padding-right: -10px;
         }
@@ -143,10 +143,15 @@
             align-items: center;
             line-height: 40px;
             width:fit-content;
+            margin-left:-2px;
+            padding-top:4px;
             .complete{
                 background-color: #61bd4f !important;
                 color: white;
                 height: 24px;
+                p{
+                    color:#fff;
+                }
                 &:hover{
                     background-color: #519839 !important;
                 }
@@ -155,6 +160,8 @@
                 display: flex;
                 align-items: center;
                 height: 24px;
+                background-color: transparent;
+                border: none;
                 p{
                     line-height: 12px;
                     font-size: 12px;
@@ -190,17 +197,18 @@
             display: inline-block;
             overflow: hidden;
             position: relative;
-            text-decoration: none;
             text-overflow: ellipsis;
-            vertical-align: top;
             border: none;
-            // margin-right: 4px;
-            .checklist {
-                span {
-                    margin-left: 0;
-                }
-                
+            cursor: pointer;
+            border-radius: 3px;
+            background-color: transparent;
+            letter-spacing: .2px;
+            padding: 2px;
+            margin: 0 10px 4px 0;
+            span{
+                padding-right: 4px;
             }
+           
             
                 .white-font{
                     color: white !important;
@@ -217,6 +225,13 @@
                 border: none;
                 color: unset;
             }
+        }
+        .checklist {
+            margin-left: -6px;
+            span {
+                margin-left: 0;
+            }
+            
         }
     }
 }

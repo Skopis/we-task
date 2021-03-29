@@ -41,11 +41,7 @@
           </p>
         </div>
         <div class="task-info">
-          <members-menu
-            v-if="membersMenu"
-            @addMemberToTask="addMemberToTask"
-            @closeMembersMenu="manageMembersMenu"
-          />
+         
           <div class="members-container container" v-if="task.members && task.members.length">
             <h3>MEMBERS</h3>
             <div v-if="task.members">
@@ -55,11 +51,13 @@
           </div>
           <members-menu
             v-if="membersMenu"
+            :style="task.style.imgUrl ? { marginTop: 140 + 'px' } : {}"
             @addMemberToTask="addMemberToTask"
             @closeMembersMenu="manageMembersMenu"
           />
           <labels-menu
             v-if="labelsModal"
+            :style="task.style.imgUrl ? { marginTop: 140 + 'px' } : {}"
             @setLabel="setTaskLabel"
             @closeLabelMenu="manageLabelMenu"
             @updateLabel="updateLabel"
@@ -77,6 +75,7 @@
           </div>
           <date-picker
             v-if="dateMenu"
+            :style="task.style.imgUrl ? { marginTop: 140 + 'px' } : {}"
             @closeDateModal="manageDateMenu"
             @updateDueDate="updateDueDate"
           />
@@ -96,6 +95,7 @@
           </div>
           <task-attachment
             v-if="isAttachmentModalOpen"
+            :style="task.style.imgUrl ? { marginTop: 140 + 'px' } : {}"
             @saveImgAsAttachment="saveImgAsAttachment"
           />
         </div>
@@ -179,14 +179,17 @@
           <h3 class="module-header">
             <i class="el-icon-s-order"></i>Activities
           </h3>
-          <div class="comment-section">
+          <div class="comment-section" @click="showSaveButton">
             <textarea
+              :style="{height: textareaHeight+'px'}"
               ref="writeComment"
               placeholder="Write a comment"
               v-model="comment.txt"
               class="comment-box"
+              @keydown="modifyHeight($event)"
+              @focusout="hideSaveButton"
             ></textarea>
-            <button @click="addComment" class="btn">Save</button>
+            <button v-if="isCommentButtonOn" @click="addComment" class="btn">Save</button>
           </div>
         </div>
         <div
@@ -206,7 +209,8 @@
         </div>
       </main>
       <task-dev-tools
-        :style="task.style.imgUrl ? { marginTop: 250 + 'px' } : {}"
+        :style="task.style.imgUrl ? { marginTop: 140 + 'px' } : {}"
+        :task="task"
         :isColorPickerOpen="false"
         :checklistTitleModa="false"
         @checkList="createCheckList"
@@ -252,9 +256,37 @@ export default {
       checklistTitle: "",
       checklistTitleModal: false,
       isColorPickerOpen: false,
+      isCommentButtonOn :false,
+      textareaHeight:20,
+      lettersArray:[],
+      lettersCount:0
     };
   },
   methods: {
+    showSaveButton(){
+      this.isCommentButtonOn = true;
+    },
+    hideSaveButton(){
+      this.isCommentButtonOn = false
+    },
+    modifyHeight(ev){
+      if(ev.key === 'Backspace'){
+        if(!this.lettersCount){
+          if(!this.lettersArray.length) return 20
+          this.textareaHeight -=20
+          this.lettersCount = this.lettersArray.length
+        }
+        this.lettersCount -=1
+        this.lettersArray.pop()
+        return
+      } else if (ev.key === 'Enter'){
+        this.lettersCount = 0
+        this.textareaHeight +=20
+        return  
+      }
+      this.lettersArray.push('e')
+      this.lettersCount++
+    },
     accurateTitle(labelId) {
       var title;
       const board = this.$store.getters.getBoard;
