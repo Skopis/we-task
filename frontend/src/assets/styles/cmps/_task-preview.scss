@@ -7,8 +7,7 @@
     box-shadow: $box-shadow;
     margin-bottom: 8px;
     border-radius: 3px;
-    padding-left: 10px;
-    padding-right:5px;
+    padding: 8px;
     z-index: 2;
     overflow-x: hidden;
     word-break: break-word;
@@ -63,7 +62,7 @@
             }
 
             .label-info {
-                width: 56px;
+                width: 65px;
                 height: 22px;
                 text-align: center;
                 font-size: rem(13px);
@@ -162,6 +161,7 @@
                 height: 24px;
                 background-color: transparent;
                 border: none;
+                margin-bottom: 0px;
                 p{
                     line-height: 12px;
                     font-size: 12px;
@@ -204,7 +204,7 @@
             background-color: transparent;
             letter-spacing: .2px;
             padding: 2px;
-            margin: 0 10px 4px 0;
+            margin: 0 10px 0 0;
             span{
                 padding-right: 4px;
             }

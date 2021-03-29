@@ -500,7 +500,7 @@ export default {
       await this.$store.dispatch({ type: "addTask", task: this.task });
       this.addActivity(`Added ${member.fullname} to task ${this.task.title}`)
 
-      socketService.emit("task-added", member._id);
+      socketService.emit("task-added", member.fullname);
     },
     updateTaskCover(color) {
       this.task.style.imgUrl = "";
@@ -554,7 +554,7 @@ export default {
   created() {
     this.loggedinUser = this.$store.getters.loggedinUser;
     this.loadTask();
-    socketService.emit("board id", this.boradId);
+    // socketService.emit("board id", this.boradId);
     socketService.on("updated board", this.updatedBoard);
   },
   // destroyed() {

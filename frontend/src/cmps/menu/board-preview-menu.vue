@@ -19,7 +19,7 @@ export default {
             Swal.fire({
                 title: "Are you sure?",
                 text: "",
-                icon: "warning",
+                // icon: "warning",
                 showCancelButton: true,
                 confirmButtonText: "Yes, delete it!",
                 cancelButtonText: "No, keep it",
