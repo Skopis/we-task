@@ -553,7 +553,7 @@ export default {
   created() {
     this.loggedinUser = this.$store.getters.loggedinUser;
     this.loadTask();
-    socketService.emit("board id", this.boradId);
+    // socketService.emit("board id", this.boradId);
     socketService.on("updated board", this.updatedBoard);
   },
   // destroyed() {
