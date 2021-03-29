@@ -267,6 +267,7 @@ export default {
       this.isCommentButtonOn = true;
     },
     hideSaveButton(){
+      if(this.comment.txt) return
       this.isCommentButtonOn = false
     },
     modifyHeight(ev){
