@@ -463,6 +463,7 @@ export default {
       if (!taskToEdit.dueDate)
         taskToEdit.dueDate = { date: "", isComplete: false };
       taskToEdit.dueDate.date = this.formattedDate(date);
+      console.log('taskToEdit.dueDate.date', taskToEdit.dueDate.date)
       taskToEdit.dueDate.isComplete = false;
       await this.$store.dispatch({ type: "addTask", task: taskToEdit });
       this.addActivity("Added Due Date");

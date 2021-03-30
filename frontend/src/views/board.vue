@@ -120,7 +120,7 @@
       </button>
     </section>
     <router-view />
-    <div id="snackbar" class="show">{{ snackText }}</div>
+    <div id="snackbar" class="">{{ snackText }}</div>
   </div>
 </template>
 
@@ -145,7 +145,7 @@ export default {
       isMemberModalOpen: false,
       isAddMemberModalOpen: false,
       memberModalPos: null,
-      snackText: "Shachar assign you a new card",
+      snackText: "Shachar assigned you a new Card",
     };
   },
   computed: {
@@ -334,7 +334,7 @@ export default {
       const board = this.boardToShow;
       board.groups = this.boardToShow.groups;
       this.updateBoard(board);
-      setTimeout(this.addActivity, 150, actTxt);
+      // setTimeout(this.addActivity, 150, actTxt);
       // this.addActivity(actTxt);
     },
     addActivity(activityType, task) {
