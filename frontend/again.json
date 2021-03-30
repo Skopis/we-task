@@ -1,0 +1,3634 @@
+{
+    "title": "Project Management",
+    "createdAt": 1589983468418,
+    "createdBy": {
+        "_id": "u102",
+        "username": "nofargabso",
+        "fullname": "Nofar Gabso",
+        "imgUrl": ""
+    },
+    "style": {
+        "bgColor": "#29cce5",
+        "bgImg": "ast.c1962e32.jpg"
+    },
+    "labels": [
+        {
+            "id": "l101",
+            "title": "Done",
+            "color": "green"
+        },
+        {
+            "id": "l102",
+            "title": "Attention",
+            "color": "yellow"
+        },
+        {
+            "id": "l103",
+            "title": "",
+            "color": "orange"
+        },
+        {
+            "id": "l104",
+            "title": "Important",
+            "color": "red"
+        },
+        {
+            "id": "l105",
+            "title": "",
+            "color": "purple"
+        },
+        {
+            "id": "l106",
+            "title": "Optional",
+            "color": "blue"
+        }
+    ],
+    "members": [
+        {
+            "_id": "u101",
+            "username": "shachardorfzaun",
+            "fullname": "Shachar Dorfzaun",
+            "imgUrl": ""
+        },
+        {
+            "_id": "u102",
+            "username": "nofargabso",
+            "fullname": "Nofar Gabso",
+            "imgUrl": ""
+        },
+        {
+            "_id": "u177",
+            "fullname": "Lian Skopis",
+            "username": "lianskopis",
+            "imgUrl": ""
+        },
+        {
+            "_id": "u777",
+            "fullname": "Itay Azulay",
+            "username": "itayazulay",
+            "imgUrl": ""
+        }
+    ],
+    "groups": [
+        {
+            "id": "g101",
+            "title": "Project Resources",
+            "tasks": [
+                {
+                    "id": "c101",
+                    "title": "Project DreamBig Launch Timeline",
+                    "style": {
+                        "bgColor": "#7bc86c",
+                        "imgUrl": ""
+                    },
+                    "members": [
+                        {
+                            "_id": "u777",
+                            "fullname": "Itay Azulay",
+                            "username": "itayazulay",
+                            "imgUrl": ""
+                        },
+                        {
+                            "_id": "u177",
+                            "fullname": "Lian Skopis",
+                            "username": "lianskopis",
+                            "imgUrl": ""
+                        }
+                    ],
+                    "labels": [],
+                    "comments": [],
+                    "checklists": []
+                },
+                {
+                    "id": "c1012",
+                    "title": "Weekly Updates",
+                    "style": {
+                        "bgColor": "#ffaf3f",
+                        "imgUrl": ""
+                    },
+                    "labels": [],
+                    "members": [],
+                    "comments": [],
+                    "checklists": [],
+                    "dueDate": {
+                        "date": "Mar 31, 2021",
+                        "isComplete": true
+                    }
+                },
+                {
+                    "id": "c1014",
+                    "title": "Stakeholders",
+                    "style": {
+                        "bgColor": "#ffffff"
+                    },
+                    "labels": [],
+                    "members": [
+                        {
+                            "_id": "u102",
+                            "username": "nofargabso",
+                            "fullname": "Nofar Gabso",
+                            "imgUrl": ""
+                        }
+                    ],
+                    "comments": [],
+                    "checklists": [],
+                    "dueDate": {
+                        "date": "Apr 3, 2021",
+                        "isComplete": false
+                    }
+                },
+                {
+                    "id": "c10165486",
+                    "title": "In-Company Funds",
+                    "style": {
+                        "bgColor": "#ffffff",
+                        "imgUrl": ""
+                    },
+                    "labels": [
+                        {
+                            "id": "l102",
+                            "title": "Attention",
+                            "color": "yellow"
+                        },
+                        {
+                            "id": "l106",
+                            "title": "Optional",
+                            "color": "blue"
+                        }
+                    ],
+                    "members": [],
+                    "comments": [],
+                    "checklists": [],
+                    "dueDate": {
+                        "date": "Apr 9, 2021",
+                        "isComplete": false
+                    },
+                    "attachments": [
+                        {
+                            "byMember": {
+                                "username": "lianskopis",
+                                "password": "123456",
+                                "fullname": "Lian Skopis",
+                                "_id": "eToR6"
+                            },
+                            "imgUrl": "http://res.cloudinary.com/skopis87/image/upload/v1617008262/qzvgkchpckmasw4btk5l.jpg",
+                            "originalFilename": "Moneyyyy",
+                            "format": "jpg",
+                            "createdAt": 1617008261430
+                        }
+                    ]
+                },
+                {
+                    "id": "c103",
+                    "title": "Whos the best person to fix my HTML snag?",
+                    "style": {
+                        "bgColor": "#cd8de5",
+                        "imgUrl": ""
+                    },
+                    "labels": [],
+                    "members": [
+                        {
+                            "_id": "u102",
+                            "username": "nofargabso",
+                            "fullname": "Nofar Gabso",
+                            "imgUrl": ""
+                        },
+                        {
+                            "_id": "u777",
+                            "fullname": "Itay Azulay",
+                            "username": "itayazulay",
+                            "imgUrl": ""
+                        }
+                    ],
+                    "comments": [],
+                    "checklists": [
+                        {
+                            "title": "Checklist",
+                            "todos": [
+                                {
+                                    "text": "HTML",
+                                    "isDone": false,
+                                    "id": "_7e4850owd4l"
+                                }
+                            ],
+                            "id": "_xw0q4n9gn4h"
+                        }
+                    ],
+                    "dueDate": {
+                        "date": "Apr 10, 2021",
+                        "isComplete": false
+                    }
+                },
+                {
+                    "id": "c101486",
+                    "title": "Support and assistance from third-party",
+                    "style": {
+                        "bgColor": "#5ba4cf",
+                        "imgUrl": ""
+                    },
+                    "labels": [
+                        {
+                            "id": "l102",
+                            "title": "Attention",
+                            "color": "yellow"
+                        },
+                        {
+                            "id": "l106",
+                            "title": "Optional",
+                            "color": "blue"
+                        }
+                    ],
+                    "members": [
+                        {
+                            "_id": "u777",
+                            "fullname": "Itay Azulay",
+                            "username": "itayazulay",
+                            "imgUrl": ""
+                        },
+                        {
+                            "_id": "u101",
+                            "username": "shachardorfzaun",
+                            "fullname": "Shachar Dorfzaun",
+                            "imgUrl": ""
+                        }
+                    ],
+                    "comments": [],
+                    "checklists": [],
+                    "dueDate": {
+                        "date": "Apr 2, 2021",
+                        "isComplete": true
+                    }
+                }
+            ],
+            "style": {
+                "bgColor": "#ebecf0"
+            }
+        },
+        {
+            "id": "g103",
+            "title": "To Do",
+            "tasks": [
+                {
+                    "id": "c1013",
+                    "title": "Sketch site banner",
+                    "style": {
+                        "bgColor": "#ffffff"
+                    },
+                    "labels": [
+                        {
+                            "id": "l103",
+                            "title": "",
+                            "color": "orange"
+                        },
+                        {
+                            "id": "l104",
+                            "title": "Important",
+                            "color": "red"
+                        }
+                    ],
+                    "members": [],
+                    "comments": [],
+                    "checklists": [],
+                    "dueDate": {
+                        "date": "Apr 1, 2021",
+                        "isComplete": false
+                    }
+                },
+                {
+                    "id": "c1034565",
+                    "title": "Final due date was moved again",
+                    "style": {
+                        "bgColor": "#ffffff",
+                        "imgUrl": "http://res.cloudinary.com/skopis87/image/upload/v1617008373/p2lpaobe2z58vhjwcxtb.png"
+                    },
+                    "labels": [],
+                    "members": [],
+                    "comments": [],
+                    "checklists": [],
+                    "attachments": [
+                        {
+                            "byMember": {
+                                "username": "lianskopis",
+                                "password": "123456",
+                                "fullname": "Lian Skopis",
+                                "_id": "eToR6"
+                            },
+                            "imgUrl": "http://res.cloudinary.com/skopis87/image/upload/v1617008373/p2lpaobe2z58vhjwcxtb.png",
+                            "originalFilename": "Vue",
+                            "format": "png",
+                            "createdAt": 1617008373234
+                        }
+                    ]
+                },
+                {
+                    "id": "c101234",
+                    "title": "Submit Q1 report",
+                    "style": {
+                        "bgColor": "#cd8de5",
+                        "imgUrl": ""
+                    },
+                    "labels": [],
+                    "comments": [],
+                    "members": [],
+                    "checklists": []
+                },
+                {
+                    "id": "c13453453",
+                    "title": "Sctarch the last update- it's back to green buttons",
+                    "style": {
+                        "bgColor": "#ffffff"
+                    },
+                    "labels": [],
+                    "members": [
+                        {
+                            "_id": "u101",
+                            "username": "shachardorfzaun",
+                            "fullname": "Shachar Dorfzaun",
+                            "imgUrl": ""
+                        },
+                        {
+                            "_id": "u177",
+                            "fullname": "Lian Skopis",
+                            "username": "lianskopis",
+                            "imgUrl": ""
+                        }
+                    ],
+                    "comments": [
+                        {
+                            "txt": "please go back to the previous concept",
+                            "id": "_sokckg0ysy",
+                            "createdAt": 1617006947699,
+                            "byMember": {
+                                "fullname": "Nofar",
+                                "_id": "I357J"
+                            }
+                        }
+                    ],
+                    "checklists": [],
+                    "dueDate": {
+                        "date": "Mar 30, 2021",
+                        "isComplete": false
+                    }
+                },
+                {
+                    "id": "c101239",
+                    "title": "Get Manager approval",
+                    "style": {
+                        "bgColor": "#7bc86c",
+                        "imgUrl": ""
+                    },
+                    "labels": [],
+                    "comments": [],
+                    "members": [],
+                    "checklists": []
+                },
+                {
+                    "id": "c10157",
+                    "title": "Social media assets",
+                    "style": {
+                        "bgColor": "#ffffff"
+                    },
+                    "labels": [
+                        {
+                            "id": "l105",
+                            "title": "",
+                            "color": "purple"
+                        },
+                        {
+                            "id": "l106",
+                            "title": "Optional",
+                            "color": "blue"
+                        }
+                    ],
+                    "description": "The twitter banner looks great, can we get another version in red",
+                    "comments": [
+                        {
+                            "id": "ZdPntmk",
+                            "txt": "Sure thing, just attached!",
+                            "createdAt": 1590956817412,
+                            "byMember": {
+                                "_id": "u101",
+                                "fullname": "Shachar Dorfzaun",
+                                "imgUrl": ""
+                            }
+                        }
+                    ],
+                    "checklists": [
+                        {
+                            "id": "YEhmFlk",
+                            "title": "Main checklist",
+                            "todos": [
+                                {
+                                    "id": "212jXxe",
+                                    "text": "Check the DB error",
+                                    "isDone": false
+                                }
+                            ]
+                        }
+                    ],
+                    "members": [
+                        {
+                            "_id": "u102",
+                            "fullname": "Nofar Gabso",
+                            "imgUrl": ""
+                        },
+                        {
+                            "_id": "u101",
+                            "username": "shachardorfzaun",
+                            "fullname": "Shachar Dorfzaun",
+                            "imgUrl": ""
+                        }
+                    ],
+                    "labelIds": [
+                        "101"
+                    ],
+                    "createdAt": 1590899770748,
+                    "byMember": {
+                        "_id": "u102",
+                        "fullname": "Nofar Gabso",
+                        "imgUrl": ""
+                    },
+                    "dueDate": {
+                        "date": "Apr 2, 2021",
+                        "isComplete": false
+                    }
+                },
+                {
+                    "id": "c1057",
+                    "title": "Please add permissions for new members",
+                    "style": {
+                        "bgColor": "#ffff",
+                        "imgUrl": "http://res.cloudinary.com/skopis87/image/upload/v1617007863/ytr0jxozhgeow4tytf48.png"
+                    },
+                    "labels": [],
+                    "description": "description",
+                    "comments": [
+                        {
+                            "id": "ZdPnmk",
+                            "txt": "@itayazulay please assist with this",
+                            "createdAt": 159099981,
+                            "byMember": {
+                                "_id": "u177",
+                                "fullname": "Lian Skopis",
+                                "imgUrl": ""
+                            }
+                        }
+                    ],
+                    "checklists": [
+                        {
+                            "id": "YEhmF",
+                            "title": "checklist",
+                            "todos": [
+                                {
+                                    "id": "212jX",
+                                    "text": "DropBox",
+                                    "isDone": true
+                                },
+                                {
+                                    "id": "212ghjX",
+                                    "text": "Slack",
+                                    "isDone": false
+                                },
+                                {
+                                    "id": "212g56hjX",
+                                    "text": "Google Calendar",
+                                    "isDone": false
+                                }
+                            ]
+                        }
+                    ],
+                    "members": [
+                        {
+                            "_id": "u101",
+                            "username": "shachardorfzaun",
+                            "fullname": "Shachar Dorfzaun",
+                            "imgUrl": ""
+                        }
+                    ],
+                    "labelIds": [
+                        "101"
+                    ],
+                    "createdAt": 1590899770748,
+                    "byMember": {
+                        "_id": "u177",
+                        "fullname": "Lian Skopis",
+                        "imgUrl": ""
+                    },
+                    "attachments": [
+                        {
+                            "byMember": {
+                                "username": "lianskopis",
+                                "password": "123456",
+                                "fullname": "Lian Skopis",
+                                "_id": "eToR6"
+                            },
+                            "imgUrl": "http://res.cloudinary.com/skopis87/image/upload/v1617007863/ytr0jxozhgeow4tytf48.png",
+                            "originalFilename": "premission",
+                            "format": "png",
+                            "createdAt": 1617007863312
+                        }
+                    ]
+                },
+                {
+                    "id": "c6753453",
+                    "title": "Last weekend before presentation!",
+                    "description": "Please make sure you're ready for the final Demo",
+                    "style": {
+                        "bgColor": "#ef7564",
+                        "imgUrl": ""
+                    },
+                    "labels": [],
+                    "members": [],
+                    "comments": [],
+                    "checklists": []
+                }
+            ],
+            "style": {
+                "bgColor": "#f4f5f7"
+            }
+        },
+        {
+            "id": "g111",
+            "title": "Pending",
+            "tasks": [
+                {
+                    "id": "c1017",
+                    "title": "Legal review",
+                    "style": {
+                        "bgColor": "#5ba4cf",
+                        "imgUrl": ""
+                    },
+                    "labels": [
+                        {
+                            "id": "l101",
+                            "title": "Done",
+                            "color": "green"
+                        }
+                    ],
+                    "members": [
+                        {
+                            "_id": "u101",
+                            "username": "shachardorfzaun",
+                            "fullname": "Shachar Dorfzaun",
+                            "imgUrl": ""
+                        },
+                        {
+                            "_id": "u177",
+                            "username": "lianskopis",
+                            "fullname": "Lian Skopis",
+                            "imgUrl": ""
+                        }
+                    ],
+                    "comments": [
+                        {
+                            "txt": "Please prepare for legal review",
+                            "id": "_yu6cgztur9",
+                            "createdAt": 1617006841136,
+                            "byMember": {
+                                "fullname": "Nofar",
+                                "_id": "I357J"
+                            }
+                        },
+                        {
+                            "txt": "Let me know when you're done",
+                            "id": "_y2zmhcjaoz8",
+                            "createdAt": 1617006849260,
+                            "byMember": {
+                                "fullname": "Nofar",
+                                "_id": "I357J"
+                            }
+                        }
+                    ],
+                    "checklists": [],
+                    "dueDate": {
+                        "date": "Mar 29, 2021",
+                        "isComplete": false
+                    }
+                },
+                {
+                    "id": "c101474",
+                    "title": "Await final approval",
+                    "style": {
+                        "bgColor": "#ffffff"
+                    },
+                    "labels": [
+                        {
+                            "id": "l105",
+                            "title": "",
+                            "color": "purple"
+                        },
+                        {
+                            "id": "l103",
+                            "title": "",
+                            "color": "orange"
+                        }
+                    ],
+                    "comments": [
+                        {
+                            "txt": "message",
+                            "id": "_747byqooclx",
+                            "createdAt": 1617006810885,
+                            "byMember": {
+                                "fullname": "Nofar",
+                                "_id": "I357J"
+                            }
+                        },
+                        {
+                            "txt": "please take care",
+                            "id": "_sxzb2gr5bne",
+                            "createdAt": 1617006826947,
+                            "byMember": {
+                                "fullname": "Nofar",
+                                "_id": "I357J"
+                            }
+                        }
+                    ],
+                    "members": [
+                        {
+                            "_id": "u101",
+                            "username": "shachardorfzaun",
+                            "fullname": "Shachar Dorfzaun",
+                            "imgUrl": ""
+                        },
+                        {
+                            "_id": "u102",
+                            "username": "nofargabso",
+                            "fullname": "Nofar Gabso",
+                            "imgUrl": ""
+                        }
+                    ],
+                    "checklists": [
+                        {
+                            "title": "Checklist",
+                            "todos": [
+                                {
+                                    "text": "Plan for approval",
+                                    "isDone": true,
+                                    "id": "_155u83d9oet"
+                                },
+                                {
+                                    "text": "Topics",
+                                    "isDone": true,
+                                    "id": "_hqf9k0825z5"
+                                }
+                            ],
+                            "id": "_p1xc7t2sfq9"
+                        }
+                    ],
+                    "dueDate": {
+                        "date": "Mar 25, 2021",
+                        "isComplete": true
+                    }
+                },
+                {
+                    "id": "_8egj4016uwo",
+                    "title": "Move DB to Mongo",
+                    "style": {
+                        "bgColor": "#ffff",
+                        "imgUrl": "http://res.cloudinary.com/skopis87/image/upload/v1617008054/jv9getgsfd6gmhrzpqwd.png"
+                    },
+                    "members": [],
+                    "comments": [],
+                    "labels": [],
+                    "checklists": [],
+                    "byUser": {
+                        "username": "lianskopis",
+                        "password": "123456",
+                        "fullname": "Lian Skopis",
+                        "_id": "eToR6"
+                    },
+                    "attachments": [
+                        {
+                            "byMember": {
+                                "username": "lianskopis",
+                                "password": "123456",
+                                "fullname": "Lian Skopis",
+                                "_id": "eToR6"
+                            },
+                            "imgUrl": "http://res.cloudinary.com/skopis87/image/upload/v1617008054/jv9getgsfd6gmhrzpqwd.png",
+                            "originalFilename": "Mongo",
+                            "format": "png",
+                            "createdAt": 1617008053569
+                        }
+                    ]
+                },
+                {
+                    "id": "c103344565",
+                    "title": "We're getting more funds",
+                    "style": {
+                        "bgColor": "#ffffff"
+                    },
+                    "labels": [
+                        {
+                            "id": "l104",
+                            "title": "Important",
+                            "color": "red"
+                        },
+                        {
+                            "id": "l102",
+                            "title": "Attention",
+                            "color": "yellow"
+                        }
+                    ],
+                    "members": [
+                        {
+                            "_id": "u101",
+                            "username": "shachardorfzaun",
+                            "fullname": "Shachar Dorfzaun",
+                            "imgUrl": ""
+                        },
+                        {
+                            "_id": "u102",
+                            "username": "nofargabso",
+                            "fullname": "Nofar Gabso",
+                            "imgUrl": ""
+                        },
+                        {
+                            "_id": "u177",
+                            "fullname": "Lian Skopis",
+                            "username": "lianskopis",
+                            "imgUrl": ""
+                        },
+                        {
+                            "_id": "u777",
+                            "fullname": "Itay Azulay",
+                            "username": "itayazulay",
+                            "imgUrl": ""
+                        }
+                    ],
+                    "comments": [
+                        {
+                            "txt": "Lets think how to use the funds in a smart way",
+                            "id": "_gosr8vtrfq",
+                            "createdAt": 1617007040764,
+                            "byMember": {
+                                "fullname": "Nofar",
+                                "_id": "I357J"
+                            }
+                        }
+                    ],
+                    "checklists": [],
+                    "dueDate": {
+                        "date": "Apr 6, 2021",
+                        "isComplete": false
+                    }
+                },
+                {
+                    "id": "c102374",
+                    "title": "Fix Margin issue",
+                    "style": {
+                        "bgColor": "#ffffff"
+                    },
+                    "labels": [
+                        {
+                            "id": "l104",
+                            "title": "Important",
+                            "color": "red"
+                        }
+                    ],
+                    "comments": [
+                        {
+                            "txt": "We need this fixed ASAP",
+                            "id": "_iyz9ha01jcr",
+                            "createdAt": 1617007644572,
+                            "byMember": {
+                                "fullname": "Lian Skopis",
+                                "_id": "eToR6"
+                            }
+                        }
+                    ],
+                    "members": [
+                        {
+                            "_id": "u101",
+                            "username": "shachardorfzaun",
+                            "fullname": "Shachar Dorfzaun",
+                            "imgUrl": ""
+                        }
+                    ],
+                    "checklists": [],
+                    "dueDate": {
+                        "date": "Mar 29, 2021",
+                        "isComplete": false
+                    }
+                },
+                {
+                    "id": "c1015",
+                    "title": "WorkFlow changed!!",
+                    "style": {
+                        "bgColor": "#f5dd29",
+                        "imgUrl": ""
+                    },
+                    "labels": [],
+                    "description": "description",
+                    "comments": [
+                        {
+                            "id": "ZdPntm",
+                            "txt": "also @mikel please CR this",
+                            "createdAt": 1590999817656,
+                            "byMember": {
+                                "_id": "u177",
+                                "fullname": "Lian Skopis",
+                                "imgUrl": ""
+                            }
+                        }
+                    ],
+                    "checklists": [
+                        {
+                            "id": "YEhmFl",
+                            "title": "checklist",
+                            "todos": [
+                                {
+                                    "id": "212jXx",
+                                    "text": "Find the document",
+                                    "isDone": false
+                                }
+                            ]
+                        }
+                    ],
+                    "members": [
+                        {
+                            "_id": "u102",
+                            "username": "nofargabso",
+                            "fullname": "Nofar Gabso",
+                            "imgUrl": ""
+                        },
+                        {
+                            "_id": "u101",
+                            "username": "shachardorfzaun",
+                            "fullname": "Shachar Dorfzaun",
+                            "imgUrl": ""
+                        }
+                    ],
+                    "labelIds": [
+                        "101"
+                    ],
+                    "createdAt": 1590899770748,
+                    "byMember": {
+                        "_id": "u102",
+                        "fullname": "Nofar Gabso",
+                        "imgUrl": ""
+                    }
+                }
+            ],
+            "style": {
+                "bgColor": "#cd8de5"
+            }
+        },
+        {
+            "id": "g10198",
+            "title": "In Progress",
+            "tasks": [
+                {
+                    "id": "c10198",
+                    "title": "QA for the new Dashboard",
+                    "style": {
+                        "bgColor": "#ffffff"
+                    },
+                    "members": [
+                        {
+                            "_id": "u777",
+                            "fullname": "Itay Azulay",
+                            "username": "itayazulay",
+                            "imgUrl": ""
+                        },
+                        {
+                            "_id": "u177",
+                            "fullname": "Lian Skopis",
+                            "username": "lianskopis",
+                            "imgUrl": ""
+                        }
+                    ],
+                    "labels": [],
+                    "comments": [
+                        {
+                            "txt": "Please QA this",
+                            "id": "_09aowxo4ugc",
+                            "createdAt": 1617006892448,
+                            "byMember": {
+                                "fullname": "Nofar",
+                                "_id": "I357J"
+                            }
+                        }
+                    ],
+                    "checklists": [],
+                    "dueDate": {
+                        "date": "Mar 29, 2021",
+                        "isComplete": false
+                    }
+                },
+                {
+                    "id": "c10134498",
+                    "title": "Schedule a meeting with the new Client",
+                    "style": {
+                        "bgColor": "#f5dd29",
+                        "imgUrl": ""
+                    },
+                    "labels": [],
+                    "members": [
+                        {
+                            "_id": "u102",
+                            "username": "nofargabso",
+                            "fullname": "Nofar Gabso",
+                            "imgUrl": ""
+                        },
+                        {
+                            "_id": "u177",
+                            "fullname": "Lian Skopis",
+                            "username": "lianskopis",
+                            "imgUrl": ""
+                        },
+                        {
+                            "_id": "u777",
+                            "fullname": "Itay Azulay",
+                            "username": "itayazulay",
+                            "imgUrl": ""
+                        }
+                    ],
+                    "comments": [],
+                    "checklists": [],
+                    "dueDate": {
+                        "date": "Mar 31, 2021",
+                        "isComplete": false
+                    }
+                },
+                {
+                    "id": "c101498",
+                    "title": "Home-Page doesn't work after the last push",
+                    "description": "Something is up after the last push-pull, Im getting a weird error, please look into this",
+                    "style": {
+                        "bgColor": "#ffffff"
+                    },
+                    "labels": [],
+                    "members": [],
+                    "comments": [],
+                    "checklists": []
+                },
+                {
+                    "id": "c101724",
+                    "title": "Change font on the entire app",
+                    "description": "Speak to me for the link",
+                    "style": {
+                        "bgColor": "#ffffff"
+                    },
+                    "labels": [],
+                    "members": [
+                        {
+                            "_id": "u177",
+                            "fullname": "Lian Skopis",
+                            "username": "lianskopis",
+                            "imgUrl": ""
+                        }
+                    ],
+                    "comments": [
+                        {
+                            "txt": "Please take care",
+                            "id": "_gecyavmgppk",
+                            "createdAt": 1617007622761,
+                            "byMember": {
+                                "fullname": "Lian Skopis",
+                                "_id": "eToR6"
+                            }
+                        }
+                    ],
+                    "checklists": [
+                        {
+                            "title": "Checklist",
+                            "todos": [
+                                {
+                                    "text": "Find the perfect font",
+                                    "isDone": true,
+                                    "id": "_jc2p3geg6r"
+                                },
+                                {
+                                    "text": "Change on entire app",
+                                    "isDone": false,
+                                    "id": "_9ina39ks7pu"
+                                }
+                            ],
+                            "id": "_vntsgwibbw"
+                        }
+                    ],
+                    "dueDate": {
+                        "date": "Apr 9, 2021",
+                        "isComplete": false
+                    }
+                },
+                {
+                    "id": "c101298",
+                    "title": "App header should be much bigger",
+                    "style": {
+                        "bgColor": "#ffffff"
+                    },
+                    "labels": [
+                        {
+                            "id": "l102",
+                            "title": "Attention",
+                            "color": "yellow"
+                        },
+                        {
+                            "id": "l103",
+                            "title": "",
+                            "color": "orange"
+                        }
+                    ],
+                    "members": [],
+                    "comments": [],
+                    "checklists": [
+                        {
+                            "title": "Checklist",
+                            "todos": [
+                                {
+                                    "text": "Find font size for header",
+                                    "isDone": true,
+                                    "id": "_ve1gnrbjp7s"
+                                }
+                            ],
+                            "id": "_xh93zlqt9v"
+                        }
+                    ],
+                    "dueDate": {
+                        "date": "Mar 28, 2021",
+                        "isComplete": true
+                    }
+                }
+            ],
+            "style": {
+                "bgColor": "#6deca9"
+            }
+        },
+        {
+            "id": "g10134",
+            "title": "Done",
+            "tasks": [
+                {
+                    "id": "c10134",
+                    "title": "Finalize Campaign Name: WeTaskBigger",
+                    "style": {
+                        "bgColor": "#ffffff"
+                    },
+                    "labels": [
+                        {
+                            "id": "l104",
+                            "title": "Important",
+                            "color": "red"
+                        },
+                        {
+                            "id": "l105",
+                            "title": "",
+                            "color": "purple"
+                        },
+                        {
+                            "id": "l106",
+                            "title": "Optional",
+                            "color": "blue"
+                        },
+                        {
+                            "id": "l103",
+                            "title": "",
+                            "color": "orange"
+                        },
+                        {
+                            "id": "l102",
+                            "title": "Attention",
+                            "color": "yellow"
+                        },
+                        {
+                            "id": "l101",
+                            "title": "Done",
+                            "color": "green"
+                        }
+                    ],
+                    "members": [
+                        {
+                            "_id": "u101",
+                            "username": "shachardorfzaun",
+                            "fullname": "Shachar Dorfzaun",
+                            "imgUrl": ""
+                        },
+                        {
+                            "_id": "u177",
+                            "username": "lianskopis",
+                            "fullname": "Lian Skopis",
+                            "imgUrl": ""
+                        }
+                    ],
+                    "comments": [
+                        {
+                            "txt": "Please assist with this",
+                            "id": "_avkfk3fevst",
+                            "createdAt": 1617007605137,
+                            "byMember": {
+                                "fullname": "Lian Skopis",
+                                "_id": "eToR6"
+                            }
+                        }
+                    ],
+                    "checklists": [],
+                    "dueDate": {
+                        "date": "Mar 30, 2021",
+                        "isComplete": true
+                    }
+                },
+                {
+                    "id": "c104",
+                    "title": "How can I get access to the old documentation?",
+                    "style": {
+                        "bgColor": "#ff8ed4",
+                        "imgUrl": ""
+                    },
+                    "labels": [],
+                    "description": "Please find a way to open this file",
+                    "comments": [
+                        {
+                            "id": "ZdPnm",
+                            "txt": "@nofargabso please look into this",
+                            "createdAt": 15140999887910,
+                            "byMember": {
+                                "_id": "u101",
+                                "fullname": "Shachar Dorfzaun",
+                                "imgUrl": ""
+                            }
+                        }
+                    ],
+                    "checklists": [
+                        {
+                            "id": "YEhmFtt",
+                            "title": "Checklist",
+                            "todos": [
+                                {
+                                    "id": "212jXz",
+                                    "text": "Get access to the ftp",
+                                    "isDone": false
+                                }
+                            ]
+                        }
+                    ],
+                    "members": [
+                        {
+                            "_id": "u177",
+                            "fullname": "Lian Skopis",
+                            "username": "lianskopis",
+                            "imgUrl": ""
+                        },
+                        {
+                            "_id": "u102",
+                            "username": "nofargabso",
+                            "fullname": "Nofar Gabso",
+                            "imgUrl": ""
+                        }
+                    ],
+                    "labelIds": [
+                        "101"
+                    ],
+                    "createdAt": 1590999730348,
+                    "byMember": {
+                        "_id": "u177",
+                        "fullname": "Lian Skopis",
+                        "imgUrl": ""
+                    }
+                },
+                {
+                    "id": "c1013453",
+                    "title": "h1 tag is too large for the boards page",
+                    "style": {
+                        "bgColor": "#ffffff"
+                    },
+                    "labels": [],
+                    "members": [
+                        {
+                            "_id": "u777",
+                            "fullname": "Itay Azulay",
+                            "username": "itayazulay",
+                            "imgUrl": ""
+                        }
+                    ],
+                    "comments": [],
+                    "checklists": [],
+                    "dueDate": {
+                        "date": "Mar 28, 2021",
+                        "isComplete": true
+                    }
+                },
+                {
+                    "id": "_cuggingdw7v",
+                    "title": "Change Homepage colors",
+                    "style": {
+                        "bgColor": "#ffff",
+                        "imgUrl": "http://res.cloudinary.com/skopis87/image/upload/v1617008104/fm8rn5vfutb1ma3iadbn.jpg"
+                    },
+                    "members": [],
+                    "comments": [],
+                    "labels": [],
+                    "checklists": [],
+                    "byUser": {
+                        "username": "lianskopis",
+                        "password": "123456",
+                        "fullname": "Lian Skopis",
+                        "_id": "eToR6"
+                    },
+                    "attachments": [
+                        {
+                            "byMember": {
+                                "username": "lianskopis",
+                                "password": "123456",
+                                "fullname": "Lian Skopis",
+                                "_id": "eToR6"
+                            },
+                            "imgUrl": "http://res.cloudinary.com/skopis87/image/upload/v1617008104/fm8rn5vfutb1ma3iadbn.jpg",
+                            "originalFilename": "color",
+                            "format": "jpg",
+                            "createdAt": 1617008104249
+                        }
+                    ]
+                },
+                {
+                    "id": "c10177",
+                    "title": "Freelancer contracts",
+                    "style": {
+                        "bgColor": "#ffffff"
+                    },
+                    "members": [
+                        {
+                            "_id": "u177",
+                            "fullname": "Lian Skopis",
+                            "username": "lianskopis",
+                            "imgUrl": ""
+                        },
+                        {
+                            "_id": "u102",
+                            "username": "nofargabso",
+                            "fullname": "Nofar Gabso",
+                            "imgUrl": ""
+                        }
+                    ],
+                    "labels": [],
+                    "comments": [
+                        {
+                            "txt": "Please go over the contract",
+                            "id": "_brrji2nddso",
+                            "createdAt": 1617007340138,
+                            "byMember": {
+                                "fullname": "Nofar",
+                                "_id": "I357J"
+                            }
+                        }
+                    ],
+                    "checklists": [],
+                    "dueDate": {
+                        "date": "Apr 1, 2021",
+                        "isComplete": true
+                    }
+                },
+                {
+                    "id": "c101434",
+                    "title": "Campaign Proposal",
+                    "style": {
+                        "bgColor": "#ffffff"
+                    },
+                    "labels": [],
+                    "comments": [],
+                    "members": [
+                        {
+                            "_id": "u101",
+                            "username": "shachardorfzaun",
+                            "fullname": "Shachar Dorfzaun",
+                            "imgUrl": ""
+                        },
+                        {
+                            "_id": "u102",
+                            "username": "nofargabso",
+                            "fullname": "Nofar Gabso",
+                            "imgUrl": ""
+                        },
+                        {
+                            "_id": "u177",
+                            "fullname": "Lian Skopis",
+                            "username": "lianskopis",
+                            "imgUrl": ""
+                        }
+                    ],
+                    "checklists": [
+                        {
+                            "title": "Checklist",
+                            "todos": [
+                                {
+                                    "text": "1",
+                                    "isDone": true,
+                                    "id": "_xokourpe9cc"
+                                },
+                                {
+                                    "text": "2",
+                                    "isDone": true,
+                                    "id": "_ownpr05xmek"
+                                },
+                                {
+                                    "text": "3",
+                                    "isDone": true,
+                                    "id": "_84tr432gfh"
+                                }
+                            ],
+                            "id": "_861u8d50u9h"
+                        }
+                    ],
+                    "dueDate": {
+                        "date": "Mar 19, 2021",
+                        "isComplete": true
+                    }
+                }
+            ],
+            "style": {
+                "bgColor": "#29cce5"
+            }
+        }
+    ],
+    "activities": [
+        {
+            "txt": "group moved",
+            "createdAt": 1617006500855,
+            "byMember": {
+                "username": "asd",
+                "password": "sad",
+                "fullname": "Nofar",
+                "_id": "I357J"
+            },
+            "task": {
+                "id": 0,
+                "title": ""
+            },
+            "id": "_txdxzpbsro"
+        },
+        {
+            "txt": "group moved",
+            "createdAt": 1617006498478,
+            "byMember": {
+                "username": "asd",
+                "password": "sad",
+                "fullname": "Nofar",
+                "_id": "I357J"
+            },
+            "task": {
+                "id": 0,
+                "title": ""
+            },
+            "id": "_7dv3hubp02a"
+        },
+        {
+            "txt": "group moved",
+            "createdAt": 1617006493414,
+            "byMember": {
+                "username": "asd",
+                "password": "sad",
+                "fullname": "Nofar",
+                "_id": "I357J"
+            },
+            "task": {
+                "id": 0,
+                "title": ""
+            },
+            "id": "_cea41abnf8v"
+        },
+        {
+            "txt": "group moved",
+            "createdAt": 1617006489166,
+            "byMember": {
+                "username": "asd",
+                "password": "sad",
+                "fullname": "Nofar",
+                "_id": "I357J"
+            },
+            "task": {
+                "id": 0,
+                "title": ""
+            },
+            "id": "_77qg113zt4v"
+        },
+        {
+            "txt": "Task: Social media assets moved from the group: Blocked to: Done",
+            "createdAt": 1617006482794,
+            "byMember": {
+                "username": "asd",
+                "password": "sad",
+                "fullname": "Nofar",
+                "_id": "I357J"
+            },
+            "task": {
+                "id": 0,
+                "title": ""
+            },
+            "id": "_2sh4kz9i8cm"
+        },
+        {
+            "txt": "Task: Freelancer contracts moved from the group: Blocked to: Done",
+            "createdAt": 1617006480041,
+            "byMember": {
+                "username": "asd",
+                "password": "sad",
+                "fullname": "Nofar",
+                "_id": "I357J"
+            },
+            "task": {
+                "id": 0,
+                "title": ""
+            },
+            "id": "_yo9b1foqi9q"
+        },
+        {
+            "txt": "Task: Freelancer contracts moved from the group: Blocked to: Blocked",
+            "createdAt": 1617006477417,
+            "byMember": {
+                "username": "asd",
+                "password": "sad",
+                "fullname": "Nofar",
+                "_id": "I357J"
+            },
+            "task": {
+                "id": 0,
+                "title": ""
+            },
+            "id": "_gudqpqj6ate"
+        },
+        {
+            "txt": "Added CheckList: Checklist",
+            "createdAt": 1617006252036,
+            "byMember": {
+                "username": "asd",
+                "password": "sad",
+                "fullname": "Nofar",
+                "_id": "I357J"
+            },
+            "task": {
+                "id": "c101434",
+                "title": "Campaign Proposal"
+            },
+            "id": "_be29dc9405m"
+        },
+        {
+            "txt": "Added Due Date",
+            "createdAt": 1617006243023,
+            "byMember": {
+                "username": "asd",
+                "password": "sad",
+                "fullname": "Nofar",
+                "_id": "I357J"
+            },
+            "task": {
+                "id": "c101434",
+                "title": "Campaign Proposal"
+            },
+            "id": "_5xh6llg4y9p"
+        },
+        {
+            "txt": "Added a Label",
+            "createdAt": 1617006231807,
+            "byMember": {
+                "username": "asd",
+                "password": "sad",
+                "fullname": "Nofar",
+                "_id": "I357J"
+            },
+            "task": {
+                "id": "c10134",
+                "title": "Finalize Campaign Name: WeTaskBigger"
+            },
+            "id": "_3y4ip52r3kj"
+        },
+        {
+            "txt": "Removed a Label",
+            "createdAt": 1617006231097,
+            "byMember": {
+                "username": "asd",
+                "password": "sad",
+                "fullname": "Nofar",
+                "_id": "I357J"
+            },
+            "task": {
+                "id": "c10134",
+                "title": "Finalize Campaign Name: WeTaskBigger"
+            },
+            "id": "_y6j090xkkkd"
+        },
+        {
+            "txt": "Added a Label",
+            "createdAt": 1617006230039,
+            "byMember": {
+                "username": "asd",
+                "password": "sad",
+                "fullname": "Nofar",
+                "_id": "I357J"
+            },
+            "task": {
+                "id": "c10134",
+                "title": "Finalize Campaign Name: WeTaskBigger"
+            },
+            "id": "_ba9t23gj86q"
+        },
+        {
+            "txt": "Added a Label",
+            "createdAt": 1617006229510,
+            "byMember": {
+                "username": "asd",
+                "password": "sad",
+                "fullname": "Nofar",
+                "_id": "I357J"
+            },
+            "task": {
+                "id": "c10134",
+                "title": "Finalize Campaign Name: WeTaskBigger"
+            },
+            "id": "_dlkd8gxaanb"
+        },
+        {
+            "txt": "Added a Label",
+            "createdAt": 1617006229179,
+            "byMember": {
+                "username": "asd",
+                "password": "sad",
+                "fullname": "Nofar",
+                "_id": "I357J"
+            },
+            "task": {
+                "id": "c10134",
+                "title": "Finalize Campaign Name: WeTaskBigger"
+            },
+            "id": "_suzwgp7c0p"
+        },
+        {
+            "txt": "Added a Label",
+            "createdAt": 1617006228455,
+            "byMember": {
+                "username": "asd",
+                "password": "sad",
+                "fullname": "Nofar",
+                "_id": "I357J"
+            },
+            "task": {
+                "id": "c10134",
+                "title": "Finalize Campaign Name: WeTaskBigger"
+            },
+            "id": "_ormr7zsjm5"
+        },
+        {
+            "txt": "Added a Label",
+            "createdAt": 1617006228048,
+            "byMember": {
+                "username": "asd",
+                "password": "sad",
+                "fullname": "Nofar",
+                "_id": "I357J"
+            },
+            "task": {
+                "id": "c10134",
+                "title": "Finalize Campaign Name: WeTaskBigger"
+            },
+            "id": "_tu3mdp4ih3p"
+        },
+        {
+            "txt": "Added a Label",
+            "createdAt": 1617006227252,
+            "byMember": {
+                "username": "asd",
+                "password": "sad",
+                "fullname": "Nofar",
+                "_id": "I357J"
+            },
+            "task": {
+                "id": "c10134",
+                "title": "Finalize Campaign Name: WeTaskBigger"
+            },
+            "id": "_3mcq3mf7w2z"
+        },
+        {
+            "txt": "Task: Whos the best person to fix my HTML snag? moved from the group: Questions for Next Meeting to: Questions for Next Meeting",
+            "createdAt": 1617006104606,
+            "byMember": {
+                "username": "asd",
+                "password": "sad",
+                "fullname": "Nofar",
+                "_id": "I357J"
+            },
+            "task": {
+                "id": 0,
+                "title": ""
+            },
+            "id": "_dslu1bjbilf"
+        },
+        {
+            "txt": "Added Itay Azulay to task Schedule a meeting with the new Client",
+            "createdAt": 1617006023469,
+            "byMember": {
+                "username": "asd",
+                "password": "sad",
+                "fullname": "Nofar",
+                "_id": "I357J"
+            },
+            "task": {
+                "id": "c10134498",
+                "title": "Schedule a meeting with the new Client"
+            },
+            "id": "_otgphwsze7l"
+        },
+        {
+            "txt": "Added Lian Skopis to task Schedule a meeting with the new Client",
+            "createdAt": 1617006020592,
+            "byMember": {
+                "username": "asd",
+                "password": "sad",
+                "fullname": "Nofar",
+                "_id": "I357J"
+            },
+            "task": {
+                "id": "c10134498",
+                "title": "Schedule a meeting with the new Client"
+            },
+            "id": "_gxnuh6jruv4"
+        },
+        {
+            "txt": "Added Nofar Gabso to task Schedule a meeting with the new Client",
+            "createdAt": 1617006019723,
+            "byMember": {
+                "username": "asd",
+                "password": "sad",
+                "fullname": "Nofar",
+                "_id": "I357J"
+            },
+            "task": {
+                "id": "c10134498",
+                "title": "Schedule a meeting with the new Client"
+            },
+            "id": "_p339ra4mrur"
+        },
+        {
+            "txt": "Added Due Date",
+            "createdAt": 1617006001795,
+            "byMember": {
+                "username": "asd",
+                "password": "sad",
+                "fullname": "Nofar",
+                "_id": "I357J"
+            },
+            "task": {
+                "id": "c10134498",
+                "title": "Schedule a meeting with the new Client"
+            },
+            "id": "_dd41uzubo99"
+        },
+        {
+            "txt": "Added CheckList: Checklist",
+            "createdAt": 1617005979287,
+            "byMember": {
+                "username": "asd",
+                "password": "sad",
+                "fullname": "Nofar",
+                "_id": "I357J"
+            },
+            "task": {
+                "id": "c101298",
+                "title": "App header should be much bigger"
+            },
+            "id": "_ixwb3blxb0g"
+        },
+        {
+            "txt": "Added a Label",
+            "createdAt": 1617005939852,
+            "byMember": {
+                "username": "asd",
+                "password": "sad",
+                "fullname": "Nofar",
+                "_id": "I357J"
+            },
+            "task": {
+                "id": "c101298",
+                "title": "App header should be much bigger"
+            },
+            "id": "_1yimexqws6y"
+        },
+        {
+            "txt": "Added a Label",
+            "createdAt": 1617005939104,
+            "byMember": {
+                "username": "asd",
+                "password": "sad",
+                "fullname": "Nofar",
+                "_id": "I357J"
+            },
+            "task": {
+                "id": "c101298",
+                "title": "App header should be much bigger"
+            },
+            "id": "_sw5u639t7bi"
+        },
+        {
+            "txt": "Marked Task as Complete",
+            "createdAt": 1617005856281,
+            "byMember": {
+                "username": "asd",
+                "password": "sad",
+                "fullname": "Nofar",
+                "_id": "I357J"
+            },
+            "task": {
+                "id": "c101298",
+                "title": "App header should be much bigger"
+            },
+            "id": "_fvz6v74mozc"
+        },
+        {
+            "txt": "Marked Task as Incomplete",
+            "createdAt": 1617005855224,
+            "byMember": {
+                "username": "asd",
+                "password": "sad",
+                "fullname": "Nofar",
+                "_id": "I357J"
+            },
+            "task": {
+                "id": "c101298",
+                "title": "App header should be much bigger"
+            },
+            "id": "_2hxitnrj53i"
+        },
+        {
+            "txt": "Marked Task as Complete",
+            "createdAt": 1617005841409,
+            "byMember": {
+                "username": "asd",
+                "password": "sad",
+                "fullname": "Nofar",
+                "_id": "I357J"
+            },
+            "task": {
+                "id": "c101298",
+                "title": "App header should be much bigger"
+            },
+            "id": "_l0qt5hf66pr"
+        },
+        {
+            "txt": "Added Due Date",
+            "createdAt": 1617005838857,
+            "byMember": {
+                "username": "asd",
+                "password": "sad",
+                "fullname": "Nofar",
+                "_id": "I357J"
+            },
+            "task": {
+                "id": "c101298",
+                "title": "App header should be much bigger"
+            },
+            "id": "_d0l9m6giq0w"
+        },
+        {
+            "txt": "Added Due Date",
+            "createdAt": 1617005829486,
+            "byMember": {
+                "username": "asd",
+                "password": "sad",
+                "fullname": "Nofar",
+                "_id": "I357J"
+            },
+            "task": {
+                "id": "c10198",
+                "title": "QA for the new Dashboard"
+            },
+            "id": "_7ju9rxys6e"
+        },
+        {
+            "txt": "Added Due Date",
+            "createdAt": 1617005819789,
+            "byMember": {
+                "username": "asd",
+                "password": "sad",
+                "fullname": "Nofar",
+                "_id": "I357J"
+            },
+            "task": {
+                "id": "c10165486",
+                "title": "In-Company Funds"
+            },
+            "id": "_7z66wmd3pe5"
+        },
+        {
+            "txt": "Added task: Weekly Updates to group: Project Resources",
+            "createdAt": 1617005813880,
+            "byMember": {
+                "username": "asd",
+                "password": "sad",
+                "fullname": "Nofar",
+                "_id": "I357J"
+            },
+            "task": {
+                "id": "c1012",
+                "title": "Weekly Updates",
+                "style": {
+                    "bgColor": "#ffffff"
+                },
+                "labels": [],
+                "members": [],
+                "comments": [],
+                "checklists": [],
+                "dueDate": {
+                    "date": "Mar 31, 2021",
+                    "isComplete": true
+                }
+            },
+            "id": "_3s3y3cjqddt"
+        },
+        {
+            "txt": "Added Due Date",
+            "createdAt": 1617005810057,
+            "byMember": {
+                "username": "asd",
+                "password": "sad",
+                "fullname": "Nofar",
+                "_id": "I357J"
+            },
+            "task": {
+                "id": "c1014",
+                "title": "Stakeholders"
+            },
+            "id": "_kslshvjtfds"
+        },
+        {
+            "txt": "Added Due Date",
+            "createdAt": 1617005801108,
+            "byMember": {
+                "username": "asd",
+                "password": "sad",
+                "fullname": "Nofar",
+                "_id": "I357J"
+            },
+            "task": {
+                "id": "c1012",
+                "title": "Weekly Updates"
+            },
+            "id": "_80msy1f03b4"
+        },
+        {
+            "id": "a1015",
+            "txt": "Added a comment",
+            "createdAt": 1545145678934,
+            "byMember": {
+                "_id": "u102",
+                "fullname": "Nofar Gabso",
+                "imgUrl": ""
+            },
+            "task": {
+                "id": "c10134",
+                "title": "Finalize Campaign Name: WeTaskBigger"
+            }
+        },
+        {
+            "id": "a102",
+            "txt": "Changed DueDate",
+            "createdAt": 1545144567894,
+            "byMember": {
+                "_id": "u177",
+                "fullname": "Lian Skopis",
+                "imgUrl": ""
+            },
+            "task": {
+                "id": "c101234",
+                "title": "Submit Q1 report"
+            }
+        },
+        {
+            "id": "a103",
+            "txt": "Added Label",
+            "createdAt": 1545143456731,
+            "byMember": {
+                "_id": "u102",
+                "fullname": "Nofar Gabso",
+                "imgUrl": ""
+            },
+            "task": {
+                "id": "c10177",
+                "title": "Freelancer contracts"
+            }
+        },
+        {
+            "txt": "Added Itay Azulay to task Support and assistance from third-party",
+            "createdAt": 1617006666604,
+            "byMember": {
+                "username": "asd",
+                "password": "sad",
+                "fullname": "Nofar",
+                "_id": "I357J"
+            },
+            "task": {
+                "id": "c101486",
+                "title": "Support and assistance from third-party"
+            },
+            "id": "_z3kfm25c6x"
+        },
+        {
+            "txt": "Added Shachar Dorfzaun to task Support and assistance from third-party",
+            "createdAt": 1617006667788,
+            "byMember": {
+                "username": "asd",
+                "password": "sad",
+                "fullname": "Nofar",
+                "_id": "I357J"
+            },
+            "task": {
+                "id": "c101486",
+                "title": "Support and assistance from third-party"
+            },
+            "id": "_682kj5vvn8g"
+        },
+        {
+            "txt": "Added a Label",
+            "createdAt": 1617006673911,
+            "byMember": {
+                "username": "asd",
+                "password": "sad",
+                "fullname": "Nofar",
+                "_id": "I357J"
+            },
+            "task": {
+                "id": "c101486",
+                "title": "Support and assistance from third-party"
+            },
+            "id": "_ipuzgpxaan8"
+        },
+        {
+            "txt": "Added a Label",
+            "createdAt": 1617006674978,
+            "byMember": {
+                "username": "asd",
+                "password": "sad",
+                "fullname": "Nofar",
+                "_id": "I357J"
+            },
+            "task": {
+                "id": "c101486",
+                "title": "Support and assistance from third-party"
+            },
+            "id": "_61smgj1hquk"
+        },
+        {
+            "txt": "Added Due Date",
+            "createdAt": 1617006682051,
+            "byMember": {
+                "username": "asd",
+                "password": "sad",
+                "fullname": "Nofar",
+                "_id": "I357J"
+            },
+            "task": {
+                "id": "c101486",
+                "title": "Support and assistance from third-party"
+            },
+            "id": "_c7awqi11d88"
+        },
+        {
+            "txt": "Marked Task as Complete",
+            "createdAt": 1617006685110,
+            "byMember": {
+                "username": "asd",
+                "password": "sad",
+                "fullname": "Nofar",
+                "_id": "I357J"
+            },
+            "task": {
+                "id": "c101486",
+                "title": "Support and assistance from third-party"
+            },
+            "id": "_gmnsw06zpnu"
+        },
+        {
+            "txt": "Added CheckList: Checklist",
+            "createdAt": 1617006735485,
+            "byMember": {
+                "username": "asd",
+                "password": "sad",
+                "fullname": "Nofar",
+                "_id": "I357J"
+            },
+            "task": {
+                "id": "c101724",
+                "title": "Change font on the entire app"
+            },
+            "id": "_3pxgbx9a0xk"
+        },
+        {
+            "txt": "Added Due Date",
+            "createdAt": 1617006742364,
+            "byMember": {
+                "username": "asd",
+                "password": "sad",
+                "fullname": "Nofar",
+                "_id": "I357J"
+            },
+            "task": {
+                "id": "c101724",
+                "title": "Change font on the entire app"
+            },
+            "id": "_imit3eyi4b"
+        },
+        {
+            "txt": "Added Nofar Gabso to task Stakeholders",
+            "createdAt": 1617006752545,
+            "byMember": {
+                "username": "asd",
+                "password": "sad",
+                "fullname": "Nofar",
+                "_id": "I357J"
+            },
+            "task": {
+                "id": "c1014",
+                "title": "Stakeholders"
+            },
+            "id": "_kebel06xiid"
+        },
+        {
+            "txt": "Added Shachar Dorfzaun to task Await final approval",
+            "createdAt": 1617006764420,
+            "byMember": {
+                "username": "asd",
+                "password": "sad",
+                "fullname": "Nofar",
+                "_id": "I357J"
+            },
+            "task": {
+                "id": "c101474",
+                "title": "Await final approval"
+            },
+            "id": "_a83wjpzwm04"
+        },
+        {
+            "txt": "Added Nofar Gabso to task Await final approval",
+            "createdAt": 1617006765161,
+            "byMember": {
+                "username": "asd",
+                "password": "sad",
+                "fullname": "Nofar",
+                "_id": "I357J"
+            },
+            "task": {
+                "id": "c101474",
+                "title": "Await final approval"
+            },
+            "id": "_fn419cbfw8"
+        },
+        {
+            "txt": "Added a Label",
+            "createdAt": 1617006768226,
+            "byMember": {
+                "username": "asd",
+                "password": "sad",
+                "fullname": "Nofar",
+                "_id": "I357J"
+            },
+            "task": {
+                "id": "c101474",
+                "title": "Await final approval"
+            },
+            "id": "_b31dyuxhrye"
+        },
+        {
+            "txt": "Added a Label",
+            "createdAt": 1617006769918,
+            "byMember": {
+                "username": "asd",
+                "password": "sad",
+                "fullname": "Nofar",
+                "_id": "I357J"
+            },
+            "task": {
+                "id": "c101474",
+                "title": "Await final approval"
+            },
+            "id": "_te7glld3q98"
+        },
+        {
+            "txt": "Added Due Date",
+            "createdAt": 1617006775304,
+            "byMember": {
+                "username": "asd",
+                "password": "sad",
+                "fullname": "Nofar",
+                "_id": "I357J"
+            },
+            "task": {
+                "id": "c101474",
+                "title": "Await final approval"
+            },
+            "id": "_h6di9y0mkrt"
+        },
+        {
+            "txt": "Marked Task as Complete",
+            "createdAt": 1617006776850,
+            "byMember": {
+                "username": "asd",
+                "password": "sad",
+                "fullname": "Nofar",
+                "_id": "I357J"
+            },
+            "task": {
+                "id": "c101474",
+                "title": "Await final approval"
+            },
+            "id": "_y56x0junky"
+        },
+        {
+            "txt": "Added CheckList: Checklist",
+            "createdAt": 1617006800729,
+            "byMember": {
+                "username": "asd",
+                "password": "sad",
+                "fullname": "Nofar",
+                "_id": "I357J"
+            },
+            "task": {
+                "id": "c101474",
+                "title": "Await final approval"
+            },
+            "id": "_4fhjeqsrm88"
+        },
+        {
+            "txt": "Added a Label",
+            "createdAt": 1617006856852,
+            "byMember": {
+                "username": "asd",
+                "password": "sad",
+                "fullname": "Nofar",
+                "_id": "I357J"
+            },
+            "task": {
+                "id": "c1017",
+                "title": "Legal review"
+            },
+            "id": "_h26gnsqrwvk"
+        },
+        {
+            "txt": "Added Due Date",
+            "createdAt": 1617006861927,
+            "byMember": {
+                "username": "asd",
+                "password": "sad",
+                "fullname": "Nofar",
+                "_id": "I357J"
+            },
+            "task": {
+                "id": "c1017",
+                "title": "Legal review"
+            },
+            "id": "_u2w3rn41xld"
+        },
+        {
+            "txt": "Marked Task as Complete",
+            "createdAt": 1617006863172,
+            "byMember": {
+                "username": "asd",
+                "password": "sad",
+                "fullname": "Nofar",
+                "_id": "I357J"
+            },
+            "task": {
+                "id": "c1017",
+                "title": "Legal review"
+            },
+            "id": "_3dem0bbp3v8"
+        },
+        {
+            "txt": "Added task: App header should be much bigger to group: In Progress",
+            "createdAt": 1617006869603,
+            "byMember": {
+                "username": "asd",
+                "password": "sad",
+                "fullname": "Nofar",
+                "_id": "I357J"
+            },
+            "task": {
+                "id": "c101298",
+                "title": "App header should be much bigger",
+                "style": {
+                    "bgColor": "#ffffff"
+                },
+                "labels": [
+                    {
+                        "id": "l102",
+                        "title": "Attention",
+                        "color": "yellow"
+                    },
+                    {
+                        "id": "l103",
+                        "title": "",
+                        "color": "orange"
+                    }
+                ],
+                "members": [],
+                "comments": [],
+                "checklists": [
+                    {
+                        "title": "Checklist",
+                        "todos": [
+                            {
+                                "text": "Find font size for header",
+                                "isDone": true,
+                                "id": "_ve1gnrbjp7s"
+                            }
+                        ],
+                        "id": "_xh93zlqt9v"
+                    }
+                ],
+                "dueDate": {
+                    "date": "Mar 28, 2021",
+                    "isComplete": false
+                }
+            },
+            "id": "_wlenmr5o3rf"
+        },
+        {
+            "txt": "Added task: App header should be much bigger to group: In Progress",
+            "createdAt": 1617006872098,
+            "byMember": {
+                "username": "asd",
+                "password": "sad",
+                "fullname": "Nofar",
+                "_id": "I357J"
+            },
+            "task": {
+                "id": "c101298",
+                "title": "App header should be much bigger",
+                "style": {
+                    "bgColor": "#ffffff"
+                },
+                "labels": [
+                    {
+                        "id": "l102",
+                        "title": "Attention",
+                        "color": "yellow"
+                    },
+                    {
+                        "id": "l103",
+                        "title": "",
+                        "color": "orange"
+                    }
+                ],
+                "members": [],
+                "comments": [],
+                "checklists": [
+                    {
+                        "title": "Checklist",
+                        "todos": [
+                            {
+                                "text": "Find font size for header",
+                                "isDone": true,
+                                "id": "_ve1gnrbjp7s"
+                            }
+                        ],
+                        "id": "_xh93zlqt9v"
+                    }
+                ],
+                "dueDate": {
+                    "date": "Mar 28, 2021",
+                    "isComplete": true
+                }
+            },
+            "id": "_yli1zmsn5eb"
+        },
+        {
+            "txt": "Added task: Legal review to group: Pending",
+            "createdAt": 1617006874161,
+            "byMember": {
+                "username": "asd",
+                "password": "sad",
+                "fullname": "Nofar",
+                "_id": "I357J"
+            },
+            "task": {
+                "id": "c1017",
+                "title": "Legal review",
+                "style": {
+                    "bgColor": "#ffffff"
+                },
+                "labels": [
+                    {
+                        "id": "l101",
+                        "title": "Done",
+                        "color": "green"
+                    }
+                ],
+                "members": [
+                    {
+                        "_id": "u101",
+                        "username": "shachardorfzaun",
+                        "fullname": "Shachar Dorfzaun",
+                        "imgUrl": ""
+                    },
+                    {
+                        "_id": "u177",
+                        "username": "lianskopis",
+                        "fullname": "Lian Skopis",
+                        "imgUrl": ""
+                    }
+                ],
+                "comments": [
+                    {
+                        "txt": "Please prepare for legal review",
+                        "id": "_yu6cgztur9",
+                        "createdAt": 1617006841136,
+                        "byMember": {
+                            "fullname": "Nofar",
+                            "_id": "I357J"
+                        }
+                    },
+                    {
+                        "txt": "Let me know when you're done",
+                        "id": "_y2zmhcjaoz8",
+                        "createdAt": 1617006849260,
+                        "byMember": {
+                            "fullname": "Nofar",
+                            "_id": "I357J"
+                        }
+                    }
+                ],
+                "checklists": [],
+                "dueDate": {
+                    "date": "Mar 29, 2021",
+                    "isComplete": false
+                }
+            },
+            "id": "_cd2ef657ywi"
+        },
+        {
+            "txt": "Added Due Date",
+            "createdAt": 1617006916301,
+            "byMember": {
+                "username": "asd",
+                "password": "sad",
+                "fullname": "Nofar",
+                "_id": "I357J"
+            },
+            "task": {
+                "id": "c13453453",
+                "title": "Sctarch the last update- it's back to green buttons"
+            },
+            "id": "_z9b7iu4fn1"
+        },
+        {
+            "txt": "Added Shachar Dorfzaun to task Sctarch the last update- it's back to green buttons",
+            "createdAt": 1617006953480,
+            "byMember": {
+                "username": "asd",
+                "password": "sad",
+                "fullname": "Nofar",
+                "_id": "I357J"
+            },
+            "task": {
+                "id": "c13453453",
+                "title": "Sctarch the last update- it's back to green buttons"
+            },
+            "id": "_sdihyx483fd"
+        },
+        {
+            "txt": "Added Lian Skopis to task Sctarch the last update- it's back to green buttons",
+            "createdAt": 1617006954102,
+            "byMember": {
+                "username": "asd",
+                "password": "sad",
+                "fullname": "Nofar",
+                "_id": "I357J"
+            },
+            "task": {
+                "id": "c13453453",
+                "title": "Sctarch the last update- it's back to green buttons"
+            },
+            "id": "_60idieti227"
+        },
+        {
+            "txt": "Added Nofar Gabso to task Whos the best person to fix my HTML snag?",
+            "createdAt": 1617006961915,
+            "byMember": {
+                "username": "asd",
+                "password": "sad",
+                "fullname": "Nofar",
+                "_id": "I357J"
+            },
+            "task": {
+                "id": "c103",
+                "title": "Whos the best person to fix my HTML snag?"
+            },
+            "id": "_hn3i9hs62ab"
+        },
+        {
+            "txt": "Added Itay Azulay to task Whos the best person to fix my HTML snag?",
+            "createdAt": 1617006962601,
+            "byMember": {
+                "username": "asd",
+                "password": "sad",
+                "fullname": "Nofar",
+                "_id": "I357J"
+            },
+            "task": {
+                "id": "c103",
+                "title": "Whos the best person to fix my HTML snag?"
+            },
+            "id": "_h52smweoubv"
+        },
+        {
+            "txt": "Added CheckList: Checklist",
+            "createdAt": 1617006979607,
+            "byMember": {
+                "username": "asd",
+                "password": "sad",
+                "fullname": "Nofar",
+                "_id": "I357J"
+            },
+            "task": {
+                "id": "c103",
+                "title": "Whos the best person to fix my HTML snag?"
+            },
+            "id": "_8sgl6bs4bqb"
+        },
+        {
+            "txt": "Added Due Date",
+            "createdAt": 1617006987051,
+            "byMember": {
+                "username": "asd",
+                "password": "sad",
+                "fullname": "Nofar",
+                "_id": "I357J"
+            },
+            "task": {
+                "id": "c103",
+                "title": "Whos the best person to fix my HTML snag?"
+            },
+            "id": "_b0x5fzeks8"
+        },
+        {
+            "txt": "Task: App header should be much bigger moved from the group: In Progress to: In Progress",
+            "createdAt": 1617006996166,
+            "byMember": {
+                "username": "asd",
+                "password": "sad",
+                "fullname": "Nofar",
+                "_id": "I357J"
+            },
+            "task": {
+                "id": 0,
+                "title": ""
+            },
+            "id": "_30xiwnmbk4v"
+        },
+        {
+            "txt": "Task: Submit Q1 report moved from the group: Done to: Done",
+            "createdAt": 1617007000103,
+            "byMember": {
+                "username": "asd",
+                "password": "sad",
+                "fullname": "Nofar",
+                "_id": "I357J"
+            },
+            "task": {
+                "id": 0,
+                "title": ""
+            },
+            "id": "_zmyauwv9zy"
+        },
+        {
+            "txt": "Added Due Date",
+            "createdAt": 1617007010681,
+            "byMember": {
+                "username": "asd",
+                "password": "sad",
+                "fullname": "Nofar",
+                "_id": "I357J"
+            },
+            "task": {
+                "id": "c103344565",
+                "title": "We're getting more funds"
+            },
+            "id": "_qqmvz9xc0zf"
+        },
+        {
+            "txt": "Added Shachar Dorfzaun to task We're getting more funds",
+            "createdAt": 1617007043232,
+            "byMember": {
+                "username": "asd",
+                "password": "sad",
+                "fullname": "Nofar",
+                "_id": "I357J"
+            },
+            "task": {
+                "id": "c103344565",
+                "title": "We're getting more funds"
+            },
+            "id": "_v6k33afv3gm"
+        },
+        {
+            "txt": "Added Nofar Gabso to task We're getting more funds",
+            "createdAt": 1617007043794,
+            "byMember": {
+                "username": "asd",
+                "password": "sad",
+                "fullname": "Nofar",
+                "_id": "I357J"
+            },
+            "task": {
+                "id": "c103344565",
+                "title": "We're getting more funds"
+            },
+            "id": "_peaj2l8dlc"
+        },
+        {
+            "txt": "Added Lian Skopis to task We're getting more funds",
+            "createdAt": 1617007044353,
+            "byMember": {
+                "username": "asd",
+                "password": "sad",
+                "fullname": "Nofar",
+                "_id": "I357J"
+            },
+            "task": {
+                "id": "c103344565",
+                "title": "We're getting more funds"
+            },
+            "id": "_efc4xwz94zn"
+        },
+        {
+            "txt": "Added Itay Azulay to task We're getting more funds",
+            "createdAt": 1617007044980,
+            "byMember": {
+                "username": "asd",
+                "password": "sad",
+                "fullname": "Nofar",
+                "_id": "I357J"
+            },
+            "task": {
+                "id": "c103344565",
+                "title": "We're getting more funds"
+            },
+            "id": "_o31w38qd66a"
+        },
+        {
+            "txt": "Added a Label",
+            "createdAt": 1617007051669,
+            "byMember": {
+                "username": "asd",
+                "password": "sad",
+                "fullname": "Nofar",
+                "_id": "I357J"
+            },
+            "task": {
+                "id": "c103344565",
+                "title": "We're getting more funds"
+            },
+            "id": "_eeit414yypb"
+        },
+        {
+            "txt": "Added a Label",
+            "createdAt": 1617007053169,
+            "byMember": {
+                "username": "asd",
+                "password": "sad",
+                "fullname": "Nofar",
+                "_id": "I357J"
+            },
+            "task": {
+                "id": "c103344565",
+                "title": "We're getting more funds"
+            },
+            "id": "_lyn92yutsdf"
+        },
+        {
+            "txt": "Added Due Date",
+            "createdAt": 1617007129874,
+            "byMember": {
+                "username": "asd",
+                "password": "sad",
+                "fullname": "Nofar",
+                "_id": "I357J"
+            },
+            "task": {
+                "id": "c1013453",
+                "title": "h1 tag is too large for the boards page"
+            },
+            "id": "_2ntiuerusp4"
+        },
+        {
+            "txt": "Marked Task as Complete",
+            "createdAt": 1617007132163,
+            "byMember": {
+                "username": "asd",
+                "password": "sad",
+                "fullname": "Nofar",
+                "_id": "I357J"
+            },
+            "task": {
+                "id": "c1013453",
+                "title": "h1 tag is too large for the boards page"
+            },
+            "id": "_l9d7z97mj4q"
+        },
+        {
+            "txt": "Added Itay Azulay to task h1 tag is too large for the boards page",
+            "createdAt": 1617007138368,
+            "byMember": {
+                "username": "asd",
+                "password": "sad",
+                "fullname": "Nofar",
+                "_id": "I357J"
+            },
+            "task": {
+                "id": "c1013453",
+                "title": "h1 tag is too large for the boards page"
+            },
+            "id": "_f5ghwbzgt5"
+        },
+        {
+            "txt": "Task: h1 tag is too large for the boards page moved from the group: To Do to: Done",
+            "createdAt": 1617007150672,
+            "byMember": {
+                "username": "asd",
+                "password": "sad",
+                "fullname": "Nofar",
+                "_id": "I357J"
+            },
+            "task": {
+                "id": 0,
+                "title": ""
+            },
+            "id": "_pypcqj88kha"
+        },
+        {
+            "txt": "Task: Social media assets moved from the group: Done to: To Do",
+            "createdAt": 1617007154417,
+            "byMember": {
+                "username": "asd",
+                "password": "sad",
+                "fullname": "Nofar",
+                "_id": "I357J"
+            },
+            "task": {
+                "id": 0,
+                "title": ""
+            },
+            "id": "_cxy2lk84e34"
+        },
+        {
+            "txt": "Added a Label",
+            "createdAt": 1617007279496,
+            "byMember": {
+                "username": "asd",
+                "password": "sad",
+                "fullname": "Nofar",
+                "_id": "I357J"
+            },
+            "task": {
+                "id": "c10165486",
+                "title": "In-Company Funds"
+            },
+            "id": "_02elalx3pwsg"
+        },
+        {
+            "txt": "Added a Label",
+            "createdAt": 1617007281230,
+            "byMember": {
+                "username": "asd",
+                "password": "sad",
+                "fullname": "Nofar",
+                "_id": "I357J"
+            },
+            "task": {
+                "id": "c10165486",
+                "title": "In-Company Funds"
+            },
+            "id": "_7znaxve6efd"
+        },
+        {
+            "txt": "Task: Social media assets moved from the group: To Do to: To Do",
+            "createdAt": 1617007287360,
+            "byMember": {
+                "username": "asd",
+                "password": "sad",
+                "fullname": "Nofar",
+                "_id": "I357J"
+            },
+            "task": {
+                "id": 0,
+                "title": ""
+            },
+            "id": "_dauo14il21e"
+        },
+        {
+            "txt": "Added a Label",
+            "createdAt": 1617007295990,
+            "byMember": {
+                "username": "asd",
+                "password": "sad",
+                "fullname": "Nofar",
+                "_id": "I357J"
+            },
+            "task": {
+                "id": "c10157",
+                "title": "Social media assets"
+            },
+            "id": "_jbxw2b8ngif"
+        },
+        {
+            "txt": "Added a Label",
+            "createdAt": 1617007296922,
+            "byMember": {
+                "username": "asd",
+                "password": "sad",
+                "fullname": "Nofar",
+                "_id": "I357J"
+            },
+            "task": {
+                "id": "c10157",
+                "title": "Social media assets"
+            },
+            "id": "_buytev46uu"
+        },
+        {
+            "txt": "Added Due Date",
+            "createdAt": 1617007312059,
+            "byMember": {
+                "username": "asd",
+                "password": "sad",
+                "fullname": "Nofar",
+                "_id": "I357J"
+            },
+            "task": {
+                "id": "c10157",
+                "title": "Social media assets"
+            },
+            "id": "_ct6e7yt6dmv"
+        },
+        {
+            "txt": "Added Due Date",
+            "createdAt": 1617007351251,
+            "byMember": {
+                "username": "asd",
+                "password": "sad",
+                "fullname": "Nofar",
+                "_id": "I357J"
+            },
+            "task": {
+                "id": "c10177",
+                "title": "Freelancer contracts"
+            },
+            "id": "_qrp7t7edkyh"
+        },
+        {
+            "txt": "Added Lian Skopis to task Freelancer contracts",
+            "createdAt": 1617007377245,
+            "byMember": {
+                "username": "asd",
+                "password": "sad",
+                "fullname": "Nofar",
+                "_id": "I357J"
+            },
+            "task": {
+                "id": "c10177",
+                "title": "Freelancer contracts"
+            },
+            "id": "_od6k1w4q3q"
+        },
+        {
+            "txt": "Added Nofar Gabso to task Freelancer contracts",
+            "createdAt": 1617007377858,
+            "byMember": {
+                "username": "asd",
+                "password": "sad",
+                "fullname": "Nofar",
+                "_id": "I357J"
+            },
+            "task": {
+                "id": "c10177",
+                "title": "Freelancer contracts"
+            },
+            "id": "_z442682bjec"
+        },
+        {
+            "txt": "Added Shachar Dorfzaun to task Campaign Proposal",
+            "createdAt": 1617007386676,
+            "byMember": {
+                "username": "asd",
+                "password": "sad",
+                "fullname": "Nofar",
+                "_id": "I357J"
+            },
+            "task": {
+                "id": "c101434",
+                "title": "Campaign Proposal"
+            },
+            "id": "_jnlqp62og7r"
+        },
+        {
+            "txt": "Added Nofar Gabso to task Campaign Proposal",
+            "createdAt": 1617007387359,
+            "byMember": {
+                "username": "asd",
+                "password": "sad",
+                "fullname": "Nofar",
+                "_id": "I357J"
+            },
+            "task": {
+                "id": "c101434",
+                "title": "Campaign Proposal"
+            },
+            "id": "_jl2t0z6x9sp"
+        },
+        {
+            "txt": "Added Lian Skopis to task Campaign Proposal",
+            "createdAt": 1617007387854,
+            "byMember": {
+                "username": "asd",
+                "password": "sad",
+                "fullname": "Nofar",
+                "_id": "I357J"
+            },
+            "task": {
+                "id": "c101434",
+                "title": "Campaign Proposal"
+            },
+            "id": "_4p89slnbosr"
+        },
+        {
+            "txt": "Added Due Date",
+            "createdAt": 1617007401617,
+            "byMember": {
+                "username": "asd",
+                "password": "sad",
+                "fullname": "Nofar",
+                "_id": "I357J"
+            },
+            "task": {
+                "id": "c1013",
+                "title": "Sketch site banner"
+            },
+            "id": "_jj37cmm0dw"
+        },
+        {
+            "txt": "Added a Label",
+            "createdAt": 1617007405240,
+            "byMember": {
+                "username": "asd",
+                "password": "sad",
+                "fullname": "Nofar",
+                "_id": "I357J"
+            },
+            "task": {
+                "id": "c1013",
+                "title": "Sketch site banner"
+            },
+            "id": "_0r1mgw3zs1dq"
+        },
+        {
+            "txt": "Added a Label",
+            "createdAt": 1617007406229,
+            "byMember": {
+                "username": "asd",
+                "password": "sad",
+                "fullname": "Nofar",
+                "_id": "I357J"
+            },
+            "task": {
+                "id": "c1013",
+                "title": "Sketch site banner"
+            },
+            "id": "_uqg9zyuvnye"
+        },
+        {
+            "txt": "Added Due Date",
+            "createdAt": 1617007649402,
+            "byMember": {
+                "username": "lianskopis",
+                "password": "123456",
+                "fullname": "Lian Skopis",
+                "_id": "eToR6"
+            },
+            "task": {
+                "id": "c102374",
+                "title": "Fix Margin issue"
+            },
+            "id": "_4jwfxybrn4a"
+        },
+        {
+            "txt": "Added a Label",
+            "createdAt": 1617007652431,
+            "byMember": {
+                "username": "lianskopis",
+                "password": "123456",
+                "fullname": "Lian Skopis",
+                "_id": "eToR6"
+            },
+            "task": {
+                "id": "c102374",
+                "title": "Fix Margin issue"
+            },
+            "id": "_9ujwmvmtspp"
+        },
+        {
+            "txt": "Added Shachar Dorfzaun to task Fix Margin issue",
+            "createdAt": 1617007656558,
+            "byMember": {
+                "username": "lianskopis",
+                "password": "123456",
+                "fullname": "Lian Skopis",
+                "_id": "eToR6"
+            },
+            "task": {
+                "id": "c102374",
+                "title": "Fix Margin issue"
+            },
+            "id": "_4v0l2vusurj"
+        },
+        {
+            "txt": "Added task: Freelancer contracts to group: Done",
+            "createdAt": 1617007793435,
+            "byMember": {
+                "username": "lianskopis",
+                "password": "123456",
+                "fullname": "Lian Skopis",
+                "_id": "eToR6"
+            },
+            "task": {
+                "id": "c10177",
+                "title": "Freelancer contracts",
+                "style": {
+                    "bgColor": "#ffffff"
+                },
+                "members": [
+                    {
+                        "_id": "u177",
+                        "fullname": "Lian Skopis",
+                        "username": "lianskopis",
+                        "imgUrl": ""
+                    },
+                    {
+                        "_id": "u102",
+                        "username": "nofargabso",
+                        "fullname": "Nofar Gabso",
+                        "imgUrl": ""
+                    }
+                ],
+                "labels": [],
+                "comments": [
+                    {
+                        "txt": "Please go over the contract",
+                        "id": "_brrji2nddso",
+                        "createdAt": 1617007340138,
+                        "byMember": {
+                            "fullname": "Nofar",
+                            "_id": "I357J"
+                        }
+                    }
+                ],
+                "checklists": [],
+                "dueDate": {
+                    "date": "Apr 1, 2021",
+                    "isComplete": true
+                }
+            },
+            "id": "_r15n7wjbj0r"
+        },
+        {
+            "txt": "Added task: Campaign Proposal to group: Done",
+            "createdAt": 1617007795178,
+            "byMember": {
+                "username": "lianskopis",
+                "password": "123456",
+                "fullname": "Lian Skopis",
+                "_id": "eToR6"
+            },
+            "task": {
+                "id": "c101434",
+                "title": "Campaign Proposal",
+                "style": {
+                    "bgColor": "#ffffff"
+                },
+                "labels": [],
+                "comments": [],
+                "members": [
+                    {
+                        "_id": "u101",
+                        "username": "shachardorfzaun",
+                        "fullname": "Shachar Dorfzaun",
+                        "imgUrl": ""
+                    },
+                    {
+                        "_id": "u102",
+                        "username": "nofargabso",
+                        "fullname": "Nofar Gabso",
+                        "imgUrl": ""
+                    },
+                    {
+                        "_id": "u177",
+                        "fullname": "Lian Skopis",
+                        "username": "lianskopis",
+                        "imgUrl": ""
+                    }
+                ],
+                "checklists": [
+                    {
+                        "title": "Checklist",
+                        "todos": [
+                            {
+                                "text": "1",
+                                "isDone": true,
+                                "id": "_xokourpe9cc"
+                            },
+                            {
+                                "text": "2",
+                                "isDone": true,
+                                "id": "_ownpr05xmek"
+                            },
+                            {
+                                "text": "3",
+                                "isDone": false,
+                                "id": "_84tr432gfh"
+                            }
+                        ],
+                        "id": "_861u8d50u9h"
+                    }
+                ],
+                "dueDate": {
+                    "date": "Mar 19, 2021",
+                    "isComplete": true
+                }
+            },
+            "id": "_3428snau9rk"
+        },
+        {
+            "txt": "Added Due Date",
+            "createdAt": 1617007817884,
+            "byMember": {
+                "username": "lianskopis",
+                "password": "123456",
+                "fullname": "Lian Skopis",
+                "_id": "eToR6"
+            },
+            "task": {
+                "id": "c10134",
+                "title": "Finalize Campaign Name: WeTaskBigger"
+            },
+            "id": "_oj22a85h1to"
+        },
+        {
+            "txt": "Marked Task as Complete",
+            "createdAt": 1617007820360,
+            "byMember": {
+                "username": "lianskopis",
+                "password": "123456",
+                "fullname": "Lian Skopis",
+                "_id": "eToR6"
+            },
+            "task": {
+                "id": "c10134",
+                "title": "Finalize Campaign Name: WeTaskBigger"
+            },
+            "id": "_398kpgtyo1g"
+        },
+        {
+            "txt": "Added Attachment",
+            "createdAt": 1617007863354,
+            "byMember": {
+                "username": "lianskopis",
+                "password": "123456",
+                "fullname": "Lian Skopis",
+                "_id": "eToR6"
+            },
+            "task": {
+                "id": "c1057",
+                "title": "Please add permissions for new members"
+            },
+            "id": "_hczcazl7qvf"
+        },
+        {
+            "txt": "Changed cover to Attached Image",
+            "createdAt": 1617007864552,
+            "byMember": {
+                "username": "lianskopis",
+                "password": "123456",
+                "fullname": "Lian Skopis",
+                "_id": "eToR6"
+            },
+            "task": {
+                "id": "c1057",
+                "title": "Please add permissions for new members"
+            },
+            "id": "_17dd2q2bqfij"
+        },
+        {
+            "txt": "Removed Attached Image from Cover",
+            "createdAt": 1617007877680,
+            "byMember": {
+                "username": "lianskopis",
+                "password": "123456",
+                "fullname": "Lian Skopis",
+                "_id": "eToR6"
+            },
+            "task": {
+                "id": "c1057",
+                "title": "Please add permissions for new members"
+            },
+            "id": "_v5m68fe2ljj"
+        },
+        {
+            "txt": "Changed cover to Attached Image",
+            "createdAt": 1617007878273,
+            "byMember": {
+                "username": "lianskopis",
+                "password": "123456",
+                "fullname": "Lian Skopis",
+                "_id": "eToR6"
+            },
+            "task": {
+                "id": "c1057",
+                "title": "Please add permissions for new members"
+            },
+            "id": "_3ubwyopu1f4"
+        },
+        {
+            "txt": "Added task: Move DB to Mongo to group: Pending",
+            "createdAt": 1617008046487,
+            "byMember": {
+                "username": "lianskopis",
+                "password": "123456",
+                "fullname": "Lian Skopis",
+                "_id": "eToR6"
+            },
+            "task": {
+                "id": "_8egj4016uwo",
+                "title": "Move DB to Mongo",
+                "style": {
+                    "bgColor": "#ffff"
+                },
+                "members": [],
+                "comments": [],
+                "labels": [],
+                "checklists": [],
+                "byUser": {
+                    "username": "lianskopis",
+                    "password": "123456",
+                    "fullname": "Lian Skopis",
+                    "_id": "eToR6"
+                }
+            },
+            "id": "_1sj8yt08u7w"
+        },
+        {
+            "txt": "Added Attachment",
+            "createdAt": 1617008053623,
+            "byMember": {
+                "username": "lianskopis",
+                "password": "123456",
+                "fullname": "Lian Skopis",
+                "_id": "eToR6"
+            },
+            "task": {
+                "id": "_8egj4016uwo",
+                "title": "Move DB to Mongo"
+            },
+            "id": "_8pp2ci37v0d"
+        },
+        {
+            "txt": "Changed cover to Attached Image",
+            "createdAt": 1617008054933,
+            "byMember": {
+                "username": "lianskopis",
+                "password": "123456",
+                "fullname": "Lian Skopis",
+                "_id": "eToR6"
+            },
+            "task": {
+                "id": "_8egj4016uwo",
+                "title": "Move DB to Mongo"
+            },
+            "id": "_rl3nfpdjjb9"
+        },
+        {
+            "txt": "Task: Move DB to Mongo moved from the group: Pending to: Pending",
+            "createdAt": 1617008059449,
+            "byMember": {
+                "username": "lianskopis",
+                "password": "123456",
+                "fullname": "Lian Skopis",
+                "_id": "eToR6"
+            },
+            "task": {
+                "id": 0,
+                "title": ""
+            },
+            "id": "_7syrnnllhb6"
+        },
+        {
+            "txt": "Added task: Change Homepage colors to group: Done",
+            "createdAt": 1617008096414,
+            "byMember": {
+                "username": "lianskopis",
+                "password": "123456",
+                "fullname": "Lian Skopis",
+                "_id": "eToR6"
+            },
+            "task": {
+                "id": "_cuggingdw7v",
+                "title": "Change Homepage colors",
+                "style": {
+                    "bgColor": "#ffff"
+                },
+                "members": [],
+                "comments": [],
+                "labels": [],
+                "checklists": [],
+                "byUser": {
+                    "username": "lianskopis",
+                    "password": "123456",
+                    "fullname": "Lian Skopis",
+                    "_id": "eToR6"
+                }
+            },
+            "id": "_uvpod6tfu1r"
+        },
+        {
+            "txt": "Added Attachment",
+            "createdAt": 1617008104300,
+            "byMember": {
+                "username": "lianskopis",
+                "password": "123456",
+                "fullname": "Lian Skopis",
+                "_id": "eToR6"
+            },
+            "task": {
+                "id": "_cuggingdw7v",
+                "title": "Change Homepage colors"
+            },
+            "id": "_0dn21gki8zg"
+        },
+        {
+            "txt": "Changed cover to Attached Image",
+            "createdAt": 1617008105424,
+            "byMember": {
+                "username": "lianskopis",
+                "password": "123456",
+                "fullname": "Lian Skopis",
+                "_id": "eToR6"
+            },
+            "task": {
+                "id": "_cuggingdw7v",
+                "title": "Change Homepage colors"
+            },
+            "id": "_hvvkwiqwid"
+        },
+        {
+            "txt": "Added Attachment",
+            "createdAt": 1617008261484,
+            "byMember": {
+                "username": "lianskopis",
+                "password": "123456",
+                "fullname": "Lian Skopis",
+                "_id": "eToR6"
+            },
+            "task": {
+                "id": "c10165486",
+                "title": "In-Company Funds"
+            },
+            "id": "_1by0z2jev8w"
+        },
+        {
+            "txt": "Changed cover to Attached Image",
+            "createdAt": 1617008262882,
+            "byMember": {
+                "username": "lianskopis",
+                "password": "123456",
+                "fullname": "Lian Skopis",
+                "_id": "eToR6"
+            },
+            "task": {
+                "id": "c10165486",
+                "title": "In-Company Funds"
+            },
+            "id": "_k97ha7nvv9c"
+        },
+        {
+            "txt": "Removed Attached Image from Cover",
+            "createdAt": 1617008276768,
+            "byMember": {
+                "username": "lianskopis",
+                "password": "123456",
+                "fullname": "Lian Skopis",
+                "_id": "eToR6"
+            },
+            "task": {
+                "id": "c10165486",
+                "title": "In-Company Funds"
+            },
+            "id": "_rnxa1ldryd"
+        },
+        {
+            "txt": "Added Attachment",
+            "createdAt": 1617008373289,
+            "byMember": {
+                "username": "lianskopis",
+                "password": "123456",
+                "fullname": "Lian Skopis",
+                "_id": "eToR6"
+            },
+            "task": {
+                "id": "c1034565",
+                "title": "Final due date was moved again"
+            },
+            "id": "_wjw4xgdg8gb"
+        },
+        {
+            "txt": "Changed cover to Attached Image",
+            "createdAt": 1617008374265,
+            "byMember": {
+                "username": "lianskopis",
+                "password": "123456",
+                "fullname": "Lian Skopis",
+                "_id": "eToR6"
+            },
+            "task": {
+                "id": "c1034565",
+                "title": "Final due date was moved again"
+            },
+            "id": "_21o8ix8t26e"
+        },
+        {
+            "txt": "Task: Submit Q1 report moved from the group: Done to: To Do",
+            "createdAt": 1617008431856,
+            "byMember": {
+                "username": "lianskopis",
+                "password": "123456",
+                "fullname": "Lian Skopis",
+                "_id": "eToR6"
+            },
+            "task": {
+                "id": 0,
+                "title": ""
+            },
+            "id": "_tz8gsnyodk"
+        },
+        {
+            "txt": "Task: Get Manager approval moved from the group: Done to: Done",
+            "createdAt": 1617008435670,
+            "byMember": {
+                "username": "lianskopis",
+                "password": "123456",
+                "fullname": "Lian Skopis",
+                "_id": "eToR6"
+            },
+            "task": {
+                "id": 0,
+                "title": ""
+            },
+            "id": "_plqet5ouaf"
+        },
+        {
+            "txt": "Task: Get Manager approval moved from the group: Done to: To Do",
+            "createdAt": 1617008442109,
+            "byMember": {
+                "username": "lianskopis",
+                "password": "123456",
+                "fullname": "Lian Skopis",
+                "_id": "eToR6"
+            },
+            "task": {
+                "id": 0,
+                "title": ""
+            },
+            "id": "_pqge6wsenyh"
+        },
+        {
+            "txt": "Task: Change Homepage colors moved from the group: Done to: Done",
+            "createdAt": 1617008445290,
+            "byMember": {
+                "username": "lianskopis",
+                "password": "123456",
+                "fullname": "Lian Skopis",
+                "_id": "eToR6"
+            },
+            "task": {
+                "id": 0,
+                "title": ""
+            },
+            "id": "_pjtoh345w2b"
+        },
+        {
+            "txt": "Task: Please add permissions for new members moved from the group: To Do to: To Do",
+            "createdAt": 1617008454357,
+            "byMember": {
+                "username": "lianskopis",
+                "password": "123456",
+                "fullname": "Lian Skopis",
+                "_id": "eToR6"
+            },
+            "task": {
+                "id": 0,
+                "title": ""
+            },
+            "id": "_6uwvcxmw55v"
+        },
+        {
+            "txt": "Added task: 3 to group: Pending",
+            "createdAt": 1617008573467,
+            "byMember": {
+                "username": "lianskopis",
+                "password": "123456",
+                "fullname": "Lian Skopis",
+                "_id": "eToR6"
+            },
+            "task": {
+                "id": "_lilrvtuc3q",
+                "title": "3",
+                "style": {
+                    "bgColor": "#ffff"
+                },
+                "members": [],
+                "comments": [],
+                "labels": [],
+                "checklists": [],
+                "byUser": {
+                    "username": "lianskopis",
+                    "password": "123456",
+                    "fullname": "Lian Skopis",
+                    "_id": "eToR6"
+                }
+            },
+            "id": "_qsgq04bs6hr"
+        },
+        {
+            "txt": "group moved",
+            "createdAt": 1617008591634,
+            "byMember": {
+                "username": "lianskopis",
+                "password": "123456",
+                "fullname": "Lian Skopis",
+                "_id": "eToR6"
+            },
+            "task": {
+                "id": 0,
+                "title": ""
+            },
+            "id": "_c8xsf4vt9f9"
+        },
+        {
+            "txt": "Task: We're getting more funds moved from the group: Questions for Next Meeting to: Pending",
+            "createdAt": 1617008661480,
+            "byMember": {
+                "username": "lianskopis",
+                "password": "123456",
+                "fullname": "Lian Skopis",
+                "_id": "eToR6"
+            },
+            "task": {
+                "id": 0,
+                "title": ""
+            },
+            "id": "_nu13npa7xq"
+        },
+        {
+            "txt": "Task: Same day, different priorities moved from the group: Questions for Next Meeting to: Project Resources",
+            "createdAt": 1617008666977,
+            "byMember": {
+                "username": "lianskopis",
+                "password": "123456",
+                "fullname": "Lian Skopis",
+                "_id": "eToR6"
+            },
+            "task": {
+                "id": 0,
+                "title": ""
+            },
+            "id": "_ehiwg4bt92"
+        },
+        {
+            "txt": "Task: Final due date was moved again moved from the group: Questions for Next Meeting to: To Do",
+            "createdAt": 1617008675917,
+            "byMember": {
+                "username": "lianskopis",
+                "password": "123456",
+                "fullname": "Lian Skopis",
+                "_id": "eToR6"
+            },
+            "task": {
+                "id": 0,
+                "title": ""
+            },
+            "id": "_xf5wbrfilyb"
+        },
+        {
+            "txt": "Task: Whos the best person to fix my HTML snag? moved from the group: Questions for Next Meeting to: Project Resources",
+            "createdAt": 1617008687604,
+            "byMember": {
+                "username": "lianskopis",
+                "password": "123456",
+                "fullname": "Lian Skopis",
+                "_id": "eToR6"
+            },
+            "task": {
+                "id": 0,
+                "title": ""
+            },
+            "id": "_csyxrzl4csu"
+        },
+        {
+            "txt": "Task: How can I get access to the old documentation? moved from the group: Questions for Next Meeting to: Done",
+            "createdAt": 1617008692977,
+            "byMember": {
+                "username": "lianskopis",
+                "password": "123456",
+                "fullname": "Lian Skopis",
+                "_id": "eToR6"
+            },
+            "task": {
+                "id": 0,
+                "title": ""
+            },
+            "id": "_ltxwo390nv"
+        },
+        {
+            "txt": "Added task: socketssssssss to group: Project Resources",
+            "createdAt": 1617009164339,
+            "byMember": {
+                "username": "lianskopis",
+                "password": "123456",
+                "fullname": "Lian Skopis",
+                "_id": "eToR6"
+            },
+            "task": {
+                "id": "_vas4bf2bhrg",
+                "title": "socketssssssss",
+                "style": {
+                    "bgColor": "#ffff"
+                },
+                "members": [],
+                "comments": [],
+                "labels": [],
+                "checklists": [],
+                "byUser": {
+                    "username": "lianskopis",
+                    "password": "123456",
+                    "fullname": "Lian Skopis",
+                    "_id": "eToR6"
+                }
+            },
+            "id": "_auvwph5g2xg"
+        },
+        {
+            "txt": "Added Attachment",
+            "createdAt": 1617009172324,
+            "byMember": {
+                "username": "lianskopis",
+                "password": "123456",
+                "fullname": "Lian Skopis",
+                "_id": "eToR6"
+            },
+            "task": {
+                "id": "_vas4bf2bhrg",
+                "title": "socketssssssss"
+            },
+            "id": "_a7tgmdovpnv"
+        },
+        {
+            "txt": "Changed cover to Attached Image",
+            "createdAt": 1617009173451,
+            "byMember": {
+                "username": "lianskopis",
+                "password": "123456",
+                "fullname": "Lian Skopis",
+                "_id": "eToR6"
+            },
+            "task": {
+                "id": "_vas4bf2bhrg",
+                "title": "socketssssssss"
+            },
+            "id": "_7gsvcpzttqw"
+        },
+        {
+            "txt": "Task: Get Manager approval moved from the group: To Do to: To Do",
+            "createdAt": 1617009322655,
+            "byMember": {
+                "username": "lianskopis",
+                "password": "123456",
+                "fullname": "Lian Skopis",
+                "_id": "eToR6"
+            },
+            "task": {
+                "id": 0,
+                "title": ""
+            },
+            "id": "_nbmoohnywz9"
+        },
+        {
+            "txt": "Task: Get Manager approval moved from the group: To Do to: To Do",
+            "createdAt": 1617009324368,
+            "byMember": {
+                "username": "lianskopis",
+                "password": "123456",
+                "fullname": "Lian Skopis",
+                "_id": "eToR6"
+            },
+            "task": {
+                "id": 0,
+                "title": ""
+            },
+            "id": "_gn0f903m208"
+        }
+    ]
+}

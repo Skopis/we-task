@@ -13,8 +13,9 @@ const session = expressSession({
     cookie: { secure: false }
 })
 // Express App Config
-app.use(express.json());
+app.use(express.json({limit: '50mb', extended: true}));
 app.use(session);
+app.use(express.static('public'));
 
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static(path.resolve(__dirname, 'public')))

@@ -158,7 +158,7 @@ export const boardStore = {
             commit({ type: 'setLabelText', labelIdx, newTxt })
             const boardToUpdate = state.board//JSON.parse(JSON.stringify(state.board));
             this.dispatch({ type: 'updateBoard', boardToUpdate })
-            this.dispatch({ type: 'sendUpdatedBoard' });
+            // this.dispatch({ type: 'sendUpdatedBoard' });
         },
         async updateBoard({ state, commit }, { boardToUpdate }) {
             if (state.filterBy !== '') {
@@ -167,8 +167,9 @@ export const boardStore = {
             try {
                 var boardIdx = state.boards.findIndex(b => b._id === boardToUpdate._id)
                 commit({ type: 'updateBoard', boardIdx, board: boardToUpdate })
+                console.log('commit has happened')
+                await this.dispatch({ type: 'sendUpdatedBoard' });
                 await boardService.saveBoard(boardToUpdate, boardIdx)
-                this.dispatch({ type: 'sendUpdatedBoard' });
             }
             catch (err) {
                 console.log('boardStore: Error in updateBoard', err)
@@ -177,7 +178,7 @@ export const boardStore = {
         },
         sendUpdatedBoard({ state }) {
             if (state.filterBy === '') {
-                console.log(state.board);
+                // console.log(state.board);
                 socketService.emit("board change", state.board);
             }
         },
@@ -222,7 +223,7 @@ export const boardStore = {
                 // const boards = await boardService.query();
                 commit({ type: 'archiveGroup', group })
                 this.dispatch({ type: 'updateBoard', boardToUpdate })
-                this.dispatch({ type: 'sendUpdatedBoard' });
+                // this.dispatch({ type: 'sendUpdatedBoard' });
             } catch (err) {
                 console.log('boardStore: Error in archiveGroup', err)
                 throw err
@@ -259,7 +260,7 @@ export const boardStore = {
                 var groupIdx = state.board.groups.findIndex(g => g.id === group.id)
                 const boardForUpdate = await boardService.updateGroup(group, state.board, groupIdx)
                 await this.dispatch({ type: 'updateBoard', boardToUpdate: boardForUpdate })
-                this.dispatch({ type: 'sendUpdatedBoard' });
+                // this.dispatch({ type: 'sendUpdatedBoard' });
             }
             catch (err) {
                 console.log('boardStore: Error in updateGroup', err)
@@ -364,7 +365,7 @@ export const boardStore = {
             try {
                 const { boardToUpdate } = await boardService.add(task, groupIdx, state.board)
                 await this.dispatch({ type: 'updateBoard', boardToUpdate })
-                this.dispatch({ type: 'sendUpdatedBoard' });
+                // this.dispatch({ type: 'sendUpdatedBoard' });
             } catch (err) {
                 console.log('Cannot save comment', err)
             }
@@ -411,7 +412,7 @@ export const boardStore = {
                 // commit({ type: 'setBoard', board: boardToUpdate })
                 commit({ type: 'addActivity', activityToAdd })
                 this.dispatch({ type: 'updateBoard', boardToUpdate })
-                this.dispatch({ type: 'sendUpdatedBoard' });
+                // this.dispatch({ type: 'sendUpdatedBoard' });
             }
             catch (err) {
                 console.log('Cannot addActivity', err)

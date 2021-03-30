@@ -50,10 +50,14 @@ export default {
     return {};
   },
   computed: {},
-  created() {},
+  async created() {
+    await this.$store.dispatch({ type: "loadBoards" });
+  },
   methods: {
     pushRoute() {
-      this.$router.push("/board/b");
+      const boardId = this.$store.getters.getBoards[0]._id
+      console.log('boardId', boardId)
+      this.$router.push(`/board/${boardId}`);
     },
   },
 };

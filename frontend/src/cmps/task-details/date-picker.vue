@@ -26,6 +26,7 @@
     methods:{
       changeDate(){
         // console.log('value', this.value)
+        console.log('this.value', this.value)
         this.$emit('toggleDateModal', false)
         this.$emit('updateDueDate', this.value)
       }

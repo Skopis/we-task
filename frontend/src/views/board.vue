@@ -145,7 +145,7 @@ export default {
       isMemberModalOpen: false,
       isAddMemberModalOpen: false,
       memberModalPos: null,
-      snackText: "Shachar assign you a new card",
+      snackText: "Shachar assigned you a new Card",
     };
   },
   computed: {
@@ -181,6 +181,7 @@ export default {
   },
   methods: {
     taskAddOnUser(senderName) {
+      console.log('...');
       console.log(senderName);
       this.snackText = `${senderName} assign you a new card`;
       console.log(this.snackText);
@@ -188,7 +189,7 @@ export default {
       x.className = "show";
       setTimeout(function () {
         x.className = x.className.replace("show", "");
-      }, 5000);
+      }, 4000);
     },
     setImageAsBg(path) {
       this.boardToShow.style.bgImg = path;
@@ -333,7 +334,7 @@ export default {
       board.groups = this.boardToShow.groups;
       this.updateBoard(board);
       // setTimeout(this.addActivity, 150, actTxt);
-      
+      // this.addActivity(actTxt);
     },
     addActivity(activityType, task) {
       var activity = {

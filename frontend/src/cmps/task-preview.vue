@@ -169,7 +169,7 @@ export default {
       }else return 'fit-content'
     },
     checklistBadgeMargin(){
-       if(!this.task.dueDate &&
+      if(!this.task.dueDate &&
       (!this.task.comments || !this.task.comments.length ) &&
       (!this.task.members || !this.task.members.length)&&
       (!this.task.attachments || !this.task.attachments.length)&&
@@ -179,7 +179,7 @@ export default {
       } else return -6
     },
     formattedDueDate(){
-      return this.task.dueDate.date.substring(0, this.task.dueDate.date.length-6);
+      return this.task.dueDate.date.substring(0, this.task.dueDate.date.length-5);
     },
     boradId() {
       return this.$store.getters.getBoardId;
