@@ -181,6 +181,7 @@ export default {
   },
   methods: {
     taskAddOnUser(senderName) {
+      console.log('...');
       console.log(senderName);
       this.snackText = `${senderName} assign you a new card`;
       console.log(this.snackText);
@@ -188,7 +189,7 @@ export default {
       x.className = "show";
       setTimeout(function () {
         x.className = x.className.replace("show", "");
-      }, 5000);
+      }, 4000);
     },
     setImageAsBg(path) {
       this.boardToShow.style.bgImg = path;
@@ -329,8 +330,6 @@ export default {
         group !== "" && taskTxt !== ""
           ? `Task: ${taskTxt} moved from the group: ${group.title} to: ${toGroup}`
           : "group moved";
-      // console.log(actTxt);
-      //TODO: connect to activity log
       const board = this.boardToShow;
       board.groups = this.boardToShow.groups;
       this.updateBoard(board);
@@ -338,8 +337,6 @@ export default {
       // this.addActivity(actTxt);
     },
     addActivity(activityType, task) {
-      // console.log('task', task)
-      // const { id, title } = this.task;
       var activity = {
         txt: activityType,
         createdAt: Date.now(),

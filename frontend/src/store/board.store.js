@@ -178,7 +178,7 @@ export const boardStore = {
         },
         sendUpdatedBoard({ state }) {
             if (state.filterBy === '') {
-                console.log(state.board);
+                // console.log(state.board);
                 socketService.emit("board change", state.board);
             }
         },

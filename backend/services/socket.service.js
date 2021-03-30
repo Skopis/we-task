@@ -40,14 +40,14 @@ function connectSockets(http, session) {
 
         })
         socket.on('task-added', ({fullname , senderName}) => {
-            // console.log(senderName);
             const userIdx = gUsers.findIndex(user =>{
                 return user.fullname === fullname
             })
             if (userIdx !== -1){
-                // console.log('user found');
-                // console.log(gUsers[userIdx].socketId);
-                socket.to(gUsers[userIdx].socketId).emit("task-added-2u", senderName)
+                console.log('user found');
+                console.log(gUsers[userIdx].socketId);
+                // socket.to(gUsers[userIdx].socketId).emit("task-added-2u", senderName)
+                socket.broadcast.emit('task-added-2u', senderName);
             }else{
                 console.log('user not found');
             }
