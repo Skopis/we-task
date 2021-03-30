@@ -166,8 +166,8 @@ export const boardStore = {
             }
             try {
                 var boardIdx = state.boards.findIndex(b => b._id === boardToUpdate._id)
-                await boardService.saveBoard(boardToUpdate, boardIdx)
                 commit({ type: 'updateBoard', boardIdx, board: boardToUpdate })
+                await boardService.saveBoard(boardToUpdate, boardIdx)
                 this.dispatch({ type: 'sendUpdatedBoard' });
             }
             catch (err) {

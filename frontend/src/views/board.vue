@@ -120,7 +120,7 @@
       </button>
     </section>
     <router-view />
-    <div id="snackbar" class="show">{{ snackText }}</div>
+    <div id="snackbar" class="">{{ snackText }}</div>
   </div>
 </template>
 
@@ -329,17 +329,13 @@ export default {
         group !== "" && taskTxt !== ""
           ? `Task: ${taskTxt} moved from the group: ${group.title} to: ${toGroup}`
           : "group moved";
-      // console.log(actTxt);
-      //TODO: connect to activity log
       const board = this.boardToShow;
       board.groups = this.boardToShow.groups;
       this.updateBoard(board);
-      setTimeout(this.addActivity, 150, actTxt);
-      // this.addActivity(actTxt);
+      // setTimeout(this.addActivity, 150, actTxt);
+      
     },
     addActivity(activityType, task) {
-      // console.log('task', task)
-      // const { id, title } = this.task;
       var activity = {
         txt: activityType,
         createdAt: Date.now(),
