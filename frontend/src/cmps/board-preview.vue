@@ -1,5 +1,5 @@
 <template>
-    <section class="board-preview" :style="{ backgroundColor: board.style.bgColor }">
+    <section class="board-preview" :style="computedStyle">
         <div >
             <h3>{{board.title}}</h3>
             <p>{{board.groups.length || 0}} Groups</p>
@@ -19,6 +19,12 @@ export default{
     data(){
         return{
             isBoardMenuModalOpen: false
+        }
+    },
+    computed: {
+        computedStyle(){
+            console.log('this.board', this.board)
+            return this.board && this.board._id && this.board.style.bgColor? {backgroundColor: this.board.style.bgColor} : {backgroundColor: '#fff'}
         }
     },
     methods: {

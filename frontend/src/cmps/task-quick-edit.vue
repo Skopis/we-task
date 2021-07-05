@@ -10,13 +10,11 @@
         @keydown.enter.exact.prevent="updateTask"
         autofocus
       />
-      <!-- <button class="btn save" >Save</button> -->
     </form>
   </section>
 </template>
 
 <script>
-//task edit on task list task preview
 export default {
   name: "task-quick-edit",
   props: ["task"],

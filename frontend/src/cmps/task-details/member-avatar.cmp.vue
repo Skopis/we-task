@@ -31,9 +31,6 @@ export default {
       return this.member.fullname;
     },
   },
-  created(){
-    // console.log(this.members)
-  },
   components: {
     Avatar,
   },

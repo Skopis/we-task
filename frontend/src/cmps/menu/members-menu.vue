@@ -33,7 +33,6 @@ export default {
     },
     created(){
         this.board = this.$store.getters.getBoard
-        // console.log('this.board', this.board)
     },
     components: {
         memberAvatar2

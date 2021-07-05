@@ -49,7 +49,6 @@ export default {
       this.msgs.push(msg)
     },
     sendMsg() {
-      console.log('Sending', this.msg);
       socketService.emit('chat newMsg', this.msg)
       this.msg = {from: 'Me', txt: ''};
     },

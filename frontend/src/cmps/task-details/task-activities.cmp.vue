@@ -21,9 +21,6 @@
 import memberAvatar2 from "./member-avatar2.vue";
 export default {
   props: ["activity", "type"],
-  created() {
-    // console.log(this.activity)
-  },
   methods: {
     formattedTime(timeStamp) {
       return moment(timeStamp).fromNow();

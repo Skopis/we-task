@@ -101,7 +101,6 @@ export default {
       isChecklistComplete: false
     };
   },
-  //TODO: when click on window anywhere but the modal - modal closes
   methods: {
     accurateTitle(labelId){
       var title;
@@ -117,14 +116,10 @@ export default {
       this.$emit("updateTask", {taskToUpdate: task});
     },
     stopEdit() {
-      // this.$emit("stopEdit");
       this.isEditModalOpen = false;
     },
     classChange(label, status) {
-      // console.log(label)
-      // console.log(status)
       this.labelDataShown = status;
-      // console.log(this.labelDataShown)
     },
     openMemberModal() {
       this.isMemberModalOpen = true;
@@ -146,14 +141,11 @@ export default {
       this.$emit("updateTask", taskToUpdate);
     },
     openTaskDetails(taskId) {
-      // this.$store.commit({type:'saveCurrGroupId', groupId:this.groupId})
       this.$store.dispatch({
         type: "updateCurrGroupIdSession",
         status: "saveToSession",
         groupId: this.groupId,
       });
-      // console.log('taskId', taskId)
-      // console.log(`${this.boradId}/task/${taskId}`)
       this.$router.push(`${this.boradId}/task/${taskId}`);
     },
   },
@@ -174,7 +166,6 @@ export default {
       (!this.task.members || !this.task.members.length)&&
       (!this.task.attachments || !this.task.attachments.length)&&
       (this.task.checklists)){
-        console.log('only checklist')
         return 0
       } else return -6
     },
@@ -198,7 +189,6 @@ export default {
         var currChecklist = this.task.checklists[i];
         for (var j = 0; j < currChecklist.todos.length; j++) {
           todosCount++;
-          // console.log(currChecklist.todos[j]);
           if (currChecklist.todos[j].isDone) doneTodosCount++;
         }
       }

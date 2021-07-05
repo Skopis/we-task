@@ -1,5 +1,3 @@
-//member-preview
-
 <template>
     <section class="member-preview">
         <div class="member-preview-main">
@@ -16,6 +14,7 @@
 
 <script>
 import memberAvatar2 from './task-details/member-avatar2.vue'
+
 export default{
     name: 'task-member-preview',
     props: ['member'],

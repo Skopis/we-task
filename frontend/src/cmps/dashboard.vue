@@ -3,7 +3,7 @@
     <section class="dashboard">
       <header>
         <button class="btn close-modal" @click.self.stop="closeDetailsModal">
-          <i class="el-icon-close"></i>
+          <i class="el-icon-close" @click.self.stop="closeDetailsModal"></i>
         </button>
       </header>
       <div class="chart-conainer">
@@ -32,10 +32,10 @@ export default {
   },
   created() {
     const boardId = this.$route.params.boardId;
-    // console.log("boardId at dashboard", boardId);
   },
   methods: {
     closeDetailsModal() {
+
       this.$router.go(-1);
     },
   },

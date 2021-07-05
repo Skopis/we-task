@@ -6,33 +6,7 @@
             <div v-for="board in boardsToShow" :key="'B'+board._id">
                 <board-preview @click.native.stop="pushBoard(board._id)" :board="board" @archiveBoard="archiveBoard"/>
         </div>
-        <div class="board-preview">
-            <div>
-                <h3>Simple Project Board</h3>
-                <h4>4 Groups</h4>
-            </div>
-            <button class="btn menu" @click.stop.prevent="toggleBoardMenuModal">
-                <img src="../assets/icons/3dots.png" alt="" />
-            </button>
-        </div>
-        <div class="board-preview">
-            <div>
-                <h3>Winnig Death</h3>
-                <h4>16 Groups</h4>
-            </div>
-            <button class="btn menu" @click.stop.prevent="toggleBoardMenuModal">
-                <img src="../assets/icons/3dots.png" alt="" />
-            </button>
-        </div>
-        <div class="board-preview">
-            <div>
-                <h3>Winnig Death</h3>
-                <h4>16 Groups</h4>
-            </div>
-            <button class="btn menu" @click.stop.prevent="toggleBoardMenuModal">
-                <img src="../assets/icons/3dots.png" alt="" />
-            </button>
-        </div>
+        
         </section>
     </section>
 </template>

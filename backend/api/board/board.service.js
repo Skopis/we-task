@@ -7,9 +7,8 @@ async function query(filterBy = {}) {
     try {
         const collection = await dbService.getCollection('board')
         var boards = await collection.find().toArray();
-        // console.log("boards at board service", boards);
         if (boards.length === 0) {
-            boards = await save(_getEmptyBoard());
+            boards = await saveMany(_getLongBoards());
         }
         return boards
     } catch (err) {
@@ -41,6 +40,12 @@ async function remove(boardId) {
     }
 }
 
+async function saveMany(boards) {
+    return boards.map(board => {
+        save(board)
+    })
+}
+
 async function save(board) {
     try {
         let savedBoard = null;
@@ -50,12 +55,15 @@ async function save(board) {
             delete boardToUpdate._id;
             await collection.updateOne({ _id: ObjectId(board._id) }, { $set: { ...boardToUpdate } });
             return board;
-        } else {
-            const newBoard = _getLongBoards();
+        } else if (board.createdAt === 1589983468418) {
+            savedBoard = await collection.insert(board);
+            return savedBoard;
+        }
+        else {
+            const newBoard = _getEmptyBoard();
             savedBoard = await collection.insert(newBoard);
             console.log('savedBoard', savedBoard)
             return newBoard
-            // return savedBoard.ops[0];
         }
     } catch (err) {
         console.log("board err");
@@ -72,7 +80,7 @@ function _getEmptyBoard() {
     const newBoard = {
         "title": "New Board",
         "style": {
-            "bgColor": "#b1c294"
+            "bgColor": "#ebecf0"
         },
         "labels": [
             {
@@ -122,6 +130,7 @@ function _getEmptyBoard() {
 }
 
 function _getLongBoards() {
+    console.log('hey _getLongBoards')
     return [
         {
             "title": "Project Management",

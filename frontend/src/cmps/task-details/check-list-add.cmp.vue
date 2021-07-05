@@ -42,7 +42,6 @@ export default {
         this.$emit('saveCheckList', this.checkList)
     },
     closeCheckList(){
-      // console.log('hello')
       this.$emit('closeCheckList')
     }
   },

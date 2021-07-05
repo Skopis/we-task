@@ -9,7 +9,6 @@
                 <p>@{{member.fullname.toLowerCase().replace(/\s/g, '')}}</p>
             </div>
         </div>
-        <!-- <button class="btn" @click="addMemberToBoard">Add to Board</button> -->
     </section>
 </template>
 
@@ -17,7 +16,6 @@
 import memberAvatar2 from './task-details/member-avatar2.vue'
 export default{
     name: 'add-board-member',
-    // props: ['member'],
     date(){
         return{
             allMembers: [],

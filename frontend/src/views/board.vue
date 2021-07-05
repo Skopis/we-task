@@ -181,10 +181,7 @@ export default {
   },
   methods: {
     taskAddOnUser(senderName) {
-      console.log('...');
-      console.log(senderName);
-      this.snackText = `${senderName} assign you a new card`;
-      console.log(this.snackText);
+      this.snackText = `${senderName} assigned you a new card`;
       var x = document.getElementById("snackbar");
       x.className = "show";
       setTimeout(function () {
@@ -271,7 +268,6 @@ export default {
       });
     },
     toggleBoardMenuModal() {
-      //TODO:
       this.isBoardMenuModalOpen = !this.isBoardMenuModalOpen;
     },
     closeBoardMenuModal() {
@@ -309,12 +305,12 @@ export default {
       });
       if (isEdit)
         this.addActivity(
-          `Edited task: ${taskToUpdate.title} on group: ${group.title}`,
+          `Edited task "${taskToUpdate.title}" on list: ${group.title}`,
           taskForUpdate
         );
       else
         this.addActivity(
-          `Added task: ${taskToUpdate.title} to group: ${group.title}`,
+          `Added task "${taskToUpdate.title}" to list: ${group.title}`,
           taskForUpdate
         );
     },
@@ -333,8 +329,6 @@ export default {
       const board = this.boardToShow;
       board.groups = this.boardToShow.groups;
       this.updateBoard(board);
-      // setTimeout(this.addActivity, 150, actTxt);
-      // this.addActivity(actTxt);
     },
     addActivity(activityType, task) {
       var activity = {
@@ -356,8 +350,6 @@ export default {
     },
     setMenuPos(groupId, ev) {
       var left = this.getEvPos(ev);
-      // console.log('new',ev.view.innerWidth - left)
-      // console.log('groupId', groupId)
       const groupIdx = this.boardToShow.groups.findIndex(
         (group) => group.id === groupId
       );

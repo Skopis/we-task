@@ -52,11 +52,11 @@ export default {
   computed: {},
   async created() {
     await this.$store.dispatch({ type: "loadBoards" });
+    console.log('this.$store.getters.getBoards', this.$store.getters.getBoards)
   },
   methods: {
     pushRoute() {
       const boardId = this.$store.getters.getBoards[0]._id
-      console.log('boardId', boardId)
       this.$router.push(`/board/${boardId}`);
     },
   },

@@ -424,7 +424,6 @@ export default {
         task: this.task,
       });
       this.addActivity(`Added CheckList: ${checkList.title}`);
-      // this.loadTask();
     },
     async addComment() {
       if (!this.comment.txt) return;
@@ -434,7 +433,6 @@ export default {
         comment: this.comment,
       });
       this.comment = { txt: "" };
-      // this.loadTask();
     },
 
     removeTask() {
@@ -463,7 +461,6 @@ export default {
       if (!taskToEdit.dueDate)
         taskToEdit.dueDate = { date: "", isComplete: false };
       taskToEdit.dueDate.date = this.formattedDate(date);
-      console.log('taskToEdit.dueDate.date', taskToEdit.dueDate.date)
       taskToEdit.dueDate.isComplete = false;
       await this.$store.dispatch({ type: "addTask", task: taskToEdit });
       this.addActivity("Added Due Date");
@@ -492,7 +489,6 @@ export default {
     },
     updateTaskCover(color) {
       this.task.style.imgUrl = "";
-      // console.log("this.task", this.task);
       this.task.style.bgColor = color;
       this.$store.dispatch({ type: "addTask", task: this.task });
     },
@@ -501,12 +497,10 @@ export default {
         this.closeAllModals();
         this.labelsModal = true;
       } else this.labelsModal = false;
-      // this.labelsModal = !this.labelsModal; //JSON.parse(status);
     },
     closeModals() {
       this.labelsModal = false;
       this.checkListModal = false;
-      // console.log(this.labelsModal, this.checkListModal);
     },
     updateChecklist(checklistId, todoId, isDone) {
       const checklistIdx = this.task.checklists.findIndex(
@@ -520,7 +514,6 @@ export default {
       this.$store.dispatch({ type: "addTask", task: this.task });
     },
     updatedBoard(boardToUpdate) {
-      // console.log("got board");
       this.$store.commit({
         type: "updateBoard",
         boardIdx: 0,
@@ -573,7 +566,6 @@ export default {
   },
   watch: {
     "$route.params.taskId"(id) {
-      // console.log("Changed to", id);
       this.loadTask();
     },
   },

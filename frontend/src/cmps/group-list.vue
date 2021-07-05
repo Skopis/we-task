@@ -20,7 +20,6 @@
           v-model="group.title"
           autofocus
         />
-        <!-- <button>Save</button> -->
       </form>
       <button class="btn" @click="toggleGroupMenuModal($event)">
         <img src="../assets/icons/3dots.png" alt="" />
@@ -56,7 +55,7 @@
     </div>
     <footer>
       <button class="btn add-task" @click="openAddModal(-1)">
-        <i class="el-icon-plus"></i>Add another card
+        <i class="el-icon-plus"></i>Add a card
       </button>
     </footer>
     <member-preview
@@ -68,7 +67,6 @@
 </template>
 
 <script>
-// import taskDetails from "./task-details/task-details.vue";
 import memberPreview from "./task-member-modal.vue";
 import taskPreview from "./task-preview.vue";
 import TaskQuickEdit from "./task-quick-edit.vue";
@@ -121,7 +119,6 @@ export default {
       this.$emit("archiveGroup", groupToArchive);
     },
     toggleGroupMenuModal(ev) {
-      // this.getEvPos(ev);
       this.isGroupMenuModalOpen = !this.isGroupMenuModalOpen;
       this.$emit("toggleGroupMenuModal", this.group.id);
       this.$emit("openModal", this.group.id, ev);
@@ -140,7 +137,6 @@ export default {
       const toGroup =
         ev.to.parentElement.parentElement.parentElement.firstChild.innerText;
       const taskTxt = ev.item.children[0].children[0].innerText;
-      // console.log(taskTxt);
       this.$emit("itemDragged", this.group, taskTxt, toGroup);
     },
     openAddModal(groupId = -1) {
@@ -153,11 +149,6 @@ export default {
     },
     updateTask({ taskToUpdate, isEdit }) {
       this.isAddModalOpen = false;
-      // if (!isEdit) { //TODO: remove to reAdd
-      //   setTimeout(() => {
-      //     this.isAddModalOpen = true;
-      //   }, 300);
-      // }
       if (taskToUpdate.title != "") {
         this.$emit("updateTask", taskToUpdate, this.group, isEdit);
       }

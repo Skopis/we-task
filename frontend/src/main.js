@@ -10,15 +10,12 @@ import 'element-ui/lib/theme-chalk/index.css';
 import locale from 'element-ui/lib/locale/lang/en';
 import moment from 'moment';
 
-// const Swal = require('sweetalert2')
-
 moment().format();
 
 export const eventBus = new Vue()
 
 
 Vue.use(ElementUI, { locale });
-// Vue.use(Swal)
 Vue.config.productionTip = false
 
 new Vue({

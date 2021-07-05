@@ -26,7 +26,6 @@ export default {
       this.isLoading = true
       const res = await uploadImg(ev)
       this.$emit('save', res.url, res.original_filename, res.format)
-      // console.log('onUploadImg -> res', res)
       this.isLoading = false
     },
   },
