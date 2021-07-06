@@ -9,7 +9,7 @@
     </section>
     </nav>
     <div class="user-container flex">
-      <h2 class="btn login" @click="routeLogin" to="/login">{{title}}</h2>
+      <h2 class="btn login" @click="routeLogin">{{title}}</h2>
       <member-avatar2 :member="loggedInUser" :size="32"/>
     </div>
   </header>
@@ -21,7 +21,7 @@ import memberAvatar2 from './task-details/member-avatar2.vue'
 export default {
   computed: {
     title(){
-      return this.loggedInUser? 'Logout' : 'Login'
+      return (!this.loggedInUser || this.loggedInUser.fullname === 'Guest' )? 'Login' : 'Logout'
     },
     loggedInUser() {
       return this.$store.getters.loggedinUser
@@ -29,7 +29,8 @@ export default {
   },
   methods:{
     routeLogin(){
-      this.$router.push('/login')
+      console.log('this.$route.name', this.$route.name)
+      if(this.$route.name !== 'loginSignup') this.$router.push('/login')
     },
     routeBoards(){
       this.$router.push('/board')

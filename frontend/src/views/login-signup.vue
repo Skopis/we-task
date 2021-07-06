@@ -1,14 +1,15 @@
 <template>
-  <div class="container about">
+  <div class="login-container about">
+    <lottie-player src="https://assets7.lottiefiles.com/packages/lf20_dyppatws.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop  autoplay></lottie-player>
     <p>{{ msg }}</p>
-    <div v-if="loggedinUser">
-      <h3>
+    <div class="logout-user" v-if="loggedinUser && loggedinUser.fullname !== 'Guest'">
+      <h2>
         Loggedin User:
-        {{ loggedinUser.username }}
-        <button @click="doLogout">Logout</button>
-      </h3>
+      </h2>
+      <p>{{ loggedinUser.fullname }}</p>
+      <button @click="doLogout" class="login-btn">Logout</button>
     </div>
-    <div v-else>
+    <div v-else class="login-form">
       <h2>Login</h2>
       <form @submit.prevent="doSignup">
         <input type="text" v-model="signupCred.fullname" placeholder="Your full name" />
@@ -22,13 +23,18 @@
           v-model="signupCred.username"
           placeholder="Username"
         />
-        <button>Login</button>
+        <button class="login-btn">Login</button>
       </form>
     </div>
   </div>
 </template>
 
+
+
+
 <script>
+import "@lottiefiles/lottie-player";
+
 export default {
   name: "test",
   data() {

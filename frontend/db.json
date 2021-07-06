@@ -1,0 +1,5344 @@
+{
+    "_id": {
+        "$oid": "60e47b92618e1aacf17204b7"
+    },
+    "title": "Project Management",
+    "createdAt": {
+        "$numberDouble": "1589983468418.0"
+    },
+    "createdBy": {
+        "_id": "u102",
+        "username": "nofargabso",
+        "fullname": "Nofar Gabso",
+        "imgUrl": ""
+    },
+    "style": {
+        "bgColor": "#29cce5",
+        "bgImg": "ast.c1962e32.jpg"
+    },
+    "labels": [{
+        "id": "l101",
+        "title": "Done",
+        "color": "green"
+    }, {
+        "id": "l102",
+        "title": "",
+        "color": "yellow"
+    }, {
+        "id": "l103",
+        "title": "Flexible",
+        "color": "orange"
+    }, {
+        "id": "l104",
+        "title": "Important",
+        "color": "red"
+    }, {
+        "id": "l105",
+        "title": "",
+        "color": "purple"
+    }, {
+        "id": "l106",
+        "title": "Optional",
+        "color": "blue"
+    }],
+    "members": [{
+        "_id": "u101",
+        "username": "shachardorfzaun",
+        "fullname": "Shachar Dorfzaun",
+        "imgUrl": ""
+    }, {
+        "_id": "u102",
+        "username": "nofargabso",
+        "fullname": "Nofar Gabso",
+        "imgUrl": ""
+    }, {
+        "_id": "u177",
+        "fullname": "Lian Skopis",
+        "username": "lianskopis",
+        "imgUrl": ""
+    }],
+    "groups": [{
+        "id": "g101",
+        "title": "Project Resources",
+        "tasks": [{
+            "id": "c101",
+            "title": "Project \"DreamBig\" Launch Timeline",
+            "style": {
+                "bgColor": "#ffffff"
+            },
+            "members": [{
+                "_id": "u177",
+                "fullname": "Lian Skopis",
+                "username": "lianskopis",
+                "imgUrl": ""
+            }, {
+                "_id": "u101",
+                "username": "shachardorfzaun",
+                "fullname": "Shachar Dorfzaun",
+                "imgUrl": ""
+            }],
+            "labels": [{
+                "id": "l102",
+                "title": "",
+                "color": "yellow"
+            }, {
+                "id": "l103",
+                "title": "Flexible",
+                "color": "orange"
+            }],
+            "byUser": {
+                "_id": "u103",
+                "fullname": "Guest",
+                "username": "guest",
+                "imgUrl": ""
+            },
+            "dueDate": {
+                "date": "7 Jul 2021",
+                "isComplete": true
+            },
+            "comments": [{
+                "txt": "Please check the new timeline",
+                "id": "_237s59rz6ci",
+                "createdAt": {
+                    "$numberDouble": "1625583746781.0"
+                },
+                "byMember": {
+                    "fullname": "Lian Skopis",
+                    "_id": "Hsi4M"
+                }
+            }]
+        }, {
+            "id": "_jsjqpqn6mbq",
+            "title": "Add permissions for new members",
+            "style": {
+                "bgColor": "#ffff",
+                "imgUrl": "http://res.cloudinary.com/skopis87/image/upload/v1625585691/kqxivhfuecdil7ez5a99.png"
+            },
+            "members": [{
+                "_id": "u101",
+                "username": "shachardorfzaun",
+                "fullname": "Shachar Dorfzaun",
+                "imgUrl": ""
+            }],
+            "comments": [{
+                "txt": "This is a high priority task, please take care asap",
+                "id": "_bq5jorclu6h",
+                "createdAt": {
+                    "$numberDouble": "1625583798024.0"
+                },
+                "byMember": {
+                    "fullname": "Lian Skopis",
+                    "_id": "Hsi4M"
+                }
+            }],
+            "labels": [{
+                "id": "l104",
+                "title": "Important",
+                "color": "red"
+            }, {
+                "id": "l105",
+                "title": "",
+                "color": "purple"
+            }],
+            "checklists": [{
+                "title": "Checklist",
+                "todos": [{
+                    "text": "Git permissions",
+                    "isDone": true,
+                    "id": "_rmmopirfu5g"
+                }, {
+                    "text": "AWS permissions",
+                    "isDone": false,
+                    "id": "_blwcvdfsa9"
+                }, {
+                    "text": "Mongo permissions",
+                    "isDone": false,
+                    "id": "_3una6a56u4s"
+                }],
+                "id": "_igrxi95cjtd"
+            }],
+            "byUser": {
+                "_id": "u103",
+                "fullname": "Guest",
+                "username": "guest",
+                "imgUrl": ""
+            },
+            "attachments": [{
+                "byMember": {
+                    "username": "lianskopis",
+                    "password": "123456",
+                    "fullname": "Lian Skopis",
+                    "_id": "Hsi4M"
+                },
+                "imgUrl": "http://res.cloudinary.com/skopis87/image/upload/v1625584069/b5bkgetabkgfpdcd4wqt.png",
+                "originalFilename": "permittions",
+                "format": "png",
+                "createdAt": {
+                    "$numberDouble": "1625584069026.0"
+                }
+            }, {
+                "byMember": {
+                    "username": "lianskopis",
+                    "password": "123456",
+                    "fullname": "Lian Skopis",
+                    "_id": "Hsi4M"
+                },
+                "imgUrl": "http://res.cloudinary.com/skopis87/image/upload/v1625585691/kqxivhfuecdil7ez5a99.png",
+                "originalFilename": "imageedit_1_5909140536",
+                "format": "png",
+                "createdAt": {
+                    "$numberDouble": "1625585690283.0"
+                }
+            }],
+            "dueDate": {
+                "date": "27 Jul 2021",
+                "isComplete": false
+            }
+        }, {
+            "id": "c1014",
+            "title": "Stakeholders",
+            "style": {
+                "bgColor": "#ffffff"
+            },
+            "labels": [{
+                "id": "l102",
+                "title": "",
+                "color": "yellow"
+            }],
+            "members": [{
+                "_id": "u102",
+                "username": "nofargabso",
+                "fullname": "Nofar Gabso",
+                "imgUrl": ""
+            }, {
+                "_id": "u177",
+                "fullname": "Lian Skopis",
+                "username": "lianskopis",
+                "imgUrl": ""
+            }],
+            "dueDate": {
+                "date": "7 Jul 2021",
+                "isComplete": false
+            }
+        }, {
+            "id": "c1012",
+            "title": "Weekly Updates",
+            "style": {
+                "bgColor": "#ffaf3f",
+                "imgUrl": ""
+            },
+            "labels": [],
+            "members": [{
+                "_id": "u102",
+                "username": "nofargabso",
+                "fullname": "Nofar Gabso",
+                "imgUrl": ""
+            }],
+            "dueDate": {
+                "date": "4 Jul 2021",
+                "isComplete": true
+            }
+        }, {
+            "id": "_eiumyes8mxk",
+            "title": "Scratch the last update- it's back to green buttons",
+            "style": {
+                "bgColor": "#ffff"
+            },
+            "members": [{
+                "_id": "u101",
+                "username": "shachardorfzaun",
+                "fullname": "Shachar Dorfzaun",
+                "imgUrl": ""
+            }, {
+                "_id": "u102",
+                "username": "nofargabso",
+                "fullname": "Nofar Gabso",
+                "imgUrl": ""
+            }, {
+                "_id": "u177",
+                "fullname": "Lian Skopis",
+                "username": "lianskopis",
+                "imgUrl": ""
+            }],
+            "comments": [],
+            "labels": [{
+                "id": "l104",
+                "title": "Important",
+                "color": "red"
+            }, {
+                "id": "l105",
+                "title": "",
+                "color": "purple"
+            }, {
+                "id": "l106",
+                "title": "Optional",
+                "color": "blue"
+            }],
+            "checklists": [],
+            "byUser": {
+                "_id": "u103",
+                "fullname": "Guest",
+                "username": "guest",
+                "imgUrl": ""
+            },
+            "dueDate": {
+                "date": "29 Jul 2021",
+                "isComplete": false
+            }
+        }, {
+            "id": "_gts2f03g2ii",
+            "title": "In-Company Funds",
+            "style": {
+                "bgColor": "#ffff"
+            },
+            "members": [{
+                "_id": "u101",
+                "username": "shachardorfzaun",
+                "fullname": "Shachar Dorfzaun",
+                "imgUrl": ""
+            }],
+            "comments": [],
+            "labels": [{
+                "id": "l102",
+                "title": "",
+                "color": "yellow"
+            }, {
+                "id": "l104",
+                "title": "Important",
+                "color": "red"
+            }],
+            "checklists": [],
+            "byUser": {
+                "username": "lianskopis",
+                "password": "123456",
+                "fullname": "Lian Skopis",
+                "_id": "Hsi4M"
+            },
+            "dueDate": {
+                "date": "16 Sept 2021",
+                "isComplete": true
+            }
+        }, {
+            "id": "_9rcd5f33rga",
+            "title": "Finalize Campaign mame: WeTaskBigger",
+            "style": {
+                "bgColor": "#ffff"
+            },
+            "members": [{
+                "_id": "u102",
+                "username": "nofargabso",
+                "fullname": "Nofar Gabso",
+                "imgUrl": ""
+            }, {
+                "_id": "u177",
+                "fullname": "Lian Skopis",
+                "username": "lianskopis",
+                "imgUrl": ""
+            }],
+            "comments": [],
+            "labels": [{
+                "id": "l104",
+                "title": "Important",
+                "color": "red"
+            }],
+            "checklists": [],
+            "byUser": {
+                "username": "lianskopis",
+                "password": "123456",
+                "fullname": "Lian Skopis",
+                "_id": "Hsi4M"
+            },
+            "dueDate": {
+                "date": "13 Oct 2021",
+                "isComplete": false
+            }
+        }],
+        "style": {
+            "bgColor": "#ebecf0"
+        }
+    }, {
+        "id": "g102",
+        "title": "Questions for Next Meeting",
+        "tasks": [{
+            "id": "c103",
+            "title": "Whos the best person to fix my HTML snag?",
+            "style": {
+                "bgColor": "#5ba4cf",
+                "imgUrl": ""
+            },
+            "labels": [{
+                "id": "l102",
+                "title": "",
+                "color": "yellow"
+            }, {
+                "id": "l105",
+                "title": "",
+                "color": "purple"
+            }, {
+                "id": "l103",
+                "title": "Flexible",
+                "color": "orange"
+            }],
+            "members": [{
+                "_id": "u101",
+                "username": "shachardorfzaun",
+                "fullname": "Shachar Dorfzaun",
+                "imgUrl": ""
+            }, {
+                "_id": "u102",
+                "username": "nofargabso",
+                "fullname": "Nofar Gabso",
+                "imgUrl": ""
+            }, {
+                "_id": "u177",
+                "fullname": "Lian Skopis",
+                "username": "lianskopis",
+                "imgUrl": ""
+            }],
+            "dueDate": {
+                "date": "21 Jul 2021",
+                "isComplete": true
+            }
+        }, {
+            "id": "c104",
+            "title": "How can I get access to the super secret document?",
+            "style": {
+                "bgColor": "#ffffff"
+            },
+            "labels": [{
+                "id": "l102",
+                "title": "",
+                "color": "yellow"
+            }, {
+                "id": "l103",
+                "title": "Flexible",
+                "color": "orange"
+            }],
+            "description": "Please find a way to open this file",
+            "comments": [{
+                "id": "ZdPnm",
+                "txt": "also @yaronb please CR this",
+                "createdAt": {
+                    "$numberInt": "159099981"
+                },
+                "byMember": {
+                    "_id": "u101",
+                    "fullname": "Shachar Dorfzaun",
+                    "imgUrl": ""
+                }
+            }],
+            "checkgroups": [{
+                "id": "YEhmFtt",
+                "title": "Checkgroup",
+                "todos": [{
+                    "id": "212jXz",
+                    "title": "Edit Email drafts",
+                    "isDone": false
+                }]
+            }],
+            "members": [{
+                "_id": "u177",
+                "fullname": "Lian Skopis",
+                "username": "lianskopis",
+                "imgUrl": ""
+            }, {
+                "_id": "u102",
+                "username": "nofargabso",
+                "fullname": "Nofar Gabso",
+                "imgUrl": ""
+            }],
+            "labelIds": ["101"],
+            "createdAt": {
+                "$numberDouble": "1590999730348.0"
+            },
+            "byMember": {
+                "_id": "u177",
+                "fullname": "Lian Skopis",
+                "imgUrl": ""
+            },
+            "dueDate": {
+                "date": "30 Sept 2021",
+                "isComplete": false
+            }
+        }, {
+            "id": "_3y8z90nstuy",
+            "title": "Connect sockets",
+            "style": {
+                "bgColor": "#ffff",
+                "imgUrl": "http://res.cloudinary.com/skopis87/image/upload/v1625584516/juocqybtzqfe52ge0anu.png"
+            },
+            "members": [{
+                "_id": "u102",
+                "username": "nofargabso",
+                "fullname": "Nofar Gabso",
+                "imgUrl": ""
+            }],
+            "comments": [{
+                "txt": "Please assist with this task",
+                "id": "_lwryh21o2x",
+                "createdAt": {
+                    "$numberDouble": "1625584458590.0"
+                },
+                "byMember": {
+                    "fullname": "Lian Skopis",
+                    "_id": "Hsi4M"
+                }
+            }],
+            "labels": [{
+                "id": "l104",
+                "title": "Important",
+                "color": "red"
+            }, {
+                "id": "l105",
+                "title": "",
+                "color": "purple"
+            }],
+            "checklists": [{
+                "title": "Checklist",
+                "todos": [{
+                    "text": "Install socket.io",
+                    "isDone": true,
+                    "id": "_9vi69q5cx0v"
+                }],
+                "id": "_sf1mxw8zgm"
+            }],
+            "byUser": {
+                "username": "lianskopis",
+                "password": "123456",
+                "fullname": "Lian Skopis",
+                "_id": "Hsi4M"
+            },
+            "dueDate": {
+                "date": "15 Jul 2021",
+                "isComplete": false
+            },
+            "attachments": [{
+                "byMember": {
+                    "username": "lianskopis",
+                    "password": "123456",
+                    "fullname": "Lian Skopis",
+                    "_id": "Hsi4M"
+                },
+                "imgUrl": "http://res.cloudinary.com/skopis87/image/upload/v1625584516/juocqybtzqfe52ge0anu.png",
+                "originalFilename": "sockets",
+                "format": "png",
+                "createdAt": {
+                    "$numberDouble": "1625584514659.0"
+                }
+            }]
+        }, {
+            "id": "c1017",
+            "title": "Legal review",
+            "style": {
+                "bgColor": "#ef7564",
+                "imgUrl": ""
+            },
+            "labels": [{
+                "id": "l104",
+                "title": "Important",
+                "color": "red"
+            }, {
+                "id": "l105",
+                "title": "",
+                "color": "purple"
+            }, {
+                "id": "l102",
+                "title": "",
+                "color": "yellow"
+            }],
+            "members": [{
+                "_id": "u177",
+                "fullname": "Lian Skopis",
+                "imgUrl": ""
+            }],
+            "dueDate": {
+                "date": "18 Jul 2021",
+                "isComplete": false
+            }
+        }],
+        "style": {
+            "bgColor": "#ebecf0"
+        }
+    }, {
+        "id": "g103",
+        "title": "To Do",
+        "tasks": [{
+            "id": "c1057",
+            "title": "Please add permissions for new members",
+            "style": {
+                "bgColor": "#ffffff"
+            },
+            "labels": [{
+                "id": "l104",
+                "title": "Important",
+                "color": "red"
+            }, {
+                "id": "l102",
+                "title": "",
+                "color": "yellow"
+            }],
+            "description": "description",
+            "comments": [{
+                "id": "ZdPnmk",
+                "txt": "@dudug please CR this",
+                "createdAt": {
+                    "$numberInt": "159099981"
+                },
+                "byMember": {
+                    "_id": "u177",
+                    "fullname": "Lian Skopis",
+                    "imgUrl": ""
+                }
+            }],
+            "checkgroups": [{
+                "id": "YEhmF",
+                "title": "Checkgroup",
+                "todos": [{
+                    "id": "212jX",
+                    "title": "Find the password",
+                    "isDone": false
+                }]
+            }],
+            "members": [{
+                "_id": "u101",
+                "username": "shachardorfzaun",
+                "fullname": "Shachar Dorfzaun",
+                "imgUrl": ""
+            }, {
+                "_id": "u107",
+                "username": "Kobi",
+                "fullname": "Kobi Tohar",
+                "imgUrl": ""
+            }],
+            "labelIds": ["101"],
+            "createdAt": {
+                "$numberDouble": "1590899770748.0"
+            },
+            "byMember": {
+                "_id": "u103",
+                "fullname": "Guest",
+                "imgUrl": ""
+            },
+            "dueDate": {
+                "date": "28 Aug 2021",
+                "isComplete": false
+            }
+        }, {
+            "id": "c1013",
+            "title": "Sketch site banner",
+            "style": {
+                "bgColor": "#ffffff",
+                "imgUrl": "http://res.cloudinary.com/skopis87/image/upload/v1625585822/uhhg74fzosvjfe9dhiem.png"
+            },
+            "labels": [{
+                "id": "l102",
+                "title": "",
+                "color": "yellow"
+            }, {
+                "id": "l104",
+                "title": "Important",
+                "color": "red"
+            }],
+            "members": [{
+                "_id": "u101",
+                "username": "shachardorfzaun",
+                "fullname": "Shachar Dorfzaun",
+                "imgUrl": ""
+            }],
+            "comments": [{
+                "txt": "Hey you",
+                "id": "cW5MN",
+                "createdAt": {
+                    "$numberInt": "1616420836"
+                },
+                "byMember": {
+                    "fullname": "Guest",
+                    "_id": "u103",
+                    "imgUrl": ""
+                }
+            }, {
+                "txt": "@guest no, you",
+                "id": "jTqPd",
+                "createdAt": {
+                    "$numberDouble": "1616423149235.0"
+                },
+                "byMember": {
+                    "fullname": "Guest",
+                    "_id": "u103",
+                    "imgUrl": ""
+                }
+            }],
+            "dueDate": {
+                "date": "31 Aug 2021",
+                "isComplete": false
+            },
+            "attachments": [{
+                "byMember": {
+                    "username": "lianskopis",
+                    "password": "123456",
+                    "fullname": "Lian Skopis",
+                    "_id": "Hsi4M"
+                },
+                "imgUrl": "http://res.cloudinary.com/skopis87/image/upload/v1625585822/uhhg74fzosvjfe9dhiem.png",
+                "originalFilename": "imageedit_1_3134771361",
+                "format": "png",
+                "createdAt": {
+                    "$numberDouble": "1625585820796.0"
+                }
+            }]
+        }, {
+            "id": "_xuwuza421s",
+            "title": "Social media assets",
+            "style": {
+                "bgColor": "#f5dd29",
+                "imgUrl": ""
+            },
+            "members": [{
+                "_id": "u101",
+                "username": "shachardorfzaun",
+                "fullname": "Shachar Dorfzaun",
+                "imgUrl": ""
+            }, {
+                "_id": "u102",
+                "username": "nofargabso",
+                "fullname": "Nofar Gabso",
+                "imgUrl": ""
+            }],
+            "comments": [],
+            "labels": [{
+                "id": "l105",
+                "title": "",
+                "color": "purple"
+            }, {
+                "id": "l103",
+                "title": "Flexible",
+                "color": "orange"
+            }],
+            "checklists": [],
+            "byUser": {
+                "username": "lianskopis",
+                "password": "123456",
+                "fullname": "Lian Skopis",
+                "_id": "Hsi4M"
+            },
+            "dueDate": {
+                "date": "3 Aug 2021",
+                "isComplete": true
+            }
+        }, {
+            "id": "_h3xk79tyfis",
+            "title": "Last week before presentation!",
+            "style": {
+                "bgColor": "#ffff"
+            },
+            "members": [{
+                "_id": "u102",
+                "username": "nofargabso",
+                "fullname": "Nofar Gabso",
+                "imgUrl": ""
+            }, {
+                "_id": "u177",
+                "fullname": "Lian Skopis",
+                "username": "lianskopis",
+                "imgUrl": ""
+            }],
+            "comments": [],
+            "labels": [{
+                "id": "l104",
+                "title": "Important",
+                "color": "red"
+            }, {
+                "id": "l105",
+                "title": "",
+                "color": "purple"
+            }, {
+                "id": "l102",
+                "title": "",
+                "color": "yellow"
+            }],
+            "checklists": [],
+            "byUser": {
+                "username": "lianskopis",
+                "password": "123456",
+                "fullname": "Lian Skopis",
+                "_id": "Hsi4M"
+            },
+            "dueDate": {
+                "date": "19 Aug 2021",
+                "isComplete": false
+            }
+        }],
+        "style": {
+            "bgColor": "#5ba4cf"
+        }
+    }, {
+        "id": "g111",
+        "title": "Pending",
+        "tasks": [{
+            "id": "c102374",
+            "title": "Fix Margin issue",
+            "style": {
+                "bgColor": "#ffffff"
+            },
+            "labels": [{
+                "id": "l102",
+                "title": "",
+                "color": "yellow"
+            }, {
+                "id": "l103",
+                "title": "Flexible",
+                "color": "orange"
+            }],
+            "members": [{
+                "_id": "u177",
+                "fullname": "Lian Skopis",
+                "username": "lianskopis",
+                "imgUrl": ""
+            }],
+            "dueDate": {
+                "date": "31 Jul 2021",
+                "isComplete": false
+            }
+        }, {
+            "id": "_fagqu0y25lv",
+            "title": "Change font on the entire app",
+            "style": {
+                "bgColor": "#f4f5f7",
+                "imgUrl": "http://res.cloudinary.com/skopis87/image/upload/v1625585516/cbfht9fytaxg3q65e8ud.png"
+            },
+            "members": [{
+                "_id": "u102",
+                "username": "nofargabso",
+                "fullname": "Nofar Gabso",
+                "imgUrl": ""
+            }],
+            "comments": [],
+            "labels": [{
+                "id": "l102",
+                "title": "",
+                "color": "yellow"
+            }, {
+                "id": "l103",
+                "title": "Flexible",
+                "color": "orange"
+            }, {
+                "id": "l105",
+                "title": "",
+                "color": "purple"
+            }],
+            "checklists": [],
+            "byUser": {
+                "username": "lianskopis",
+                "password": "123456",
+                "fullname": "Lian Skopis",
+                "_id": "Hsi4M"
+            },
+            "dueDate": {
+                "date": "31 Jul 2021",
+                "isComplete": true
+            },
+            "attachments": [{
+                "byMember": {
+                    "username": "lianskopis",
+                    "password": "123456",
+                    "fullname": "Lian Skopis",
+                    "_id": "Hsi4M"
+                },
+                "imgUrl": "http://res.cloudinary.com/skopis87/image/upload/v1625585516/cbfht9fytaxg3q65e8ud.png",
+                "originalFilename": "imageedit_1_3243685740",
+                "format": "png",
+                "createdAt": {
+                    "$numberDouble": "1625585514465.0"
+                }
+            }]
+        }, {
+            "id": "c1015",
+            "title": "WorkFlow changed!!",
+            "style": {
+                "bgColor": "#ffffff"
+            },
+            "labels": [{
+                "id": "l104",
+                "title": "Important",
+                "color": "red"
+            }],
+            "description": "description",
+            "comments": [{
+                "id": "ZdPntm",
+                "txt": "also @mikel please CR this",
+                "createdAt": {
+                    "$numberDouble": "15909998176.0"
+                },
+                "byMember": {
+                    "_id": "u107",
+                    "fullname": "Kobi Tohar",
+                    "imgUrl": ""
+                }
+            }],
+            "checkgroups": [{
+                "id": "YEhmFl",
+                "title": "Checkgroup",
+                "todos": [{
+                    "id": "212jXx",
+                    "title": "Find the document",
+                    "isDone": false
+                }]
+            }],
+            "members": [{
+                "_id": "u101",
+                "username": "shachardorfzaun",
+                "fullname": "Shachar Dorfzaun",
+                "imgUrl": ""
+            }, {
+                "_id": "u107",
+                "username": "Kobi",
+                "fullname": "Kobi Tohar",
+                "imgUrl": ""
+            }],
+            "labelIds": ["101"],
+            "createdAt": {
+                "$numberDouble": "1590899770748.0"
+            },
+            "byMember": {
+                "_id": "u103",
+                "fullname": "Guest",
+                "imgUrl": ""
+            },
+            "dueDate": {
+                "date": "28 Jul 2021",
+                "isComplete": false
+            }
+        }],
+        "style": {
+            "bgColor": "#ebecf0"
+        }
+    }, {
+        "id": "g118",
+        "title": "In Progress",
+        "tasks": [{
+            "id": "c10177",
+            "title": "Freelancer contracts",
+            "style": {
+                "bgColor": "#ffffff"
+            },
+            "members": [{
+                "_id": "u102",
+                "username": "nofargabso",
+                "fullname": "Nofar Gabso",
+                "imgUrl": ""
+            }, {
+                "_id": "u101",
+                "username": "shachardorfzaun",
+                "fullname": "Shachar Dorfzaun",
+                "imgUrl": ""
+            }],
+            "labels": [{
+                "id": "l101",
+                "title": "Done",
+                "color": "green"
+            }, {
+                "id": "l103",
+                "title": "Flexible",
+                "color": "orange"
+            }, {
+                "id": "l104",
+                "title": "Important",
+                "color": "red"
+            }],
+            "dueDate": {
+                "date": "1 Jul 2021",
+                "isComplete": true
+            }
+        }, {
+            "id": "_11tnld0pfz7a",
+            "title": "QA for new Dashboard",
+            "style": {
+                "bgColor": "#29cce5",
+                "imgUrl": ""
+            },
+            "members": [{
+                "_id": "u102",
+                "username": "nofargabso",
+                "fullname": "Nofar Gabso",
+                "imgUrl": ""
+            }],
+            "comments": [],
+            "labels": [{
+                "id": "l101",
+                "title": "Done",
+                "color": "green"
+            }, {
+                "id": "l102",
+                "title": "",
+                "color": "yellow"
+            }],
+            "checklists": [],
+            "byUser": {
+                "username": "lianskopis",
+                "password": "123456",
+                "fullname": "Lian Skopis",
+                "_id": "Hsi4M"
+            },
+            "dueDate": {
+                "date": "2 Jul 2021",
+                "isComplete": true
+            }
+        }, {
+            "id": "c10157",
+            "title": "Social media assets",
+            "style": {
+                "bgColor": "#ffffff"
+            },
+            "labels": [{
+                "id": "l101",
+                "title": "Done",
+                "color": "green"
+            }],
+            "description": "The twitter banner looks great, can we get another version in red",
+            "comments": [{
+                "id": "ZdPntmk",
+                "txt": "Sure thing, just attached!",
+                "createdAt": {
+                    "$numberDouble": "15909568174.0"
+                },
+                "byMember": {
+                    "_id": "u101",
+                    "fullname": "Shachar Dorfzaun",
+                    "imgUrl": ""
+                }
+            }],
+            "checkgroups": [{
+                "id": "YEhmFlk",
+                "title": "Main Checkgroup",
+                "todos": [{
+                    "id": "212jXxe",
+                    "title": "Check the DB error",
+                    "isDone": false
+                }]
+            }],
+            "members": [{
+                "_id": "u101",
+                "username": "shachardorfzaun",
+                "fullname": "Shachar Dorfzaun",
+                "imgUrl": ""
+            }, {
+                "_id": "u107",
+                "username": "Kobi",
+                "fullname": "Kobi Tohar",
+                "imgUrl": ""
+            }],
+            "labelIds": ["101"],
+            "createdAt": {
+                "$numberDouble": "1590899770748.0"
+            },
+            "byMember": {
+                "_id": "u102",
+                "fullname": "Nofar Gabso",
+                "imgUrl": ""
+            },
+            "dueDate": {
+                "date": "4 Jul 2021",
+                "isComplete": true
+            }
+        }, {
+            "id": "_31heru5a6nk",
+            "title": "App header shoud be much bigger",
+            "style": {
+                "bgColor": "#ffff",
+                "imgUrl": "http://res.cloudinary.com/skopis87/image/upload/v1625585914/rojhcqb8hukyonij2cep.png"
+            },
+            "members": [],
+            "comments": [],
+            "labels": [{
+                "id": "l101",
+                "title": "Done",
+                "color": "green"
+            }, {
+                "id": "l105",
+                "title": "",
+                "color": "purple"
+            }],
+            "checklists": [],
+            "byUser": {
+                "username": "lianskopis",
+                "password": "123456",
+                "fullname": "Lian Skopis",
+                "_id": "Hsi4M"
+            },
+            "dueDate": {
+                "date": "3 Jul 2021",
+                "isComplete": true
+            },
+            "attachments": [{
+                "byMember": {
+                    "username": "lianskopis",
+                    "password": "123456",
+                    "fullname": "Lian Skopis",
+                    "_id": "Hsi4M"
+                },
+                "imgUrl": "http://res.cloudinary.com/skopis87/image/upload/v1625585914/rojhcqb8hukyonij2cep.png",
+                "originalFilename": "imageedit_1_3844191694",
+                "format": "png",
+                "createdAt": {
+                    "$numberDouble": "1625585912368.0"
+                }
+            }]
+        }, {
+            "id": "_3b214rnsn4",
+            "title": "Schedula a meeting with new client",
+            "style": {
+                "bgColor": "#ffff"
+            },
+            "members": [{
+                "_id": "u177",
+                "fullname": "Lian Skopis",
+                "username": "lianskopis",
+                "imgUrl": ""
+            }, {
+                "_id": "u101",
+                "username": "shachardorfzaun",
+                "fullname": "Shachar Dorfzaun",
+                "imgUrl": ""
+            }],
+            "comments": [],
+            "labels": [{
+                "id": "l101",
+                "title": "Done",
+                "color": "green"
+            }, {
+                "id": "l106",
+                "title": "Optional",
+                "color": "blue"
+            }],
+            "checklists": [],
+            "byUser": {
+                "username": "lianskopis",
+                "password": "123456",
+                "fullname": "Lian Skopis",
+                "_id": "Hsi4M"
+            },
+            "dueDate": {
+                "date": "23 Jul 2021",
+                "isComplete": true
+            }
+        }, {
+            "id": "_mvaficqvrgm",
+            "title": "How can I get access to the old documentation?",
+            "style": {
+                "bgColor": "#ffff"
+            },
+            "members": [{
+                "_id": "u102",
+                "username": "nofargabso",
+                "fullname": "Nofar Gabso",
+                "imgUrl": ""
+            }, {
+                "_id": "u101",
+                "username": "shachardorfzaun",
+                "fullname": "Shachar Dorfzaun",
+                "imgUrl": ""
+            }, {
+                "_id": "u177",
+                "fullname": "Lian Skopis",
+                "username": "lianskopis",
+                "imgUrl": ""
+            }],
+            "comments": [],
+            "labels": [{
+                "id": "l101",
+                "title": "Done",
+                "color": "green"
+            }, {
+                "id": "l102",
+                "title": "",
+                "color": "yellow"
+            }, {
+                "id": "l103",
+                "title": "Flexible",
+                "color": "orange"
+            }],
+            "checklists": [],
+            "byUser": {
+                "username": "lianskopis",
+                "password": "123456",
+                "fullname": "Lian Skopis",
+                "_id": "Hsi4M"
+            },
+            "dueDate": {
+                "date": "4 Jul 2021",
+                "isComplete": true
+            }
+        }],
+        "style": {
+            "bgColor": "#f4f5f7"
+        }
+    }, {
+        "id": "g10134",
+        "title": "Done",
+        "tasks": [{
+            "id": "c10134",
+            "title": "Finalize Campaign Name: WeTaskBigger",
+            "style": {
+                "bgColor": "#ffffff"
+            },
+            "labels": [{
+                "id": "l104",
+                "title": "Important",
+                "color": "red"
+            }, {
+                "id": "l103",
+                "title": "Flexible",
+                "color": "orange"
+            }, {
+                "id": "l102",
+                "title": "",
+                "color": "yellow"
+            }, {
+                "id": "l105",
+                "title": "",
+                "color": "purple"
+            }],
+            "members": [{
+                "_id": "u177",
+                "username": "lianskopis",
+                "fullname": "Lian Skopis",
+                "imgUrl": ""
+            }],
+            "dueDate": {
+                "date": "18 Jul 2021",
+                "isComplete": false
+            }
+        }, {
+            "id": "c101234",
+            "title": "Submit Q1 report",
+            "style": {
+                "bgColor": "#ffffff"
+            },
+            "labels": [{
+                "id": "l102",
+                "title": "",
+                "color": "yellow"
+            }],
+            "dueDate": {
+                "date": "30 Jul 2021",
+                "isComplete": true
+            },
+            "members": [{
+                "_id": "u101",
+                "username": "shachardorfzaun",
+                "fullname": "Shachar Dorfzaun",
+                "imgUrl": ""
+            }]
+        }, {
+            "id": "c101474",
+            "title": "Await final approval",
+            "style": {
+                "bgColor": "#cd8de5",
+                "imgUrl": ""
+            },
+            "labels": [{
+                "id": "l102",
+                "title": "",
+                "color": "yellow"
+            }, {
+                "id": "l104",
+                "title": "Important",
+                "color": "red"
+            }]
+        }, {
+            "id": "c101239",
+            "title": "Get Manager approval",
+            "style": {
+                "bgColor": "#ffffff"
+            },
+            "labels": [{
+                "id": "l106",
+                "title": "Optional",
+                "color": "blue"
+            }, {
+                "id": "l105",
+                "title": "",
+                "color": "purple"
+            }],
+            "dueDate": {
+                "date": "27 Jul 2021",
+                "isComplete": false
+            },
+            "members": [{
+                "_id": "u102",
+                "username": "nofargabso",
+                "fullname": "Nofar Gabso",
+                "imgUrl": ""
+            }, {
+                "_id": "u177",
+                "fullname": "Lian Skopis",
+                "username": "lianskopis",
+                "imgUrl": ""
+            }]
+        }, {
+            "id": "c101434",
+            "title": "Campaign Proposal",
+            "style": {
+                "bgColor": "#ffffff"
+            },
+            "labels": [{
+                "id": "l105",
+                "title": "",
+                "color": "purple"
+            }, {
+                "id": "l104",
+                "title": "Important",
+                "color": "red"
+            }],
+            "dueDate": {
+                "date": "18 Jul 2021",
+                "isComplete": false
+            },
+            "members": [{
+                "_id": "u102",
+                "username": "nofargabso",
+                "fullname": "Nofar Gabso",
+                "imgUrl": ""
+            }]
+        }],
+        "style": {
+            "bgColor": "#29cce5"
+        }
+    }],
+    "activities": [{
+        "txt": "Added task \"Finalize Campaign Name: WeTaskBigger\" to list: Done",
+        "createdAt": {
+            "$numberDouble": "1625583335913.0"
+        },
+        "byMember": {
+            "_id": "u103",
+            "fullname": "Guest",
+            "username": "guest",
+            "imgUrl": ""
+        },
+        "task": {
+            "id": "c10134",
+            "title": "Finalize Campaign Name: WeTaskBigger",
+            "style": {
+                "bgColor": "#ffffff"
+            },
+            "labels": [],
+            "members": [{
+                "_id": "u177",
+                "username": "lianskopis",
+                "fullname": "Lian Skopis",
+                "imgUrl": ""
+            }]
+        },
+        "id": "_bzhf5pdiic"
+    }, {
+        "txt": "Added task \"Social media assets\" to list: Blocked",
+        "createdAt": {
+            "$numberDouble": "1625583331431.0"
+        },
+        "byMember": {
+            "_id": "u103",
+            "fullname": "Guest",
+            "username": "guest",
+            "imgUrl": ""
+        },
+        "task": {
+            "id": "c10157",
+            "title": "Social media assets",
+            "style": {
+                "bgColor": "#ffffff"
+            },
+            "labels": [],
+            "description": "The twitter banner looks great, can we get another version in red",
+            "comments": [{
+                "id": "ZdPntmk",
+                "txt": "Sure thing, just attached!",
+                "createdAt": {
+                    "$numberDouble": "15909568174.0"
+                },
+                "byMember": {
+                    "_id": "u101",
+                    "fullname": "Shachar Dorfzaun",
+                    "imgUrl": ""
+                }
+            }],
+            "checkgroups": [{
+                "id": "YEhmFlk",
+                "title": "Main Checkgroup",
+                "todos": [{
+                    "id": "212jXxe",
+                    "title": "Check the DB error",
+                    "isDone": false
+                }]
+            }],
+            "members": [{
+                "_id": "u101",
+                "username": "shachardorfzaun",
+                "fullname": "Shachar Dorfzaun",
+                "imgUrl": ""
+            }, {
+                "_id": "u107",
+                "username": "Kobi",
+                "fullname": "Kobi Tohar",
+                "imgUrl": ""
+            }],
+            "labelIds": ["101"],
+            "createdAt": {
+                "$numberDouble": "1590899770748.0"
+            },
+            "byMember": {
+                "_id": "u102",
+                "fullname": "Nofar Gabso",
+                "imgUrl": ""
+            }
+        },
+        "id": "_y5npy8t89cd"
+    }, {
+        "txt": "Added task \"WorkFlow changed!!\" to list: Pending",
+        "createdAt": {
+            "$numberDouble": "1625582948162.0"
+        },
+        "byMember": {
+            "_id": "u103",
+            "fullname": "Guest",
+            "username": "guest",
+            "imgUrl": ""
+        },
+        "task": {
+            "id": "c1015",
+            "title": "WorkFlow changed!!",
+            "style": {
+                "bgColor": "#ffffff"
+            },
+            "labels": [],
+            "description": "description",
+            "comments": [{
+                "id": "ZdPntm",
+                "txt": "also @mikel please CR this",
+                "createdAt": {
+                    "$numberDouble": "15909998176.0"
+                },
+                "byMember": {
+                    "_id": "u107",
+                    "fullname": "Kobi Tohar",
+                    "imgUrl": ""
+                }
+            }],
+            "checkgroups": [{
+                "id": "YEhmFl",
+                "title": "Checkgroup",
+                "todos": [{
+                    "id": "212jXx",
+                    "title": "Find the document",
+                    "isDone": false
+                }]
+            }],
+            "members": [{
+                "_id": "u101",
+                "username": "shachardorfzaun",
+                "fullname": "Shachar Dorfzaun",
+                "imgUrl": ""
+            }, {
+                "_id": "u107",
+                "username": "Kobi",
+                "fullname": "Kobi Tohar",
+                "imgUrl": ""
+            }],
+            "labelIds": ["101"],
+            "createdAt": {
+                "$numberDouble": "1590899770748.0"
+            },
+            "byMember": {
+                "_id": "u103",
+                "fullname": "Guest",
+                "imgUrl": ""
+            }
+        },
+        "id": "_m1p4jg8f84"
+    }, {
+        "txt": "Added task \"Legal review\" to list: Pending",
+        "createdAt": {
+            "$numberDouble": "1625582946602.0"
+        },
+        "byMember": {
+            "_id": "u103",
+            "fullname": "Guest",
+            "username": "guest",
+            "imgUrl": ""
+        },
+        "task": {
+            "id": "c1017",
+            "title": "Legal review",
+            "style": {
+                "bgColor": "#ffffff"
+            },
+            "labels": [],
+            "members": [{
+                "_id": "u177",
+                "fullname": "Lian Skopis",
+                "imgUrl": ""
+            }]
+        },
+        "id": "_xumkg4o0vy"
+    }, {
+        "txt": "Added task \"Sketch site banner\" to list: To Do",
+        "createdAt": {
+            "$numberDouble": "1625582944625.0"
+        },
+        "byMember": {
+            "_id": "u103",
+            "fullname": "Guest",
+            "username": "guest",
+            "imgUrl": ""
+        },
+        "task": {
+            "id": "c1013",
+            "title": "Sketch site banner",
+            "style": {
+                "bgColor": "#ffffff"
+            },
+            "labels": [],
+            "members": [],
+            "comments": [{
+                "txt": "Hey you",
+                "id": "cW5MN",
+                "createdAt": {
+                    "$numberInt": "1616420836"
+                },
+                "byMember": {
+                    "fullname": "Guest",
+                    "_id": "u103",
+                    "imgUrl": ""
+                }
+            }, {
+                "txt": "@guest no, you",
+                "id": "jTqPd",
+                "createdAt": {
+                    "$numberDouble": "1616423149235.0"
+                },
+                "byMember": {
+                    "fullname": "Guest",
+                    "_id": "u103",
+                    "imgUrl": ""
+                }
+            }]
+        },
+        "id": "_pee6m63cn5l"
+    }, {
+        "txt": "Added task \"Project \"Teamwork Dream Work\" Launch Timeline\" to list: Project Resources",
+        "createdAt": {
+            "$numberDouble": "1625582943205.0"
+        },
+        "byMember": {
+            "_id": "u103",
+            "fullname": "Guest",
+            "username": "guest",
+            "imgUrl": ""
+        },
+        "task": {
+            "id": "c101",
+            "title": "Project \"Teamwork Dream Work\" Launch Timeline",
+            "style": {
+                "bgColor": "#ffffff"
+            },
+            "members": [{
+                "_id": "u177",
+                "fullname": "Lian Skopis",
+                "username": "lianskopis",
+                "imgUrl": ""
+            }],
+            "labels": []
+        },
+        "id": "_zy5nw2ljnu"
+    }, {
+        "txt": "Added task \"Whos the best person to fix my HTML snag?\" to list: Questions for Next Meeting",
+        "createdAt": {
+            "$numberDouble": "1625582941691.0"
+        },
+        "byMember": {
+            "_id": "u103",
+            "fullname": "Guest",
+            "username": "guest",
+            "imgUrl": ""
+        },
+        "task": {
+            "id": "c103",
+            "title": "Whos the best person to fix my HTML snag?",
+            "style": {
+                "bgColor": "#ffffff"
+            },
+            "labels": [],
+            "members": []
+        },
+        "id": "_bnzyvgjp1us"
+    }, {
+        "txt": "Added task \"How can I get access to the super secret document?\" to list: Questions for Next Meeting",
+        "createdAt": {
+            "$numberDouble": "1625582940345.0"
+        },
+        "byMember": {
+            "_id": "u103",
+            "fullname": "Guest",
+            "username": "guest",
+            "imgUrl": ""
+        },
+        "task": {
+            "id": "c104",
+            "title": "How can I get access to the super secret document?",
+            "style": {
+                "bgColor": "#ffffff"
+            },
+            "labels": [],
+            "description": "Please find a way to open this file",
+            "comments": [{
+                "id": "ZdPnm",
+                "txt": "also @yaronb please CR this",
+                "createdAt": {
+                    "$numberInt": "159099981"
+                },
+                "byMember": {
+                    "_id": "u101",
+                    "fullname": "Shachar Dorfzaun",
+                    "imgUrl": ""
+                }
+            }],
+            "checkgroups": [{
+                "id": "YEhmFtt",
+                "title": "Checkgroup",
+                "todos": [{
+                    "id": "212jXz",
+                    "title": "Edit Email drafts",
+                    "isDone": false
+                }]
+            }],
+            "members": [{
+                "_id": "u177",
+                "fullname": "Lian Skopis",
+                "username": "lianskopis",
+                "imgUrl": ""
+            }, {
+                "_id": "u102",
+                "username": "nofargabso",
+                "fullname": "Nofar Gabso",
+                "imgUrl": ""
+            }],
+            "labelIds": ["101"],
+            "createdAt": {
+                "$numberDouble": "1590999730348.0"
+            },
+            "byMember": {
+                "_id": "u177",
+                "fullname": "Lian Skopis",
+                "imgUrl": ""
+            }
+        },
+        "id": "_96sdpogup6c"
+    }, {
+        "txt": "Added task \"Please add permissions for new members\" to list: To Do",
+        "createdAt": {
+            "$numberDouble": "1625582938630.0"
+        },
+        "byMember": {
+            "_id": "u103",
+            "fullname": "Guest",
+            "username": "guest",
+            "imgUrl": ""
+        },
+        "task": {
+            "id": "c1057",
+            "title": "Please add permissions for new members",
+            "style": {
+                "bgColor": "#ffffff"
+            },
+            "labels": [],
+            "description": "description",
+            "comments": [{
+                "id": "ZdPnmk",
+                "txt": "@dudug please CR this",
+                "createdAt": {
+                    "$numberInt": "159099981"
+                },
+                "byMember": {
+                    "_id": "u177",
+                    "fullname": "Lian Skopis",
+                    "imgUrl": ""
+                }
+            }],
+            "checkgroups": [{
+                "id": "YEhmF",
+                "title": "Checkgroup",
+                "todos": [{
+                    "id": "212jX",
+                    "title": "Find the password",
+                    "isDone": false
+                }]
+            }],
+            "members": [{
+                "_id": "u101",
+                "username": "shachardorfzaun",
+                "fullname": "Shachar Dorfzaun",
+                "imgUrl": ""
+            }, {
+                "_id": "u107",
+                "username": "Kobi",
+                "fullname": "Kobi Tohar",
+                "imgUrl": ""
+            }],
+            "labelIds": ["101"],
+            "createdAt": {
+                "$numberDouble": "1590899770748.0"
+            },
+            "byMember": {
+                "_id": "u103",
+                "fullname": "Guest",
+                "imgUrl": ""
+            }
+        },
+        "id": "_o9x2g3qcw3"
+    }, {
+        "txt": "Added task \"How can I get access to the super secret document?\" to list: Questions for Next Meeting",
+        "createdAt": {
+            "$numberDouble": "1625520741051.0"
+        },
+        "byMember": {
+            "_id": "u103",
+            "fullname": "Guest",
+            "username": "guest",
+            "imgUrl": ""
+        },
+        "task": {
+            "id": "c104",
+            "title": "How can I get access to the super secret document?",
+            "style": {
+                "bgColor": "#ffffff"
+            },
+            "labels": [],
+            "description": "Please find a way to open this file",
+            "comments": [{
+                "id": "ZdPnm",
+                "txt": "also @yaronb please CR this",
+                "createdAt": {
+                    "$numberInt": "159099981"
+                },
+                "byMember": {
+                    "_id": "u101",
+                    "fullname": "Shachar Dorfzaun",
+                    "imgUrl": ""
+                }
+            }],
+            "checkgroups": [{
+                "id": "YEhmFtt",
+                "title": "Checkgroup",
+                "todos": [{
+                    "id": "212jXz",
+                    "title": "Edit Email drafts",
+                    "isDone": false
+                }]
+            }],
+            "members": [{
+                "_id": "u103",
+                "fullname": "Guest",
+                "username": "guest",
+                "imgUrl": ""
+            }, {
+                "_id": "u177",
+                "fullname": "Lian Skopis",
+                "username": "lianskopis",
+                "imgUrl": ""
+            }, {
+                "_id": "u102",
+                "username": "nofargabso",
+                "fullname": "Nofar Gabso",
+                "imgUrl": ""
+            }],
+            "labelIds": ["101"],
+            "createdAt": {
+                "$numberDouble": "1590999730348.0"
+            },
+            "byMember": {
+                "_id": "u177",
+                "fullname": "Lian Skopis",
+                "imgUrl": ""
+            }
+        },
+        "id": "_pg3fys6nh8"
+    }, {
+        "id": "a1015",
+        "txt": "Added a comment",
+        "createdAt": {
+            "$numberDouble": "15451456789.0"
+        },
+        "byMember": {
+            "_id": "u102",
+            "fullname": "Nofar Gabso",
+            "imgUrl": ""
+        },
+        "task": {
+            "id": "c10134",
+            "title": "Finalize Campaign Name: WeTaskBigger"
+        }
+    }, {
+        "id": "a102",
+        "txt": "Changed DueDate",
+        "createdAt": {
+            "$numberInt": "154514"
+        },
+        "byMember": {
+            "_id": "u177",
+            "fullname": "Lian Skopis",
+            "imgUrl": ""
+        },
+        "task": {
+            "id": "c101234",
+            "title": "Submit Q1 report"
+        }
+    }, {
+        "id": "a103",
+        "txt": "Added Label",
+        "createdAt": {
+            "$numberInt": "154514"
+        },
+        "byMember": {
+            "_id": "u102",
+            "fullname": "Nofar Gabso",
+            "imgUrl": ""
+        },
+        "task": {
+            "id": "c10177",
+            "title": "Freelancer contracts"
+        }
+    }, {
+        "txt": "Edited task \"Project \"DreamBig\" Launch Timeline\" on list: Project Resources",
+        "createdAt": {
+            "$numberDouble": "1625583644729.0"
+        },
+        "byMember": {
+            "_id": "u103",
+            "fullname": "Guest",
+            "username": "guest",
+            "imgUrl": ""
+        },
+        "task": {
+            "id": "c101",
+            "title": "Project \"DreamBig\" Launch Timeline",
+            "style": {
+                "bgColor": "#ffffff"
+            },
+            "members": [{
+                "_id": "u177",
+                "fullname": "Lian Skopis",
+                "username": "lianskopis",
+                "imgUrl": ""
+            }],
+            "labels": [],
+            "byUser": {
+                "_id": "u103",
+                "fullname": "Guest",
+                "username": "guest",
+                "imgUrl": ""
+            }
+        },
+        "id": "_1cv4k9t82zv"
+    }, {
+        "txt": "Added task \"Add permissions for new members\" to list: Project Resources",
+        "createdAt": {
+            "$numberDouble": "1625583662048.0"
+        },
+        "byMember": {
+            "_id": "u103",
+            "fullname": "Guest",
+            "username": "guest",
+            "imgUrl": ""
+        },
+        "task": {
+            "id": "_jsjqpqn6mbq",
+            "title": "Add permissions for new members",
+            "style": {
+                "bgColor": "#ffff"
+            },
+            "members": [],
+            "comments": [],
+            "labels": [],
+            "checklists": [],
+            "byUser": {
+                "_id": "u103",
+                "fullname": "Guest",
+                "username": "guest",
+                "imgUrl": ""
+            }
+        },
+        "id": "_ljrqsdgwq7"
+    }, {
+        "txt": "Added task \"Scratch the last update- it's back to green buttons\" to list: Project Resources",
+        "createdAt": {
+            "$numberDouble": "1625583679709.0"
+        },
+        "byMember": {
+            "_id": "u103",
+            "fullname": "Guest",
+            "username": "guest",
+            "imgUrl": ""
+        },
+        "task": {
+            "id": "_eiumyes8mxk",
+            "title": "Scratch the last update- it's back to green buttons",
+            "style": {
+                "bgColor": "#ffff"
+            },
+            "members": [],
+            "comments": [],
+            "labels": [],
+            "checklists": [],
+            "byUser": {
+                "_id": "u103",
+                "fullname": "Guest",
+                "username": "guest",
+                "imgUrl": ""
+            }
+        },
+        "id": "_gtnmm24ux6"
+    }, {
+        "txt": "Added Shachar Dorfzaun to task Project \"DreamBig\" Launch Timeline",
+        "createdAt": {
+            "$numberDouble": "1625583694987.0"
+        },
+        "byMember": {
+            "_id": "u103",
+            "fullname": "Guest",
+            "username": "guest",
+            "imgUrl": ""
+        },
+        "task": {
+            "id": "c101",
+            "title": "Project \"DreamBig\" Launch Timeline"
+        },
+        "id": "_2vghtxezn19"
+    }, {
+        "txt": "Added Due Date",
+        "createdAt": {
+            "$numberDouble": "1625583728768.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "c101",
+            "title": "Project \"DreamBig\" Launch Timeline"
+        },
+        "id": "_xgezdggieff"
+    }, {
+        "txt": "Marked Task as Complete",
+        "createdAt": {
+            "$numberDouble": "1625583731929.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "c101",
+            "title": "Project \"DreamBig\" Launch Timeline"
+        },
+        "id": "_vsttvjljxod"
+    }, {
+        "txt": "Added Shachar Dorfzaun to task Add permissions for new members",
+        "createdAt": {
+            "$numberDouble": "1625583772326.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "_jsjqpqn6mbq",
+            "title": "Add permissions for new members"
+        },
+        "id": "_dpnn8odapc9"
+    }, {
+        "txt": "Added a Label",
+        "createdAt": {
+            "$numberDouble": "1625583862988.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "_jsjqpqn6mbq",
+            "title": "Add permissions for new members"
+        },
+        "id": "_rbj01dxrhv9"
+    }, {
+        "txt": "Added a Label",
+        "createdAt": {
+            "$numberDouble": "1625583870729.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "_jsjqpqn6mbq",
+            "title": "Add permissions for new members"
+        },
+        "id": "_bwkaebmd9q"
+    }, {
+        "txt": "Removed a Label",
+        "createdAt": {
+            "$numberDouble": "1625583871847.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "_jsjqpqn6mbq",
+            "title": "Add permissions for new members"
+        },
+        "id": "_25p33ax7iejg"
+    }, {
+        "txt": "Added a Label",
+        "createdAt": {
+            "$numberDouble": "1625583874051.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "_jsjqpqn6mbq",
+            "title": "Add permissions for new members"
+        },
+        "id": "_do91l07mrp"
+    }, {
+        "txt": "Added CheckList: Checklist",
+        "createdAt": {
+            "$numberDouble": "1625583930766.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "_jsjqpqn6mbq",
+            "title": "Add permissions for new members"
+        },
+        "id": "_qmfnrgo154"
+    }, {
+        "txt": "Added Attachment",
+        "createdAt": {
+            "$numberDouble": "1625584069153.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "_jsjqpqn6mbq",
+            "title": "Add permissions for new members"
+        },
+        "id": "_bqxczuqgms"
+    }, {
+        "txt": "Changed cover to Attached Image",
+        "createdAt": {
+            "$numberDouble": "1625584071939.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "_jsjqpqn6mbq",
+            "title": "Add permissions for new members"
+        },
+        "id": "_8i9rulzw5yo"
+    }, {
+        "txt": "Added Nofar Gabso to task Stakeholders",
+        "createdAt": {
+            "$numberDouble": "1625584087866.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "c1014",
+            "title": "Stakeholders"
+        },
+        "id": "_njq8i7n7h6q"
+    }, {
+        "txt": "Added Lian Skopis to task Fix Margin issue",
+        "createdAt": {
+            "$numberDouble": "1625584162641.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "c102374",
+            "title": "Fix Margin issue"
+        },
+        "id": "_j20ddsh2lr"
+    }, {
+        "txt": "Added Lian Skopis to task Stakeholders",
+        "createdAt": {
+            "$numberDouble": "1625584172455.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "c1014",
+            "title": "Stakeholders"
+        },
+        "id": "_m11x6bt5ffl"
+    }, {
+        "txt": "Added a Label",
+        "createdAt": {
+            "$numberDouble": "1625584176199.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "c1014",
+            "title": "Stakeholders"
+        },
+        "id": "_r9yvcbrohqb"
+    }, {
+        "txt": "Added Due Date",
+        "createdAt": {
+            "$numberDouble": "1625584181751.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "c1014",
+            "title": "Stakeholders"
+        },
+        "id": "_pi8g6vsg13d"
+    }, {
+        "txt": "Added Due Date",
+        "createdAt": {
+            "$numberDouble": "1625584200013.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "c1012",
+            "title": "Weekly Updates"
+        },
+        "id": "_nnecvwlzsm"
+    }, {
+        "txt": "Marked Task as Complete",
+        "createdAt": {
+            "$numberDouble": "1625584202475.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "c1012",
+            "title": "Weekly Updates"
+        },
+        "id": "_x9z0hzgqaq"
+    }, {
+        "txt": "Added Shachar Dorfzaun to task Weekly Updates",
+        "createdAt": {
+            "$numberDouble": "1625584207116.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "c1012",
+            "title": "Weekly Updates"
+        },
+        "id": "_m6iu6z94fp"
+    }, {
+        "txt": "Added Nofar Gabso to task Weekly Updates",
+        "createdAt": {
+            "$numberDouble": "1625584207579.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "c1012",
+            "title": "Weekly Updates"
+        },
+        "id": "_br52jl0bx0a"
+    }, {
+        "txt": "Added Lian Skopis to task Weekly Updates",
+        "createdAt": {
+            "$numberDouble": "1625584208156.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "c1012",
+            "title": "Weekly Updates"
+        },
+        "id": "_8teqydbun5n"
+    }, {
+        "txt": "Added task \"Weekly Updates\" to list: Project Resources",
+        "createdAt": {
+            "$numberDouble": "1625584244527.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "c1012",
+            "title": "Weekly Updates",
+            "style": {
+                "bgColor": "#ffaf3f",
+                "imgUrl": ""
+            },
+            "labels": [],
+            "members": [{
+                "_id": "u101",
+                "username": "shachardorfzaun",
+                "fullname": "Shachar Dorfzaun",
+                "imgUrl": ""
+            }, {
+                "_id": "u102",
+                "username": "nofargabso",
+                "fullname": "Nofar Gabso",
+                "imgUrl": ""
+            }],
+            "dueDate": {
+                "date": "4 Jul 2021",
+                "isComplete": true
+            }
+        },
+        "id": "_yq3df37ra"
+    }, {
+        "txt": "Added task \"Weekly Updates\" to list: Project Resources",
+        "createdAt": {
+            "$numberDouble": "1625584247456.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "c1012",
+            "title": "Weekly Updates",
+            "style": {
+                "bgColor": "#ffaf3f",
+                "imgUrl": ""
+            },
+            "labels": [],
+            "members": [{
+                "_id": "u102",
+                "username": "nofargabso",
+                "fullname": "Nofar Gabso",
+                "imgUrl": ""
+            }],
+            "dueDate": {
+                "date": "4 Jul 2021",
+                "isComplete": true
+            }
+        },
+        "id": "_bncpp8pc419"
+    }, {
+        "txt": "Added task \"Weekly Updates\" to list: Project Resources",
+        "createdAt": {
+            "$numberDouble": "1625584249660.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "c1012",
+            "title": "Weekly Updates",
+            "style": {
+                "bgColor": "#ffaf3f",
+                "imgUrl": ""
+            },
+            "labels": [],
+            "members": [],
+            "dueDate": {
+                "date": "4 Jul 2021",
+                "isComplete": true
+            }
+        },
+        "id": "_uwkgkm9l4jn"
+    }, {
+        "txt": "Added Nofar Gabso to task Weekly Updates",
+        "createdAt": {
+            "$numberDouble": "1625584257300.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "c1012",
+            "title": "Weekly Updates"
+        },
+        "id": "_rwceqoniwv"
+    }, {
+        "txt": "Added Shachar Dorfzaun to task Scratch the last update- it's back to green buttons",
+        "createdAt": {
+            "$numberDouble": "1625584261313.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "_eiumyes8mxk",
+            "title": "Scratch the last update- it's back to green buttons"
+        },
+        "id": "_29riq7g4jix"
+    }, {
+        "txt": "Added Nofar Gabso to task Scratch the last update- it's back to green buttons",
+        "createdAt": {
+            "$numberDouble": "1625584262000.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "_eiumyes8mxk",
+            "title": "Scratch the last update- it's back to green buttons"
+        },
+        "id": "_c8ns86hqt9"
+    }, {
+        "txt": "Added Lian Skopis to task Scratch the last update- it's back to green buttons",
+        "createdAt": {
+            "$numberDouble": "1625584262809.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "_eiumyes8mxk",
+            "title": "Scratch the last update- it's back to green buttons"
+        },
+        "id": "_tevchy94vcq"
+    }, {
+        "txt": "Added task \"Connect with sockets\" to list: Questions for Next Meeting",
+        "createdAt": {
+            "$numberDouble": "1625584432357.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "_3y8z90nstuy",
+            "title": "Connect with sockets",
+            "style": {
+                "bgColor": "#ffff"
+            },
+            "members": [],
+            "comments": [],
+            "labels": [],
+            "checklists": [],
+            "byUser": {
+                "username": "lianskopis",
+                "password": "123456",
+                "fullname": "Lian Skopis",
+                "_id": "Hsi4M"
+            }
+        },
+        "id": "_nw9ud4x4kvp"
+    }, {
+        "txt": "Added Due Date",
+        "createdAt": {
+            "$numberDouble": "1625584440640.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "_3y8z90nstuy",
+            "title": "Connect with sockets"
+        },
+        "id": "_2sf9it23ppt"
+    }, {
+        "txt": "Added Nofar Gabso to task Connect with sockets",
+        "createdAt": {
+            "$numberDouble": "1625584447208.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "_3y8z90nstuy",
+            "title": "Connect with sockets"
+        },
+        "id": "_y9mjvu24gb"
+    }, {
+        "txt": "Added CheckList: Checklist",
+        "createdAt": {
+            "$numberDouble": "1625584506318.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "_3y8z90nstuy",
+            "title": "Connect with sockets"
+        },
+        "id": "_pd6ev1ny5jg"
+    }, {
+        "txt": "Added Attachment",
+        "createdAt": {
+            "$numberDouble": "1625584514803.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "_3y8z90nstuy",
+            "title": "Connect with sockets"
+        },
+        "id": "_ouc0iwt5qu8"
+    }, {
+        "txt": "Changed cover to Attached Image",
+        "createdAt": {
+            "$numberDouble": "1625584516726.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "_3y8z90nstuy",
+            "title": "Connect with sockets"
+        },
+        "id": "_sizucl70zj"
+    }, {
+        "txt": "Edited task \"Connect sockets\" on list: Questions for Next Meeting",
+        "createdAt": {
+            "$numberDouble": "1625584531458.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "_3y8z90nstuy",
+            "title": "Connect sockets",
+            "style": {
+                "bgColor": "#ffff",
+                "imgUrl": "http://res.cloudinary.com/skopis87/image/upload/v1625584516/juocqybtzqfe52ge0anu.png"
+            },
+            "members": [{
+                "_id": "u102",
+                "username": "nofargabso",
+                "fullname": "Nofar Gabso",
+                "imgUrl": ""
+            }],
+            "comments": [{
+                "txt": "Please assist with this task",
+                "id": "_lwryh21o2x",
+                "createdAt": {
+                    "$numberDouble": "1625584458590.0"
+                },
+                "byMember": {
+                    "fullname": "Lian Skopis",
+                    "_id": "Hsi4M"
+                }
+            }],
+            "labels": [],
+            "checklists": [{
+                "title": "Checklist",
+                "todos": [{
+                    "text": "Install socket.io",
+                    "isDone": true,
+                    "id": "_9vi69q5cx0v"
+                }],
+                "id": "_sf1mxw8zgm"
+            }],
+            "byUser": {
+                "username": "lianskopis",
+                "password": "123456",
+                "fullname": "Lian Skopis",
+                "_id": "Hsi4M"
+            },
+            "dueDate": {
+                "date": "15 Jul 2021",
+                "isComplete": false
+            },
+            "attachments": [{
+                "byMember": {
+                    "username": "lianskopis",
+                    "password": "123456",
+                    "fullname": "Lian Skopis",
+                    "_id": "Hsi4M"
+                },
+                "imgUrl": "http://res.cloudinary.com/skopis87/image/upload/v1625584516/juocqybtzqfe52ge0anu.png",
+                "originalFilename": "sockets",
+                "format": "png",
+                "createdAt": {
+                    "$numberDouble": "1625584514659.0"
+                }
+            }]
+        },
+        "id": "_0fuaumz4frzc"
+    }, {
+        "txt": "Added Shachar Dorfzaun to task Whos the best person to fix my HTML snag?",
+        "createdAt": {
+            "$numberDouble": "1625584553921.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "c103",
+            "title": "Whos the best person to fix my HTML snag?"
+        },
+        "id": "_mpuw61u2j9s"
+    }, {
+        "txt": "Added Nofar Gabso to task Whos the best person to fix my HTML snag?",
+        "createdAt": {
+            "$numberDouble": "1625584554683.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "c103",
+            "title": "Whos the best person to fix my HTML snag?"
+        },
+        "id": "_pf4boa9qtk"
+    }, {
+        "txt": "Added Lian Skopis to task Whos the best person to fix my HTML snag?",
+        "createdAt": {
+            "$numberDouble": "1625584555668.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "c103",
+            "title": "Whos the best person to fix my HTML snag?"
+        },
+        "id": "_qbpftqk5p2"
+    }, {
+        "txt": "Added Due Date",
+        "createdAt": {
+            "$numberDouble": "1625584563195.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "c103",
+            "title": "Whos the best person to fix my HTML snag?"
+        },
+        "id": "_8amjcnot2ai"
+    }, {
+        "txt": "Marked Task as Complete",
+        "createdAt": {
+            "$numberDouble": "1625584567210.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "c103",
+            "title": "Whos the best person to fix my HTML snag?"
+        },
+        "id": "_4wqva6alxsa"
+    }, {
+        "txt": "Added task \"Last week before presentation!\" to list: To Do",
+        "createdAt": {
+            "$numberDouble": "1625584603725.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "_h3xk79tyfis",
+            "title": "Last week before presentation!",
+            "style": {
+                "bgColor": "#ffff"
+            },
+            "members": [],
+            "comments": [],
+            "labels": [],
+            "checklists": [],
+            "byUser": {
+                "username": "lianskopis",
+                "password": "123456",
+                "fullname": "Lian Skopis",
+                "_id": "Hsi4M"
+            }
+        },
+        "id": "_ror7ploxg7"
+    }, {
+        "txt": "Added task \"Social media assets\" to list: To Do",
+        "createdAt": {
+            "$numberDouble": "1625584620607.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "_xuwuza421s",
+            "title": "Social media assets",
+            "style": {
+                "bgColor": "#ffff"
+            },
+            "members": [],
+            "comments": [],
+            "labels": [],
+            "checklists": [],
+            "byUser": {
+                "username": "lianskopis",
+                "password": "123456",
+                "fullname": "Lian Skopis",
+                "_id": "Hsi4M"
+            }
+        },
+        "id": "_6niyce097we"
+    }, {
+        "txt": "Added task \"In-Company Funds\" to list: Project Resources",
+        "createdAt": {
+            "$numberDouble": "1625584643707.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "_gts2f03g2ii",
+            "title": "In-Company Funds",
+            "style": {
+                "bgColor": "#ffff"
+            },
+            "members": [],
+            "comments": [],
+            "labels": [],
+            "checklists": [],
+            "byUser": {
+                "username": "lianskopis",
+                "password": "123456",
+                "fullname": "Lian Skopis",
+                "_id": "Hsi4M"
+            }
+        },
+        "id": "_ylxrrclahv"
+    }, {
+        "txt": "Added task \"QA for new Dashboard\" to list: In Progress",
+        "createdAt": {
+            "$numberDouble": "1625584661673.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "_11tnld0pfz7a",
+            "title": "QA for new Dashboard",
+            "style": {
+                "bgColor": "#ffff"
+            },
+            "members": [],
+            "comments": [],
+            "labels": [],
+            "checklists": [],
+            "byUser": {
+                "username": "lianskopis",
+                "password": "123456",
+                "fullname": "Lian Skopis",
+                "_id": "Hsi4M"
+            }
+        },
+        "id": "_l0w895c4ht9"
+    }, {
+        "txt": "Added task \"Schedula a meeting with new client\" to list: In Progress",
+        "createdAt": {
+            "$numberDouble": "1625584676220.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "_3b214rnsn4",
+            "title": "Schedula a meeting with new client",
+            "style": {
+                "bgColor": "#ffff"
+            },
+            "members": [],
+            "comments": [],
+            "labels": [],
+            "checklists": [],
+            "byUser": {
+                "username": "lianskopis",
+                "password": "123456",
+                "fullname": "Lian Skopis",
+                "_id": "Hsi4M"
+            }
+        },
+        "id": "_hxd9r2741a6"
+    }, {
+        "txt": "Added task \"Change font on the entire app\" to list: In Progress",
+        "createdAt": {
+            "$numberDouble": "1625584688122.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "_fagqu0y25lv",
+            "title": "Change font on the entire app",
+            "style": {
+                "bgColor": "#ffff"
+            },
+            "members": [],
+            "comments": [],
+            "labels": [],
+            "checklists": [],
+            "byUser": {
+                "username": "lianskopis",
+                "password": "123456",
+                "fullname": "Lian Skopis",
+                "_id": "Hsi4M"
+            }
+        },
+        "id": "_scb519ew8nr"
+    }, {
+        "txt": "Added task \"App header shoud be much bigger\" to list: In Progress",
+        "createdAt": {
+            "$numberDouble": "1625584704800.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "_31heru5a6nk",
+            "title": "App header shoud be much bigger",
+            "style": {
+                "bgColor": "#ffff"
+            },
+            "members": [],
+            "comments": [],
+            "labels": [],
+            "checklists": [],
+            "byUser": {
+                "username": "lianskopis",
+                "password": "123456",
+                "fullname": "Lian Skopis",
+                "_id": "Hsi4M"
+            }
+        },
+        "id": "_uzbwb6h274"
+    }, {
+        "txt": "Added task \"How can I get access to the old documentation?\" to list: Pending",
+        "createdAt": {
+            "$numberDouble": "1625584753347.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "_mvaficqvrgm",
+            "title": "How can I get access to the old documentation?",
+            "style": {
+                "bgColor": "#ffff"
+            },
+            "members": [],
+            "comments": [],
+            "labels": [],
+            "checklists": [],
+            "byUser": {
+                "username": "lianskopis",
+                "password": "123456",
+                "fullname": "Lian Skopis",
+                "_id": "Hsi4M"
+            }
+        },
+        "id": "_26acbn94o1f"
+    }, {
+        "txt": "Added task \"Finalize Campaign mame: WeTaskBigger\" to list: Project Resources",
+        "createdAt": {
+            "$numberDouble": "1625584781230.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "_9rcd5f33rga",
+            "title": "Finalize Campaign mame: WeTaskBigger",
+            "style": {
+                "bgColor": "#ffff"
+            },
+            "members": [],
+            "comments": [],
+            "labels": [],
+            "checklists": [],
+            "byUser": {
+                "username": "lianskopis",
+                "password": "123456",
+                "fullname": "Lian Skopis",
+                "_id": "Hsi4M"
+            }
+        },
+        "id": "_7e52ivowtcn"
+    }, {
+        "txt": "Added a Label",
+        "createdAt": {
+            "$numberDouble": "1625584892355.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "c10177",
+            "title": "Freelancer contracts"
+        },
+        "id": "_zjqgj9r2xc"
+    }, {
+        "txt": "Added a Label",
+        "createdAt": {
+            "$numberDouble": "1625584893628.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "c10177",
+            "title": "Freelancer contracts"
+        },
+        "id": "_qnk1wjbe21h"
+    }, {
+        "txt": "Added a Label",
+        "createdAt": {
+            "$numberDouble": "1625584894702.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "c10177",
+            "title": "Freelancer contracts"
+        },
+        "id": "_hqntssgem9m"
+    }, {
+        "txt": "Added a Label",
+        "createdAt": {
+            "$numberDouble": "1625584899668.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "c10157",
+            "title": "Social media assets"
+        },
+        "id": "_b8n4sc43mlh"
+    }, {
+        "txt": "Added a Label",
+        "createdAt": {
+            "$numberDouble": "1625584905333.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "_11tnld0pfz7a",
+            "title": "QA for new Dashboard"
+        },
+        "id": "_md0g1nmms87"
+    }, {
+        "txt": "Added a Label",
+        "createdAt": {
+            "$numberDouble": "1625584905937.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "_11tnld0pfz7a",
+            "title": "QA for new Dashboard"
+        },
+        "id": "_pk082tlscf"
+    }, {
+        "txt": "Added a Label",
+        "createdAt": {
+            "$numberDouble": "1625584909576.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "_3b214rnsn4",
+            "title": "Schedula a meeting with new client"
+        },
+        "id": "_125asnuew0da"
+    }, {
+        "txt": "Added a Label",
+        "createdAt": {
+            "$numberDouble": "1625584910581.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "_3b214rnsn4",
+            "title": "Schedula a meeting with new client"
+        },
+        "id": "_8pwecgfk14a"
+    }, {
+        "txt": "Added a Label",
+        "createdAt": {
+            "$numberDouble": "1625584914300.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "_fagqu0y25lv",
+            "title": "Change font on the entire app"
+        },
+        "id": "_xqg4k6iwovd"
+    }, {
+        "txt": "Added a Label",
+        "createdAt": {
+            "$numberDouble": "1625584917850.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "_31heru5a6nk",
+            "title": "App header shoud be much bigger"
+        },
+        "id": "_bv4310pu3n7"
+    }, {
+        "txt": "Added a Label",
+        "createdAt": {
+            "$numberDouble": "1625584918679.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "_31heru5a6nk",
+            "title": "App header shoud be much bigger"
+        },
+        "id": "_w8dz8vc6tyn"
+    }, {
+        "txt": "Added a Label",
+        "createdAt": {
+            "$numberDouble": "1625584922432.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "_mvaficqvrgm",
+            "title": "How can I get access to the old documentation?"
+        },
+        "id": "_fwiv83qv317"
+    }, {
+        "txt": "Added a Label",
+        "createdAt": {
+            "$numberDouble": "1625584923536.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "_mvaficqvrgm",
+            "title": "How can I get access to the old documentation?"
+        },
+        "id": "_w1i0sqncpe"
+    }, {
+        "txt": "Added a Label",
+        "createdAt": {
+            "$numberDouble": "1625584923886.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "_mvaficqvrgm",
+            "title": "How can I get access to the old documentation?"
+        },
+        "id": "_q39re5gef1g"
+    }, {
+        "txt": "Added a Label",
+        "createdAt": {
+            "$numberDouble": "1625584928503.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "c1015",
+            "title": "WorkFlow changed!!"
+        },
+        "id": "_2r3bi4jyb7d"
+    }, {
+        "txt": "Added a Label",
+        "createdAt": {
+            "$numberDouble": "1625584933758.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "c101474",
+            "title": "Await final approval"
+        },
+        "id": "_ckfhiq1t9xw"
+    }, {
+        "txt": "Added a Label",
+        "createdAt": {
+            "$numberDouble": "1625584934303.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "c101474",
+            "title": "Await final approval"
+        },
+        "id": "_gih57nfagm"
+    }, {
+        "txt": "Added a Label",
+        "createdAt": {
+            "$numberDouble": "1625584941470.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "c1017",
+            "title": "Legal review"
+        },
+        "id": "_t6l2ncar8e"
+    }, {
+        "txt": "Added a Label",
+        "createdAt": {
+            "$numberDouble": "1625584942591.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "c1017",
+            "title": "Legal review"
+        },
+        "id": "_hny6xwgi7nk"
+    }, {
+        "txt": "Added a Label",
+        "createdAt": {
+            "$numberDouble": "1625584943951.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "c1017",
+            "title": "Legal review"
+        },
+        "id": "_qy2yenmftwp"
+    }, {
+        "txt": "Added a Label",
+        "createdAt": {
+            "$numberDouble": "1625584951907.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "c101234",
+            "title": "Submit Q1 report"
+        },
+        "id": "_loudumngiz"
+    }, {
+        "txt": "Added a Label",
+        "createdAt": {
+            "$numberDouble": "1625584955993.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "c101239",
+            "title": "Get Manager approval"
+        },
+        "id": "_fxvuxhr9xvf"
+    }, {
+        "txt": "Added a Label",
+        "createdAt": {
+            "$numberDouble": "1625584956332.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "c101239",
+            "title": "Get Manager approval"
+        },
+        "id": "_dokubooawnw"
+    }, {
+        "txt": "Added a Label",
+        "createdAt": {
+            "$numberDouble": "1625584964566.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "c1057",
+            "title": "Please add permissions for new members"
+        },
+        "id": "_o6l4b37rm9o"
+    }, {
+        "txt": "Added a Label",
+        "createdAt": {
+            "$numberDouble": "1625584965389.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "c1057",
+            "title": "Please add permissions for new members"
+        },
+        "id": "_6tiv32ji4y8"
+    }, {
+        "txt": "Added a Label",
+        "createdAt": {
+            "$numberDouble": "1625584970418.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "_xuwuza421s",
+            "title": "Social media assets"
+        },
+        "id": "_g38qa077lmn"
+    }, {
+        "txt": "Added a Label",
+        "createdAt": {
+            "$numberDouble": "1625584971814.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "_xuwuza421s",
+            "title": "Social media assets"
+        },
+        "id": "_s7n4p9gfkxi"
+    }, {
+        "txt": "Added a Label",
+        "createdAt": {
+            "$numberDouble": "1625584978662.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "_h3xk79tyfis",
+            "title": "Last week before presentation!"
+        },
+        "id": "_gngcecujebm"
+    }, {
+        "txt": "Added a Label",
+        "createdAt": {
+            "$numberDouble": "1625584979230.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "_h3xk79tyfis",
+            "title": "Last week before presentation!"
+        },
+        "id": "_0na8zc449b8b"
+    }, {
+        "txt": "Added a Label",
+        "createdAt": {
+            "$numberDouble": "1625584980363.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "_h3xk79tyfis",
+            "title": "Last week before presentation!"
+        },
+        "id": "_7j7wpe1j5po"
+    }, {
+        "txt": "Added a Label",
+        "createdAt": {
+            "$numberDouble": "1625584986170.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "c104",
+            "title": "How can I get access to the super secret document?"
+        },
+        "id": "_64dh5c1g70k"
+    }, {
+        "txt": "Added a Label",
+        "createdAt": {
+            "$numberDouble": "1625584986503.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "c104",
+            "title": "How can I get access to the super secret document?"
+        },
+        "id": "_e6y5d3wo0zd"
+    }, {
+        "txt": "Added a Label",
+        "createdAt": {
+            "$numberDouble": "1625584992275.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "_eiumyes8mxk",
+            "title": "Scratch the last update- it's back to green buttons"
+        },
+        "id": "_xlu5kw0a2j"
+    }, {
+        "txt": "Added a Label",
+        "createdAt": {
+            "$numberDouble": "1625584992713.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "_eiumyes8mxk",
+            "title": "Scratch the last update- it's back to green buttons"
+        },
+        "id": "_kmcx59qcwy"
+    }, {
+        "txt": "Added a Label",
+        "createdAt": {
+            "$numberDouble": "1625584993088.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "_eiumyes8mxk",
+            "title": "Scratch the last update- it's back to green buttons"
+        },
+        "id": "_9udl1rj9os7"
+    }, {
+        "txt": "Added a Label",
+        "createdAt": {
+            "$numberDouble": "1625584999021.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "_gts2f03g2ii",
+            "title": "In-Company Funds"
+        },
+        "id": "_cjla0i9nlql"
+    }, {
+        "txt": "Added a Label",
+        "createdAt": {
+            "$numberDouble": "1625584999801.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "_gts2f03g2ii",
+            "title": "In-Company Funds"
+        },
+        "id": "_68yrvnewu5x"
+    }, {
+        "txt": "Added a Label",
+        "createdAt": {
+            "$numberDouble": "1625585006500.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "_9rcd5f33rga",
+            "title": "Finalize Campaign mame: WeTaskBigger"
+        },
+        "id": "_4kxzkjezi39"
+    }, {
+        "txt": "Added a Label",
+        "createdAt": {
+            "$numberDouble": "1625585014128.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "c101",
+            "title": "Project \"DreamBig\" Launch Timeline"
+        },
+        "id": "_b84wl8k1jfj"
+    }, {
+        "txt": "Added a Label",
+        "createdAt": {
+            "$numberDouble": "1625585014495.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "c101",
+            "title": "Project \"DreamBig\" Launch Timeline"
+        },
+        "id": "_vrtu2torocp"
+    }, {
+        "txt": "Added a Label",
+        "createdAt": {
+            "$numberDouble": "1625585021576.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "_3y8z90nstuy",
+            "title": "Connect sockets"
+        },
+        "id": "_r9091wwzqg"
+    }, {
+        "txt": "Added a Label",
+        "createdAt": {
+            "$numberDouble": "1625585022954.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "_3y8z90nstuy",
+            "title": "Connect sockets"
+        },
+        "id": "_y7vz91mvflh"
+    }, {
+        "txt": "Added a Label",
+        "createdAt": {
+            "$numberDouble": "1625585030770.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "c103",
+            "title": "Whos the best person to fix my HTML snag?"
+        },
+        "id": "_kjjlxstbei"
+    }, {
+        "txt": "Added a Label",
+        "createdAt": {
+            "$numberDouble": "1625585031298.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "c103",
+            "title": "Whos the best person to fix my HTML snag?"
+        },
+        "id": "_4190m57vrob"
+    }, {
+        "txt": "Added a Label",
+        "createdAt": {
+            "$numberDouble": "1625585033242.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "c103",
+            "title": "Whos the best person to fix my HTML snag?"
+        },
+        "id": "_ri55zblz1hj"
+    }, {
+        "txt": "Removed a Label",
+        "createdAt": {
+            "$numberDouble": "1625585034428.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "c103",
+            "title": "Whos the best person to fix my HTML snag?"
+        },
+        "id": "_jr61lkvqvsh"
+    }, {
+        "txt": "Added a Label",
+        "createdAt": {
+            "$numberDouble": "1625585036483.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "c103",
+            "title": "Whos the best person to fix my HTML snag?"
+        },
+        "id": "_frm8r40r22"
+    }, {
+        "txt": "Added Due Date",
+        "createdAt": {
+            "$numberDouble": "1625585044536.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "_3b214rnsn4",
+            "title": "Schedula a meeting with new client"
+        },
+        "id": "_vu150djj8qf"
+    }, {
+        "txt": "Added Due Date",
+        "createdAt": {
+            "$numberDouble": "1625585049126.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "_fagqu0y25lv",
+            "title": "Change font on the entire app"
+        },
+        "id": "_muk9ln3g8fe"
+    }, {
+        "txt": "Added Due Date",
+        "createdAt": {
+            "$numberDouble": "1625585053183.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "c10134",
+            "title": "Finalize Campaign Name: WeTaskBigger"
+        },
+        "id": "_6kgxji91a74"
+    }, {
+        "txt": "Added Due Date",
+        "createdAt": {
+            "$numberDouble": "1625585057716.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "c101234",
+            "title": "Submit Q1 report"
+        },
+        "id": "_z8bk172xy2e"
+    }, {
+        "txt": "Added Due Date",
+        "createdAt": {
+            "$numberDouble": "1625585065198.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "c10157",
+            "title": "Social media assets"
+        },
+        "id": "_xq1efwtuyz"
+    }, {
+        "txt": "Added Due Date",
+        "createdAt": {
+            "$numberDouble": "1625585070028.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "c10177",
+            "title": "Freelancer contracts"
+        },
+        "id": "_8uv54m9hync"
+    }, {
+        "txt": "Added Due Date",
+        "createdAt": {
+            "$numberDouble": "1625585077355.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "_11tnld0pfz7a",
+            "title": "QA for new Dashboard"
+        },
+        "id": "_5cxzmi300v5"
+    }, {
+        "txt": "Added Due Date",
+        "createdAt": {
+            "$numberDouble": "1625585081872.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "_31heru5a6nk",
+            "title": "App header shoud be much bigger"
+        },
+        "id": "_3ygtg9u258b"
+    }, {
+        "txt": "Added Due Date",
+        "createdAt": {
+            "$numberDouble": "1625585089871.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "_mvaficqvrgm",
+            "title": "How can I get access to the old documentation?"
+        },
+        "id": "_v8t3cbh1ofl"
+    }, {
+        "txt": "Added task \"App header shoud be much bigger\" to list: In Progress",
+        "createdAt": {
+            "$numberDouble": "1625585092346.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "_31heru5a6nk",
+            "title": "App header shoud be much bigger",
+            "style": {
+                "bgColor": "#ffff"
+            },
+            "members": [],
+            "comments": [],
+            "labels": [{
+                "id": "l101",
+                "title": "Done",
+                "color": "green"
+            }, {
+                "id": "l105",
+                "title": "",
+                "color": "purple"
+            }],
+            "checklists": [],
+            "byUser": {
+                "username": "lianskopis",
+                "password": "123456",
+                "fullname": "Lian Skopis",
+                "_id": "Hsi4M"
+            },
+            "dueDate": {
+                "date": "3 Jul 2021",
+                "isComplete": true
+            }
+        },
+        "id": "_2qti4o0w22o"
+    }, {
+        "txt": "Added task \"Change font on the entire app\" to list: In Progress",
+        "createdAt": {
+            "$numberDouble": "1625585093147.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "_fagqu0y25lv",
+            "title": "Change font on the entire app",
+            "style": {
+                "bgColor": "#ffff"
+            },
+            "members": [],
+            "comments": [],
+            "labels": [{
+                "id": "l101",
+                "title": "Done",
+                "color": "green"
+            }],
+            "checklists": [],
+            "byUser": {
+                "username": "lianskopis",
+                "password": "123456",
+                "fullname": "Lian Skopis",
+                "_id": "Hsi4M"
+            },
+            "dueDate": {
+                "date": "31 Jul 2021",
+                "isComplete": true
+            }
+        },
+        "id": "_lfwvvufieug"
+    }, {
+        "txt": "Added task \"Schedula a meeting with new client\" to list: In Progress",
+        "createdAt": {
+            "$numberDouble": "1625585093903.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "_3b214rnsn4",
+            "title": "Schedula a meeting with new client",
+            "style": {
+                "bgColor": "#ffff"
+            },
+            "members": [],
+            "comments": [],
+            "labels": [{
+                "id": "l101",
+                "title": "Done",
+                "color": "green"
+            }, {
+                "id": "l106",
+                "title": "Optional",
+                "color": "blue"
+            }],
+            "checklists": [],
+            "byUser": {
+                "username": "lianskopis",
+                "password": "123456",
+                "fullname": "Lian Skopis",
+                "_id": "Hsi4M"
+            },
+            "dueDate": {
+                "date": "23 Jul 2021",
+                "isComplete": true
+            }
+        },
+        "id": "_9950477a4fk"
+    }, {
+        "txt": "Added task \"Social media assets\" to list: In Progress",
+        "createdAt": {
+            "$numberDouble": "1625585094604.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "c10157",
+            "title": "Social media assets",
+            "style": {
+                "bgColor": "#ffffff"
+            },
+            "labels": [{
+                "id": "l101",
+                "title": "Done",
+                "color": "green"
+            }],
+            "description": "The twitter banner looks great, can we get another version in red",
+            "comments": [{
+                "id": "ZdPntmk",
+                "txt": "Sure thing, just attached!",
+                "createdAt": {
+                    "$numberDouble": "15909568174.0"
+                },
+                "byMember": {
+                    "_id": "u101",
+                    "fullname": "Shachar Dorfzaun",
+                    "imgUrl": ""
+                }
+            }],
+            "checkgroups": [{
+                "id": "YEhmFlk",
+                "title": "Main Checkgroup",
+                "todos": [{
+                    "id": "212jXxe",
+                    "title": "Check the DB error",
+                    "isDone": false
+                }]
+            }],
+            "members": [{
+                "_id": "u101",
+                "username": "shachardorfzaun",
+                "fullname": "Shachar Dorfzaun",
+                "imgUrl": ""
+            }, {
+                "_id": "u107",
+                "username": "Kobi",
+                "fullname": "Kobi Tohar",
+                "imgUrl": ""
+            }],
+            "labelIds": ["101"],
+            "createdAt": {
+                "$numberDouble": "1590899770748.0"
+            },
+            "byMember": {
+                "_id": "u102",
+                "fullname": "Nofar Gabso",
+                "imgUrl": ""
+            },
+            "dueDate": {
+                "date": "4 Jul 2021",
+                "isComplete": true
+            }
+        },
+        "id": "_9mknipr3vs8"
+    }, {
+        "txt": "Added task \"QA for new Dashboard\" to list: In Progress",
+        "createdAt": {
+            "$numberDouble": "1625585095174.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "_11tnld0pfz7a",
+            "title": "QA for new Dashboard",
+            "style": {
+                "bgColor": "#29cce5",
+                "imgUrl": ""
+            },
+            "members": [],
+            "comments": [],
+            "labels": [{
+                "id": "l101",
+                "title": "Done",
+                "color": "green"
+            }, {
+                "id": "l102",
+                "title": "",
+                "color": "yellow"
+            }],
+            "checklists": [],
+            "byUser": {
+                "username": "lianskopis",
+                "password": "123456",
+                "fullname": "Lian Skopis",
+                "_id": "Hsi4M"
+            },
+            "dueDate": {
+                "date": "2 Jul 2021",
+                "isComplete": true
+            }
+        },
+        "id": "_8xejg8nlx4n"
+    }, {
+        "txt": "Added task \"Freelancer contracts\" to list: In Progress",
+        "createdAt": {
+            "$numberDouble": "1625585096414.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "c10177",
+            "title": "Freelancer contracts",
+            "style": {
+                "bgColor": "#ffffff"
+            },
+            "members": [],
+            "labels": [{
+                "id": "l101",
+                "title": "Done",
+                "color": "green"
+            }, {
+                "id": "l103",
+                "title": "Flexible",
+                "color": "orange"
+            }, {
+                "id": "l104",
+                "title": "Important",
+                "color": "red"
+            }],
+            "dueDate": {
+                "date": "1 Jul 2021",
+                "isComplete": true
+            }
+        },
+        "id": "_ru5ufs6cm1h"
+    }, {
+        "txt": "Added task \"How can I get access to the old documentation?\" to list: In Progress",
+        "createdAt": {
+            "$numberDouble": "1625585098011.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "_mvaficqvrgm",
+            "title": "How can I get access to the old documentation?",
+            "style": {
+                "bgColor": "#ffff"
+            },
+            "members": [],
+            "comments": [],
+            "labels": [{
+                "id": "l101",
+                "title": "Done",
+                "color": "green"
+            }, {
+                "id": "l102",
+                "title": "",
+                "color": "yellow"
+            }, {
+                "id": "l103",
+                "title": "Flexible",
+                "color": "orange"
+            }],
+            "checklists": [],
+            "byUser": {
+                "username": "lianskopis",
+                "password": "123456",
+                "fullname": "Lian Skopis",
+                "_id": "Hsi4M"
+            },
+            "dueDate": {
+                "date": "4 Jul 2021",
+                "isComplete": true
+            }
+        },
+        "id": "_cptfqb5hvp5"
+    }, {
+        "txt": "Added Attachment",
+        "createdAt": {
+            "$numberDouble": "1625585166914.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "_fagqu0y25lv",
+            "title": "Change font on the entire app"
+        },
+        "id": "_u7qpn292bnb"
+    }, {
+        "txt": "Changed cover to Attached Image",
+        "createdAt": {
+            "$numberDouble": "1625585168323.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "_fagqu0y25lv",
+            "title": "Change font on the entire app"
+        },
+        "id": "_s1b3e6a2he"
+    }, {
+        "txt": "Removed Attached Image from Cover",
+        "createdAt": {
+            "$numberDouble": "1625585188774.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "_fagqu0y25lv",
+            "title": "Change font on the entire app"
+        },
+        "id": "_gy1hsoyk7e8"
+    }, {
+        "txt": "Changed cover to Attached Image",
+        "createdAt": {
+            "$numberDouble": "1625585190854.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "_fagqu0y25lv",
+            "title": "Change font on the entire app"
+        },
+        "id": "_7g9682rx66l"
+    }, {
+        "txt": "Added a Label",
+        "createdAt": {
+            "$numberDouble": "1625585200024.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "_fagqu0y25lv",
+            "title": "Change font on the entire app"
+        },
+        "id": "_bcaj19nyxqp"
+    }, {
+        "txt": "Removed a Label",
+        "createdAt": {
+            "$numberDouble": "1625585200665.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "_fagqu0y25lv",
+            "title": "Change font on the entire app"
+        },
+        "id": "_gceuwuhdgfk"
+    }, {
+        "txt": "Added a Label",
+        "createdAt": {
+            "$numberDouble": "1625585202172.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "_fagqu0y25lv",
+            "title": "Change font on the entire app"
+        },
+        "id": "_z8ju90vjj0q"
+    }, {
+        "txt": "Added Due Date",
+        "createdAt": {
+            "$numberDouble": "1625585220460.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "c101239",
+            "title": "Get Manager approval"
+        },
+        "id": "_7or1vngmfo6"
+    }, {
+        "txt": "Added Due Date",
+        "createdAt": {
+            "$numberDouble": "1625585225637.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "c101434",
+            "title": "Campaign Proposal"
+        },
+        "id": "_wtp7jxzw3m"
+    }, {
+        "txt": "Added Due Date",
+        "createdAt": {
+            "$numberDouble": "1625585230481.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "c102374",
+            "title": "Fix Margin issue"
+        },
+        "id": "_xsm16ythyj"
+    }, {
+        "txt": "Added Due Date",
+        "createdAt": {
+            "$numberDouble": "1625585234510.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "c1017",
+            "title": "Legal review"
+        },
+        "id": "_z4fktzl9lu9"
+    }, {
+        "txt": "Added Due Date",
+        "createdAt": {
+            "$numberDouble": "1625585240645.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "c1015",
+            "title": "WorkFlow changed!!"
+        },
+        "id": "_77pcnv9qnci"
+    }, {
+        "txt": "Added Due Date",
+        "createdAt": {
+            "$numberDouble": "1625585256103.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "_xuwuza421s",
+            "title": "Social media assets"
+        },
+        "id": "_9hjrk5ef4pb"
+    }, {
+        "txt": "Added Due Date",
+        "createdAt": {
+            "$numberDouble": "1625585262983.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "_h3xk79tyfis",
+            "title": "Last week before presentation!"
+        },
+        "id": "_dm5e2uf0oos"
+    }, {
+        "txt": "Added Due Date",
+        "createdAt": {
+            "$numberDouble": "1625585268600.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "c1057",
+            "title": "Please add permissions for new members"
+        },
+        "id": "_nchh9kq29wr"
+    }, {
+        "txt": "Added Due Date",
+        "createdAt": {
+            "$numberDouble": "1625585274431.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "c1013",
+            "title": "Sketch site banner"
+        },
+        "id": "_zq8ikmesif"
+    }, {
+        "txt": "Added Due Date",
+        "createdAt": {
+            "$numberDouble": "1625585281780.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "c104",
+            "title": "How can I get access to the super secret document?"
+        },
+        "id": "_cx59iqn1o6e"
+    }, {
+        "txt": "Added Due Date",
+        "createdAt": {
+            "$numberDouble": "1625585287998.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "_eiumyes8mxk",
+            "title": "Scratch the last update- it's back to green buttons"
+        },
+        "id": "_w6vf7hu4to"
+    }, {
+        "txt": "Added Due Date",
+        "createdAt": {
+            "$numberDouble": "1625585294508.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "_gts2f03g2ii",
+            "title": "In-Company Funds"
+        },
+        "id": "_ta3ba6zzkwd"
+    }, {
+        "txt": "Added Due Date",
+        "createdAt": {
+            "$numberDouble": "1625585301681.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "_9rcd5f33rga",
+            "title": "Finalize Campaign mame: WeTaskBigger"
+        },
+        "id": "_mwi041nk9tg"
+    }, {
+        "txt": "Added Due Date",
+        "createdAt": {
+            "$numberDouble": "1625585311160.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "_jsjqpqn6mbq",
+            "title": "Add permissions for new members"
+        },
+        "id": "_f1yumoxyh9h"
+    }, {
+        "txt": "Deleted Attachment",
+        "createdAt": {
+            "$numberDouble": "1625585493370.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "_fagqu0y25lv",
+            "title": "Change font on the entire app"
+        },
+        "id": "_fs6whjh95z"
+    }, {
+        "txt": "Added Attachment",
+        "createdAt": {
+            "$numberDouble": "1625585499763.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "_fagqu0y25lv",
+            "title": "Change font on the entire app"
+        },
+        "id": "_x67ilhseur"
+    }, {
+        "txt": "Deleted Attachment",
+        "createdAt": {
+            "$numberDouble": "1625585509226.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "_fagqu0y25lv",
+            "title": "Change font on the entire app"
+        },
+        "id": "_drxnbf4l5to"
+    }, {
+        "txt": "Added Attachment",
+        "createdAt": {
+            "$numberDouble": "1625585514640.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "_fagqu0y25lv",
+            "title": "Change font on the entire app"
+        },
+        "id": "_nighxduqvs"
+    }, {
+        "txt": "Removed Attached Image from Cover",
+        "createdAt": {
+            "$numberDouble": "1625585516593.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "_fagqu0y25lv",
+            "title": "Change font on the entire app"
+        },
+        "id": "_0xtjl4p8dym9"
+    }, {
+        "txt": "Changed cover to Attached Image",
+        "createdAt": {
+            "$numberDouble": "1625585518027.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "_fagqu0y25lv",
+            "title": "Change font on the entire app"
+        },
+        "id": "_c4m101vxa64"
+    }, {
+        "txt": "Added Attachment",
+        "createdAt": {
+            "$numberDouble": "1625585690482.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "_jsjqpqn6mbq",
+            "title": "Add permissions for new members"
+        },
+        "id": "_g53c85pnkew"
+    }, {
+        "txt": "Removed Attached Image from Cover",
+        "createdAt": {
+            "$numberDouble": "1625585692040.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "_jsjqpqn6mbq",
+            "title": "Add permissions for new members"
+        },
+        "id": "_aoap0w41kwq"
+    }, {
+        "txt": "Changed cover to Attached Image",
+        "createdAt": {
+            "$numberDouble": "1625585693894.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "_jsjqpqn6mbq",
+            "title": "Add permissions for new members"
+        },
+        "id": "_49p8wey8wey"
+    }, {
+        "txt": "Added Attachment",
+        "createdAt": {
+            "$numberDouble": "1625585820981.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "c1013",
+            "title": "Sketch site banner"
+        },
+        "id": "_sbkn284ovui"
+    }, {
+        "txt": "Changed cover to Attached Image",
+        "createdAt": {
+            "$numberDouble": "1625585822676.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "c1013",
+            "title": "Sketch site banner"
+        },
+        "id": "_vlx86escit"
+    }, {
+        "txt": "Added Attachment",
+        "createdAt": {
+            "$numberDouble": "1625585912555.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "_31heru5a6nk",
+            "title": "App header shoud be much bigger"
+        },
+        "id": "_vriyvrclaih"
+    }, {
+        "txt": "Changed cover to Attached Image",
+        "createdAt": {
+            "$numberDouble": "1625585914030.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "_31heru5a6nk",
+            "title": "App header shoud be much bigger"
+        },
+        "id": "_e60wsq0dcz"
+    }, {
+        "txt": "Added Shachar Dorfzaun to task Sketch site banner",
+        "createdAt": {
+            "$numberDouble": "1625585973593.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "c1013",
+            "title": "Sketch site banner"
+        },
+        "id": "_id2awh2oixq"
+    }, {
+        "txt": "Added Nofar Gabso to task Last week before presentation!",
+        "createdAt": {
+            "$numberDouble": "1625585977129.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "_h3xk79tyfis",
+            "title": "Last week before presentation!"
+        },
+        "id": "_vle5kc8e44e"
+    }, {
+        "txt": "Added Lian Skopis to task Last week before presentation!",
+        "createdAt": {
+            "$numberDouble": "1625585977701.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "_h3xk79tyfis",
+            "title": "Last week before presentation!"
+        },
+        "id": "_8czm18e9sw2"
+    }, {
+        "txt": "Added Nofar Gabso to task Freelancer contracts",
+        "createdAt": {
+            "$numberDouble": "1625585984388.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "c10177",
+            "title": "Freelancer contracts"
+        },
+        "id": "_uqdb0gqiv5"
+    }, {
+        "txt": "Added Shachar Dorfzaun to task Freelancer contracts",
+        "createdAt": {
+            "$numberDouble": "1625585985109.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "c10177",
+            "title": "Freelancer contracts"
+        },
+        "id": "_5gk49rjyqkh"
+    }, {
+        "txt": "Added Lian Skopis to task Schedula a meeting with new client",
+        "createdAt": {
+            "$numberDouble": "1625585988519.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "_3b214rnsn4",
+            "title": "Schedula a meeting with new client"
+        },
+        "id": "_delu60ni28r"
+    }, {
+        "txt": "Added Shachar Dorfzaun to task Schedula a meeting with new client",
+        "createdAt": {
+            "$numberDouble": "1625585989986.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "_3b214rnsn4",
+            "title": "Schedula a meeting with new client"
+        },
+        "id": "_09qaptrpwuhi"
+    }, {
+        "txt": "Added Nofar Gabso to task QA for new Dashboard",
+        "createdAt": {
+            "$numberDouble": "1625585995059.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "_11tnld0pfz7a",
+            "title": "QA for new Dashboard"
+        },
+        "id": "_puccah1gip"
+    }, {
+        "txt": "Added Nofar Gabso to task How can I get access to the old documentation?",
+        "createdAt": {
+            "$numberDouble": "1625585999690.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "_mvaficqvrgm",
+            "title": "How can I get access to the old documentation?"
+        },
+        "id": "_is82hveesv"
+    }, {
+        "txt": "Added Shachar Dorfzaun to task How can I get access to the old documentation?",
+        "createdAt": {
+            "$numberDouble": "1625586000308.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "_mvaficqvrgm",
+            "title": "How can I get access to the old documentation?"
+        },
+        "id": "_xxoyqid1pgf"
+    }, {
+        "txt": "Added Lian Skopis to task How can I get access to the old documentation?",
+        "createdAt": {
+            "$numberDouble": "1625586001023.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "_mvaficqvrgm",
+            "title": "How can I get access to the old documentation?"
+        },
+        "id": "_4ugma74llok"
+    }, {
+        "txt": "Added Nofar Gabso to task Get Manager approval",
+        "createdAt": {
+            "$numberDouble": "1625586004698.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "c101239",
+            "title": "Get Manager approval"
+        },
+        "id": "_5u1c0ggirb4"
+    }, {
+        "txt": "Added Lian Skopis to task Get Manager approval",
+        "createdAt": {
+            "$numberDouble": "1625586005810.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "c101239",
+            "title": "Get Manager approval"
+        },
+        "id": "_kz0ecepapjj"
+    }, {
+        "txt": "Added Shachar Dorfzaun to task Submit Q1 report",
+        "createdAt": {
+            "$numberDouble": "1625586010088.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "c101234",
+            "title": "Submit Q1 report"
+        },
+        "id": "_xkpqvlop6f"
+    }, {
+        "txt": "Added Nofar Gabso to task Campaign Proposal",
+        "createdAt": {
+            "$numberDouble": "1625586014603.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "c101434",
+            "title": "Campaign Proposal"
+        },
+        "id": "_tbn2zt0vyt"
+    }, {
+        "txt": "Added Nofar Gabso to task Change font on the entire app",
+        "createdAt": {
+            "$numberDouble": "1625586020768.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "_fagqu0y25lv",
+            "title": "Change font on the entire app"
+        },
+        "id": "_j7t66jfzvw"
+    }, {
+        "txt": "Added Shachar Dorfzaun to task Social media assets",
+        "createdAt": {
+            "$numberDouble": "1625586028115.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "_xuwuza421s",
+            "title": "Social media assets"
+        },
+        "id": "_9lhu8qg1x69"
+    }, {
+        "txt": "Added Nofar Gabso to task Social media assets",
+        "createdAt": {
+            "$numberDouble": "1625586029071.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "_xuwuza421s",
+            "title": "Social media assets"
+        },
+        "id": "_c8ct01ddezs"
+    }, {
+        "txt": "Added Nofar Gabso to task Finalize Campaign mame: WeTaskBigger",
+        "createdAt": {
+            "$numberDouble": "1625586035893.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "_9rcd5f33rga",
+            "title": "Finalize Campaign mame: WeTaskBigger"
+        },
+        "id": "_i4kbziqe1a"
+    }, {
+        "txt": "Added Lian Skopis to task Finalize Campaign mame: WeTaskBigger",
+        "createdAt": {
+            "$numberDouble": "1625586036647.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "_9rcd5f33rga",
+            "title": "Finalize Campaign mame: WeTaskBigger"
+        },
+        "id": "_f47zni1z4xa"
+    }, {
+        "txt": "Added Shachar Dorfzaun to task In-Company Funds",
+        "createdAt": {
+            "$numberDouble": "1625586041653.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "_gts2f03g2ii",
+            "title": "In-Company Funds"
+        },
+        "id": "_tidgqxn2o6p"
+    }, {
+        "txt": "Added a Label",
+        "createdAt": {
+            "$numberDouble": "1625586050497.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "c102374",
+            "title": "Fix Margin issue"
+        },
+        "id": "_tuku883s9m"
+    }, {
+        "txt": "Added a Label",
+        "createdAt": {
+            "$numberDouble": "1625586051469.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "c102374",
+            "title": "Fix Margin issue"
+        },
+        "id": "_qi62a3a19t8"
+    }, {
+        "txt": "Added a Label",
+        "createdAt": {
+            "$numberDouble": "1625586057652.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "_fagqu0y25lv",
+            "title": "Change font on the entire app"
+        },
+        "id": "_fhddq0mrk0s"
+    }, {
+        "txt": "Added a Label",
+        "createdAt": {
+            "$numberDouble": "1625586064175.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "c1013",
+            "title": "Sketch site banner"
+        },
+        "id": "_5e0rveszmu3"
+    }, {
+        "txt": "Added a Label",
+        "createdAt": {
+            "$numberDouble": "1625586065884.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "c1013",
+            "title": "Sketch site banner"
+        },
+        "id": "_g5bgrx4883d"
+    }, {
+        "txt": "Added a Label",
+        "createdAt": {
+            "$numberDouble": "1625586074047.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "c10134",
+            "title": "Finalize Campaign Name: WeTaskBigger"
+        },
+        "id": "_x40gjrc6i9p"
+    }, {
+        "txt": "Added a Label",
+        "createdAt": {
+            "$numberDouble": "1625586074552.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "c10134",
+            "title": "Finalize Campaign Name: WeTaskBigger"
+        },
+        "id": "_d973hlfv4a"
+    }, {
+        "txt": "Added a Label",
+        "createdAt": {
+            "$numberDouble": "1625586075959.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "c10134",
+            "title": "Finalize Campaign Name: WeTaskBigger"
+        },
+        "id": "_hog0nzje4d7"
+    }, {
+        "txt": "Added a Label",
+        "createdAt": {
+            "$numberDouble": "1625586076592.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "c10134",
+            "title": "Finalize Campaign Name: WeTaskBigger"
+        },
+        "id": "_irhziz787jq"
+    }, {
+        "txt": "Removed a Label",
+        "createdAt": {
+            "$numberDouble": "1625586078126.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "c10134",
+            "title": "Finalize Campaign Name: WeTaskBigger"
+        },
+        "id": "_ot3g4btu8oc"
+    }, {
+        "txt": "Added a Label",
+        "createdAt": {
+            "$numberDouble": "1625586078886.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "c10134",
+            "title": "Finalize Campaign Name: WeTaskBigger"
+        },
+        "id": "_0377px5ttbx7"
+    }, {
+        "txt": "Added a Label",
+        "createdAt": {
+            "$numberDouble": "1625586095114.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "c101434",
+            "title": "Campaign Proposal"
+        },
+        "id": "_tmgyrnl4luh"
+    }, {
+        "txt": "Added a Label",
+        "createdAt": {
+            "$numberDouble": "1625586095729.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "c101434",
+            "title": "Campaign Proposal"
+        },
+        "id": "_8kt6dtbusnd"
+    }, {
+        "txt": "Added task \"Submit Q1 report\" to list: Done",
+        "createdAt": {
+            "$numberDouble": "1625586103662.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "c101234",
+            "title": "Submit Q1 report",
+            "style": {
+                "bgColor": "#ffffff"
+            },
+            "labels": [{
+                "id": "l102",
+                "title": "",
+                "color": "yellow"
+            }],
+            "dueDate": {
+                "date": "30 Jul 2021",
+                "isComplete": true
+            },
+            "members": [{
+                "_id": "u101",
+                "username": "shachardorfzaun",
+                "fullname": "Shachar Dorfzaun",
+                "imgUrl": ""
+            }]
+        },
+        "id": "_1abn3cj84am"
+    }, {
+        "txt": "Added task \"Social media assets\" to list: To Do",
+        "createdAt": {
+            "$numberDouble": "1625586105672.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "_xuwuza421s",
+            "title": "Social media assets",
+            "style": {
+                "bgColor": "#f5dd29",
+                "imgUrl": ""
+            },
+            "members": [{
+                "_id": "u101",
+                "username": "shachardorfzaun",
+                "fullname": "Shachar Dorfzaun",
+                "imgUrl": ""
+            }, {
+                "_id": "u102",
+                "username": "nofargabso",
+                "fullname": "Nofar Gabso",
+                "imgUrl": ""
+            }],
+            "comments": [],
+            "labels": [{
+                "id": "l105",
+                "title": "",
+                "color": "purple"
+            }, {
+                "id": "l103",
+                "title": "Flexible",
+                "color": "orange"
+            }],
+            "checklists": [],
+            "byUser": {
+                "username": "lianskopis",
+                "password": "123456",
+                "fullname": "Lian Skopis",
+                "_id": "Hsi4M"
+            },
+            "dueDate": {
+                "date": "3 Aug 2021",
+                "isComplete": true
+            }
+        },
+        "id": "_qz3t00ts41m"
+    }, {
+        "txt": "Added task \"In-Company Funds\" to list: Project Resources",
+        "createdAt": {
+            "$numberDouble": "1625586110598.0"
+        },
+        "byMember": {
+            "username": "lianskopis",
+            "password": "123456",
+            "fullname": "Lian Skopis",
+            "_id": "Hsi4M"
+        },
+        "task": {
+            "id": "_gts2f03g2ii",
+            "title": "In-Company Funds",
+            "style": {
+                "bgColor": "#ffff"
+            },
+            "members": [{
+                "_id": "u101",
+                "username": "shachardorfzaun",
+                "fullname": "Shachar Dorfzaun",
+                "imgUrl": ""
+            }],
+            "comments": [],
+            "labels": [{
+                "id": "l102",
+                "title": "",
+                "color": "yellow"
+            }, {
+                "id": "l104",
+                "title": "Important",
+                "color": "red"
+            }],
+            "checklists": [],
+            "byUser": {
+                "username": "lianskopis",
+                "password": "123456",
+                "fullname": "Lian Skopis",
+                "_id": "Hsi4M"
+            },
+            "dueDate": {
+                "date": "16 Sept 2021",
+                "isComplete": true
+            }
+        },
+        "id": "_vyed1d11hu"
+    }]
+}

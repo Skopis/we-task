@@ -1,0 +1,987 @@
+[
+    {
+        "title": "Project Management",
+        "createdAt": 1589983468418,
+        "createdBy": {
+            "_id": "u102",
+            "username": "nofargabso",
+            "fullname": "Nofar Gabso",
+            "imgUrl": ""
+        },
+        "style": {
+            "bgColor": "#29cce5"
+        },
+        "labels": [
+            {
+                "id": "l101",
+                "title": "Done",
+                "color": "green"
+            },
+            {
+                "id": "l102",
+                "title": "",
+                "color": "yellow"
+            },
+            {
+                "id": "l103",
+                "title": "",
+                "color": "orange"
+            },
+            {
+                "id": "l104",
+                "title": "",
+                "color": "red"
+            },
+            {
+                "id": "l105",
+                "title": "",
+                "color": "purple"
+            },
+            {
+                "id": "l106",
+                "title": "",
+                "color": "blue"
+            }
+        ],
+        "members": [
+            {
+                "_id": "u101",
+                "username": "shachardorfzaun",
+                "fullname": "Shachar Dorfzaun",
+                "imgUrl": ""
+            },
+            {
+                "_id": "u102",
+                "username": "nofargabso",
+                "fullname": "Nofar Gabso",
+                "imgUrl": ""
+            },
+            {
+                "_id": "u177",
+                "fullname": "Lian Skopis",
+                "username": "lianskopis",
+                "imgUrl": ""
+            },
+            {
+                "_id": "u777",
+                "fullname": "Itay Azulay",
+                "username": "itayazulay",
+                "imgUrl": ""
+            }
+        ],
+        "groups": [
+            {
+                "id": "g101",
+                "title": "Project Resources",
+                "tasks": [
+                    {
+                        "id": "c101",
+                        "title": "Project DreamBig Launch Timeline",
+                        "style": {
+                            "bgColor": "#ffffff"
+                        },
+                        "members": [
+                            {
+                                "_id": "u777",
+                                "fullname": "Itay Azulay",
+                                "username": "itayazulay",
+                                "imgUrl": ""
+                            },
+                            {
+                                "_id": "u177",
+                                "fullname": "Lian Skopis",
+                                "username": "lianskopis",
+                                "imgUrl": ""
+                            }
+                        ],
+                        "labels": [],
+                        "comments": [],
+                        "checklists": []
+                    },
+                    {
+                        "id": "c1012",
+                        "title": "Weekly Updates",
+                        "style": {
+                            "bgColor": "#ffffff"
+                        },
+                        "labels": [],
+                        "members": [],
+                        "comments": [],
+                        "checklists": []
+                    },
+                    {
+                        "id": "c1014",
+                        "title": "Stakeholders",
+                        "style": {
+                            "bgColor": "#ffffff"
+                        },
+                        "labels": [],
+                        "members": [],
+                        "comments": [],
+                        "checklists": []
+                    },
+                    {
+                        "id": "c10165486",
+                        "title": "In-Company Funds",
+                        "style": {
+                            "bgColor": "#ffffff"
+                        },
+                        "labels": [],
+                        "members": [],
+                        "comments": [],
+                        "checklists": []
+                    },
+                    {
+                        "id": "c101486",
+                        "title": "Support and assistance from third-party",
+                        "style": {
+                            "bgColor": "#ffffff"
+                        },
+                        "labels": [],
+                        "members": [],
+                        "comments": [],
+                        "checklists": []
+                    }
+                ],
+                "style": {
+                    "bgColor": "#ebecf0"
+                }
+            },
+            {
+                "id": "g10198",
+                "title": "In Progress",
+                "tasks": [
+                    {
+                        "id": "c10198",
+                        "title": "QA for the new Dashboard",
+                        "style": {
+                            "bgColor": "#ffffff"
+                        },
+                        "members": [
+                            {
+                                "_id": "u777",
+                                "fullname": "Itay Azulay",
+                                "username": "itayazulay",
+                                "imgUrl": ""
+                            },
+                            {
+                                "_id": "u177",
+                                "fullname": "Lian Skopis",
+                                "username": "lianskopis",
+                                "imgUrl": ""
+                            }
+                        ],
+                        "labels": [],
+                        "comments": [],
+                        "checklists": []
+                    },
+                    {
+                        "id": "c101298",
+                        "title": "App header should be much bigger",
+                        "style": {
+                            "bgColor": "#ffffff"
+                        },
+                        "labels": [],
+                        "members": [],
+                        "comments": [],
+                        "checklists": []
+                    },
+                    {
+                        "id": "c10134498",
+                        "title": "Schedule a meeting with the new Client",
+                        "style": {
+                            "bgColor": "#ffffff"
+                        },
+                        "labels": [],
+                        "members": [],
+                        "comments": [],
+                        "checklists": []
+                    },
+                    {
+                        "id": "c101498",
+                        "title": "Home-Page doesn't work after the last push",
+                        "description": "Something is up after the last push-pull, Im getting a weird error, please look into this",
+                        "style": {
+                            "bgColor": "#ffffff"
+                        },
+                        "labels": [],
+                        "members": [],
+                        "comments": [],
+                        "checklists": []
+                    },
+                    {
+                        "id": "c101724",
+                        "title": "Change font on the entire app",
+                        "description": "Speak to me for the link",
+                        "style": {
+                            "bgColor": "#ffffff"
+                        },
+                        "labels": [],
+                        "members": [
+                            {
+                                "_id": "u177",
+                                "fullname": "Lian Skopis",
+                                "username": "lianskopis",
+                                "imgUrl": ""
+                            }
+                        ],
+                        "comments": [],
+                        "checklists": []
+                    }
+                ],
+                "style": {
+                    "bgColor": "#ebecf0"
+                }
+            },
+            {
+                "id": "g102",
+                "title": "Questions for Next Meeting",
+                "tasks": [
+                    {
+                        "id": "c103",
+                        "title": "Whos the best person to fix my HTML snag?",
+                        "style": {
+                            "bgColor": "#ffffff"
+                        },
+                        "labels": [],
+                        "members": [],
+                        "comments": [],
+                        "checklists": []
+                    },
+                    {
+                        "id": "c1034565",
+                        "title": "Final due date was moved again",
+                        "style": {
+                            "bgColor": "#ffffff"
+                        },
+                        "labels": [],
+                        "members": [],
+                        "comments": [],
+                        "checklists": []
+                    },
+                    {
+                        "id": "c103344565",
+                        "title": "We're getting more funds",
+                        "style": {
+                            "bgColor": "#ffffff"
+                        },
+                        "labels": [],
+                        "members": [],
+                        "comments": [],
+                        "checklists": []
+                    },
+                    {
+                        "id": "c134344565",
+                        "title": "Same day, different priorities",
+                        "style": {
+                            "bgColor": "#ffffff"
+                        },
+                        "labels": [],
+                        "members": [],
+                        "comments": [],
+                        "checklists": []
+                    },
+                    {
+                        "id": "c104",
+                        "title": "How can I get access to the old documentation?",
+                        "style": {
+                            "bgColor": "#ffffff"
+                        },
+                        "labels": [],
+                        "description": "Please find a way to open this file",
+                        "comments": [
+                            {
+                                "id": "ZdPnm",
+                                "txt": "@nofargabso please look into this",
+                                "createdAt": 15140999887910,
+                                "byMember": {
+                                    "_id": "u101",
+                                    "fullname": "Shachar Dorfzaun",
+                                    "imgUrl": ""
+                                }
+                            }
+                        ],
+                        "checklists": [
+                            {
+                                "id": "YEhmFtt",
+                                "title": "Checklist",
+                                "todos": [
+                                    {
+                                        "id": "212jXz",
+                                        "text": "Get access to the ftp",
+                                        "isDone": false
+                                    }
+                                ]
+                            }
+                        ],
+                        "members": [
+                            {
+                                "_id": "u177",
+                                "fullname": "Lian Skopis",
+                                "username": "lianskopis",
+                                "imgUrl": ""
+                            },
+                            {
+                                "_id": "u102",
+                                "username": "nofargabso",
+                                "fullname": "Nofar Gabso",
+                                "imgUrl": ""
+                            }
+                        ],
+                        "labelIds": [
+                            "101"
+                        ],
+                        "createdAt": 1590999730348,
+                        "byMember": {
+                            "_id": "u177",
+                            "fullname": "Lian Skopis",
+                            "imgUrl": ""
+                        }
+                    }
+                ],
+                "style": {
+                    "bgColor": "#ebecf0"
+                }
+            },
+            {
+                "id": "g103",
+                "title": "To Do",
+                "tasks": [
+                    {
+                        "id": "c1013",
+                        "title": "Sketch site banner",
+                        "style": {
+                            "bgColor": "#ffffff"
+                        },
+                        "labels": [],
+                        "members": [],
+                        "comments": [],
+                        "checklists": []
+                    },
+                    {
+                        "id": "c1013453",
+                        "title": "h1 tag is too large for the boards page",
+                        "style": {
+                            "bgColor": "#ffffff"
+                        },
+                        "labels": [],
+                        "members": [],
+                        "comments": [],
+                        "checklists": []
+                    },
+                    {
+                        "id": "c13453453",
+                        "title": "Sctarch the last update- it's back to green buttons",
+                        "style": {
+                            "bgColor": "#ffffff"
+                        },
+                        "labels": [],
+                        "members": [],
+                        "comments": [],
+                        "checklists": []
+                    },
+                    {
+                        "id": "c6753453",
+                        "title": "Last weekend before presentation!",
+                        "description": "Please make sure you're ready for the final Demo",
+                        "style": {
+                            "bgColor": "#ffffff"
+                        },
+                        "labels": [],
+                        "members": [],
+                        "comments": [],
+                        "checklists": []
+                    },
+                    {
+                        "id": "c1057",
+                        "title": "Please add permissions for new members",
+                        "style": {
+                            "bgColor": "#ffffff"
+                        },
+                        "labels": [],
+                        "description": "description",
+                        "comments": [
+                            {
+                                "id": "ZdPnmk",
+                                "txt": "@itayazulay please assist with this",
+                                "createdAt": 159099981,
+                                "byMember": {
+                                    "_id": "u177",
+                                    "fullname": "Lian Skopis",
+                                    "imgUrl": ""
+                                }
+                            }
+                        ],
+                        "checklists": [
+                            {
+                                "id": "YEhmF",
+                                "title": "checklist",
+                                "todos": [
+                                    {
+                                        "id": "212jX",
+                                        "text": "DropBox",
+                                        "isDone": true
+                                    },
+                                    {
+                                        "id": "212ghjX",
+                                        "text": "Slack",
+                                        "isDone": false
+                                    },
+                                    {
+                                        "id": "212g56hjX",
+                                        "text": "Google Calendar",
+                                        "isDone": false
+                                    }
+                                ]
+                            }
+                        ],
+                        "members": [
+                            {
+                                "_id": "u101",
+                                "username": "shachardorfzaun",
+                                "fullname": "Shachar Dorfzaun",
+                                "imgUrl": ""
+                            }
+                        ],
+                        "labelIds": [
+                            "101"
+                        ],
+                        "createdAt": 1590899770748,
+                        "byMember": {
+                            "_id": "u177",
+                            "fullname": "Lian Skopis",
+                            "imgUrl": ""
+                        }
+                    }
+                ],
+                "style": {
+                    "bgColor": "#ebecf0"
+                }
+            },
+            {
+                "id": "g111",
+                "title": "Pending",
+                "tasks": [
+                    {
+                        "id": "c1017",
+                        "title": "Legal review",
+                        "style": {
+                            "bgColor": "#ffffff"
+                        },
+                        "labels": [],
+                        "members": [
+                            {
+                                "_id": "u101",
+                                "username": "shachardorfzaun",
+                                "fullname": "Shachar Dorfzaun",
+                                "imgUrl": ""
+                            },
+                            {
+                                "_id": "u177",
+                                "username": "lianskopis",
+                                "fullname": "Lian Skopis",
+                                "imgUrl": ""
+                            }
+                        ],
+                        "comments": [],
+                        "checklists": []
+                    },
+                    {
+                        "id": "c101474",
+                        "title": "Await final approval",
+                        "style": {
+                            "bgColor": "#ffffff"
+                        },
+                        "labels": [],
+                        "comments": [],
+                        "members": [],
+                        "checklists": []
+                    },
+                    {
+                        "id": "c102374",
+                        "title": "Fix Margin issue",
+                        "style": {
+                            "bgColor": "#ffffff"
+                        },
+                        "labels": [],
+                        "comments": [],
+                        "members": [],
+                        "checklists": []
+                    },
+                    {
+                        "id": "c1015",
+                        "title": "WorkFlow changed!!",
+                        "style": {
+                            "bgColor": "#ffffff"
+                        },
+                        "labels": [],
+                        "description": "description",
+                        "comments": [
+                            {
+                                "id": "ZdPntm",
+                                "txt": "also @mikel please CR this",
+                                "createdAt": 1590999817656,
+                                "byMember": {
+                                    "_id": "u177",
+                                    "fullname": "Lian Skopis",
+                                    "imgUrl": ""
+                                }
+                            }
+                        ],
+                        "checklists": [
+                            {
+                                "id": "YEhmFl",
+                                "title": "checklist",
+                                "todos": [
+                                    {
+                                        "id": "212jXx",
+                                        "text": "Find the document",
+                                        "isDone": false
+                                    }
+                                ]
+                            }
+                        ],
+                        "members": [
+                            {
+                                "_id": "u102",
+                                "username": "nofargabso",
+                                "fullname": "Nofar Gabso",
+                                "imgUrl": ""
+                            },
+                            {
+                                "_id": "u101",
+                                "username": "shachardorfzaun",
+                                "fullname": "Shachar Dorfzaun",
+                                "imgUrl": ""
+                            }
+                        ],
+                        "labelIds": [
+                            "101"
+                        ],
+                        "createdAt": 1590899770748,
+                        "byMember": {
+                            "_id": "u102",
+                            "fullname": "Nofar Gabso",
+                            "imgUrl": ""
+                        }
+                    }
+                ],
+                "style": {
+                    "bgColor": "#ebecf0"
+                }
+            },
+            {
+                "id": "g118",
+                "title": "Blocked",
+                "tasks": [
+                    {
+                        "id": "c10177",
+                        "title": "Freelancer contracts",
+                        "style": {
+                            "bgColor": "#ffffff"
+                        },
+                        "members": [],
+                        "labels": [],
+                        "comments": [],
+                        "checklists": []
+                    },
+                    {
+                        "id": "c10157",
+                        "title": "Social media assets",
+                        "style": {
+                            "bgColor": "#ffffff"
+                        },
+                        "labels": [],
+                        "description": "The twitter banner looks great, can we get another version in red",
+                        "comments": [
+                            {
+                                "id": "ZdPntmk",
+                                "txt": "Sure thing, just attached!",
+                                "createdAt": 1590956817412,
+                                "byMember": {
+                                    "_id": "u101",
+                                    "fullname": "Shachar Dorfzaun",
+                                    "imgUrl": ""
+                                }
+                            }
+                        ],
+                        "checklists": [
+                            {
+                                "id": "YEhmFlk",
+                                "title": "Main checklist",
+                                "todos": [
+                                    {
+                                        "id": "212jXxe",
+                                        "text": "Check the DB error",
+                                        "isDone": false
+                                    }
+                                ]
+                            }
+                        ],
+                        "members": [
+                            {
+                                "_id": "u102",
+                                "fullname": "Nofar Gabso",
+                                "imgUrl": ""
+                            },
+                            {
+                                "_id": "u101",
+                                "username": "shachardorfzaun",
+                                "fullname": "Shachar Dorfzaun",
+                                "imgUrl": ""
+                            }
+                        ],
+                        "labelIds": [
+                            "101"
+                        ],
+                        "createdAt": 1590899770748,
+                        "byMember": {
+                            "_id": "u102",
+                            "fullname": "Nofar Gabso",
+                            "imgUrl": ""
+                        }
+                    }
+                ],
+                "style": {
+                    "bgColor": "#ebecf0"
+                }
+            },
+            {
+                "id": "g10134",
+                "title": "Done",
+                "tasks": [
+                    {
+                        "id": "c10134",
+                        "title": "Finalize Campaign Name: WeTaskBigger",
+                        "style": {
+                            "bgColor": "#ffffff"
+                        },
+                        "labels": [],
+                        "members": [
+                            {
+                                "_id": "u101",
+                                "username": "shachardorfzaun",
+                                "fullname": "Shachar Dorfzaun",
+                                "imgUrl": ""
+                            },
+                            {
+                                "_id": "u177",
+                                "username": "lianskopis",
+                                "fullname": "Lian Skopis",
+                                "imgUrl": ""
+                            }
+                        ],
+                        "comments": [],
+                        "checklists": []
+                    },
+                    {
+                        "id": "c101234",
+                        "title": "Submit Q1 report",
+                        "style": {
+                            "bgColor": "#ffffff"
+                        },
+                        "labels": [],
+                        "comments": [],
+                        "members": [],
+                        "checklists": []
+                    },
+                    {
+                        "id": "c101239",
+                        "title": "Get Manager approval",
+                        "style": {
+                            "bgColor": "#ffffff"
+                        },
+                        "labels": [],
+                        "comments": [],
+                        "members": [],
+                        "checklists": []
+                    },
+                    {
+                        "id": "c101434",
+                        "title": "Campaign Proposal",
+                        "style": {
+                            "bgColor": "#ffffff"
+                        },
+                        "labels": [],
+                        "comments": [],
+                        "members": [],
+                        "checklists": []
+                    }
+                ],
+                "style": {
+                    "bgColor": "#ebecf0"
+                }
+            }
+        ],
+        "activities": [
+            {
+                "id": "a1015",
+                "txt": "Added a comment",
+                "createdAt": 1545145678934,
+                "byMember": {
+                    "_id": "u102",
+                    "fullname": "Nofar Gabso",
+                    "imgUrl": ""
+                },
+                "task": {
+                    "id": "c10134",
+                    "title": "Finalize Campaign Name: WeTaskBigger"
+                }
+            },
+            {
+                "id": "a102",
+                "txt": "Changed DueDate",
+                "createdAt": 1545144567894,
+                "byMember": {
+                    "_id": "u177",
+                    "fullname": "Lian Skopis",
+                    "imgUrl": ""
+                },
+                "task": {
+                    "id": "c101234",
+                    "title": "Submit Q1 report"
+                }
+            },
+            {
+                "id": "a103",
+                "txt": "Added Label",
+                "createdAt": 1545143456731,
+                "byMember": {
+                    "_id": "u102",
+                    "fullname": "Nofar Gabso",
+                    "imgUrl": ""
+                },
+                "task": {
+                    "id": "c10177",
+                    "title": "Freelancer contracts"
+                }
+            }
+        ]
+    },
+    {
+        "title": "Second Board",
+        "createdAt": 1514483468418,
+        "createdBy": {
+            "_id": "u102",
+            "username": "nofargabso",
+            "fullname": "Nofar Gabso",
+            "imgUrl": ""
+        },
+        "style": {
+            "bgColor": "#7bc86c"
+        },
+        "labels": [
+            {
+                "id": "l101",
+                "title": "",
+                "color": "green"
+            },
+            {
+                "id": "l102",
+                "title": "",
+                "color": "yellow"
+            },
+            {
+                "id": "l103",
+                "title": "Done",
+                "color": "orange"
+            },
+            {
+                "id": "l104",
+                "title": "",
+                "color": "red"
+            },
+            {
+                "id": "l105",
+                "title": "",
+                "color": "purple"
+            },
+            {
+                "id": "l106",
+                "title": "",
+                "color": "blue"
+            }
+        ],
+        "members": [
+            {
+                "_id": "u101",
+                "fullname": "Shachar Dorfzaun",
+                "imgUrl": ""
+            },
+            {
+                "_id": "u177",
+                "fullname": "Lian Skopis",
+                "username": "lianskopis",
+                "imgUrl": ""
+            },
+            {
+                "_id": "u777",
+                "fullname": "Itay Azulay",
+                "username": "itayazulay",
+                "imgUrl": ""
+            }
+        ],
+        "groups": [
+            {
+                "id": "g101a",
+                "title": "List 1",
+                "tasks": [
+                    {
+                        "id": "c101a",
+                        "title": "Update logo",
+                        "style": {
+                            "bgColor": "#ffffff"
+                        },
+                        "labels": [],
+                        "members": [
+                            {
+                                "_id": "u777",
+                                "fullname": "Itay Azulay",
+                                "username": "itayazulay",
+                                "imgUrl": ""
+                            },
+                            {
+                                "_id": "u177",
+                                "fullname": "Lian Skopis",
+                                "username": "lianskopis",
+                                "imgUrl": ""
+                            }
+                        ]
+                    },
+                    {
+                        "id": "c102a",
+                        "title": "Update Samples",
+                        "style": {
+                            "bgColor": "#ffffff"
+                        },
+                        "labels": [],
+                        "members": []
+                    }
+                ],
+                "style": {
+                    "bgColor": "#ebecf0"
+                }
+            },
+            {
+                "id": "g102a",
+                "title": "List 2",
+                "tasks": [
+                    {
+                        "id": "c103a",
+                        "title": "Do that",
+                        "style": {
+                            "bgColor": "#ffffff"
+                        },
+                        "labels": [],
+                        "members": [
+                            {
+                                "_id": "u777",
+                                "fullname": "Itay Azulay",
+                                "username": "itayazulay",
+                                "imgUrl": ""
+                            }
+                        ]
+                    },
+                    {
+                        "id": "c104a",
+                        "title": "Assist me",
+                        "style": {
+                            "bgColor": "#ffffff"
+                        },
+                        "labels": [],
+                        "description": "description",
+                        "comments": [
+                            {
+                                "id": "ZdPnma",
+                                "txt": "also @marks please CR this",
+                                "createdAt": 1540999817436,
+                                "byMember": {
+                                    "_id": "u101",
+                                    "fullname": "Shachar Dorfzaun",
+                                    "imgUrl": ""
+                                }
+                            }
+                        ],
+                        "checklists": [
+                            {
+                                "id": "YEhmFa",
+                                "title": "Updategroup",
+                                "todos": [
+                                    {
+                                        "id": "212jXa",
+                                        "text": "Curate customer list",
+                                        "isDone": true
+                                    }
+                                ]
+                            }
+                        ],
+                        "members": [
+                            {
+                                "_id": "u101",
+                                "username": "shachardorfzaun",
+                                "fullname": "Shachar Dorfzaun",
+                                "imgUrl": ""
+                            }
+                        ],
+                        "labelIds": [
+                            "101"
+                        ],
+                        "createdAt": 1510999730348,
+                        "byMember": {
+                            "_id": "u101",
+                            "fullname": "Shachar Dorfzaun",
+                            "imgUrl": ""
+                        }
+                    }
+                ],
+                "style": {
+                    "bgColor": "#ebecf0"
+                }
+            }
+        ],
+        "activities": [
+            {
+                "id": "a101a",
+                "txt": "Updated Color",
+                "createdAt": 1545141245121,
+                "byMember": {
+                    "_id": "u102",
+                    "fullname": "Nofar Gabso",
+                    "imgUrl": ""
+                },
+                "task": {
+                    "id": "c101a",
+                    "title": "Update Logo"
+                }
+            },
+            {
+                "id": "a102a",
+                "txt": "Updated due date",
+                "createdAt": 1545142323232,
+                "byMember": {
+                    "_id": "u102",
+                    "fullname": "Nofar Gabso",
+                    "imgUrl": ""
+                },
+                "task": {
+                    "id": "c102a",
+                    "title": "Update Samples"
+                }
+            },
+            {
+                "id": "a103a",
+                "txt": "Added due date",
+                "createdAt": 1545141234231,
+                "byMember": {
+                    "_id": "u102",
+                    "fullname": "Nofar Gabso",
+                    "imgUrl": ""
+                },
+                "task": {
+                    "id": "c104a",
+                    "title": "Assist me"
+                }
+            }
+        ]
+    }
+]

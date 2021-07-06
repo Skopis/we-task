@@ -1,5 +1,5 @@
 <template>
-    <div class="avatar-container">
+    <div v-if="member" class="avatar-container">
         <img v-if="member.imgUrl" class="avatar" :src="member.imgUrl" alt="" :style="{height:size+'px', width:size+'px'}" />
         <avatar
         class="avatar"

@@ -35,7 +35,7 @@ export default{
                 for(let j=0; j<this.boardMembers.length; j++){
                     if (this.allMembers[i]._id === this.boardMembers[j]._id) counter ++
                 }
-                if(!counter) membersToShow.push(this.allMembers[i])
+                if(!counter && this.allMembers[i].fullname !== 'Guest') membersToShow.push(this.allMembers[i])
             }
             return membersToShow
         }

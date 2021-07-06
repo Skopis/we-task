@@ -8,6 +8,7 @@
     "start": "vue-cli-service serve"
   },
   "dependencies": {
+    "@lottiefiles/lottie-player": "^1.1.0",
     "axios": "^0.21.1",
     "chart.js": "^2.9.4",
     "core-js": "^2.6.12",
